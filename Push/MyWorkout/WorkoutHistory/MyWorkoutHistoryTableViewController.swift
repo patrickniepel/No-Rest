@@ -10,14 +10,14 @@ import UIKit
 
 class MyWorkoutHistoryTableViewController: UITableViewController {
     
-    var delegate : MyWorkoutHistoryDelegate!
-    var dataSource : MyWorkoutHistoryDataSource!
+    var delegate : MyWorkoutHistoryDelegate?
+    var dataSource : MyWorkoutHistoryDataSource?
     
     var history : WorkoutHistory = WorkoutHistory()
     
-    var workoutDetails : MyWorkout!
+    var workoutDetails : MyWorkout?
     
-    var historyCtrl : MyWorkoutHistoryController!
+    var historyCtrl : MyWorkoutHistoryController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +32,16 @@ class MyWorkoutHistoryTableViewController: UITableViewController {
     }
     
     private func loadHistory() {
-        history = historyCtrl.loadHistory()
-        dataSource.history = history
+        history = historyCtrl?.loadHistory() ?? WorkoutHistory()
+        dataSource?.history = history
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "myWorkoutHistoryTVC2myWorkoutHistoryDetailsTVC" {
             
-            let destVC = segue.destination as! DetailsViewController
-            destVC.workoutDetails = workoutDetails
+            let destVC = segue.destination as? DetailsViewController
+            destVC?.workoutDetails = workoutDetails
         }
     }
 }

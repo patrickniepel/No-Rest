@@ -13,15 +13,15 @@ class MyWorkoutHistoryDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let dataSource = tableView.dataSource as! MyWorkoutHistoryDataSource
-        let workouts = Array(dataSource.history.workouts.reversed())
+        let dataSource = tableView.dataSource as? MyWorkoutHistoryDataSource
+        let workouts = Array(dataSource?.history.workouts.reversed() ?? [])
         
         let workout = workouts[indexPath.row]
         
-        let nav = tableView.window?.rootViewController as! UINavigationController
-        let topVC = nav.topViewController as! MyWorkoutHistoryTableViewController
+        let nav = tableView.window?.rootViewController as? UINavigationController
+        let topVC = nav?.topViewController as? MyWorkoutHistoryTableViewController
         
-        topVC.workoutDetails = workout
-        topVC.performSegue(withIdentifier: "myWorkoutHistoryTVC2myWorkoutHistoryDetailsTVC", sender: nil)
+        topVC?.workoutDetails = workout
+        topVC?.performSegue(withIdentifier: "myWorkoutHistoryTVC2myWorkoutHistoryDetailsTVC", sender: nil)
     }
 }

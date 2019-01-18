@@ -15,14 +15,14 @@ class ExercisesController: NSObject {
     func loadExercises(category: String) -> [Exercise] {
         
         if category == "Error" {
-            return DefaultExercises().exercises["Chest"]!
+            return DefaultExercises().exercises["Chest"] ?? []
         }
         
         if let loadedExercises = userData.exercises[category] {
             return loadedExercises
         }
         else {
-            return DefaultExercises().exercises[category]!
+            return DefaultExercises().exercises[category] ?? []
         }
     }
     

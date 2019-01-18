@@ -26,14 +26,13 @@ class MyWorkout: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObject(forKey: nameKey) as! String
-        date = aDecoder.decodeObject(forKey: dateKey) as! String
-        exercises = aDecoder.decodeObject(forKey: exercisesKey) as! [Exercise]
+        name = aDecoder.decodeObject(forKey: nameKey) as? String ?? ""
+        date = aDecoder.decodeObject(forKey: dateKey) as? String ?? ""
+        exercises = aDecoder.decodeObject(forKey: exercisesKey) as? [Exercise] ?? []
         super.init()
     }
     
     func encode(with aCoder: NSCoder) {
-        
         aCoder.encode(name, forKey: nameKey)
         aCoder.encode(date, forKey: dateKey)
         aCoder.encode(exercises, forKey: exercisesKey)

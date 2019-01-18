@@ -26,12 +26,10 @@ class RearrangingDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rearrangingCell", for: indexPath) as! RearrangingTableViewCell
-        cell.workoutName.text = workout.exercises[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rearrangingCell", for: indexPath) as? RearrangingTableViewCell
+        cell?.workoutName.text = workout.exercises[indexPath.row].name
         
-        
-        
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {

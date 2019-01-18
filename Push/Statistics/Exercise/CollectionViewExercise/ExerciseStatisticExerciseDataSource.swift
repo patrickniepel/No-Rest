@@ -18,9 +18,9 @@ class ExerciseStatisticExerciseDataSource: NSObject, UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "exerciseStatisticCell", for: indexPath) as! ExerciseStatisticExerciseCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "exerciseStatisticCell", for: indexPath) as? ExerciseStatisticExerciseCollectionViewCell
         
-        cell.exercise.text = exercises[indexPath.item].name
-        return cell
+        cell?.exercise.text = exercises[indexPath.item].name
+        return cell ?? UICollectionViewCell()
     }
 }

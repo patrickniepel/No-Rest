@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        UserData.sharedInstance = DataObjectPersistency().loadDataObject()
+        if let userData =  DataObjectPersistency().loadDataObject() {
+            UserData.sharedInstance = userData
+        }
         
         if UserData.sharedInstance.exercises.isEmpty {
             UserData.sharedInstance.exercises = DefaultExercises().exercises

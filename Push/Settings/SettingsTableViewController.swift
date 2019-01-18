@@ -16,16 +16,16 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var resetSetsButton: UIButton!
     @IBOutlet weak var soundSwitch: UISwitch!
     
-    var settingsCtrl : SettingsController!
-    var unit : String!
-    var segmentIndex : Int!
-    var timerSoundActive : Bool!
+    var settingsCtrl : SettingsController?
+    var unit : String?
+    var segmentIndex : Int?
+    var timerSoundActive : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settingsCtrl = SettingsController()
-        unit = settingsCtrl.loadUnit()
+        unit = settingsCtrl?.loadUnit()
         loadSegmentIndex()
         loadTimerSound()
         
@@ -42,15 +42,15 @@ class SettingsTableViewController: UITableViewController {
     }
     
     private func loadTimerSound() {
-        timerSoundActive = settingsCtrl.loadTimerSound()
+        timerSoundActive = settingsCtrl?.loadTimerSound()
     }
     
     private func setupLayout() {
         resetButton.layer.cornerRadius = 10
         resetHButton.layer.cornerRadius = 10
         resetSetsButton.layer.cornerRadius = 10
-        segmentControl.selectedSegmentIndex = segmentIndex
-        soundSwitch.isOn = timerSoundActive
+        segmentControl.selectedSegmentIndex = segmentIndex ?? 0
+        soundSwitch.isOn = timerSoundActive ?? false
     }
     
     @IBAction func segmentSelected(_ sender: UISegmentedControl) {
@@ -61,7 +61,7 @@ class SettingsTableViewController: UITableViewController {
             unit = unitString
         }
         
-        settingsCtrl.saveUnit(unit: unit)
+        settingsCtrl?.saveUnit(unit: unit ?? "")
     }
     
     @IBAction func resetStatistics(_ sender: UIButton) {
@@ -75,7 +75,7 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func switchSound(_ sender: UISwitch) {
         
         timerSoundActive = sender.isOn
-        settingsCtrl.saveTimerSound(active: timerSoundActive)
+        settingsCtrl?.saveTimerSound(active: timerSoundActive ?? false)
     }
     
     private func showAlertStatistics() {
@@ -86,7 +86,7 @@ class SettingsTableViewController: UITableViewController {
         }
         
         let resetAction = UIAlertAction.init(title: "Reset", style: .destructive) { action -> Void in
-            self.settingsCtrl.resetStatistics()
+            self.settingsCtrl?.resetStatistics()
         }
         
         alert.addAction(cancelAction)
@@ -103,7 +103,7 @@ class SettingsTableViewController: UITableViewController {
         }
         
         let resetAction = UIAlertAction.init(title: "Reset", style: .destructive) { action -> Void in
-            self.settingsCtrl.resetHistory()
+            self.settingsCtrl?.resetHistory()
         }
         
         alert.addAction(cancelAction)
@@ -111,6 +111,7 @@ class SettingsTableViewController: UITableViewController {
         
         present(alert, animated: true)
     }
+    
     @IBAction func showAlertSets(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Reset Sets", message: "Are your sure?", preferredStyle: .alert)
@@ -119,7 +120,7 @@ class SettingsTableViewController: UITableViewController {
         }
         
         let resetAction = UIAlertAction.init(title: "Reset", style: .destructive) { action -> Void in
-            self.settingsCtrl.resetSets()
+            self.settingsCtrl?.resetSets()
         }
         
         alert.addAction(cancelAction)

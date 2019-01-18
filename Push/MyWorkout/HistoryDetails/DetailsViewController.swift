@@ -10,10 +10,10 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    var workoutDetails : MyWorkout!
+    var workoutDetails : MyWorkout?
     
-    var dataSource : DetailsDataSource!
-    var delegate : DetailsDelegate!
+    var dataSource : DetailsDataSource?
+    var delegate : DetailsDelegate?
 
     @IBOutlet weak var workoutName: UILabel!
     @IBOutlet weak var detailsTV: UITableView!
@@ -25,7 +25,7 @@ class DetailsViewController: UIViewController {
         dataSource = DetailsDataSource()
         delegate = DetailsDelegate()
         
-        dataSource.exercises = workoutDetails.exercises
+        dataSource?.exercises = workoutDetails?.exercises ?? []
         detailsTV.dataSource = dataSource
         detailsTV.delegate = delegate
         
@@ -33,8 +33,7 @@ class DetailsViewController: UIViewController {
     }
     
     private func fillFields() {
-        
-        workoutName.text = workoutDetails.name
-        workoutDate.text = workoutDetails.date
+        workoutName.text = workoutDetails?.name
+        workoutDate.text = workoutDetails?.date
     }
 }

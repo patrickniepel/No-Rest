@@ -15,13 +15,13 @@ enum TimerState {
 
 class CurrentWorkoutCardioCollectionViewCell: UICollectionViewCell {
     
-    var collectionView : UICollectionView!
-    var currentExercise : Exercise!
-    var currentWorkoutCtrl : CurrentWorkoutController!
+    var collectionView : UICollectionView?
+    var currentExercise : Exercise?
+    var currentWorkoutCtrl : CurrentWorkoutController?
     
-    var timerCtrl : TimerController!
+    var timerCtrl : TimerController?
     
-    var timer : Timer!
+    var timer : Timer?
     var counter = 0
     var counterToReset = 0
     
@@ -51,7 +51,7 @@ class CurrentWorkoutCardioCollectionViewCell: UICollectionViewCell {
         currentWorkoutCtrl = CurrentWorkoutController()
         timerCtrl = TimerController()
         
-        counter = currentExercise.restTime / 60
+        counter = currentExercise?.restTime ?? 0 / 60
         counterToReset = counter
         
         setupLayout()
@@ -92,16 +92,16 @@ class CurrentWorkoutCardioCollectionViewCell: UICollectionViewCell {
         if timerState == .paused {
             timerState = .started
             
-            let timerValue = timerTextField.text!
+            let timerValue = timerTextField.text ?? "0"
             
             //Contains ":" when timer was started once -> there is no need to get the textfiel value, the timer just continues ticking
             if !timerValue.contains(":") {
                 
                 //Check if unser input was correct
-                if timerCtrl.checkTimerValue(value: timerValue) {
+                if timerCtrl?.checkTimerValue(value: timerValue) ?? false {
                     
                     //Convert minutes to seconds
-                    counter = Int(timerValue)! * 60
+                    counter = Int(timerValue) ?? 0 * 60
                     
                     sender.setTitle("Pause", for: .normal)
                 }
@@ -115,16 +115,14 @@ class CurrentWorkoutCardioCollectionViewCell: UICollectionViewCell {
         }
         else if timerState == .started {
             timerState = .paused
-            timer.invalidate()
+            timer?.invalidate()
             sender.setTitle("Start", for: .normal)
         }
         
     }
     
     func stopTimer() {
-        if timer != nil {
-            timer.invalidate()
-        }
+        timer?.invalidate()
     }
     
     @objc func handleTimer() {
@@ -132,7 +130,7 @@ class CurrentWorkoutCardioCollectionViewCell: UICollectionViewCell {
         counter -= 1
         
         if counter == 0 {
-            timer.invalidate()
+            timer?.invalidate()
             timerState = .paused
             startPauseButton.setTitle("Start", for: .normal)
         }
@@ -144,8 +142,7 @@ class CurrentWorkoutCardioCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func resetTimer(_ sender: UIButton) {
-        
-        if timer != nil {
+        if let timer = timer {
             timer.invalidate()
             timerTextField.text = "\(counterToReset)"
             startPauseButton.setTitle("Start", for: .normal)
@@ -154,14 +151,14 @@ class CurrentWorkoutCardioCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func showNotes(_ sender: UIButton) {
-        let nav = collectionView.window?.rootViewController as! UINavigationController
-        let topVC = nav.topViewController as! CurrentWorkoutViewController
-        topVC.performSegue(withIdentifier: "currentWorkoutVC2notesExplanationVC", sender: 0)
+        let nav = collectionView?.window?.rootViewController as? UINavigationController
+        let topVC = nav?.topViewController as? CurrentWorkoutViewController
+        topVC?.performSegue(withIdentifier: "currentWorkoutVC2notesExplanationVC", sender: 0)
     }
     
     @IBAction func showExplanation(_ sender: UIButton) {
-        let nav = collectionView.window?.rootViewController as! UINavigationController
-        let topVC = nav.topViewController as! CurrentWorkoutViewController
-        topVC.performSegue(withIdentifier: "currentWorkoutVC2notesExplanationVC", sender: 1)
+        let nav = collectionView?.window?.rootViewController as? UINavigationController
+        let topVC = nav?.topViewController as? CurrentWorkoutViewController
+        topVC?.performSegue(withIdentifier: "currentWorkoutVC2notesExplanationVC", sender: 1)
     }
 }

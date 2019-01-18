@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
-    var selectedCategory : String!
+    var selectedCategory : String?
     @IBOutlet var categoryButtons: [UIButton]!
     
     override func viewDidLoad() {
@@ -42,8 +42,8 @@ class CategoryViewController: UIViewController {
         
         if segue.identifier == "categoryVC2exercisesTVC" {
             
-            let destVC = segue.destination as! ExercisesTableViewController
-            destVC.selectedCategory = selectedCategory
+            let destVC = segue.destination as? ExercisesTableViewController
+            destVC?.selectedCategory = selectedCategory
         }
     }
 }

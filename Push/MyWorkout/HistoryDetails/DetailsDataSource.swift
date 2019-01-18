@@ -29,36 +29,25 @@ class DetailsDataSource: NSObject, UITableViewDataSource {
         
         if exercises[indexPath.section].category == "Cardio" {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCardioCell", for: indexPath) as! DetailsCardioTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCardioCell", for: indexPath) as? DetailsCardioTableViewCell
 
             let exercise = exercises[indexPath.section]
-            cell.minutes.text = "\(exercise.restTime / 60)" + " minutes"
+            cell?.minutes.text = "\(exercise.restTime / 60)" + " minutes"
             
-            return cell
+            return cell ?? UITableViewCell()
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath) as! DetailsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath) as? DetailsTableViewCell
             
             let exercise = exercises[indexPath.section]
-            cell.setNumber.text = exercise.sets[indexPath.row]["reps"]! + "x"
-            cell.weight.text = (exercise.sets[indexPath.row]["weight"]! + " " + userData.unit)
+            cell?.setNumber.text = exercise.sets[indexPath.row]["reps"] ?? "0" + "x"
+            cell?.weight.text = (exercise.sets[indexPath.row]["weight"] ?? "0" + " " + userData.unit)
             
-            return cell
+            return cell ?? UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return exercises[section].name
     }
-    
-//    private func getNumberOfSections() -> Int {
-//        var count = 0
-//
-//        for exercise in exercises {
-//            if !exercise.sets.isEmpty {
-//                count += 1
-//            }
-//        }
-//        return count
-//    }
 }

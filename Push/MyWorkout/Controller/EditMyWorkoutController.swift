@@ -34,7 +34,7 @@ class EditMyWorkoutController: NSObject {
         
         for selectedExercise in selected {
             
-            if (allExercises[selectedExercise.category]?.contains(selectedExercise))! {
+            if (allExercises[selectedExercise.category]?.contains(selectedExercise)) ?? false {
                 tmpExercises.append(selectedExercise)
             }
         }

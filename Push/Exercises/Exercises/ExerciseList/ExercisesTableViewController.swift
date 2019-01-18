@@ -10,13 +10,13 @@ import UIKit
 
 class ExercisesTableViewController: UITableViewController, EditExerciseSegueDelegate {
     
-    var selectedCategory : String!
+    var selectedCategory : String?
     var exercises : [Exercise] = []
     
-    var delegate : ExercisesDelegate!
-    var dataSource : ExercisesDataSource!
+    var delegate : ExercisesDelegate?
+    var dataSource : ExercisesDataSource?
     
-    var exercisesCtrl : ExercisesController!
+    var exercisesCtrl : ExercisesController?
     
     //When user edits row or wants to add a new exercise
     lazy var exerciseToEdit : Exercise = Exercise()
@@ -41,7 +41,7 @@ class ExercisesTableViewController: UITableViewController, EditExerciseSegueDele
     
     /** Delegate of EditExerciseTableViewController */
     func saveFromEditExerciseScreen(ctrl: EditExerciseTableViewController, exercise: Exercise) {
-        dataSource.addExercise(exercise: exercise)
+        dataSource?.addExercise(exercise: exercise)
         tableView.reloadData()
         
         //TODO hier eventuell nochmal saven dann auch in workout
@@ -51,15 +51,15 @@ class ExercisesTableViewController: UITableViewController, EditExerciseSegueDele
     }
     
     private func saveCurrentExercises() {
-        exercises = dataSource.exercises
-        exercisesCtrl.saveExercises(category: selectedCategory, exercises: exercises)
+        exercises = dataSource?.exercises ?? []
+        exercisesCtrl?.saveExercises(category: selectedCategory ?? "", exercises: exercises)
     }
     
     /** Starts loading exercises for the selected category */
     private func loadExercises() {
-        exercises = exercisesCtrl.loadExercises(category: selectedCategory)
-        dataSource.exercises = exercises
-        dataSource.category = selectedCategory
+        exercises = exercisesCtrl?.loadExercises(category: selectedCategory ?? "") ?? []
+        dataSource?.exercises = exercises
+        dataSource?.category = selectedCategory ?? ""
     }
     
     @IBAction func addNewExercise(_ sender: UIBarButtonItem) {
@@ -70,10 +70,10 @@ class ExercisesTableViewController: UITableViewController, EditExerciseSegueDele
         
         if segue.identifier == "exercisesTVC2editExerciseTVC" {
             
-            let destVC = segue.destination as! EditExerciseTableViewController
-            destVC.delegate = self
-            destVC.exerciseToEdit = exerciseToEdit
-            destVC.category = selectedCategory
+            let destVC = segue.destination as? EditExerciseTableViewController
+            destVC?.delegate = self
+            destVC?.exerciseToEdit = exerciseToEdit
+            destVC?.category = selectedCategory
             //Clear exercise
             exerciseToEdit = Exercise()
         }

@@ -36,18 +36,20 @@ class MyWorkoutDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myWorkoutCell", for: indexPath) as! MyWorkoutTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myWorkoutCell", for: indexPath) as? MyWorkoutTableViewCell
         
-        cell.name.text = myWorkouts[indexPath.row].name
-        cell.setupCell(workout: myWorkouts[indexPath.row], tv: tableView)
+        cell?.name.text = myWorkouts[indexPath.row].name
+        cell?.setupCell(workout: myWorkouts[indexPath.row], tv: tableView)
         
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     func addWorkout(workout: MyWorkout) {
         
         if myWorkouts.contains(workout) {
-            myWorkouts.remove(at: myWorkouts.index(of: workout)!)
+            if let index = myWorkouts.index(of: workout) {
+                myWorkouts.remove(at: index)
+            }
         }
         myWorkouts.append(workout)
         myWorkouts.sort(by: { $0.name <= $1.name})

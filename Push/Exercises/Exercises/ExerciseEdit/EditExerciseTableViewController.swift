@@ -16,8 +16,8 @@ class EditExerciseTableViewController: UITableViewController {
     
     var delegate : EditExerciseSegueDelegate? = nil
     
-    var exerciseToEdit : Exercise!
-    var category : String!
+    var exerciseToEdit : Exercise?
+    var category : String?
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var restTimeTextField: UITextField!
@@ -25,14 +25,14 @@ class EditExerciseTableViewController: UITableViewController {
     @IBOutlet weak var explanationField: UITextView!
     @IBOutlet weak var restTimerDurationCell: UITableViewCell!
     
-    var editCtrl : EditController!
+    var editCtrl : EditController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
         
-        if exerciseToEdit.name.isEmpty {
+        if exerciseToEdit?.name.isEmpty ?? false {
             self.navigationItem.title = "New Exercise"
             
             if category == "Cardio" {
@@ -52,17 +52,17 @@ class EditExerciseTableViewController: UITableViewController {
     }
     
     private func fillFields() {
-        self.navigationItem.title = exerciseToEdit.name
-        nameTextField.text = exerciseToEdit.name
+        self.navigationItem.title = exerciseToEdit?.name
+        nameTextField.text = exerciseToEdit?.name
         
         if category == "Cardio" {
-            restTimeTextField.text = "\(exerciseToEdit.restTime / 60)"
+            restTimeTextField.text = "\(exerciseToEdit?.restTime ?? 0 / 60)"
         }
         else {
-            restTimeTextField.text = "\(exerciseToEdit.restTime)"
+            restTimeTextField.text = "\(exerciseToEdit?.restTime ?? 0)"
         }
-        notesField.text = exerciseToEdit.notes
-        explanationField.text = exerciseToEdit.explanation
+        notesField.text = exerciseToEdit?.notes
+        explanationField.text = exerciseToEdit?.explanation
     }
     
     @IBAction func saveExercise(_ sender: UIBarButtonItem) {
@@ -72,22 +72,22 @@ class EditExerciseTableViewController: UITableViewController {
             return
         }
         
-        let inputCorrect = editCtrl.checkUserInput(name: name, restTime: restTime)
+        let inputCorrect = editCtrl?.checkUserInput(name: name, restTime: restTime) ?? false
         
         if inputCorrect {
-            exerciseToEdit.name = name
-            exerciseToEdit.category = category
+            exerciseToEdit?.name = name
+            exerciseToEdit?.category = category ?? ""
             
             if category == "Cardio" {
-                exerciseToEdit.restTime = Int(restTime)! * 60
+                exerciseToEdit?.restTime = Int(restTime) ?? 0 * 60
             }
             else {
-                exerciseToEdit.restTime = Int(restTime)!
+                exerciseToEdit?.restTime = Int(restTime) ?? 0
             }
             
-            exerciseToEdit.notes = notes
-            exerciseToEdit.explanation = explanation
-            delegate!.saveFromEditExerciseScreen(ctrl: self, exercise: exerciseToEdit)
+            exerciseToEdit?.notes = notes
+            exerciseToEdit?.explanation = explanation
+            delegate?.saveFromEditExerciseScreen(ctrl: self, exercise: exerciseToEdit ?? Exercise(aName: "My Exercise"))
         }
         else {
             showAlert()

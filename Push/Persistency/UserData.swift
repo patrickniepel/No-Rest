@@ -29,12 +29,12 @@ class UserData: NSObject, NSCoding {
     private override init(){}
     
     required init?(coder aDecoder: NSCoder) {
-        unit = aDecoder.decodeObject(forKey: unitKey) as! String
-        myWorkouts = aDecoder.decodeObject(forKey: myWorkoutsKey) as! [MyWorkout]
-        exercises = aDecoder.decodeObject(forKey: exercisesKey) as! [String : [Exercise]]
-        statistics = aDecoder.decodeObject(forKey: statisticsKey) as! Statistic
-        workoutHistory = aDecoder.decodeObject(forKey: workoutHistoryKey) as! WorkoutHistory
-        categories = aDecoder.decodeObject(forKey: categoriesKey) as! [String]
+        unit = aDecoder.decodeObject(forKey: unitKey) as? String ?? ""
+        myWorkouts = aDecoder.decodeObject(forKey: myWorkoutsKey) as? [MyWorkout] ?? []
+        exercises = aDecoder.decodeObject(forKey: exercisesKey) as? [String : [Exercise]] ?? [:]
+        statistics = aDecoder.decodeObject(forKey: statisticsKey) as? Statistic ?? Statistic()
+        workoutHistory = aDecoder.decodeObject(forKey: workoutHistoryKey) as? WorkoutHistory ?? WorkoutHistory()
+        categories = aDecoder.decodeObject(forKey: categoriesKey) as? [String] ?? []
         
         super.init()
     }

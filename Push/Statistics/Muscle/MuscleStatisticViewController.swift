@@ -10,9 +10,9 @@ import UIKit
 
 class MuscleStatisticViewController: UIViewController {
     
-    var statisticCtrl : StatisticsController!
-    var dataSource : MuscleStatisticDataSource!
-    var delegate : MuscleStatisticDelegateFlowLayout!
+    var statisticCtrl : StatisticsController?
+    var dataSource : MuscleStatisticDataSource?
+    var delegate : MuscleStatisticDelegateFlowLayout?
     
     //Labels for the data (no cardio labels)
     @IBOutlet weak var maxWeight: UILabel!
@@ -52,9 +52,9 @@ class MuscleStatisticViewController: UIViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
         
-        totalMuscles = dataSource.muscles.count
+        totalMuscles = dataSource?.muscles.count ?? 0
         
-        statisticCtrl.setup()
+        statisticCtrl?.setup()
         fillTopLabels()
         updateLabels()
         
@@ -64,18 +64,18 @@ class MuscleStatisticViewController: UIViewController {
     
     //Three labels at the top of the screen, will get calculated only once
     private func fillTopLabels() {
-        maxWeight.text = statisticCtrl.getMaxWeight()
-        totalVolume.text = statisticCtrl.getTotalVolume()
-        totalReps.text = statisticCtrl.getTotalReps()
+        maxWeight.text = statisticCtrl?.getMaxWeight()
+        totalVolume.text = statisticCtrl?.getTotalVolume()
+        totalReps.text = statisticCtrl?.getTotalReps()
     }
     
     private func updateLabels() {
-        let currentMuscleString = dataSource.muscles[currentMuscle]
-        totalSets.text = statisticCtrl.getTotalSetsOfMuscle(for: currentMuscleString)
-        percentOfWorkoutSets.text = statisticCtrl.getPercentageOfWorkoutSets(for: currentMuscleString)
-        totalVolumeOfMuscle.text = statisticCtrl.getTotalVolumeOfMuscle(for: currentMuscleString)
-        totalRepsOfMuscle.text = statisticCtrl.getTotalRepsOfMuscle(for: currentMuscleString)
-        totalMinutes.text = statisticCtrl.getTotalMinutes()
+        let currentMuscleString = dataSource?.muscles[currentMuscle] ?? ""
+        totalSets.text = statisticCtrl?.getTotalSetsOfMuscle(for: currentMuscleString)
+        percentOfWorkoutSets.text = statisticCtrl?.getPercentageOfWorkoutSets(for: currentMuscleString)
+        totalVolumeOfMuscle.text = statisticCtrl?.getTotalVolumeOfMuscle(for: currentMuscleString)
+        totalRepsOfMuscle.text = statisticCtrl?.getTotalRepsOfMuscle(for: currentMuscleString)
+        totalMinutes.text = statisticCtrl?.getTotalMinutes()
     }
     
     private func changeVisibility() {
@@ -140,8 +140,8 @@ class MuscleStatisticViewController: UIViewController {
         
         if segue.identifier == "muscleVC2exerciseStatisticVC" {
             
-            let destVC = segue.destination as! ExerciseStatisticViewController
-            destVC.statisticCtrl = statisticCtrl
+            let destVC = segue.destination as? ExerciseStatisticViewController
+            destVC?.statisticCtrl = statisticCtrl
         }
     }
 }

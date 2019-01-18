@@ -14,22 +14,27 @@ class InputDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.superview?.superview as! CurrentWorkoutCollectionViewCell
-        let dataSource = tableView.dataSource as! InputDataSource
+        let cell = tableView.superview?.superview as? CurrentWorkoutCollectionViewCell
+        let dataSource = tableView.dataSource as? InputDataSource
         
         if selected.count > 1 {
             selected.remove(at: 0)
         }
         
         if selected.contains(indexPath) {
-            selected.remove(at: selected.index(of: indexPath)!)
+            
+            if let index = selected.index(of: indexPath) {
+                selected.remove(at: index)
+            }
+            
             tableView.deselectRow(at: indexPath, animated: true)
-            cell.changeButtonToAdd()
+            cell?.changeButtonToAdd()
         }
         else {
             selected.append(indexPath)
-            let set = dataSource.sets[indexPath.row]
-            cell.changeButtonToUpdate(for: indexPath, set: set)
+            if let set = dataSource?.sets[indexPath.row] {
+                cell?.changeButtonToUpdate(for: indexPath, set: set)
+            }
         }
     }
 }

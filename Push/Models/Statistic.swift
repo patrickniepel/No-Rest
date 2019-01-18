@@ -16,7 +16,7 @@ class Statistic: NSObject, NSCoding {
     override init() {}
     
     required init?(coder aDecoder: NSCoder) {
-        statisticsData = aDecoder.decodeObject(forKey: statisticsDataKey) as! [MyWorkout]
+        statisticsData = aDecoder.decodeObject(forKey: statisticsDataKey) as? [MyWorkout] ?? []
         super.init()
     }
     

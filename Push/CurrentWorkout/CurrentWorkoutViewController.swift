@@ -15,11 +15,11 @@ enum WorkoutState {
 
 class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDelegate, TimerSegueDelegate {
     
-    var dataSource : CurrentWorkoutDataSource!
-    var delegate : CurrentWorkoutDelegateFlowLayout!
-    var currentWorkout : MyWorkout!
+    var dataSource : CurrentWorkoutDataSource?
+    var delegate : CurrentWorkoutDelegateFlowLayout?
+    var currentWorkout : MyWorkout?
     var newWorkoutInstance : MyWorkout = MyWorkout()
-    var currentWorkoutCtrl : CurrentWorkoutController!
+    var currentWorkoutCtrl : CurrentWorkoutController?
     lazy var settingsCtrl = SettingsController()
     
     var workoutState : WorkoutState = .new
@@ -45,9 +45,9 @@ class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDeleg
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
         
-        dataSource.exercises = currentWorkout.exercises
+        dataSource?.exercises = currentWorkout?.exercises ?? []
         
-        totalPages = currentWorkout.exercises.count
+        totalPages = currentWorkout?.exercises.count ?? 0
         
         setupLayout()
         checkPage()
@@ -68,7 +68,7 @@ class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDeleg
     private func setupLayout() {
         prevButton.layer.cornerRadius = 10
         nextButton.layer.cornerRadius = 10
-        pageControl.numberOfPages = currentWorkout.exercises.count
+        pageControl.numberOfPages = currentWorkout?.exercises.count ?? 0
     }
     
     private func checkButtonForPaging() {
@@ -81,7 +81,7 @@ class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDeleg
             prevButton.layer.opacity = 1
             prevButton.isEnabled = true
         }
-        if currentPage == currentWorkout.exercises.count - 1 {
+        if currentPage == currentWorkout?.exercises.count ?? 0 - 1 {
             nextButton.layer.opacity = 0
             nextButton.isEnabled = false
         }
@@ -89,7 +89,7 @@ class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDeleg
             nextButton.layer.opacity = 1
             nextButton.isEnabled = true
         }
-        if dataSource.exercises[currentPage].category == "Cardio" {
+        if dataSource?.exercises[currentPage].category ?? "" == "Cardio" {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             self.navigationItem.rightBarButtonItem?.tintColor = .gray
         }
@@ -101,12 +101,12 @@ class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDeleg
     
     private func checkPage() {
         pageControl.currentPage = currentPage
-        self.navigationItem.title = currentWorkout.exercises[currentPage].name
+        self.navigationItem.title = currentWorkout?.exercises[currentPage].name
     }
     
     private func setupWorkoutDate() {
-        let today = currentWorkoutCtrl.getCurrentDate()
-        currentWorkout.date = today
+        let today = currentWorkoutCtrl?.getCurrentDate()
+        currentWorkout?.date = today ?? "\(Date())"
     }
     
     private func layoutCellAgain() {
@@ -130,7 +130,6 @@ class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDeleg
             historyWorkouts.removeLast()
             historyWorkouts.append(newWorkoutInstance)
             
-            //let statisticIndex = statisticWorkouts.index(of: statisticWorkouts.last!)
             statisticWorkouts.removeLast()
             statisticWorkouts.append(newWorkoutInstance)
         }
@@ -138,9 +137,10 @@ class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDeleg
     }
     
     private func updateNewInstance() {
-        newWorkoutInstance.date = currentWorkout.date
-        newWorkoutInstance.name = currentWorkout.name
-        newWorkoutInstance.exercises = currentWorkoutCtrl.createNewExerciseArrayObject(old: currentWorkout.exercises)
+        newWorkoutInstance.date = currentWorkout?.date ?? "\(Date())"
+        newWorkoutInstance.name = currentWorkout?.name ?? "My Workout"
+        newWorkoutInstance.exercises = currentWorkoutCtrl?.createNewExerciseArrayObject(old: currentWorkout?.exercises ?? [
+            ]) ?? []
     }
 
     @IBAction func prevPage(_ sender: UIButton) {
@@ -186,19 +186,19 @@ class CurrentWorkoutViewController: UIViewController, NotesExplanationSegueDeleg
         
         if segue.identifier == "currentWorkoutVC2notesExplanationVC" {
             
-            let destVC = segue.destination as! NotesExplanationViewController
-            destVC.delegate = self
-            destVC.currentExercise = currentWorkout.exercises[currentPage]
+            let destVC = segue.destination as? NotesExplanationViewController
+            destVC?.delegate = self
+            destVC?.currentExercise = currentWorkout?.exercises[currentPage]
             //0 for notes, 1 for explanation
-            let textToShow = sender as! Int
-            destVC.textToShow = textToShow
+            let textToShow = sender as? Int
+            destVC?.textToShow = textToShow
         }
         
         if segue.identifier == "currentWorkoutVC2timerVC" {
             
-            let destVC = segue.destination as! TimerViewController
-            destVC.delegate = self
-            destVC.currentExercise = currentWorkout.exercises[currentPage]
+            let destVC = segue.destination as? TimerViewController
+            destVC?.delegate = self
+            destVC?.currentExercise = currentWorkout?.exercises[currentPage]
         }
     }
     

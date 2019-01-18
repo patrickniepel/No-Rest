@@ -16,12 +16,12 @@ class EditMyWorkoutViewController: UIViewController, RearrangingSegueDelegate, U
     
     var delegate : EditMyWorkoutSegueDelegate? = nil
     
-    var myWorkoutToEdit : MyWorkout!
+    var myWorkoutToEdit : MyWorkout?
     
-    var delegateTV : EditMyWorkoutDelegate!
-    var dataSource : EditMyWorkoutDataSource!
+    var delegateTV : EditMyWorkoutDelegate?
+    var dataSource : EditMyWorkoutDataSource?
     
-    var editCtrl : EditMyWorkoutController!
+    var editCtrl : EditMyWorkoutController?
     
     @IBOutlet weak var workoutNameLabel: UITextField!
     @IBOutlet weak var myWorkoutExercisesTV: UITableView!
@@ -38,7 +38,7 @@ class EditMyWorkoutViewController: UIViewController, RearrangingSegueDelegate, U
         delegateTV = EditMyWorkoutDelegate()
         dataSource = EditMyWorkoutDataSource()
         
-        if myWorkoutToEdit.name.isEmpty {
+        if myWorkoutToEdit?.name.isEmpty ?? false {
             self.navigationItem.title = "New Workout"
         }
         else {
@@ -55,18 +55,18 @@ class EditMyWorkoutViewController: UIViewController, RearrangingSegueDelegate, U
     }
     
     private func fillFields() {
-        self.navigationItem.title = myWorkoutToEdit.name
-        workoutNameLabel.text = myWorkoutToEdit.name
-        dataSource.selectedExercises = editCtrl.checkIfSelectedExercisesExist(selected: myWorkoutToEdit.exercises)
+        self.navigationItem.title = myWorkoutToEdit?.name ?? "My Workout"
+        workoutNameLabel.text = myWorkoutToEdit?.name ?? "My Workout"
+        dataSource?.selectedExercises = editCtrl?.checkIfSelectedExercisesExist(selected: myWorkoutToEdit?.exercises ?? []) ?? []
     }
     
     private func getExercisesToRearrange() -> [Exercise] {
-       return dataSource.selectedExercises
+       return dataSource?.selectedExercises ?? []
     }
     
     func saveFromRearrangingScreen(ctrl: MyWorkoutRearrangingTableViewController, myWorkout: MyWorkout) {
         ctrl.navigationController?.popViewController(animated: false)
-        delegate!.saveFromEditMyWorkoutScreen(ctrl: self, myWorkout: myWorkout)
+        delegate?.saveFromEditMyWorkoutScreen(ctrl: self, myWorkout: myWorkout)
     }
     
     @IBAction func continueToRearranging(_ sender: UIBarButtonItem) {
@@ -82,12 +82,12 @@ class EditMyWorkoutViewController: UIViewController, RearrangingSegueDelegate, U
             showAlertMissingExercises()
             return
         }
-        myWorkoutToEdit.exercises = getExercisesToRearrange()
+        myWorkoutToEdit?.exercises = getExercisesToRearrange()
         
-        let correctValue = editCtrl.checkWorkoutName(name: name)
+        let correctValue = editCtrl?.checkWorkoutName(name: name) ?? false
         
         if correctValue {
-            myWorkoutToEdit.name = name
+            myWorkoutToEdit?.name = name
             performSegue(withIdentifier: "myWorkoutEditTVC2myWorkoutRearrangingTVC", sender: nil)
         }
         else {
@@ -123,9 +123,9 @@ class EditMyWorkoutViewController: UIViewController, RearrangingSegueDelegate, U
         
         if segue.identifier == "myWorkoutEditTVC2myWorkoutRearrangingTVC" {
             
-            let destVC = segue.destination as! MyWorkoutRearrangingTableViewController
-            destVC.delegate = self
-            destVC.myWorkoutToRearrange = myWorkoutToEdit
+            let destVC = segue.destination as? MyWorkoutRearrangingTableViewController
+            destVC?.delegate = self
+            destVC?.myWorkoutToRearrange = myWorkoutToEdit
         }
     }
 }

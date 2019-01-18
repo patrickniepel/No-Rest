@@ -36,7 +36,7 @@ class StatisticsController: NSObject {
     }
     
     func getExercisesForCategory(category: String) -> [Exercise] {
-        return UserData.sharedInstance.exercises[category]!
+        return UserData.sharedInstance.exercises[category] ?? []
     }
     
 /** MUSCLES ************************************************************************************************/
@@ -51,12 +51,13 @@ class StatisticsController: NSObject {
             
             var currentSet = set
             
-            if currentSet["weight"]!.contains(","){
-                let commaIndex = currentSet["weight"]!.index(of: ",")!
-                currentSet["weight"]!.remove(at: commaIndex)
-                currentSet["weight"]!.insert(".", at: commaIndex)
+            if currentSet["weight"]?.contains(",") ?? false {
+                if let commaIndex = currentSet["weight"]?.index(of: ",") {
+                    currentSet["weight"]?.remove(at: commaIndex)
+                    currentSet["weight"]?.insert(".", at: commaIndex)
+                }
             }
-            guard let weight = Double(currentSet["weight"]!) else { continue }
+            guard let weight = Double(currentSet["weight"] ?? "") else { continue }
             weights.append(weight)
         }
         
@@ -74,15 +75,16 @@ class StatisticsController: NSObject {
             
             var currentSet = set
             
-            guard let reps = Double(currentSet["reps"]!) else { continue }
+            guard let reps = Double(currentSet["reps"] ?? "") else { continue }
             
-            if currentSet["weight"]!.contains(","){
-                let commaIndex = currentSet["weight"]!.index(of: ",")!
-                currentSet["weight"]!.remove(at: commaIndex)
-                currentSet["weight"]!.insert(".", at: commaIndex)
+            if currentSet["weight"]?.contains(",") ?? false {
+                if let commaIndex = currentSet["weight"]?.index(of: ",") {
+                    currentSet["weight"]?.remove(at: commaIndex)
+                    currentSet["weight"]?.insert(".", at: commaIndex)
+                }
             }
             
-            guard let weight = Double(currentSet["weight"]!) else { continue }
+            guard let weight = Double(currentSet["weight"] ?? "") else { continue }
             
             totalVolume += (reps * weight)
         }
@@ -97,7 +99,7 @@ class StatisticsController: NSObject {
         
         for set in allSets {
             
-            if let reps = Int(set["reps"]!) {
+            if let reps = Int(set["reps"] ?? "") {
                 totalReps += reps
             }
         }
@@ -131,15 +133,16 @@ class StatisticsController: NSObject {
                     
                     var currentSet = set
                     
-                    guard let reps = Double(currentSet["reps"]!) else { continue }
+                    guard let reps = Double(currentSet["reps"] ?? "") else { continue }
                     
-                    if currentSet["weight"]!.contains(","){
-                        let commaIndex = currentSet["weight"]!.index(of: ",")!
-                        currentSet["weight"]!.remove(at: commaIndex)
-                        currentSet["weight"]!.insert(".", at: commaIndex)
+                    if currentSet["weight"]?.contains(",") ?? false {
+                        if let commaIndex = currentSet["weight"]?.index(of: ",") {
+                            currentSet["weight"]?.remove(at: commaIndex)
+                            currentSet["weight"]?.insert(".", at: commaIndex)
+                        }
                     }
                     
-                    guard let weight = Double(currentSet["weight"]!) else { continue }
+                    guard let weight = Double(currentSet["weight"] ?? "") else { continue }
                     
                     totalVolume += (reps * weight)
                 }
@@ -182,7 +185,7 @@ class StatisticsController: NSObject {
                 
                 for set in exercise.sets {
                     
-                    guard let reps = Int(set["reps"]!) else { continue }
+                    guard let reps = Int(set["reps"] ?? "") else { continue }
                     
                     totalRepsMuscle += reps
                 }
@@ -236,13 +239,14 @@ class StatisticsController: NSObject {
                     
                     var currentSet = set
                     
-                    if currentSet["weight"]!.contains(","){
-                        let commaIndex = currentSet["weight"]!.index(of: ",")!
-                        currentSet["weight"]!.remove(at: commaIndex)
-                        currentSet["weight"]!.insert(".", at: commaIndex)
+                    if currentSet["weight"]?.contains(",") ?? false {
+                        if let commaIndex = currentSet["weight"]?.index(of: ",") {
+                            currentSet["weight"]?.remove(at: commaIndex)
+                            currentSet["weight"]?.insert(".", at: commaIndex)
+                        }
                     }
                     
-                    guard let weight = Double(currentSet["weight"]!) else { continue }
+                    guard let weight = Double(currentSet["weight"] ?? "") else { continue }
                     weights.append(weight)
                 }
             }
@@ -264,15 +268,16 @@ class StatisticsController: NSObject {
                     
                     var currentSet = set
                     
-                    guard let reps = Double(set["reps"]!) else { continue }
+                    guard let reps = Double(set["reps"] ?? "") else { continue }
                     
-                    if currentSet["weight"]!.contains(","){
-                        let commaIndex = currentSet["weight"]!.index(of: ",")!
-                        currentSet["weight"]!.remove(at: commaIndex)
-                        currentSet["weight"]!.insert(".", at: commaIndex)
+                    if currentSet["weight"]?.contains(",") ?? false {
+                        if let commaIndex = currentSet["weight"]?.index(of: ",") {
+                            currentSet["weight"]?.remove(at: commaIndex)
+                            currentSet["weight"]?.insert(".", at: commaIndex)
+                        }
                     }
                     
-                    guard let weight = Double(currentSet["weight"]!) else { continue }
+                    guard let weight = Double(currentSet["weight"] ?? "") else { continue }
                     
                     totalVolume += (reps * weight)
                 }
@@ -311,7 +316,7 @@ class StatisticsController: NSObject {
                 
                 for set in e.sets {
                     
-                    guard let reps = Int(set["reps"]!) else { continue }
+                    guard let reps = Int(set["reps"] ?? "") else { continue }
                     
                     totalReps += reps
                 }

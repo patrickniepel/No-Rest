@@ -23,7 +23,7 @@ class EditMyWorkoutDataSource: NSObject, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let category = categories[section]
-        return allExercises[category]!.count
+        return allExercises[category]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -32,20 +32,20 @@ class EditMyWorkoutDataSource: NSObject, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myWorkoutExercisesCell", for: indexPath) as! MyWorkoutExercisesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myWorkoutExercisesCell", for: indexPath) as? MyWorkoutExercisesTableViewCell
         
         let category = categories[indexPath.section]
-        let exercise = allExercises[category]![indexPath.row]
-        cell.workoutName.text = exercise.name
+        let exercise = allExercises[category]?[indexPath.row] ?? Exercise(aName: "My Exercise", aRestTime: 0, aNotes: "", aCategory: "")
+        cell?.workoutName.text = exercise.name
         
         if selectedExercises.contains(exercise) {
-            cell.accessoryType = .checkmark
+            cell?.accessoryType = .checkmark
         }
         else {
-            cell.accessoryType = .none
+            cell?.accessoryType = .none
         }
         
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -56,14 +56,14 @@ class EditMyWorkoutDataSource: NSObject, UITableViewDataSource{
     
     func toggleSelectedExercise(section: Int, row: Int) {
         let category = categories[section]
-        let exercise = allExercises[category]![row]
+        let exercise = allExercises[category]?[row] ?? Exercise(aName: "My Exercise")
         
         if !selectedExercises.contains(exercise) {
             selectedExercises.append(exercise)
         }
         else {
-            if selectedExercises.contains(exercise) {
-                selectedExercises.remove(at: selectedExercises.index(of: exercise)!)
+            if let index = selectedExercises.index(of: exercise) {
+                selectedExercises.remove(at: index)
             }
         }
     }

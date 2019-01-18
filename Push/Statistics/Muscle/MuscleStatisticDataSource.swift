@@ -18,9 +18,9 @@ class MuscleStatisticDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "muscleCell", for: indexPath) as! MuscleStatisticCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "muscleCell", for: indexPath) as? MuscleStatisticCollectionViewCell
         
-        cell.muscle.text = muscles[indexPath.item]
-        return cell
+        cell?.muscle.text = muscles[indexPath.item]
+        return cell ?? UICollectionViewCell()
     }
 }

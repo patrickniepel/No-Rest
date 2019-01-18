@@ -13,8 +13,8 @@ class DataObjectPersistency: NSObject {
     private let fileName = "data.plist"
     private let dataKey  = "DataObject"
     
-    func loadDataObject() -> UserData {
-        var item : UserData!
+    func loadDataObject() -> UserData? {
+        var item : UserData?
         let file = dataFileForName(fileName: fileName)
         
         if (!FileManager.default.fileExists(atPath: file)) {

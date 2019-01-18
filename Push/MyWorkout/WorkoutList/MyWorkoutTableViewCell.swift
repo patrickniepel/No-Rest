@@ -13,7 +13,7 @@ class MyWorkoutTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
-    var currentTableView : UITableView!
+    var currentTableView : UITableView?
     var currentWorkout : MyWorkout = MyWorkout()
     
     override func awakeFromNib() {
@@ -34,10 +34,10 @@ class MyWorkoutTableViewCell: UITableViewCell {
     @IBAction func startWorkout(_ sender: UIButton) {
         guard let tableView = currentTableView else { return }
 
-        let nav = tableView.window?.rootViewController as! UINavigationController
-        let topVC = nav.topViewController as! MyWorkoutTableViewController
+        let nav = tableView.window?.rootViewController as? UINavigationController
+        let topVC = nav?.topViewController as? MyWorkoutTableViewController
         
-        topVC.currentWorkout = currentWorkout
-        topVC.performSegue(withIdentifier: "myWorkoutTVC2currentWorkoutVC", sender: nil)
+        topVC?.currentWorkout = currentWorkout
+        topVC?.performSegue(withIdentifier: "myWorkoutTVC2currentWorkoutVC", sender: nil)
     }
 }

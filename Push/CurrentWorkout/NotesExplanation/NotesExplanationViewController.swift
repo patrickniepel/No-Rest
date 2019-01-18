@@ -15,8 +15,8 @@ protocol NotesExplanationSegueDelegate {
 class NotesExplanationViewController: UIViewController, UITextViewDelegate {
 
     var delegate : NotesExplanationSegueDelegate? = nil
-    var currentExercise : Exercise!
-    var textToShow : Int!
+    var currentExercise : Exercise?
+    var textToShow : Int?
 
     
     @IBOutlet weak var textView: UITextView!
@@ -28,6 +28,8 @@ class NotesExplanationViewController: UIViewController, UITextViewDelegate {
         textView.delegate = self
         closeButton.layer.cornerRadius = 10
         textView.layer.cornerRadius = 10
+        
+        guard let currentExercise = currentExercise else { return }
         
         if textToShow == 0 {
             textView.text = currentExercise.notes.trimmingCharacters(in: .whitespaces).isEmpty ? "No Notes Yet" : currentExercise.notes
@@ -49,12 +51,12 @@ class NotesExplanationViewController: UIViewController, UITextViewDelegate {
         
         //Notes
         if textToShow == 0 {
-            currentExercise.notes = textView.text
+            currentExercise?.notes = textView.text
         }
         //Explanation
         else if textToShow == 1 {
-            currentExercise.explanation = textView.text
+            currentExercise?.explanation = textView.text
         }
-        delegate!.backFromNotesExplanationScreen(ctrl: self)
+        delegate?.backFromNotesExplanationScreen(ctrl: self)
     }
 }

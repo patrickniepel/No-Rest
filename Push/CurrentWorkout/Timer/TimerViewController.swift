@@ -19,14 +19,14 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnCancel: UIButton!
     
-    var timerCtrl : TimerController!
+    var timerCtrl : TimerController?
     
     var delegate : TimerSegueDelegate? = nil
     
     var counter = 0 //Exercise muss hierher übergeben werden, dann restTime auslesen und als count speichern
     var previousCounter = 0
-    var timer : Timer!
-    var currentExercise : Exercise!
+    var timer : Timer?
+    var currentExercise : Exercise?
     
     var startPressed = false
     
@@ -70,7 +70,7 @@ class TimerViewController: UIViewController {
         
         if counter == 0 {
             stopTimer()
-            delegate!.backFromTimerScreen(ctrl: self)
+            delegate?.backFromTimerScreen(ctrl: self)
         }
         else {
             counter -= 1
@@ -79,10 +79,7 @@ class TimerViewController: UIViewController {
     }
     
     func stopTimer() {
-        
-        if timer != nil {
-            timer.invalidate()
-        }
+       timer?.invalidate()
     }
 
     @IBAction func startTimer(_ sender: UIButton) {
@@ -102,10 +99,10 @@ class TimerViewController: UIViewController {
         btnStart.setTitle("Reset", for: UIControl.State.normal)
         
         timerTextField.resignFirstResponder()
-        let timerValue = timerTextField.text!
+        let timerValue = timerTextField.text ?? "0"
         
-        if timerCtrl.checkTimerValue(value: timerValue) {
-            counter = Int(timerTextField.text!)!
+        if timerCtrl?.checkTimerValue(value: timerValue) ?? false {
+            counter = Int(timerValue) ?? 0
         }
         else {
             counter = 0
@@ -113,7 +110,7 @@ class TimerViewController: UIViewController {
         previousCounter = counter
         
         if counter == 0 {
-            delegate!.backFromTimerScreen(ctrl: self)
+            delegate?.backFromTimerScreen(ctrl: self)
         }
         else {
             startTimer()
@@ -129,6 +126,6 @@ class TimerViewController: UIViewController {
     @IBAction func cancelTimer(_ sender: UIButton) {
         timerTextField.resignFirstResponder()
         stopTimer()
-        delegate!.backFromTimerScreen(ctrl: self)
+        delegate?.backFromTimerScreen(ctrl: self)
     }
 }

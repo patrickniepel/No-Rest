@@ -13,8 +13,8 @@ class EditMyWorkoutDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let dataSource = tableView.dataSource as! EditMyWorkoutDataSource
-        dataSource.toggleSelectedExercise(section: indexPath.section, row: indexPath.row)
+        let dataSource = tableView.dataSource as? EditMyWorkoutDataSource
+        dataSource?.toggleSelectedExercise(section: indexPath.section, row: indexPath.row)
         tableView.reloadData()
     }
     

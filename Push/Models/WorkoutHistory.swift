@@ -16,7 +16,7 @@ class WorkoutHistory: NSObject, NSCoding {
     override init() {}
     
     required init?(coder aDecoder: NSCoder) {
-        workouts = aDecoder.decodeObject(forKey: workoutsKey) as! [MyWorkout]
+        workouts = aDecoder.decodeObject(forKey: workoutsKey) as? [MyWorkout] ?? []
         super.init()
     }
     

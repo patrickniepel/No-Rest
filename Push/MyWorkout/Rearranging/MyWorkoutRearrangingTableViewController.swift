@@ -14,12 +14,12 @@ protocol RearrangingSegueDelegate {
 
 class MyWorkoutRearrangingTableViewController: UITableViewController {
     
-    var dataSource : RearrangingDataSource!
-    var delegateTV : RearrangingDelegate!
+    var dataSource : RearrangingDataSource?
+    var delegateTV : RearrangingDelegate?
     
     var delegate : RearrangingSegueDelegate? = nil
     
-    var myWorkoutToRearrange : MyWorkout!
+    var myWorkoutToRearrange : MyWorkout?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,9 @@ class MyWorkoutRearrangingTableViewController: UITableViewController {
         dataSource = RearrangingDataSource()
         delegateTV = RearrangingDelegate()
         
-        dataSource.workout = myWorkoutToRearrange
+        dataSource?.workout = myWorkoutToRearrange ?? MyWorkout(aName: "My Workout", aExercises: [])
         
-        self.navigationItem.title = myWorkoutToRearrange.name
+        self.navigationItem.title = myWorkoutToRearrange?.name ?? "My Workout"
         
         tableView.dataSource = dataSource
         tableView.delegate = delegateTV
@@ -38,7 +38,7 @@ class MyWorkoutRearrangingTableViewController: UITableViewController {
     
     @IBAction func saveWorkout(_ sender: UIBarButtonItem) {
         
-        let workoutToSave = dataSource.workout
-        delegate!.saveFromRearrangingScreen(ctrl: self, myWorkout: workoutToSave)
+        let workoutToSave = dataSource?.workout ?? MyWorkout(aName: "My Workout", aExercises: [])
+        delegate?.saveFromRearrangingScreen(ctrl: self, myWorkout: workoutToSave)
     }
 }

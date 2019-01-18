@@ -37,26 +37,26 @@ class ExercisesDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if category == "Cardio" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCardioCell", for: indexPath) as! ExercisesCardioTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCardioCell", for: indexPath) as? ExercisesCardioTableViewCell
             
-            cell.exerciseName.text = exercises[indexPath.row].name
-            cell.minutes.text = "\(exercises[indexPath.row].restTime / 60)" + " minutes"
+            cell?.exerciseName.text = exercises[indexPath.row].name
+            cell?.minutes.text = "\(exercises[indexPath.row].restTime / 60)" + " minutes"
             
-            return cell
+            return cell ?? UITableViewCell()
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath) as! ExercisesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath) as? ExercisesTableViewCell
             
-            cell.exerciseName.text = exercises[indexPath.row].name
-            cell.restTime.text = "\(exercises[indexPath.row].restTime)" + " seconds"
+            cell?.exerciseName.text = exercises[indexPath.row].name
+            cell?.restTime.text = "\(exercises[indexPath.row].restTime)" + " seconds"
             
-            return cell
+            return cell ?? UITableViewCell()
         }
     }
     
     func addExercise(exercise: Exercise) {
-        if exercises.contains(exercise) {
-            exercises.remove(at: exercises.index(of: exercise)!)
+        if exercises.contains(exercise), let index = exercises.index(of: exercise) {
+            exercises.remove(at: index)
         }
         exercises.append(exercise)
         exercises.sort(by: { $0.name <= $1.name})

@@ -15,11 +15,11 @@ enum ButtonState {
 
 class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
-    var currentWorkoutCtrl : CurrentWorkoutController!
+    var currentWorkoutCtrl : CurrentWorkoutController?
     var userData = UserData.sharedInstance
     
     lazy var currentExercise : Exercise = Exercise()
-    var collectionView : UICollectionView!
+    var collectionView : UICollectionView?
     
     @IBOutlet weak var notesButton: UIButton!
     @IBOutlet weak var explanationButton: UIButton!
@@ -29,10 +29,10 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var inputTableView: UITableView!
     
     var buttonState : ButtonState = .add
-    var setNumberToUpdate : Int!
+    var setNumberToUpdate : Int = 0
     
-    var dataSource : InputDataSource!
-    var delegate : InputDelegate!
+    var dataSource : InputDataSource?
+    var delegate : InputDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,7 +77,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     private func fillTableView() {
         
         if !currentExercise.sets.isEmpty {
-            dataSource.sets = currentExercise.sets
+            dataSource?.sets = currentExercise.sets
         }
     }
     
@@ -87,6 +87,8 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     }
     
     private func saveWorkout() {
+        
+        guard let dataSource = dataSource else { return }
         
         //If nothing was added yet, there is no need to save the workout
         if !dataSource.sets.isEmpty {
@@ -117,9 +119,12 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     @IBAction func addSet(_ sender: UIButton) {
         
+        guard let currentWorkoutCtrl = currentWorkoutCtrl else { return }
+        let reps = repsTextField.text ?? "0"
+        let weight = weightTextField.text ?? "0"
+        
         if buttonState == .add {
-            let reps = repsTextField.text!
-            let weight = weightTextField.text!
+            
             
             //Correct input
             if currentWorkoutCtrl.checkReps(reps: reps) && currentWorkoutCtrl.checkWeight(weight: weight) {
@@ -127,9 +132,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
                 repsTextField.textColor = .myBlue
                 weightTextField.textColor = .myBlue
                 
-                let repsString = repsTextField.text!
-                let weightString = weightTextField.text!
-                dataSource.addSet(set: ["reps" : repsString, "weight" : weightString])
+                dataSource?.addSet(set: ["reps" : reps, "weight" : weight])
                 inputTableView.reloadData()
                 
                 saveWorkout()
@@ -144,18 +147,13 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         if buttonState == .update {
             changeButtonToAdd()
             
-            let reps = repsTextField.text!
-            let weight = weightTextField.text!
-            
             //Correct input
             if currentWorkoutCtrl.checkReps(reps: reps) && currentWorkoutCtrl.checkWeight(weight: weight) {
                 
                 repsTextField.textColor = .myBlue
                 weightTextField.textColor = .myBlue
                 
-                let repsString = repsTextField.text!
-                let weightString = weightTextField.text!
-                dataSource.updateSet(row: setNumberToUpdate, set: ["reps" : repsString, "weight" : weightString])
+                dataSource?.updateSet(row: setNumberToUpdate, set: ["reps" : reps, "weight" : weight])
                 inputTableView.reloadData()
                 
                 saveWorkout()
@@ -170,14 +168,14 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func showNotes(_ sender: UIButton) {
-        let nav = inputTableView.window?.rootViewController as! UINavigationController
-        let topVC = nav.topViewController as! CurrentWorkoutViewController
-        topVC.performSegue(withIdentifier: "currentWorkoutVC2notesExplanationVC", sender: 0)
+        let nav = inputTableView.window?.rootViewController as? UINavigationController
+        let topVC = nav?.topViewController as? CurrentWorkoutViewController
+        topVC?.performSegue(withIdentifier: "currentWorkoutVC2notesExplanationVC", sender: 0)
     }
     
     @IBAction func showExplanation(_ sender: UIButton) {
-        let nav = inputTableView.window?.rootViewController as! UINavigationController
-        let topVC = nav.topViewController as! CurrentWorkoutViewController
-        topVC.performSegue(withIdentifier: "currentWorkoutVC2notesExplanationVC", sender: 1)
+        let nav = inputTableView.window?.rootViewController as? UINavigationController
+        let topVC = nav?.topViewController as? CurrentWorkoutViewController
+        topVC?.performSegue(withIdentifier: "currentWorkoutVC2notesExplanationVC", sender: 1)
     }
 }

@@ -23,12 +23,12 @@ class InputDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "currentInputCell", for: indexPath) as! InputTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "currentInputCell", for: indexPath) as? InputTableViewCell
 
-        cell.reps.text = sets[indexPath.row]["reps"]! + "x"
-        cell.weight.text = sets[indexPath.row]["weight"]! + unit
+        cell?.reps.text = sets[indexPath.row]["reps"] ?? "0" + "x"
+        cell?.weight.text = sets[indexPath.row]["weight"] ?? "0" + unit
         
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

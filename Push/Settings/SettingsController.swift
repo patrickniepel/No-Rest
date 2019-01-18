@@ -52,13 +52,13 @@ class SettingsController: NSObject {
         if loadTimerSound() {
             
             do {
-                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "timerSound", ofType: "wav")!))
+                audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "timerSound", ofType: "wav") ?? ""))
             }
             catch {
             }
             
-            audioPlayer!.prepareToPlay()
-            audioPlayer!.play()
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
         }
     }
 }

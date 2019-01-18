@@ -10,7 +10,7 @@ import UIKit
 
 class ExerciseStatisticViewController: UIViewController {
     
-    var statisticCtrl : StatisticsController!
+    var statisticCtrl : StatisticsController?
     
     @IBOutlet weak var totalSets: UILabel!
     @IBOutlet weak var maxWeight: UILabel!
@@ -27,11 +27,11 @@ class ExerciseStatisticViewController: UIViewController {
     @IBOutlet weak var collectionViewCategory: UICollectionView!
     @IBOutlet weak var collectionViewExercise: UICollectionView!
     
-    var dataSourceCategory : ExerciseStatisticCategoryDataSource!
-    var delegateCategory : ExerciseStatisticCategoryDelegateFlowLayout!
+    var dataSourceCategory : ExerciseStatisticCategoryDataSource?
+    var delegateCategory : ExerciseStatisticCategoryDelegateFlowLayout?
     
-    var dataSourceExercise : ExerciseStatisticExerciseDataSource!
-    var delegateExercise : ExerciseStatisticExerciseDelegateFlowLayout!
+    var dataSourceExercise : ExerciseStatisticExerciseDataSource?
+    var delegateExercise : ExerciseStatisticExerciseDelegateFlowLayout?
     
     var currentCategory = 0
     var currentExercise = 0
@@ -58,7 +58,7 @@ class ExerciseStatisticViewController: UIViewController {
         collectionViewExercise.dataSource = dataSourceExercise
         collectionViewExercise.delegate = delegateExercise
         
-        totalCategories = dataSourceCategory.categories.count
+        totalCategories = dataSourceCategory?.categories.count ?? 0
         
         updateExercises()
         updateLabels()
@@ -71,33 +71,33 @@ class ExerciseStatisticViewController: UIViewController {
         
         let unit = UserData.sharedInstance.unit
         
-        let exerciseName = dataSourceExercise.exercises[currentExercise].name
+        let exerciseName = dataSourceExercise?.exercises[currentExercise].name ?? "My Exercise"
         
-        let totalSetsString =  statisticCtrl.getTotalSets(for: exerciseName)
+        let totalSetsString =  statisticCtrl?.getTotalSets(for: exerciseName) ?? "0"
         totalSets.text = totalSetsString
         
-        maxWeight.text = statisticCtrl.getMaxWeight(for: exerciseName) + unit
+        maxWeight.text = statisticCtrl?.getMaxWeight(for: exerciseName) ?? "0" + unit
         
-        let totalVolumeString = statisticCtrl.getTotalVolume(for: exerciseName)
+        let totalVolumeString = statisticCtrl?.getTotalVolume(for: exerciseName) ?? "0"
         totalVolume.text = totalVolumeString + unit
         
-        avgVolume.text = statisticCtrl.getAvgVolume(totalSets: totalSetsString, totalVolume: totalVolumeString) + unit
+        avgVolume.text = statisticCtrl?.getAvgVolume(totalSets: totalSetsString, totalVolume: totalVolumeString) ?? "0" + unit
         
-        let totalRepsString = statisticCtrl.getTotalReps(for: exerciseName)
+        let totalRepsString = statisticCtrl?.getTotalReps(for: exerciseName) ?? "0"
         totalReps.text = totalRepsString
         
-        avgReps.text = statisticCtrl.getAvgReps(totalSets: totalSetsString, totalReps: totalRepsString)
+        avgReps.text = statisticCtrl?.getAvgReps(totalSets: totalSetsString, totalReps: totalRepsString)
         
-        let totalMinutesString = statisticCtrl.getTotalMinutes(for: exerciseName)
+        let totalMinutesString = statisticCtrl?.getTotalMinutes(for: exerciseName)
         totalMinutes.text = totalMinutesString
     }
     
     private func updateExercises() {
         currentExercise = 0
-        let category = dataSourceCategory.categories[currentCategory]
-        let exercisesForCategory = statisticCtrl.getExercisesForCategory(category: category)
-        totalExercises = exercisesForCategory.count
-        dataSourceExercise.exercises = exercisesForCategory
+        let category = dataSourceCategory?.categories[currentCategory] ?? ""
+        let exercisesForCategory = statisticCtrl?.getExercisesForCategory(category: category)
+        totalExercises = exercisesForCategory?.count ?? 0
+        dataSourceExercise?.exercises = exercisesForCategory ?? []
         collectionViewExercise.reloadData()
     }
     

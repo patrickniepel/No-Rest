@@ -10,10 +10,10 @@ import UIKit
 
 class MyWorkoutTableViewController: UITableViewController, EditMyWorkoutSegueDelegate {
     
-    var delegate : MyWorkoutDelegate!
-    var dataSource : MyWorkoutDataSource!
+    var delegate : MyWorkoutDelegate?
+    var dataSource : MyWorkoutDataSource?
     
-    var myWorkoutCtrl : MyWorkoutController!
+    var myWorkoutCtrl : MyWorkoutController?
     
     var myWorkouts : [MyWorkout] = []
     
@@ -38,7 +38,7 @@ class MyWorkoutTableViewController: UITableViewController, EditMyWorkoutSegueDel
     
     /** Delegate of EditExerciseTableViewController */
     func saveFromEditMyWorkoutScreen(ctrl: EditMyWorkoutViewController, myWorkout: MyWorkout) {
-        dataSource.addWorkout(workout: myWorkout)
+        dataSource?.addWorkout(workout: myWorkout)
         tableView.reloadData()
         
         saveCurrentWorkouts()
@@ -47,14 +47,14 @@ class MyWorkoutTableViewController: UITableViewController, EditMyWorkoutSegueDel
     }
     
     private func saveCurrentWorkouts() {
-        myWorkouts = dataSource.myWorkouts
-        myWorkoutCtrl.saveWorkouts(workouts: myWorkouts)
+        myWorkouts = dataSource?.myWorkouts ?? []
+        myWorkoutCtrl?.saveWorkouts(workouts: myWorkouts)
     }
     
     /** Starts loading exercises for the selected category */
     private func loadWorkouts() {
-        myWorkouts = myWorkoutCtrl.loadWorkouts()
-        dataSource.myWorkouts = myWorkouts
+        myWorkouts = myWorkoutCtrl?.loadWorkouts() ?? []
+        dataSource?.myWorkouts = myWorkouts
     }
     
     @IBAction func addNewWorkout(_ sender: UIBarButtonItem) {
@@ -66,16 +66,16 @@ class MyWorkoutTableViewController: UITableViewController, EditMyWorkoutSegueDel
         
         if segue.identifier == "myWorkoutTVC2editMyWorkoutVC" {
             
-            let destVC = segue.destination as! EditMyWorkoutViewController
-            destVC.delegate = self
-            destVC.myWorkoutToEdit = myWorkoutToEdit
+            let destVC = segue.destination as? EditMyWorkoutViewController
+            destVC?.delegate = self
+            destVC?.myWorkoutToEdit = myWorkoutToEdit
             myWorkoutToEdit = MyWorkout()
         }
         
         if segue.identifier == "myWorkoutTVC2currentWorkoutVC" {
             
-            let destVC = segue.destination as! CurrentWorkoutViewController
-            destVC.currentWorkout = currentWorkout
+            let destVC = segue.destination as? CurrentWorkoutViewController
+            destVC?.currentWorkout = currentWorkout
         }
     }
 
