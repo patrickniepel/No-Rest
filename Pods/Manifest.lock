@@ -1,0 +1,20 @@
+PODS:
+  - ReSwift (4.0.1)
+  - SwiftLint (0.29.3)
+
+DEPENDENCIES:
+  - ReSwift
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ReSwift
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
+  SwiftLint: bfa7ca7b4d170cfaf0d236ca3ffd969e88a2f002
+
+PODFILE CHECKSUM: 1e93d2f40f67ce453657b28c305bc9bd68b922cd
+
+COCOAPODS: 1.5.3
