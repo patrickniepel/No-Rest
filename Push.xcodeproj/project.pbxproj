@@ -76,6 +76,13 @@
 		A3A09C281F91348B00CD01AF /* ExercisesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A09C271F91348B00CD01AF /* ExercisesDataSource.swift */; };
 		A3A09C2B1F9134F800CD01AF /* ExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A09C2A1F9134F800CD01AF /* ExercisesController.swift */; };
 		A3A09C2F1F91388900CD01AF /* EditExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A09C2E1F91388900CD01AF /* EditExerciseTableViewController.swift */; };
+		A3AE4A1D21F74CCE007A97AB /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A1C21F74CCE007A97AB /* LoggingMiddleware.swift */; };
+		A3AE4A1F21F74D61007A97AB /* RouteDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */; };
+		A3AE4A2221F74E0C007A97AB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */; };
+		A3AE4A2421F74E2A007A97AB /* TabBarDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */; };
+		A3AE4A2721F74EF3007A97AB /* LoggingProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2621F74EF3007A97AB /* LoggingProxy.swift */; };
+		A3AE4A2921F74F32007A97AB /* LogginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2821F74F32007A97AB /* LogginConfiguration.swift */; };
+		A3AE4A2C21F75004007A97AB /* EmojiModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2B21F75004007A97AB /* EmojiModifier.swift */; };
 		A3B3E9F41F98DEDC00CCC3CC /* CurrentWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B3E9F31F98DEDC00CCC3CC /* CurrentWorkoutController.swift */; };
 		A3BC597B1F9236880050CD6D /* MyWorkoutHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC597A1F9236880050CD6D /* MyWorkoutHistoryTableViewController.swift */; };
 		A3BC597D1F9236AB0050CD6D /* MyWorkoutHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BC597C1F9236AB0050CD6D /* MyWorkoutHistoryTableViewCell.swift */; };
@@ -191,6 +198,13 @@
 		A3A09C271F91348B00CD01AF /* ExercisesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesDataSource.swift; sourceTree = "<group>"; };
 		A3A09C2A1F9134F800CD01AF /* ExercisesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesController.swift; sourceTree = "<group>"; };
 		A3A09C2E1F91388900CD01AF /* EditExerciseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseTableViewController.swift; sourceTree = "<group>"; };
+		A3AE4A1C21F74CCE007A97AB /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
+		A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDestination.swift; sourceTree = "<group>"; };
+		A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDestination.swift; sourceTree = "<group>"; };
+		A3AE4A2621F74EF3007A97AB /* LoggingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingProxy.swift; sourceTree = "<group>"; };
+		A3AE4A2821F74F32007A97AB /* LogginConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginConfiguration.swift; sourceTree = "<group>"; };
+		A3AE4A2B21F75004007A97AB /* EmojiModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiModifier.swift; sourceTree = "<group>"; };
 		A3B3E9F31F98DEDC00CCC3CC /* CurrentWorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWorkoutController.swift; sourceTree = "<group>"; };
 		A3BC597A1F9236880050CD6D /* MyWorkoutHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutHistoryTableViewController.swift; sourceTree = "<group>"; };
 		A3BC597C1F9236AB0050CD6D /* MyWorkoutHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutHistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -280,6 +294,7 @@
 				A31BFCA121F668E9003214C2 /* Actions */,
 				A31BFC8C21F66678003214C2 /* Reducers */,
 				A31BFC8921F6663B003214C2 /* States */,
+				A3AE4A1C21F74CCE007A97AB /* LoggingMiddleware.swift */,
 			);
 			path = ReSwift;
 			sourceTree = "<group>";
@@ -305,9 +320,11 @@
 		A31BFC8F21F667BB003214C2 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				A3AE4A2021F74DF5007A97AB /* TabBar */,
 				A31BFC9021F667C2003214C2 /* Coordinator */,
 				A31BFC9F21F668BE003214C2 /* ViewBuilder.swift */,
 				A31BFCA221F66C53003214C2 /* DefaultNavigationController.swift */,
+				A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -544,6 +561,25 @@
 			path = ExerciseEdit;
 			sourceTree = "<group>";
 		};
+		A3AE4A2021F74DF5007A97AB /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */,
+				A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A3AE4A2521F74E9F007A97AB /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				A3AE4A2621F74EF3007A97AB /* LoggingProxy.swift */,
+				A3AE4A2821F74F32007A97AB /* LogginConfiguration.swift */,
+				A3AE4A2B21F75004007A97AB /* EmojiModifier.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
 		A3B3E9F21F98DECE00CCC3CC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +635,7 @@
 		A3E073171F90ED320099A7B8 /* Push */ = {
 			isa = PBXGroup;
 			children = (
+				A3AE4A2521F74E9F007A97AB /* Logging */,
 				A31BFC8F21F667BB003214C2 /* Navigation */,
 				A31BFC8621F66375003214C2 /* ReSwift */,
 				A32DD16C1F90F3B5009D13CE /* Extensions */,
@@ -870,12 +907,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Push/Pods-Push-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Willow/Willow.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Willow.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -915,13 +954,16 @@
 				A39AB5321F93AADF000B6DBF /* RearrangingTableViewCell.swift in Sources */,
 				A31BFC9621F66831003214C2 /* InvalidateRoutingAction.swift in Sources */,
 				A350272A1F9B66C100E2F4B0 /* MuscleStatisticDelegateFlowLayout.swift in Sources */,
+				A3AE4A2C21F75004007A97AB /* EmojiModifier.swift in Sources */,
 				A39C2A1B1F91452400AFF8C6 /* EditController.swift in Sources */,
 				A3A09C221F91139100CD01AF /* ExercisesTableViewController.swift in Sources */,
+				A3AE4A2421F74E2A007A97AB /* TabBarDestination.swift in Sources */,
 				A353A5BA1F91595F006B9E2C /* MyWorkoutTableViewController.swift in Sources */,
 				A3A09C1F1F9111F900CD01AF /* CategoryViewController.swift in Sources */,
 				A32DD1711F90F8AD009D13CE /* SettingsTableViewController.swift in Sources */,
 				A31BFCA321F66C53003214C2 /* DefaultNavigationController.swift in Sources */,
 				A38266E91F93E70300646603 /* RearrangingDelegate.swift in Sources */,
+				A3AE4A1D21F74CCE007A97AB /* LoggingMiddleware.swift in Sources */,
 				A3A09C1A1F9105FB00CD01AF /* SettingsController.swift in Sources */,
 				A31BFC9C21F66883003214C2 /* RouteAction.swift in Sources */,
 				A31BFC9821F6684D003214C2 /* NavigationReducer.swift in Sources */,
@@ -930,6 +972,7 @@
 				A353A5BE1F915B36006B9E2C /* MyWorkoutDataSource.swift in Sources */,
 				A3020F5D1F9BCE1600A57A5C /* ExercisesCardioTableViewCell.swift in Sources */,
 				A35789781F97D8BF00F18FB3 /* CurrentWorkoutCollectionViewCell.swift in Sources */,
+				A3AE4A1F21F74D61007A97AB /* RouteDestination.swift in Sources */,
 				A3E0734C1F90EECD0099A7B8 /* AboutViewController.swift in Sources */,
 				A3A09C261F91347600CD01AF /* ExercisesDelegate.swift in Sources */,
 				A3C38EA61F99248D00B35D5E /* CurrentWorkoutDelegateFlowLayout.swift in Sources */,
@@ -953,6 +996,7 @@
 				A3C08EFE1F9C91910070DB11 /* CurrentWorkoutCardioCollectionViewCell.swift in Sources */,
 				A37EE6D41F91626B003F6B6B /* EditMyWorkoutViewController.swift in Sources */,
 				A31BFC9421F667F9003214C2 /* AppCoordinatorSubscriber.swift in Sources */,
+				A3AE4A2721F74EF3007A97AB /* LoggingProxy.swift in Sources */,
 				A35027241F9B667400E2F4B0 /* MuscleStatisticViewController.swift in Sources */,
 				A39C2A191F913B1400AFF8C6 /* DefaultExercises.swift in Sources */,
 				A3A09C161F91003400CD01AF /* Exercise.swift in Sources */,
@@ -965,9 +1009,11 @@
 				A3B3E9F41F98DEDC00CCC3CC /* CurrentWorkoutController.swift in Sources */,
 				A353A5B81F9158D1006B9E2C /* MyWorkoutTableViewCell.swift in Sources */,
 				A38266EF1F93E9B000646603 /* DetailsViewController.swift in Sources */,
+				A3AE4A2221F74E0C007A97AB /* MainTabBarController.swift in Sources */,
 				A3CD45A11F937CC000826F47 /* EditMyWorkoutController.swift in Sources */,
 				A355C48E1F9B9AE000F2350B /* ExerciseStatisticCategoryDataSource.swift in Sources */,
 				A31BFCA021F668BE003214C2 /* ViewBuilder.swift in Sources */,
+				A3AE4A2921F74F32007A97AB /* LogginConfiguration.swift in Sources */,
 				A38266F61F93F60C00646603 /* DetailsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

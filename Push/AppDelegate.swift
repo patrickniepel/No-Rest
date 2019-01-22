@@ -9,7 +9,7 @@
 import UIKit
 import ReSwift
 
-var store = Store<AppState>(reducer: appReducer, state: nil, middleware: [])
+var store = Store<AppState>(reducer: appReducer, state: nil, middleware: [loggingMiddleware])
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

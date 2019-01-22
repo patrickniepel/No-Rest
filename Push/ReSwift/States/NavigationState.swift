@@ -9,8 +9,11 @@
 import ReSwift
 
 struct NavigationState: StateType, Equatable {
+    var activeTabBar: TabBarDestination
     var screen: Screen?
     var action: NavigationAction
+    var userAction: Bool
     var mainStack: [Screen]
 }
+
 

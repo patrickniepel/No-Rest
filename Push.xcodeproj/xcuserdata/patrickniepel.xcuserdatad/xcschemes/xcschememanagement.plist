@@ -12,7 +12,25 @@
 		<key>Push.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A3E073141F90ED310099A7B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3E073281F90ED320099A7B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3E073331F90ED320099A7B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

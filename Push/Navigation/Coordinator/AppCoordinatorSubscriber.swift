@@ -29,18 +29,35 @@ extension AppCoordinator: StoreSubscriber {
     func newState(state: NavigationState) {
         // in this case the state is invalidated (e. g. user jumped back using the back button)
         guard let screen = state.screen else {
+            log.perform("Invalidated UI State")
             self.state = state
             return
         }
         
-        if screen == .menu {
-            
+        // a user action (e. g. user switches the tab-bar position) occured.
+        // this just tells reSwift that the current state changed so no further actions are required.
+        if state.userAction {
+            self.state = state
+            return
+        }
+        
+        // Build a stack of views and present them on the `products` tab.
+        // The `screen` value will be completely ignored since the mainStack will be used to build the views.
+        if state.activeTabBar == .addWorkout && state.mainStack.count > 0 {
+            present(viewStack: state.mainStack)
+            return
+        }
+        
+        if screen == .initial {
+            let navigationController = determineNavigationController(destination: state.activeTabBar)
+            navigationController?.popToRootViewController(animated: true)
+            changeTabBarPosition(state: state)
         } else if screen == .remain {
             /* do nothing if screen-state should remain */
-            
+            changeTabBarPosition(state: state)
         } else {
-           
-            
+            showView(screen, state)
+            changeTabBarPosition(state: state)
         }
         self.state = state
     }
@@ -55,11 +72,13 @@ extension AppCoordinator: StoreSubscriber {
     private func handleAction(navigationController: UINavigationController?, view: UIViewController, action: NavigationAction) {
         
         if isScreenPresented(view: view, navigationController: navigationController) {
+            log.event("\(type(of: view)) is already presented.")
             return
         }
         
         for viewController in navigationController?.viewControllers ?? [] {
             if viewController === view {
+                log.error("Can't push viewController \(view.debugDescription) because it is already pushed.")
                 return
             }
         }
@@ -71,6 +90,68 @@ extension AppCoordinator: StoreSubscriber {
             
         case .push:
             navigationController?.pushViewController(view, animated: true)
+        }
+    }
+    
+    /**
+     Determines the navigationController by its Tab Bar Destination.
+     
+     - parameter destination: The desired tab-bar destination.
+     - returns: the matching navigation-controller
+     */
+    private func determineNavigationController(destination: TabBarDestination) -> UINavigationController? {
+        switch destination {
+        case .addWorkout:
+            return addWorkoutNavigationController
+        case .exercises:
+            return exercisesNavigationController
+        case .statistics:
+            return statisticsNavigationController
+        case .settings:
+            return settingsNavigationController
+        }
+    }
+    
+    /**
+     Checks if the state according the tabBar has been changed.
+     Jumps to the desired tabBar position if needed.
+     
+     - parameter state: The new state to update.
+     */
+    private func changeTabBarPosition(state: NavigationState) {
+        var update = false
+        if let oldState = self.state {
+            update = oldState.activeTabBar.rawValue != state.activeTabBar.rawValue
+        } else {
+            // if there wasn't a state set before, update the position to make sure
+            // the right tabBarPosition is set
+            update = true
+        }
+        
+        if update {
+            tabBarController?.selectedIndex = state.activeTabBar.rawValue
+        }
+    }
+    
+    /**
+     Builds the view depending on the `screen` and pushes it on the desired navigation-controller depending
+     on the tab-bar position.
+     
+     - parameter screen: The screen-target to build the view from.
+     - parameter state: The state containing the target tab-bar destination.
+     */
+    fileprivate func showView(_ screen: Screen, _ state: NavigationState) {
+        let viewController = build(screen: screen, state: state)
+        
+        switch state.activeTabBar {
+        case .addWorkout:
+            handleAction(navigationController: addWorkoutNavigationController, view: viewController, action: state.action)
+        case .exercises:
+            handleAction(navigationController: exercisesNavigationController, view: viewController, action: state.action)
+        case .statistics:
+            handleAction(navigationController: statisticsNavigationController, view: viewController, action: state.action)
+        case .settings:
+            handleAction(navigationController: settingsNavigationController, view: viewController, action: state.action)
         }
     }
     
@@ -97,8 +178,9 @@ extension AppCoordinator: StoreSubscriber {
     fileprivate func present(viewStack: [Screen]) {
         for screen in viewStack {
             let view = build(screen: screen)
-            menuNavigationController?.pushViewController(view, animated: true)
+            addWorkoutNavigationController?.pushViewController(view, animated: true)
         }
     }
 }
+
 

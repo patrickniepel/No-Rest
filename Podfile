@@ -5,4 +5,5 @@ target 'Push' do
   use_frameworks!
   pod 'ReSwift'
   pod 'SwiftLint'
+  pod 'Willow'
 end

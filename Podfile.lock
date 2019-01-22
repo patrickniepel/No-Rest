@@ -1,20 +1,24 @@
 PODS:
   - ReSwift (4.0.1)
   - SwiftLint (0.29.3)
+  - Willow (5.1.0)
 
 DEPENDENCIES:
   - ReSwift
   - SwiftLint
+  - Willow
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ReSwift
     - SwiftLint
+    - Willow
 
 SPEC CHECKSUMS:
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
   SwiftLint: bfa7ca7b4d170cfaf0d236ca3ffd969e88a2f002
+  Willow: ad7f75939db11f7d56a97df2ca04405815e73125
 
-PODFILE CHECKSUM: 1e93d2f40f67ce453657b28c305bc9bd68b922cd
+PODFILE CHECKSUM: 3dbc20d24e7bead95a4853253d3f6a8326f263b9
 
 COCOAPODS: 1.5.3
