@@ -16,4 +16,8 @@ struct NRConstants {
         static let statistics = "Statistics"
         static let settings = "Settings"
     }
+    
+    struct CellIdentifiers {
+        static let exercisesCategoryCollectionViewCell = "exercisesCategoryCollectionViewCell"
+    }
 }

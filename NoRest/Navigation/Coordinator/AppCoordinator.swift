@@ -84,7 +84,7 @@ class AppCoordinator {
         case NRConstants.TabBarItemTitles.addWorkout:
             return MenuViewController()
         case NRConstants.TabBarItemTitles.exercises:
-            return MenuViewController()
+            return ExercisesCategoryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case NRConstants.TabBarItemTitles.statistics:
             return MenuViewController()
         case NRConstants.TabBarItemTitles.settings:

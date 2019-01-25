@@ -8,6 +8,19 @@
 
 import UIKit
 
+enum DefaultCategory: String {
+    case chest = "Chest"
+    case back = "Back"
+    case shoulders = "Shoulders"
+    case biceps = "Biceps"
+    case triceps = "Triceps"
+    case abs = "Abs"
+    case legs = "Legs"
+    case cardio = "Cardio"
+    
+    static let allCategories: [DefaultCategory] = [.chest, .back, .shoulders, .biceps, .triceps, .abs, .legs, .cardio]
+}
+
 class DefaultExercises: NSObject {
     
     let exercises : [String : [Exercise]] =

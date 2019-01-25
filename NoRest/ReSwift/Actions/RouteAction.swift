@@ -49,7 +49,6 @@ struct RouteAction: Action {
  Note: This just works on the "products" tab and won't change the tab-bar destination.
  */
 struct StackedRouteAction: Action {
-    
     var screens: [Screen]
 }
 
@@ -59,17 +58,13 @@ enum NavigationAction {
 }
 
 enum Screen {
-    case serp
-    case myAccount
-    case whistlist
-    case service
-    case checkout
-    case webview
-    case promotion
-    case initial
-    case productDetail
     case remain
-    case invalid
+    case initial
+    case addWorkout
+    case categories
+    case statistics
+    case settings
+    case exercisesForCategory
 }
 
 
