@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ExercisesCategoryDelegate: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+class ExercisesCategoryCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
-    let padding: CGFloat = 32
+    let padding: CGFloat = NRConstants.Padding.collectionViewItem
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExercisesCategoryDataSource: NSObject, UICollectionViewDataSource {
+class ExercisesCategoryCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

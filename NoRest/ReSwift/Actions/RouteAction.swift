@@ -61,7 +61,7 @@ enum Screen {
     case remain
     case initial
     case addWorkout
-    case categories
+    case exercises
     case statistics
     case settings
     case exercisesForCategory

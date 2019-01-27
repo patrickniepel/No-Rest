@@ -23,8 +23,12 @@ class NRButton: UIButton {
         setTitleColor(.mainColor, for: .normal)
         backgroundColor = .white
         layer.cornerRadius = 25
-        layer.borderWidth = 3
-        layer.borderColor = UIColor.mainColor.cgColor
+        
+        layer.shadowColor = UIColor.mainColor.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowOpacity = 1.0
+        layer.shadowRadius = 10
+        layer.masksToBounds = false
     }
 
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct NRConstants {
     
@@ -19,5 +19,10 @@ struct NRConstants {
     
     struct CellIdentifiers {
         static let exercisesCategoryCollectionViewCell = "exercisesCategoryCollectionViewCell"
+        static let exercisesCollectionViewCell = "exercisesCollectionViewCell"
+    }
+    
+    struct Padding {
+        static let collectionViewItem: CGFloat = 32
     }
 }

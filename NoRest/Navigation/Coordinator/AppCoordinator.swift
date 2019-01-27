@@ -48,16 +48,13 @@ class AppCoordinator {
     }
     
     func build(screen: Screen, state: NavigationState? = nil) -> UIViewController {
-//        switch screen {
-//        case .serp:
-//            return UIStoryboard(name: "BAStoryboard.product.rawValue", bundle: nil).instantiateViewController(withIdentifier: "")
-//        case .productDetail:
-//            return UIStoryboard(name: "BAStoryboard.product.rawValue", bundle: nil).instantiateViewController(withIdentifier: "")
-//        default:
-//            assertionFailure("Attempt to build invalid screen \(screen)")
-//            return UIViewController()
-//        }
-        return MenuViewController()
+        switch screen {
+        case .exercisesForCategory:
+            return ExercisesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        default:
+            assertionFailure("Attempt to build invalid screen \(screen)")
+            return UIViewController()
+        }
     }
     
     private func buildNavigationController(for vc: UIViewController) -> UINavigationController {
@@ -69,7 +66,7 @@ class AppCoordinator {
     }
     
     func provideInitialView() -> UIViewController {
-        return tabBarController!
+        return tabBarController ?? UIViewController()
     }
     
     /**

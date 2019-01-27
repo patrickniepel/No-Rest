@@ -15,6 +15,7 @@ class ExercisesCategoryCollectionViewCell: UICollectionViewCell {
     lazy var categoryButton: NRButton = {
         let button = NRButton()
         button.setTitle(categoryTitle, for: .normal)
+        button.setTitleColor(.mainColor, for: .normal)
         button.addTarget(self, action: #selector(categoryTapped), for: .touchUpInside)
         return button
     }()
@@ -41,7 +42,12 @@ class ExercisesCategoryCollectionViewCell: UICollectionViewCell {
     }
     
     @objc private func categoryTapped(sender: UIButton) {
-        if let category = sender.titleLabel?.text {
+        if let categoryString = sender.titleLabel?.text,
+            let category = DefaultCategory(rawValue: categoryString) {
+            
+            let selectedCategoryAction = SelectedCategoryAction(category: category)
+            store.dispatch(selectedCategoryAction)
+            
             let routeAction = RouteAction(screen: .exercisesForCategory, in: .exercises)
             store.dispatch(routeAction)
         }

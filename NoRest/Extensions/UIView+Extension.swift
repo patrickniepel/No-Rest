@@ -85,5 +85,10 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
-    
+}
+
+extension UIView {
+    func setupDefaultBackgroundColor() {
+        self.backgroundColor = .mainColorLight
+    }
 }

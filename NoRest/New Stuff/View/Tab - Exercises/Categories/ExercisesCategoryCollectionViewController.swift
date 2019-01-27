@@ -10,18 +10,17 @@ import UIKit
 
 class ExercisesCategoryCollectionViewController: UICollectionViewController {
     
-    private var delegate: ExercisesCategoryDelegate?
-    private var dataSource: ExercisesCategoryDataSource?
+    private var delegate: ExercisesCategoryCollectionViewDelegate?
+    private var dataSource: ExercisesCategoryCollectionViewDataSource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         collectionView?.register(ExercisesCategoryCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.exercisesCategoryCollectionViewCell)
-        collectionView?.backgroundColor = .mainColorLight
+        collectionView.setupDefaultBackgroundColor()
         
-        delegate = ExercisesCategoryDelegate()
-        dataSource = ExercisesCategoryDataSource()
+        delegate = ExercisesCategoryCollectionViewDelegate()
+        dataSource = ExercisesCategoryCollectionViewDataSource()
         
         collectionView.delegate = delegate
         collectionView.dataSource = dataSource

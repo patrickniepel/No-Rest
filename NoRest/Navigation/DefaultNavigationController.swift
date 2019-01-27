@@ -28,8 +28,8 @@ class DefaultNavigationController: UINavigationController, UIGestureRecognizerDe
     
     func navigationController(_: UINavigationController, willShow viewController: UIViewController, animated _: Bool) {
         
-        let item = UIBarButtonItem(title: "Aber flott", style: .plain, target: nil, action: nil)
-        viewController.navigationItem.backBarButtonItem = item
+//        let item = UIBarButtonItem(title: "Aber flott", style: .plain, target: nil, action: nil)
+//        viewController.navigationItem.backBarButtonItem = item
     }
 }
 
