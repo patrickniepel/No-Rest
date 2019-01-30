@@ -13,7 +13,7 @@ class ExercisesCollectionViewController: UICollectionViewController {
     
     private var delegate: ExercisesCollectionViewDelegate?
     private var dataSource: ExercisesCollectionViewDataSource?
-    private var selectedCategory: DefaultCategory?
+    private var selectedCategory: Category?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class ExercisesCollectionViewController: UICollectionViewController {
         collectionView?.dataSource = dataSource
     }
     
-    func injectCategory(_ category: DefaultCategory) {
+    func injectCategory(_ category: Category) {
         self.selectedCategory = category
     }
     

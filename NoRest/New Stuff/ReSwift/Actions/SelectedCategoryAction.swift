@@ -9,5 +9,5 @@
 import ReSwift
 
 struct SelectedCategoryAction: Action {
-    var category: DefaultCategory
+    var category: Category
 }

@@ -10,9 +10,9 @@ import UIKit
 
 class ExercisesCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    let category: DefaultCategory?
+    let category: Category?
     
-    init(for category: DefaultCategory?) {
+    init(for category: Category?) {
         self.category = category
     }
     

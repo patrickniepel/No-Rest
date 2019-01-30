@@ -8,17 +8,17 @@
 
 import UIKit
 
-class MyWorkoutHistoryTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var workoutName: UILabel!
-    @IBOutlet weak var workoutDate: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-}
+//class MyWorkoutHistoryTableViewCell: UITableViewCell {
+//
+//    @IBOutlet weak var workoutName: UILabel!
+//    @IBOutlet weak var workoutDate: UILabel!
+//    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//    }
+//
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//    }
+//
+//}

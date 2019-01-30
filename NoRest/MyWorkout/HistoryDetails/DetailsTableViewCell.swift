@@ -8,17 +8,17 @@
 
 import UIKit
 
-class DetailsTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var setNumber: UILabel!
-    @IBOutlet weak var weight: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-}
+//class DetailsTableViewCell: UITableViewCell {
+//
+//    @IBOutlet weak var setNumber: UILabel!
+//    @IBOutlet weak var weight: UILabel!
+//    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//    }
+//
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//    }
+//
+//}

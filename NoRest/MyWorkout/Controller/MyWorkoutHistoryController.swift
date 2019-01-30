@@ -8,12 +8,12 @@
 
 import UIKit
 
-class MyWorkoutHistoryController: NSObject {
-    
-    var userData = UserData.sharedInstance
-    
-    func loadHistory() -> WorkoutHistory {
-        return userData.workoutHistory
-    }
-
-}
+//class MyWorkoutHistoryController: NSObject {
+//    
+//    var userData = UserData.sharedInstance
+//    
+//    func loadHistory() -> WorkoutHistory {
+//        return userData.workoutHistory
+//    }
+//
+//}

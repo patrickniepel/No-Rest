@@ -8,15 +8,15 @@
 
 import UIKit
 
-class MuscleStatisticCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var muscle: UILabel!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
+//class MuscleStatisticCollectionViewCell: UICollectionViewCell {
+//    
+//    @IBOutlet weak var muscle: UILabel!
+//    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//}

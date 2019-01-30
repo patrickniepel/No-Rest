@@ -8,39 +8,39 @@
 
 import UIKit
 
-class InputTableViewCell: UITableViewCell {
-    
-    
-    @IBOutlet weak var reps: UILabel!
-    @IBOutlet weak var weight: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    func checkIfContainsContent() -> Bool {
-        if reps.text != "" {
-            return false
-        }
-        if weight.text != "" {
-            return false
-        }
-        return true
-    }
-    
-//    override func prepareForReuse() {
-//        reps.text = nil
-//        weight.text = nil
-//        super.prepareForReuse()
+//class InputTableViewCell: UITableViewCell {
+//    
+//    
+//    @IBOutlet weak var reps: UILabel!
+//    @IBOutlet weak var weight: UILabel!
+//    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
 //    }
-    
-    func clearContent() {
-        reps.text = ""
-        weight.text = ""
-    }
-
-}
+//
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//    }
+//    
+//    func checkIfContainsContent() -> Bool {
+//        if reps.text != "" {
+//            return false
+//        }
+//        if weight.text != "" {
+//            return false
+//        }
+//        return true
+//    }
+//    
+////    override func prepareForReuse() {
+////        reps.text = nil
+////        weight.text = nil
+////        super.prepareForReuse()
+////    }
+//    
+//    func clearContent() {
+//        reps.text = ""
+//        weight.text = ""
+//    }
+//
+//}

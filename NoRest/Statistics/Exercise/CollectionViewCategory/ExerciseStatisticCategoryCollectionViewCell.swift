@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ExerciseStatisticCategoryCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var category: UILabel!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
+//class ExerciseStatisticCategoryCollectionViewCell: UICollectionViewCell {
+//    
+//    @IBOutlet weak var category: UILabel!
+//    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//    }
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//}

@@ -9,5 +9,5 @@
 import ReSwift
 
 struct ExercisesState: StateType, Equatable {
-    var category: DefaultCategory
+    var category: Category
 }

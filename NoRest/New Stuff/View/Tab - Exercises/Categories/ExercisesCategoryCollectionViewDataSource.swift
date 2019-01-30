@@ -16,13 +16,13 @@ class ExercisesCategoryCollectionViewDataSource: NSObject, UICollectionViewDataS
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DefaultCategory.allCategories.count
+        return Category.allCategories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.exercisesCategoryCollectionViewCell, for: indexPath) as? ExercisesCategoryCollectionViewCell
         
-        let cellTitle = DefaultCategory.allCategories[indexPath.row].rawValue
+        let cellTitle = Category.allCategories[indexPath.row].rawValue
         cell?.setupCell(with: cellTitle)
         
         return cell ?? UICollectionViewCell()

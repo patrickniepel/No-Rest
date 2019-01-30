@@ -43,7 +43,7 @@ class ExercisesCategoryCollectionViewCell: UICollectionViewCell {
     
     @objc private func categoryTapped(sender: UIButton) {
         if let categoryString = sender.titleLabel?.text,
-            let category = DefaultCategory(rawValue: categoryString) {
+            let category = Category(rawValue: categoryString) {
             
             let selectedCategoryAction = SelectedCategoryAction(category: category)
             store.dispatch(selectedCategoryAction)

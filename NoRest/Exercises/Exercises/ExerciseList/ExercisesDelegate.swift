@@ -8,19 +8,19 @@
 
 import UIKit
 
-class ExercisesDelegate: NSObject, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let dataSource = tableView.dataSource as? ExercisesDataSource
-        let exercises = dataSource?.exercises
-        
-        let nav = tableView.window?.rootViewController as? UINavigationController
-        let topVC = nav?.topViewController as? ExercisesTableViewController
-        topVC?.exerciseToEdit = exercises?[indexPath.row] ?? Exercise(aName: "My Exercise")
-        topVC?.performSegue(withIdentifier: "exercisesTVC2editExerciseTVC", sender: nil)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-}
+//class ExercisesDelegate: NSObject, UITableViewDelegate {
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        let dataSource = tableView.dataSource as? ExercisesDataSource
+//        let exercises = dataSource?.exercises
+//        
+//        let nav = tableView.window?.rootViewController as? UINavigationController
+//        let topVC = nav?.topViewController as? ExercisesTableViewController
+//        topVC?.exerciseToEdit = exercises?[indexPath.row] ?? Exercise(aName: "My Exercise")
+//        topVC?.performSegue(withIdentifier: "exercisesTVC2editExerciseTVC", sender: nil)
+//        
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//
+//}

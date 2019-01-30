@@ -8,16 +8,16 @@
 
 import UIKit
 
-class MyWorkoutController: NSObject {
-    
-    var userData = UserData.sharedInstance
-    
-    func loadWorkouts() -> [MyWorkout] {
-        
-        return userData.myWorkouts
-    }
-    
-    func saveWorkouts(workouts: [MyWorkout]) {
-        userData.myWorkouts = workouts
-    }
-}
+//class MyWorkoutController: NSObject {
+//    
+//    var userData = UserData.sharedInstance
+//    
+//    func loadWorkouts() -> [MyWorkout] {
+//        
+//        return userData.myWorkouts
+//    }
+//    
+//    func saveWorkouts(workouts: [MyWorkout]) {
+//        userData.myWorkouts = workouts
+//    }
+//}

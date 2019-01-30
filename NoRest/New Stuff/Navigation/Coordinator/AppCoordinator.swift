@@ -85,7 +85,7 @@ class AppCoordinator {
         case NRConstants.TabBarItemTitles.statistics:
             return MenuViewController()
         case NRConstants.TabBarItemTitles.settings:
-            return MenuViewController()
+            return SettingsTableViewController()
         default:
             return UIViewController()
         }
