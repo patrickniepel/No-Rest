@@ -68,16 +68,16 @@ extension AppCoordinator: StoreSubscriber {
      - parameter view: The view to present.
      - parameter action: The navigation-action, how the navigation-controller should deal with already presenting views.
      */
-    private func handleAction(navigationController: UINavigationController?, view: UIViewController, action: NavigationAction) {
+    private func handleAction(navigationController: UINavigationController?, vc: UIViewController, action: NavigationAction) {
         
-        if isScreenPresented(view: view, navigationController: navigationController) {
-            log.event("\(type(of: view)) is already presented.")
+        if isScreenPresented(view: vc, navigationController: navigationController) {
+            log.event("\(type(of: vc)) is already presented.")
             return
         }
         
         for viewController in navigationController?.viewControllers ?? [] {
-            if viewController === view {
-                log.error("Can't push viewController \(view.debugDescription) because it is already pushed.")
+            if viewController === vc {
+                log.error("Can't push viewController \(viewController.debugDescription) because it is already pushed.")
                 return
             }
         }
@@ -85,10 +85,13 @@ extension AppCoordinator: StoreSubscriber {
         switch action {
         case .popAndReplace:
             navigationController?.popToRootViewController(animated: false)
-            navigationController?.pushViewController(view, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
             
         case .push:
-            navigationController?.pushViewController(view, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
+        
+        case .present:
+            navigationController?.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -144,13 +147,13 @@ extension AppCoordinator: StoreSubscriber {
         
         switch state.activeTabBar {
         case .addWorkout:
-            handleAction(navigationController: addWorkoutNavigationController, view: viewController, action: state.action)
+            handleAction(navigationController: addWorkoutNavigationController, vc: viewController, action: state.action)
         case .exercises:
-            handleAction(navigationController: exercisesNavigationController, view: viewController, action: state.action)
+            handleAction(navigationController: exercisesNavigationController, vc: viewController, action: state.action)
         case .statistics:
-            handleAction(navigationController: statisticsNavigationController, view: viewController, action: state.action)
+            handleAction(navigationController: statisticsNavigationController, vc: viewController, action: state.action)
         case .settings:
-            handleAction(navigationController: settingsNavigationController, view: viewController, action: state.action)
+            handleAction(navigationController: settingsNavigationController, vc: viewController, action: state.action)
         }
     }
     

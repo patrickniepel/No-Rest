@@ -1,24 +1,28 @@
 PODS:
   - ReSwift (4.0.1)
+  - SCLAlertView (0.8)
   - SwiftLint (0.29.3)
   - Willow (5.1.0)
 
 DEPENDENCIES:
   - ReSwift
+  - SCLAlertView
   - SwiftLint
   - Willow
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ReSwift
+    - SCLAlertView
     - SwiftLint
     - Willow
 
 SPEC CHECKSUMS:
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftLint: bfa7ca7b4d170cfaf0d236ca3ffd969e88a2f002
   Willow: ad7f75939db11f7d56a97df2ca04405815e73125
 
-PODFILE CHECKSUM: 9b97180542225d0c79f4f739655d51fe39112f76
+PODFILE CHECKSUM: 3fc274a0447e8dac713763fe067c20fc27ec08c0
 
 COCOAPODS: 1.5.3

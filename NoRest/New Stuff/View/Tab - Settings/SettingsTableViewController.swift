@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class SettingsTableViewController: UITableViewController {
     
@@ -16,6 +17,12 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        store.subscribe(self) {
+            $0.select {
+                $0.settingsState
+            }
+        }
+        
         registerCells()
         
         delegate = SettingsTableViewDelegate()
@@ -24,7 +31,7 @@ class SettingsTableViewController: UITableViewController {
         tableView.delegate = delegate
         tableView.dataSource = dataSource
         
-        setupDesign()
+        setupScreen()
     }
     
     private func registerCells() {
@@ -34,7 +41,36 @@ class SettingsTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.settingsDefaultTableViewCell)
     }
     
-    private func setupDesign() {
+    private func setupScreen() {
+        navigationItem.title = NRConstants.ScreenTitles.settings
         tableView.setupDefaultBackgroundColor()
+        tableView.rowHeight = 65
+        tableView.contentInset = UIEdgeInsets(top: NRConstants.Insets.default, left: 0, bottom: 0, right: 0)
+    }
+    
+    func showAlertForDataReset(_ dataReset: DataReset) {
+        let alert = UIAlertController(title: NRConstants.Settings.alertMessage, message: nil, preferredStyle: .alert)
+        let cancelButton = UIAlertAction(title: NRConstants.Settings.cancelButton, style: .cancel, handler: nil)
+        let deleteButton = UIAlertAction(title: NRConstants.Settings.deleteButton, style: .destructive) { action in
+            SettingsController.resetData(dataReset)
+            self.showSuccesForResetView()
+        }
+        
+        alert.addAction(cancelButton)
+        alert.addAction(deleteButton)
+        present(alert, animated: true)
+    }
+    
+    private func showSuccesForResetView() {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false,
+            hideWhenBackgroundViewIsTapped: true
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.showSuccess(NRConstants.Settings.successful, subTitle: "", animationStyle: .bottomToTop)
+    }
+    
+    deinit {
+        store.unsubscribe(self)
     }
 }

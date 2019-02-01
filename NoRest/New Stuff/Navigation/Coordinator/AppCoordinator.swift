@@ -51,6 +51,8 @@ class AppCoordinator {
         switch screen {
         case .exercisesForCategory:
             return ExercisesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        case .licenses:
+            return LicensesViewController()
         default:
             assertionFailure("Attempt to build invalid screen \(screen)")
             return UIViewController()

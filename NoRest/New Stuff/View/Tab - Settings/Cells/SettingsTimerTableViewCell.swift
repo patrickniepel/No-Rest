@@ -9,6 +9,16 @@
 import UIKit
 
 class SettingsTimerTableViewCell: UITableViewCell {
+    
+    let timerSwitch: UISwitch = {
+        let timerSwitch = UISwitch()
+        timerSwitch.isOn = SettingsController.isTimerSoundActivated
+        timerSwitch.tintColor = .mainColorLight
+        timerSwitch.thumbTintColor = .mainColor
+        timerSwitch.onTintColor = .mainColorLight
+        timerSwitch.addTarget(self, action: #selector(changedSwitchValue), for: .valueChanged)
+        return timerSwitch
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +30,18 @@ class SettingsTimerTableViewCell: UITableViewCell {
     
     func setup() {
         self.selectionStyle = .none
+        textLabel?.text = NRConstants.Settings.RowTitles.timer
+        setupTimerSwitch()
+    }
+    
+    private func setupTimerSwitch() {
+        contentView.addSubview(timerSwitch)
+        timerSwitch.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: true, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: NRConstants.Insets.default))
+    }
+    
+    @objc private func changedSwitchValue(sender: UISwitch) {
+        let isOn = sender.isOn
+        SettingsController.timerSoundStateChanged(to: isOn)
     }
 
 }

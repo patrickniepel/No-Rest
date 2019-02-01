@@ -11,5 +11,6 @@ import ReSwift
 struct AppState: StateType, Equatable {
     let navigationState: NavigationState
     let exercisesState: ExercisesState
+    let settingsState: SettingsState
 }
 

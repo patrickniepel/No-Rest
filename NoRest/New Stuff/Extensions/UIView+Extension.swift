@@ -14,7 +14,7 @@ struct AnchoredConstraints {
 extension UIView {
     
     @discardableResult
-    func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
+    func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, centerX: Bool = false, centerY: Bool = false, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
         
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
@@ -33,6 +33,18 @@ extension UIView {
         
         if let trailing = trailing {
             anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
+        }
+        
+        if centerX {
+            if let superviewCenterXAnchor = superview?.centerXAnchor {
+                centerXAnchor.constraint(equalTo: superviewCenterXAnchor).isActive = true
+            }
+        }
+        
+        if centerY {
+            if let superviewCenterYAnchor = superview?.centerYAnchor {
+                centerYAnchor.constraint(equalTo: superviewCenterYAnchor).isActive = true
+            }
         }
         
         if size.width != 0 {

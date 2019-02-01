@@ -55,6 +55,7 @@ struct StackedRouteAction: Action {
 enum NavigationAction {
     case push
     case popAndReplace
+    case present
 }
 
 enum Screen {
@@ -65,6 +66,7 @@ enum Screen {
     case statistics
     case settings
     case exercisesForCategory
+    case licenses
 }
 
 

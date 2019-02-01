@@ -8,6 +8,8 @@
 
 import UIKit
 import AVKit
+import StoreKit
+import SCLAlertView
 
 struct SettingsController {
     
@@ -19,12 +21,17 @@ struct SettingsController {
         return UserData.sharedInstance.unit
     }
     
+    static var currentUnitAsIndex: Int {
+        return Unit.allCases.firstIndex(of: SettingsController.currentUnit) ?? 0
+    }
+    
     static func timerSoundStateChanged(to state: Bool) {
         UserData.sharedInstance.isTimerSoundActivated = state
         PersistencyController.storeUserData()
     }
     
-    static func unitChanged(to newUnit: Unit) {
+    static func unitChanged(to index: Int) {
+        let newUnit = Unit.allCases[index]
         UserData.sharedInstance.unit = newUnit
         convertWeight(to: newUnit)
         PersistencyController.storeUserData()
@@ -38,13 +45,23 @@ struct SettingsController {
         }
     }
     
-    static func restWorkoutHistory() {
-        UserData.sharedInstance.workoutHistory.resetWorkoutHistory()
+    static func resetData(_ dataReset: DataReset) {
+        if dataReset == .none {
+            return
+        }
+        else if dataReset == .workoutHistory {
+            UserData.sharedInstance.workoutHistory.resetWorkoutHistory()
+            
+        } else if dataReset == .statistics {
+            UserData.sharedInstance.statistics.resetStatistics()
+        }
+        
         PersistencyController.storeUserData()
     }
     
-    static func resetStatistics() {
-        UserData.sharedInstance.statistics.resetStatistics()
-        PersistencyController.storeUserData()
+    static func showRating() {
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        }
     }
 }

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6cR-n3-LDZ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,23 +24,23 @@
         <!--myWorkoutHistoryTVC-->
         <scene sceneID="jBc-jZ-jt7">
             <objects>
-                <tableViewController restorationIdentifier="myWorkoutHistoryTVC" storyboardIdentifier="myWorkoutHistoryTVC" title="myWorkoutHistoryTVC" id="ZfX-B2-Xgx" userLabel="myWorkoutHistoryTVC" customClass="MyWorkoutHistoryTableViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="myWorkoutHistoryTVC" storyboardIdentifier="myWorkoutHistoryTVC" title="myWorkoutHistoryTVC" id="ZfX-B2-Xgx" userLabel="myWorkoutHistoryTVC" customClass="MyWorkoutHistoryTableViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="W4P-6m-Ehe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="myWorkoutHistoryCell" id="nLS-Ge-ywW" customClass="MyWorkoutHistoryTableViewCell" customModule="Push" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="myWorkoutHistoryCell" id="nLS-Ge-ywW" customClass="MyWorkoutHistoryTableViewCell" customModule="NoRest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nLS-Ge-ywW" id="zWE-hV-hAf">
-                                    <rect key="frame" x="0.0" y="0.0" width="548" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="327" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WorkoutName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-hc-Pnz">
-                                            <rect key="frame" x="28" y="35" width="504" height="16"/>
+                                            <rect key="frame" x="24" y="15" width="287" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="fIN-EE-wAx"/>
                                             </constraints>
@@ -45,7 +49,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSZ-gI-L4Q">
-                                            <rect key="frame" x="28" y="52" width="504" height="14"/>
+                                            <rect key="frame" x="24" y="32" width="287" height="14"/>
                                             <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="12"/>
                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -84,65 +88,65 @@
         <!--detailsVC-->
         <scene sceneID="ka7-2C-wId">
             <objects>
-                <viewController restorationIdentifier="detailsVC" storyboardIdentifier="detailsVC" title="detailsVC" id="Cqu-Kz-1HA" userLabel="detailsVC" customClass="DetailsViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="detailsVC" storyboardIdentifier="detailsVC" title="detailsVC" id="Cqu-Kz-1HA" userLabel="detailsVC" customClass="DetailsViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hWQ-s8-tBn">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAz-st-3Gj">
-                                <rect key="frame" x="0.0" y="36" width="600" height="15"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NoRest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWQ-u7-3UT">
-                                <rect key="frame" x="16" y="55" width="568" height="24"/>
+                                <rect key="frame" x="16" y="99" width="343" height="25.5"/>
                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HN-dX-1Yi">
-                                <rect key="frame" x="0.0" y="111" width="600" height="15"/>
+                                <rect key="frame" x="0.0" y="156.5" width="375" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.20.12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxd-Wf-4FP">
-                                <rect key="frame" x="16" y="130" width="568" height="24"/>
+                                <rect key="frame" x="16" y="175.5" width="343" height="25.5"/>
                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Km-xP-9cr">
-                                <rect key="frame" x="0.0" y="186" width="600" height="15"/>
+                                <rect key="frame" x="0.0" y="233" width="375" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZK5-v5-p7r">
-                                <rect key="frame" x="0.0" y="205" width="600" height="395"/>
+                                <rect key="frame" x="0.0" y="252" width="375" height="415"/>
                                 <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailsCell" id="lf0-CF-LxP" customClass="DetailsTableViewCell" customModule="Push" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailsCell" id="lf0-CF-LxP" customClass="DetailsTableViewCell" customModule="NoRest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lf0-CF-LxP" id="D0b-tz-wtr">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-q8-gdD">
-                                                    <rect key="frame" x="28" y="13" width="544" height="17"/>
+                                                    <rect key="frame" x="23" y="13" width="554" height="18"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMp-Wp-DD2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="272" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="277" height="18"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="14"/>
                                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeN-Yg-pUf">
-                                                            <rect key="frame" x="272" y="0.0" width="272" height="17"/>
+                                                            <rect key="frame" x="277" y="0.0" width="277" height="18"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="14"/>
                                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -162,15 +166,15 @@
                                             <outlet property="weight" destination="OeN-Yg-pUf" id="gfZ-Yp-sjx"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailsCardioCell" id="RKE-LB-Irv" customClass="DetailsCardioTableViewCell" customModule="Push" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailsCardioCell" id="RKE-LB-Irv" customClass="DetailsCardioTableViewCell" customModule="NoRest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RKE-LB-Irv" id="Agw-zB-4Y0">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdq-Su-COr">
-                                                    <rect key="frame" x="28" y="13" width="544" height="17"/>
+                                                    <rect key="frame" x="23" y="13" width="554" height="18"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="14"/>
                                                     <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -228,13 +232,13 @@
         <!--exerciseStatisticVC-->
         <scene sceneID="ZqK-XP-9gY">
             <objects>
-                <viewController restorationIdentifier="exerciseStatisticVC" storyboardIdentifier="exerciseStatisticVC" title="exerciseStatisticVC" id="c6F-4N-wXb" userLabel="exerciseStatisticVC" customClass="ExerciseStatisticViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="exerciseStatisticVC" storyboardIdentifier="exerciseStatisticVC" title="exerciseStatisticVC" id="c6F-4N-wXb" userLabel="exerciseStatisticVC" customClass="ExerciseStatisticViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dvy-hV-pEw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNg-o2-Vl3">
-                                <rect key="frame" x="8" y="36" width="584" height="40"/>
+                                <rect key="frame" x="8" y="80" width="359" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHQ-jm-qgA">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -249,7 +253,7 @@
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0p5-uu-Owv">
-                                        <rect key="frame" x="40" y="0.0" width="504" height="40"/>
+                                        <rect key="frame" x="40" y="0.0" width="279" height="40"/>
                                         <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jsF-vJ-AB0">
                                             <size key="itemSize" width="279" height="38"/>
@@ -258,7 +262,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="LBo-Go-KZs" customClass="ExerciseStatisticCategoryCollectionViewCell" customModule="Push" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="categoryCell" id="LBo-Go-KZs" customClass="ExerciseStatisticCategoryCollectionViewCell" customModule="NoRest" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="1" width="279" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -266,7 +270,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RER-Kh-bLQ">
-                                                            <rect key="frame" x="24" y="7" width="231" height="24"/>
+                                                            <rect key="frame" x="16" y="6.5" width="263" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                             <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -287,7 +291,7 @@
                                         </cells>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wir-Cd-f4P">
-                                        <rect key="frame" x="544" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="319" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Wir-Cd-f4P" secondAttribute="height" multiplier="1:1" id="aZw-6e-G38"/>
                                             <constraint firstAttribute="width" constant="40" id="rS4-pf-REj"/>
@@ -307,7 +311,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zT-9d-sdd">
-                                <rect key="frame" x="8" y="92" width="584" height="40"/>
+                                <rect key="frame" x="8" y="136" width="359" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVU-9R-poC">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -322,7 +326,7 @@
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DE8-tf-GgP">
-                                        <rect key="frame" x="40" y="0.0" width="504" height="40"/>
+                                        <rect key="frame" x="40" y="0.0" width="279" height="40"/>
                                         <color key="backgroundColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="geb-tI-lKq">
                                             <size key="itemSize" width="279" height="38"/>
@@ -331,7 +335,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="exerciseStatisticCell" id="rge-wU-hMZ" customClass="ExerciseStatisticExerciseCollectionViewCell" customModule="Push" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="exerciseStatisticCell" id="rge-wU-hMZ" customClass="ExerciseStatisticExerciseCollectionViewCell" customModule="NoRest" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="1" width="279" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -339,7 +343,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cVC-9n-goU">
-                                                            <rect key="frame" x="24" y="7" width="231" height="24"/>
+                                                            <rect key="frame" x="16" y="6.5" width="263" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                             <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -360,7 +364,7 @@
                                         </cells>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUj-7m-weL">
-                                        <rect key="frame" x="544" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="319" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LUj-7m-weL" secondAttribute="height" multiplier="1:1" id="7Pj-QV-64W"/>
                                             <constraint firstAttribute="width" constant="40" id="GsJ-wG-U1p"/>
@@ -380,22 +384,22 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="13Y-ZK-SgV">
-                                <rect key="frame" x="8" y="164" width="584" height="336"/>
+                                <rect key="frame" x="8" y="208" width="359" height="332"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lRT-fI-f0X">
-                                        <rect key="frame" x="8" y="0.0" width="568" height="60"/>
+                                        <rect key="frame" x="8" y="0.0" width="343" height="59"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8oi-yg-wiu">
-                                                <rect key="frame" x="0.0" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Sets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufB-6f-Tnx">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hg4-9E-LB9">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -409,16 +413,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fFV-es-imx">
-                                                <rect key="frame" x="284" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max. Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW6-l3-eL2">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="44E-Nv-Qsg">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -434,19 +438,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dX6-c0-cER">
-                                        <rect key="frame" x="8" y="92" width="568" height="60"/>
+                                        <rect key="frame" x="8" y="91" width="343" height="59"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j6C-BQ-gcP">
-                                                <rect key="frame" x="0.0" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4T-nz-BHL">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tCN-hk-PwS">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -460,16 +464,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LcQ-tE-1bA">
-                                                <rect key="frame" x="284" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avg. Volume Per Set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7l-3W-QZG">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rRS-30-REP">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -485,19 +489,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YTw-2J-nhg">
-                                        <rect key="frame" x="8" y="184" width="568" height="60"/>
+                                        <rect key="frame" x="8" y="182" width="343" height="59"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dDR-9P-DQb">
-                                                <rect key="frame" x="0.0" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8p-kg-syd">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MAc-Gj-YNJ">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -511,16 +515,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eBT-nO-9GL">
-                                                <rect key="frame" x="284" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avg. Reps Per Set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQA-F2-yNt">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6kG-u3-L7n">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -536,16 +540,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q7h-xZ-cdH">
-                                        <rect key="frame" x="238" y="276" width="108" height="60"/>
+                                        <rect key="frame" x="123.5" y="273" width="112.5" height="59"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZz-xf-f8m">
-                                                <rect key="frame" x="8" y="0.0" width="92" height="30"/>
+                                                <rect key="frame" x="8" y="0.0" width="96.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8Qo-qL-ZK9">
-                                                <rect key="frame" x="8" y="30" width="92" height="30"/>
+                                                <rect key="frame" x="8" y="29.5" width="96.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                 <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -610,25 +614,25 @@
         <!--muscleVC-->
         <scene sceneID="49u-5o-8lM">
             <objects>
-                <viewController restorationIdentifier="muscleVC" storyboardIdentifier="muscleVC" title="muscleVC" id="4yO-3O-0ka" userLabel="muscleVC" customClass="MuscleStatisticViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="muscleVC" storyboardIdentifier="muscleVC" title="muscleVC" id="4yO-3O-0ka" userLabel="muscleVC" customClass="MuscleStatisticViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XTI-4i-ztO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZYg-g2-mUa">
-                                <rect key="frame" x="8" y="36" width="584" height="60"/>
+                                <rect key="frame" x="8" y="80" width="359" height="59"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eje-QD-l8t">
-                                        <rect key="frame" x="0.0" y="0.0" width="195" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="59"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max. Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOx-Xx-YZv">
-                                                <rect key="frame" x="8" y="0.0" width="179" height="30"/>
+                                                <rect key="frame" x="8" y="0.0" width="103.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100KG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agg-is-V20">
-                                                <rect key="frame" x="8" y="30" width="179" height="30"/>
+                                                <rect key="frame" x="8" y="29.5" width="103.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -642,16 +646,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zsg-yJ-sV8">
-                                        <rect key="frame" x="195" y="0.0" width="194" height="60"/>
+                                        <rect key="frame" x="119.5" y="0.0" width="120" height="59"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTz-Db-beD">
-                                                <rect key="frame" x="8" y="0.0" width="178" height="30"/>
+                                                <rect key="frame" x="8" y="0.0" width="104" height="29.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500KG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="YU0-Yd-1dr">
-                                                <rect key="frame" x="8" y="30" width="178" height="30"/>
+                                                <rect key="frame" x="8" y="29.5" width="104" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -665,16 +669,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WiZ-Lh-idf">
-                                        <rect key="frame" x="389" y="0.0" width="195" height="60"/>
+                                        <rect key="frame" x="239.5" y="0.0" width="119.5" height="59"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8E-5h-Xbg">
-                                                <rect key="frame" x="8" y="0.0" width="179" height="30"/>
+                                                <rect key="frame" x="8" y="0.0" width="103.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1MW-sH-4EA">
-                                                <rect key="frame" x="8" y="30" width="179" height="30"/>
+                                                <rect key="frame" x="8" y="29.5" width="103.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -690,7 +694,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taF-du-2Nm">
-                                <rect key="frame" x="8" y="128" width="584" height="40"/>
+                                <rect key="frame" x="8" y="171" width="359" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgo-cj-GzH">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -704,7 +708,7 @@
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UIB-1v-dYe">
-                                        <rect key="frame" x="40" y="0.0" width="504" height="40"/>
+                                        <rect key="frame" x="40" y="0.0" width="279" height="40"/>
                                         <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jfz-TI-VnM">
                                             <size key="itemSize" width="279" height="38"/>
@@ -713,7 +717,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="muscleCell" id="0KK-6L-ORr" customClass="MuscleStatisticCollectionViewCell" customModule="Push" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="muscleCell" id="0KK-6L-ORr" customClass="MuscleStatisticCollectionViewCell" customModule="NoRest" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="1" width="279" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -721,7 +725,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Muscle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7V-3z-ugh">
-                                                            <rect key="frame" x="24" y="7" width="231" height="24"/>
+                                                            <rect key="frame" x="16" y="6.5" width="263" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -742,7 +746,7 @@
                                         </cells>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bii-PW-J5z">
-                                        <rect key="frame" x="544" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="319" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="V8U-ku-Sws"/>
                                             <constraint firstAttribute="width" secondItem="Bii-PW-J5z" secondAttribute="height" multiplier="1:1" id="WzG-i9-bkZ"/>
@@ -761,22 +765,22 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="XEa-G0-wLz">
-                                <rect key="frame" x="8" y="200" width="584" height="276"/>
+                                <rect key="frame" x="8" y="243" width="359" height="273"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yGH-lg-7wL">
-                                        <rect key="frame" x="8" y="0.0" width="568" height="60"/>
+                                        <rect key="frame" x="8" y="0.0" width="343" height="59"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q4f-ip-JyN">
-                                                <rect key="frame" x="0.0" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Sets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnk-kv-Fq0">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LKe-Fb-8hS">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -790,16 +794,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="riD-KH-oT7">
-                                                <rect key="frame" x="284" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% of Workouts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8b2-4M-Vuj">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FGR-lS-UCJ">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -815,19 +819,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wPN-WS-SSH">
-                                        <rect key="frame" x="8" y="108" width="568" height="60"/>
+                                        <rect key="frame" x="8" y="107" width="343" height="59"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hJe-zT-1s1">
-                                                <rect key="frame" x="0.0" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzj-oo-OYy">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OOQ-KE-Nys">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -841,16 +845,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lVL-EB-av6">
-                                                <rect key="frame" x="284" y="0.0" width="284" height="60"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oo8-Dv-Abz">
-                                                        <rect key="frame" x="8" y="0.0" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="0.0" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kZn-14-Eve">
-                                                        <rect key="frame" x="8" y="30" width="268" height="30"/>
+                                                        <rect key="frame" x="8" y="29.5" width="155.5" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                         <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -866,16 +870,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lNb-jU-kA4">
-                                        <rect key="frame" x="238" y="216" width="108" height="60"/>
+                                        <rect key="frame" x="123.5" y="214" width="112.5" height="59"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFG-pE-VMk">
-                                                <rect key="frame" x="8" y="0.0" width="92" height="30"/>
+                                                <rect key="frame" x="8" y="0.0" width="96.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vLt-Ht-vNW">
-                                                <rect key="frame" x="8" y="30" width="92" height="30"/>
+                                                <rect key="frame" x="8" y="29.5" width="96.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
                                                 <color key="textColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -945,29 +949,29 @@
         <!--myWorkoutTVC-->
         <scene sceneID="AR8-ij-abd">
             <objects>
-                <tableViewController restorationIdentifier="myWorkoutTVC" storyboardIdentifier="myWorkoutTVC" title="myWorkoutTVC" id="90o-Bk-FkZ" userLabel="myWorkoutTVC" customClass="MyWorkoutTableViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="myWorkoutTVC" storyboardIdentifier="myWorkoutTVC" title="myWorkoutTVC" id="90o-Bk-FkZ" userLabel="myWorkoutTVC" customClass="MyWorkoutTableViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Che-bg-Mn6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="myWorkoutCell" id="JjG-Wn-lgV" customClass="MyWorkoutTableViewCell" customModule="Push" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="myWorkoutCell" id="JjG-Wn-lgV" customClass="MyWorkoutTableViewCell" customModule="NoRest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JjG-Wn-lgV" id="evC-ZJ-OsT">
-                                    <rect key="frame" x="0.0" y="0.0" width="562" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NoRest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UE2-n5-VP1">
-                                            <rect key="frame" x="28" y="22" width="331" height="30"/>
+                                            <rect key="frame" x="24" y="21.5" width="187.5" height="32"/>
                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X3-aO-mdT">
-                                            <rect key="frame" x="367" y="9" width="187" height="56"/>
+                                            <rect key="frame" x="219.5" y="9.5" width="113.5" height="55.5"/>
                                             <color key="backgroundColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                             <state key="normal" title="Start">
@@ -1026,26 +1030,26 @@
         <!--editMyWorkoutVC-->
         <scene sceneID="2Zu-eZ-e4d">
             <objects>
-                <viewController restorationIdentifier="editMyWorkoutVC" storyboardIdentifier="editMyWorkoutVC" title="editMyWorkoutVC" id="706-fd-MGP" userLabel="editMyWorkoutVC" customClass="EditMyWorkoutViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="editMyWorkoutVC" storyboardIdentifier="editMyWorkoutVC" title="editMyWorkoutVC" id="706-fd-MGP" userLabel="editMyWorkoutVC" customClass="EditMyWorkoutViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9dN-wx-Bxj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oic-sU-DjB">
-                                <rect key="frame" x="0.0" y="124" width="600" height="476"/>
+                                <rect key="frame" x="0.0" y="168" width="375" height="499"/>
                                 <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myWorkoutExercisesCell" id="XAc-Rx-HbL" customClass="MyWorkoutExercisesTableViewCell" customModule="Push" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myWorkoutExercisesCell" id="XAc-Rx-HbL" customClass="MyWorkoutExercisesTableViewCell" customModule="NoRest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XAc-Rx-HbL" id="xrZ-Ld-bB6">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ExerciseName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7O-tl-0AZ">
-                                                    <rect key="frame" x="28" y="13" width="544" height="17"/>
+                                                    <rect key="frame" x="23" y="13" width="554" height="18"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="14"/>
                                                     <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1065,19 +1069,19 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykA-6b-rpC">
-                                <rect key="frame" x="16" y="36" width="568" height="15"/>
+                                <rect key="frame" x="16" y="80" width="343" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Er1-bD-5Ti">
-                                <rect key="frame" x="16" y="55" width="568" height="30"/>
+                                <rect key="frame" x="16" y="99" width="343" height="30"/>
                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Exercises" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcc-sA-NwG">
-                                <rect key="frame" x="16" y="101" width="568" height="15"/>
+                                <rect key="frame" x="16" y="145" width="343" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1121,23 +1125,23 @@
         <!--rearrangingTVC-->
         <scene sceneID="lQd-Xb-Pd2">
             <objects>
-                <tableViewController restorationIdentifier="rearrangingTVC" storyboardIdentifier="rearrangingTVC" title="rearrangingTVC" id="2ev-bD-LNF" userLabel="rearrangingTVC" customClass="MyWorkoutRearrangingTableViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="rearrangingTVC" storyboardIdentifier="rearrangingTVC" title="rearrangingTVC" id="2ev-bD-LNF" userLabel="rearrangingTVC" customClass="MyWorkoutRearrangingTableViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cuL-Wr-ibd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rearrangingCell" id="VDF-Nx-uKB" customClass="RearrangingTableViewCell" customModule="Push" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rearrangingCell" id="VDF-Nx-uKB" customClass="RearrangingTableViewCell" customModule="NoRest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VDF-Nx-uKB" id="gPy-y4-8ix">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ka-OA-VZJ">
-                                            <rect key="frame" x="28" y="13" width="544" height="18"/>
+                                            <rect key="frame" x="24" y="13" width="327" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="noo-By-klo"/>
                                             </constraints>
@@ -1178,16 +1182,16 @@
         <!--menuVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="menuVC" storyboardIdentifier="menuVC" title="menuVC" id="BYZ-38-t0r" userLabel="menuVC" customClass="MenuViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="menuVC" storyboardIdentifier="menuVC" title="menuVC" id="BYZ-38-t0r" userLabel="menuVC" customClass="MenuViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zd9-RG-Qm2">
-                                <rect key="frame" x="0.0" y="20" width="600" height="290"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-Yp-Mit">
-                                        <rect key="frame" x="200" y="45" width="200" height="200"/>
+                                        <rect key="frame" x="125" y="88.5" width="125" height="125"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dVR-Yp-Mit" secondAttribute="height" multiplier="1:1" id="erF-6h-AD4"/>
                                         </constraints>
@@ -1201,13 +1205,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOD-1V-OXz">
-                                <rect key="frame" x="0.0" y="310" width="600" height="290"/>
+                                <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ah9-eg-a5O">
-                                        <rect key="frame" x="16" y="4" width="568" height="270"/>
+                                        <rect key="frame" x="16" y="4" width="343" height="281.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lx4-9j-CgO">
-                                                <rect key="frame" x="0.0" y="0.0" width="568" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                                 <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                                 <state key="normal" title="My Workout">
@@ -1218,7 +1222,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grg-sM-UV4">
-                                                <rect key="frame" x="0.0" y="57" width="568" height="41"/>
+                                                <rect key="frame" x="0.0" y="59.5" width="343" height="43.5"/>
                                                 <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                                 <state key="normal" title="Exercises">
@@ -1229,7 +1233,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ijo-Aa-4ut">
-                                                <rect key="frame" x="0.0" y="114" width="568" height="42"/>
+                                                <rect key="frame" x="0.0" y="119" width="343" height="43.5"/>
                                                 <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                                 <state key="normal" title="Statistics">
@@ -1240,7 +1244,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ynk-Xx-kXF">
-                                                <rect key="frame" x="0.0" y="172" width="568" height="41"/>
+                                                <rect key="frame" x="0.0" y="178.5" width="343" height="43.5"/>
                                                 <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                                 <state key="normal" title="Settings">
@@ -1251,7 +1255,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfQ-Z4-hhT">
-                                                <rect key="frame" x="0.0" y="229" width="568" height="41"/>
+                                                <rect key="frame" x="0.0" y="238" width="343" height="43.5"/>
                                                 <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                                 <state key="normal" title="About">
@@ -1316,16 +1320,16 @@
         <!--currentVC-->
         <scene sceneID="xls-Bn-5b8">
             <objects>
-                <viewController restorationIdentifier="currentVC" storyboardIdentifier="currentVC" title="currentVC" id="zci-yK-TkT" userLabel="currentVC" customClass="CurrentWorkoutViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="currentVC" storyboardIdentifier="currentVC" title="currentVC" id="zci-yK-TkT" userLabel="currentVC" customClass="CurrentWorkoutViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="knw-f4-AK8">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uAT-CF-oHx">
-                                <rect key="frame" x="8" y="555" width="584" height="37"/>
+                                <rect key="frame" x="8" y="622" width="359" height="37"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="044-xK-dh2">
-                                        <rect key="frame" x="0.0" y="3" width="126" height="32"/>
+                                        <rect key="frame" x="0.0" y="1.5" width="81" height="34"/>
                                         <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="17"/>
                                         <state key="normal" title="Prev">
@@ -1336,12 +1340,12 @@
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-Cj-sF5">
-                                        <rect key="frame" x="134" y="0.0" width="316" height="37"/>
+                                        <rect key="frame" x="89" y="0.0" width="181" height="37"/>
                                         <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="currentPageIndicatorTintColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </pageControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jmi-X2-fCI">
-                                        <rect key="frame" x="458" y="3" width="126" height="32"/>
+                                        <rect key="frame" x="278" y="1.5" width="81" height="34"/>
                                         <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="17"/>
                                         <state key="normal" title="Next">
@@ -1358,7 +1362,7 @@
                                 </constraints>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kum-dp-OrA">
-                                <rect key="frame" x="0.0" y="20" width="600" height="527"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="550"/>
                                 <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qVw-6i-2Jj">
                                     <size key="itemSize" width="375" height="3"/>
@@ -1367,7 +1371,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="currentWorkoutCell" id="jj9-Ef-Tvd" customClass="CurrentWorkoutCollectionViewCell" customModule="Push" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="currentWorkoutCell" id="jj9-Ef-Tvd" customClass="CurrentWorkoutCollectionViewCell" customModule="NoRest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="550"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1375,10 +1379,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-9i-kze">
-                                                    <rect key="frame" x="24" y="36" width="327" height="32"/>
+                                                    <rect key="frame" x="16" y="44" width="343" height="32"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEH-Va-Lax">
-                                                            <rect key="frame" x="0.0" y="0.0" width="156" height="32"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="32"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
                                                             <state key="normal" title="Notes">
                                                                 <color key="titleColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1388,7 +1392,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBc-Sk-jQ6">
-                                                            <rect key="frame" x="172" y="0.0" width="155" height="32"/>
+                                                            <rect key="frame" x="179.5" y="0.0" width="163.5" height="32"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
                                                             <state key="normal" title="Explanation">
                                                                 <color key="titleColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1400,7 +1404,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bh7-ht-cKB">
-                                                    <rect key="frame" x="96" y="244" width="183" height="36"/>
+                                                    <rect key="frame" x="88" y="252" width="199" height="38"/>
                                                     <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                     <state key="normal" title="Add">
@@ -1411,16 +1415,16 @@
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fqm-Fl-pd7">
-                                                    <rect key="frame" x="24" y="84" width="327" height="60"/>
+                                                    <rect key="frame" x="16" y="92" width="343" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0W-0M-ybb">
-                                                            <rect key="frame" x="149" y="0.0" width="29" height="30"/>
+                                                            <rect key="frame" x="157.5" y="0.0" width="28.5" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lmG-aL-sin">
-                                                            <rect key="frame" x="64" y="30" width="199" height="30"/>
+                                                            <rect key="frame" x="64" y="30" width="215" height="30"/>
                                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -1432,16 +1436,16 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AyM-MN-OC2">
-                                                    <rect key="frame" x="24" y="160" width="327" height="60"/>
+                                                    <rect key="frame" x="16" y="168" width="343" height="60"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrz-3A-SQ5">
-                                                            <rect key="frame" x="144" y="0.0" width="40" height="30"/>
+                                                            <rect key="frame" x="151.5" y="0.0" width="40" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hwc-0D-EXO">
-                                                            <rect key="frame" x="64" y="30" width="199" height="30"/>
+                                                            <rect key="frame" x="64" y="30" width="215" height="30"/>
                                                             <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -1453,29 +1457,29 @@
                                                     </constraints>
                                                 </stackView>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SUu-q5-StU">
-                                                    <rect key="frame" x="0.0" y="344" width="375" height="206"/>
+                                                    <rect key="frame" x="0.0" y="354" width="375" height="196"/>
                                                     <color key="backgroundColor" red="0.96460121870040894" green="0.96476620435714722" blue="0.96459084749221802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="separatorColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <inset key="separatorInset" minX="15" minY="0.0" maxX="12" maxY="0.0"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="currentInputCell" id="3ih-Wr-oxC" customClass="InputTableViewCell" customModule="Push" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="currentInputCell" id="3ih-Wr-oxC" customClass="InputTableViewCell" customModule="NoRest" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3ih-Wr-oxC" id="fah-Wj-ucZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="341" height="43"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="J3V-Z4-fTT">
-                                                                        <rect key="frame" x="24" y="12" width="301" height="20"/>
+                                                                        <rect key="frame" x="23" y="11" width="303" height="22"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKP-Y9-pva">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="151" height="20"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="151.5" height="22"/>
                                                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="17"/>
                                                                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaC-w9-otv">
-                                                                                <rect key="frame" x="151" y="0.0" width="150" height="20"/>
+                                                                                <rect key="frame" x="151.5" y="0.0" width="151.5" height="22"/>
                                                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="17"/>
                                                                                 <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1528,7 +1532,7 @@
                                             <outlet property="weightTextField" destination="Hwc-0D-EXO" id="oOq-63-mhr"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="currentWorkoutCardioCell" id="H8S-bu-bVh" customClass="CurrentWorkoutCardioCollectionViewCell" customModule="Push" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="currentWorkoutCardioCell" id="H8S-bu-bVh" customClass="CurrentWorkoutCardioCollectionViewCell" customModule="NoRest" customModuleProvider="target">
                                         <rect key="frame" x="385" y="271.5" width="375" height="7"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1536,19 +1540,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvc-LT-HzJ">
-                                                    <rect key="frame" x="32" y="-152" width="311" height="311"/>
+                                                    <rect key="frame" x="24" y="-160" width="327" height="327"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="timerTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="120" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5jp-Jx-KFe" userLabel="timerTextField">
-                                                            <rect key="frame" x="78" y="32" width="155" height="104"/>
+                                                            <rect key="frame" x="82" y="32" width="163.5" height="109"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="70"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         </textField>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="yGV-rk-Soy">
-                                                            <rect key="frame" x="32" y="172" width="247" height="107"/>
+                                                            <rect key="frame" x="32" y="179.5" width="263" height="115.5"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8F-4O-89J">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="108" height="107"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="115.5" height="115.5"/>
                                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="h8F-4O-89J" secondAttribute="height" multiplier="1:1" id="VI3-pa-VAI"/>
@@ -1562,7 +1566,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnd-Js-acJ">
-                                                                    <rect key="frame" x="140" y="0.0" width="107" height="107"/>
+                                                                    <rect key="frame" x="147.5" y="0.0" width="115.5" height="115.5"/>
                                                                     <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="tnd-Js-acJ" secondAttribute="height" multiplier="1:1" id="fE4-Yb-6C6"/>
@@ -1591,10 +1595,10 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9FI-rT-t69">
-                                                    <rect key="frame" x="32" y="36" width="311" height="32"/>
+                                                    <rect key="frame" x="24" y="44" width="327" height="32"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RyR-g2-Wcm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="148" height="32"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="155.5" height="32"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
                                                             <state key="normal" title="Notes">
                                                                 <color key="titleColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1604,7 +1608,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goL-kz-jCV">
-                                                            <rect key="frame" x="164" y="0.0" width="147" height="32"/>
+                                                            <rect key="frame" x="171.5" y="0.0" width="155.5" height="32"/>
                                                             <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="17"/>
                                                             <state key="normal" title="Explanation">
                                                                 <color key="titleColor" red="0.12342888859999999" green="0.52588337659999995" blue="0.97443777320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1673,13 +1677,13 @@
         <!--Notes Explanation View Controller-->
         <scene sceneID="fMp-Qm-gw9">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="ea6-X4-pQY" customClass="NotesExplanationViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="ea6-X4-pQY" customClass="NotesExplanationViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g9D-dP-NJb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZe-7H-46y">
-                                <rect key="frame" x="16" y="16" width="568" height="568"/>
+                                <rect key="frame" x="16" y="162" width="343" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jZe-7H-46y" secondAttribute="height" multiplier="1:1" id="0Oh-k7-l9x"/>
@@ -1689,7 +1693,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaN-Hc-meW">
-                                <rect key="frame" x="270" y="600" width="60" height="32"/>
+                                <rect key="frame" x="157.5" y="521" width="60" height="34"/>
                                 <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Pn6-lD-jll"/>
@@ -1725,17 +1729,17 @@
         <!--aboutVC-->
         <scene sceneID="ihX-a8-uIR">
             <objects>
-                <viewController restorationIdentifier="aboutVC" storyboardIdentifier="aboutVC" title="aboutVC" id="2gr-Hv-Pky" userLabel="aboutVC" customClass="AboutViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="aboutVC" storyboardIdentifier="aboutVC" title="aboutVC" id="2gr-Hv-Pky" userLabel="aboutVC" customClass="AboutViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0KD-Kz-1FV"/>
                         <viewControllerLayoutGuide type="bottom" id="ISZ-cx-9tx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mrz-aw-bWc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="titleLabel" text="No Rest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgQ-Nf-WQt" userLabel="titleLabel">
-                                <rect key="frame" x="257" y="64" width="86" height="30"/>
+                                <rect key="frame" x="144.5" y="128" width="86" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6KV-ua-w0T"/>
                                 </constraints>
@@ -1744,7 +1748,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="versionLabel" text="Version 1.0.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APK-GC-bN4" userLabel="versionLabel">
-                                <rect key="frame" x="253" y="102" width="95" height="21"/>
+                                <rect key="frame" x="140" y="166" width="95" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4tE-ma-jSp"/>
                                 </constraints>
@@ -1753,7 +1757,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="developerLabel" text="© Patrick Niepel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmN-gd-SAm" userLabel="developerLabel">
-                                <rect key="frame" x="239" y="267" width="123" height="21"/>
+                                <rect key="frame" x="126" y="331" width="123" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="nMk-De-ZCh"/>
                                 </constraints>
@@ -1762,7 +1766,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="messageLabel" text="Send a message to patrickniepel@web.de" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="yDC-e8-TzI" userLabel="messageLabel">
-                                <rect key="frame" x="142" y="533" width="317" height="21"/>
+                                <rect key="frame" x="29" y="600" width="317" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="pMK-Lr-DGh"/>
                                 </constraints>
@@ -1771,7 +1775,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="rightsLabel" text="All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1e-Jj-Fvj" userLabel="rightsLabel">
-                                <rect key="frame" x="230" y="296" width="141" height="20"/>
+                                <rect key="frame" x="117" y="360" width="141" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="9Iw-W8-c9H"/>
                                 </constraints>
@@ -1780,14 +1784,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="logo" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="uDv-P6-9UO" userLabel="logo">
-                                <rect key="frame" x="236" y="131" width="128" height="128"/>
+                                <rect key="frame" x="123.5" y="195" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Uko-ZX-eGP"/>
                                     <constraint firstAttribute="width" constant="128" id="lIV-mo-jUv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="suggestionsLabel" text="Contact Me:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucF-aF-dhI" userLabel="suggestionsLabel">
-                                <rect key="frame" x="254" y="504" width="93" height="21"/>
+                                <rect key="frame" x="141" y="571" width="93" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="VB2-TO-hWg"/>
                                 </constraints>
@@ -1796,7 +1800,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyQ-jP-hLL">
-                                <rect key="frame" x="235" y="366" width="130" height="32"/>
+                                <rect key="frame" x="122.5" y="430" width="130" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="LuR-UN-9vj"/>
                                 </constraints>
@@ -1847,9 +1851,9 @@
         <!--settingsVC-->
         <scene sceneID="FxU-be-AWm">
             <objects>
-                <tableViewController restorationIdentifier="settingsVC" storyboardIdentifier="settingsVC" title="setttingsVC" id="Uq2-O6-4T9" userLabel="settingsVC" customClass="SettingsTableViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="settingsVC" storyboardIdentifier="settingsVC" title="setttingsVC" id="Uq2-O6-4T9" userLabel="settingsVC" customClass="SettingsTableViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="1BL-M6-ZQ2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -1858,14 +1862,14 @@
                             <tableViewSection headerTitle="Unit" id="boy-9R-A7Z">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="7Ba-uK-2as">
-                                        <rect key="frame" x="0.0" y="55.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Ba-uK-2as" id="qw3-Ek-Fr2">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6jr-iZ-OsX">
-                                                    <rect key="frame" x="8" y="8" width="584" height="28"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="29"/>
                                                     <segments>
                                                         <segment title="KG"/>
                                                         <segment title="LBS"/>
@@ -1888,14 +1892,14 @@
                             <tableViewSection headerTitle="Timer Sound" id="Jqc-QX-ydE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="K3j-DK-0Lr">
-                                        <rect key="frame" x="0.0" y="155.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K3j-DK-0Lr" id="M4w-eh-PU3">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GqD-Uj-xi6">
-                                                    <rect key="frame" x="535" y="6" width="49" height="31"/>
+                                                    <rect key="frame" x="310" y="6.5" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="switchSound:" destination="Uq2-O6-4T9" eventType="valueChanged" id="JH1-zt-6uU"/>
@@ -1913,14 +1917,14 @@
                             <tableViewSection headerTitle="Statistics" id="iOg-D5-FNK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="HVl-UP-NSg">
-                                        <rect key="frame" x="0.0" y="255.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="255.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HVl-UP-NSg" id="hFe-G3-8gn">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZY-Q0-mAm">
-                                                    <rect key="frame" x="64" y="7" width="472" height="30"/>
+                                                    <rect key="frame" x="64" y="6.5" width="247" height="31"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="15"/>
                                                     <state key="normal" title="Reset">
@@ -1944,14 +1948,14 @@
                             <tableViewSection headerTitle="Workout History" id="A6T-Ls-Y54">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pFF-kk-5Wa">
-                                        <rect key="frame" x="0.0" y="355.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="355.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pFF-kk-5Wa" id="iK5-t5-dlS">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zug-e2-pT9">
-                                                    <rect key="frame" x="64" y="7" width="472" height="30"/>
+                                                    <rect key="frame" x="64" y="6.5" width="247" height="31"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="15"/>
                                                     <state key="normal" title="Reset">
@@ -1975,14 +1979,14 @@
                             <tableViewSection headerTitle="Reset Sets" id="BBV-ga-Xfv">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lNm-mU-PgQ">
-                                        <rect key="frame" x="0.0" y="455.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="455.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lNm-mU-PgQ" id="6VC-wf-Hag">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhI-A4-8wu">
-                                                    <rect key="frame" x="64" y="7" width="472" height="30"/>
+                                                    <rect key="frame" x="64" y="6.5" width="247" height="31"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="15"/>
                                                     <state key="normal" title="Reset">
@@ -2025,16 +2029,16 @@
         <!--categoryVC-->
         <scene sceneID="Kje-1K-9bv">
             <objects>
-                <viewController restorationIdentifier="categoryVC" storyboardIdentifier="categoryVC" title="categoryVC" id="FCO-2m-ZxH" userLabel="categoryVC" customClass="CategoryViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="categoryVC" storyboardIdentifier="categoryVC" title="categoryVC" id="FCO-2m-ZxH" userLabel="categoryVC" customClass="CategoryViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QDw-MV-S5x">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="u6G-pY-puJ">
-                                <rect key="frame" x="16" y="52" width="568" height="450"/>
+                                <rect key="frame" x="16" y="96" width="343" height="482"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbq-xd-eJm">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="39"/>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                         <state key="normal" title="Chest">
@@ -2045,7 +2049,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bff-JY-SAj">
-                                        <rect key="frame" x="0.0" y="59" width="568" height="36"/>
+                                        <rect key="frame" x="0.0" y="63" width="343" height="39.5"/>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                         <state key="normal" title="Back">
@@ -2056,7 +2060,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrX-XF-e9i">
-                                        <rect key="frame" x="0.0" y="119" width="568" height="35"/>
+                                        <rect key="frame" x="0.0" y="126.5" width="343" height="39"/>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                         <state key="normal" title="Shoulders">
@@ -2067,7 +2071,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jho-Rc-Nch">
-                                        <rect key="frame" x="0.0" y="178" width="568" height="35"/>
+                                        <rect key="frame" x="0.0" y="189.5" width="343" height="39.5"/>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                         <state key="normal" title="Triceps">
@@ -2078,7 +2082,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVE-pC-U7T">
-                                        <rect key="frame" x="0.0" y="237" width="568" height="35"/>
+                                        <rect key="frame" x="0.0" y="253" width="343" height="39"/>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                         <state key="normal" title="Biceps">
@@ -2089,7 +2093,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJ3-3X-lkW">
-                                        <rect key="frame" x="0.0" y="296" width="568" height="36"/>
+                                        <rect key="frame" x="0.0" y="316" width="343" height="39.5"/>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                         <state key="normal" title="Legs">
@@ -2100,7 +2104,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tz-yf-uYb">
-                                        <rect key="frame" x="0.0" y="356" width="568" height="35"/>
+                                        <rect key="frame" x="0.0" y="379.5" width="343" height="39"/>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                         <state key="normal" title="Abs">
@@ -2111,7 +2115,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fK3-NF-D2d">
-                                        <rect key="frame" x="0.0" y="415" width="568" height="35"/>
+                                        <rect key="frame" x="0.0" y="442.5" width="343" height="39.5"/>
                                         <color key="backgroundColor" red="0.1215686275" green="0.52549019610000003" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="25"/>
                                         <state key="normal" title="Cardio">
@@ -2178,23 +2182,23 @@
         <!--exercisesTVC-->
         <scene sceneID="jux-B7-ErS">
             <objects>
-                <tableViewController restorationIdentifier="exercisesTVC" storyboardIdentifier="exercisesTVC" title="exercisesTVC" id="XOw-Cy-lQJ" userLabel="exercisesTVC" customClass="ExercisesTableViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="exercisesTVC" storyboardIdentifier="exercisesTVC" title="exercisesTVC" id="XOw-Cy-lQJ" userLabel="exercisesTVC" customClass="ExercisesTableViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fYT-de-L8P">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="exercisesCell" id="VJH-a6-t4H" customClass="ExercisesTableViewCell" customModule="Push" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="exercisesCell" id="VJH-a6-t4H" customClass="ExercisesTableViewCell" customModule="NoRest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VJH-a6-t4H" id="Mr8-BM-DGv">
-                                    <rect key="frame" x="0.0" y="0.0" width="562" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ExerciseName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lx-Wa-yHA">
-                                            <rect key="frame" x="28" y="35" width="518" height="16"/>
+                                            <rect key="frame" x="24" y="15" width="301" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="63E-tS-vqB"/>
                                             </constraints>
@@ -2203,7 +2207,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RestTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JP4-py-mgN">
-                                            <rect key="frame" x="28" y="52" width="518" height="14"/>
+                                            <rect key="frame" x="24" y="32" width="301" height="14"/>
                                             <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="12"/>
                                             <color key="textColor" red="0.12156862745098039" green="0.52549019607843139" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2225,14 +2229,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="exercisesCardioCell" id="h4Q-Lo-9z9" customClass="ExercisesCardioTableViewCell" customModule="Push">
-                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h4Q-Lo-9z9" id="Tbc-Gt-T7c">
-                                    <rect key="frame" x="0.0" y="0.0" width="562" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ExerciseName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5K-f7-BAy">
-                                            <rect key="frame" x="28" y="35" width="518" height="16"/>
+                                            <rect key="frame" x="24" y="15" width="301" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="Cgz-cn-jzd"/>
                                             </constraints>
@@ -2241,7 +2245,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGJ-RC-c0r">
-                                            <rect key="frame" x="28" y="52" width="518" height="14"/>
+                                            <rect key="frame" x="24" y="32" width="301" height="14"/>
                                             <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="12"/>
                                             <color key="textColor" red="0.1215686275" green="0.52549019610000003" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2286,9 +2290,9 @@
         <!--editExerciseTVC-->
         <scene sceneID="6uq-9e-m27">
             <objects>
-                <tableViewController restorationIdentifier="editExerciseTVC" storyboardIdentifier="editExerciseTVC" title="editExerciseTVC" id="bCK-E7-r8h" userLabel="editExerciseTVC" customClass="EditExerciseTableViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="editExerciseTVC" storyboardIdentifier="editExerciseTVC" title="editExerciseTVC" id="bCK-E7-r8h" userLabel="editExerciseTVC" customClass="EditExerciseTableViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="O5U-mZ-WwP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2296,14 +2300,14 @@
                             <tableViewSection headerTitle="Name" id="AAf-DX-2y0">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FiV-rw-Aki">
-                                        <rect key="frame" x="0.0" y="55.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FiV-rw-Aki" id="VWG-qz-geh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-lN-7dk">
-                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <rect key="frame" x="8" y="7" width="359" height="30"/>
                                                     <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" textContentType="name"/>
@@ -2321,14 +2325,14 @@
                             <tableViewSection headerTitle="Rest Time / Duration (Cardio)" id="7hq-vB-upw">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YPa-EJ-kqF">
-                                        <rect key="frame" x="0.0" y="155.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPa-EJ-kqF" id="h8e-PQ-hF5">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VpA-Em-ZAb">
-                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <rect key="frame" x="8" y="7" width="359" height="30"/>
                                                     <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -2346,14 +2350,14 @@
                             <tableViewSection headerTitle="Notes" id="wPX-de-Q1I">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="QCo-A3-7uI">
-                                        <rect key="frame" x="0.0" y="255.5" width="600" height="150"/>
+                                        <rect key="frame" x="0.0" y="255.5" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QCo-A3-7uI" id="zNe-L7-cCZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkC-SY-BnV">
-                                                    <rect key="frame" x="8" y="8" width="584" height="133"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="133.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="14"/>
@@ -2373,14 +2377,14 @@
                             <tableViewSection headerTitle="Explanation" id="eNQ-Kc-KVm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="QzR-vs-ziu">
-                                        <rect key="frame" x="0.0" y="461.5" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="461.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QzR-vs-ziu" id="sEL-Qy-mgh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5b-b4-bL0">
-                                                    <rect key="frame" x="8" y="8" width="584" height="183"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="183.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="14"/>
@@ -2431,11 +2435,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Sm1-Tt-owi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BMU-Jh-Cdl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKJ-Vw-UF8">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Health and fitness information disclaimer 1. Credit
 1.1 This document was created using a template from Docular (https://docular.net).
@@ -2503,29 +2507,29 @@
         <!--timerVC-->
         <scene sceneID="6Qg-qr-x2S">
             <objects>
-                <viewController restorationIdentifier="timerVC" storyboardIdentifier="timerVC" title="timerVC" modalPresentationStyle="overCurrentContext" id="tyT-Ij-SAX" userLabel="timerVC" customClass="TimerViewController" customModule="Push" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="timerVC" storyboardIdentifier="timerVC" title="timerVC" modalPresentationStyle="overCurrentContext" id="tyT-Ij-SAX" userLabel="timerVC" customClass="TimerViewController" customModule="NoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OKo-I1-c1B"/>
                         <viewControllerLayoutGuide type="bottom" id="dvJ-Yn-MTQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="w2e-uf-6bx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" restorationIdentifier="timerView" translatesAutoresizingMaskIntoConstraints="NO" id="Yhu-uD-LG2" userLabel="timerView">
-                                <rect key="frame" x="32" y="32" width="536" height="536"/>
+                                <rect key="frame" x="32" y="178" width="311" height="311"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="timerTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="120" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5mg-hc-YNe" userLabel="timerTextField">
-                                        <rect key="frame" x="134" y="32" width="268" height="179"/>
+                                        <rect key="frame" x="78" y="32" width="155.5" height="103.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="70"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="btnStack" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="DEh-bh-1s7" userLabel="btnStack">
-                                        <rect key="frame" x="32" y="284" width="472" height="220"/>
+                                        <rect key="frame" x="32" y="171.5" width="247" height="107.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btnCancel" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAu-T6-ruf" userLabel="btnCancel">
-                                                <rect key="frame" x="0.0" y="0.0" width="220" height="220"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="107.5" height="107.5"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="20"/>
                                                 <state key="normal" title="Cancel">
@@ -2536,7 +2540,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btnStart" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwj-v2-nYj" userLabel="btnStart">
-                                                <rect key="frame" x="252" y="0.0" width="220" height="220"/>
+                                                <rect key="frame" x="139.5" y="0.0" width="107.5" height="107.5"/>
                                                 <color key="backgroundColor" red="0.12342888861894608" green="0.52588337659835815" blue="0.97443777322769165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jwj-v2-nYj" secondAttribute="height" multiplier="1:1" id="66A-Fk-x60"/>

@@ -24,6 +24,12 @@ class ExercisesCategoryCollectionViewController: UICollectionViewController {
         
         collectionView.delegate = delegate
         collectionView.dataSource = dataSource
+        
+        setupScreen()
+    }
+    
+    private func setupScreen() {
+        navigationItem.title = NRConstants.ScreenTitles.categories
     }
 
     

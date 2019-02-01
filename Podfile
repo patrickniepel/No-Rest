@@ -6,4 +6,5 @@ target 'NoRest' do
   pod 'ReSwift'
   pod 'SwiftLint'
   pod 'Willow'
+  pod 'SCLAlertView'
 end

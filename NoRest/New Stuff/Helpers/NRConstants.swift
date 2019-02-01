@@ -17,6 +17,13 @@ struct NRConstants {
         static let settings = "Settings"
     }
     
+    struct ScreenTitles {
+        static let myWorkout = "My Workout"
+        static let categories = "Categories"
+        static let settings = "Settings"
+        static let licenses = "Licenses"
+    }
+    
     struct CellIdentifiers {
         static let exercisesCategoryCollectionViewCell = "exercisesCategoryCollectionViewCell"
         static let exercisesCollectionViewCell = "exercisesCollectionViewCell"
@@ -24,6 +31,10 @@ struct NRConstants {
         static let settingsTimerTableViewCell = "settingsTimerTableViewCell"
         static let settingsYourDataTableViewCell = "settingsYourDataTableViewCell"
         static let settingsDefaultTableViewCell = "settingsDefaultTableViewCell"
+    }
+    
+    struct Insets {
+        static let `default`: CGFloat = 16
     }
     
     struct Padding {
@@ -48,13 +59,16 @@ struct NRConstants {
         struct RowTitles {
             static let unit = "Unit"
             static let timer = "Timer Sound"
-            static let workoutHistory = "Delete Workout History"
-            static let statistics = "Delete Statistics"
+            static let workoutHistory = "Reset Workout History"
+            static let statistics = "Reset Statistics"
             static let licences = "Licences"
             static let rating = "Rate This App"
         }
         
-        static let deleteButton = "Delete"
+        static let deleteButton = "Reset"
+        static let cancelButton = "Cancel"
+        static let successful = "Successful"
+        static let alertMessage = "Are You Sure?"
         static let copyright = "© 2019 Patrick Niepel"
     }
 }

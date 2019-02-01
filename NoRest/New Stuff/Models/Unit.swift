@@ -11,4 +11,6 @@ import Foundation
 enum Unit: String, Codable {
     case kg = "KG"
     case lbs = "LBS"
+    
+    static let allCases: [Unit] = [.kg, .lbs]
 }

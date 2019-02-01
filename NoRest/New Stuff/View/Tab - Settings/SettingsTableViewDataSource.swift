@@ -91,9 +91,10 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
     }
 }
 
-enum DataDeletion {
+enum DataReset {
     case workoutHistory
     case statistics
+    case none
 }
 
 enum Section: Int {
