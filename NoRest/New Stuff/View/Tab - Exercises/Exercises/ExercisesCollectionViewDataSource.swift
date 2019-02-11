@@ -27,7 +27,7 @@ class ExercisesCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.exercisesCollectionViewCell, for: indexPath) as? ExercisesCollectionViewCell
         
-        if let exercise = category?.exercises[indexPath.row] {
+        if let exercise = category?.exercises.sorted()[indexPath.item] {
             cell?.setup(for: exercise)
         }
         

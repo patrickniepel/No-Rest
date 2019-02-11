@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsTimerTableViewCell: UITableViewCell {
     
-    let timerSwitch: UISwitch = {
+    private let timerSwitch: UISwitch = {
         let timerSwitch = UISwitch()
         timerSwitch.isOn = SettingsController.isTimerSoundActivated
         timerSwitch.tintColor = .mainColorLight
@@ -18,6 +18,11 @@ class SettingsTimerTableViewCell: UITableViewCell {
         timerSwitch.onTintColor = .mainColorLight
         timerSwitch.addTarget(self, action: #selector(changedSwitchValue), for: .valueChanged)
         return timerSwitch
+    }()
+    
+    private let contentLabel: NRLabel = {
+        let label = NRLabel(with: NRConstants.Settings.RowTitles.timer)
+        return label
     }()
 
     override func awakeFromNib() {
@@ -30,15 +35,15 @@ class SettingsTimerTableViewCell: UITableViewCell {
     
     func setup() {
         self.selectionStyle = .none
-        textLabel?.text = NRConstants.Settings.RowTitles.timer
-        setupTimerSwitch()
-    }
-    
-    private func setupTimerSwitch() {
+        
+        contentView.addSubview(contentLabel)
         contentView.addSubview(timerSwitch)
-        timerSwitch.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: true, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: NRConstants.Insets.default))
+        
+        timerSwitch.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: true, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
+        
+        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
     }
-    
+
     @objc private func changedSwitchValue(sender: UISwitch) {
         let isOn = sender.isOn
         SettingsController.timerSoundStateChanged(to: isOn)

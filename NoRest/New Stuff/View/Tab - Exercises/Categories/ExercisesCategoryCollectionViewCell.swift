@@ -12,10 +12,8 @@ class ExercisesCategoryCollectionViewCell: UICollectionViewCell {
     
     private var categoryTitle: String?
     
-    lazy var categoryButton: NRButton = {
-        let button = NRButton()
-        button.setTitle(categoryTitle, for: .normal)
-        button.setTitleColor(.mainColor, for: .normal)
+    private lazy var categoryButton: NRButton = {
+        let button = NRButton(with: categoryTitle, style: .normal)
         button.addTarget(self, action: #selector(categoryTapped), for: .touchUpInside)
         return button
     }()
@@ -41,7 +39,7 @@ class ExercisesCategoryCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = superview?.backgroundColor
     }
     
-    @objc private func categoryTapped(sender: UIButton) {
+    @objc private func categoryTapped(sender: NRButton) {
         if let categoryString = sender.titleLabel?.text,
             let category = Category(rawValue: categoryString) {
             

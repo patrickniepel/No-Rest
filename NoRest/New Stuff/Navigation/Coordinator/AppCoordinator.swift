@@ -53,6 +53,8 @@ class AppCoordinator {
             return ExercisesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case .licenses:
             return LicensesViewController()
+        case .editExercise:
+            return EditExerciseViewController()
         default:
             assertionFailure("Attempt to build invalid screen \(screen)")
             return UIViewController()
@@ -60,7 +62,6 @@ class AppCoordinator {
     }
     
     private func buildNavigationController(for vc: UIViewController) -> UINavigationController {
-        
         let navigationController = DefaultNavigationController(rootViewController: vc)
         navigationController.navigationItem.backBarButtonItem?.title = "Backö"
         navigationController.navigationBar.backItem?.title = "Backö"
@@ -85,7 +86,7 @@ class AppCoordinator {
         case NRConstants.TabBarItemTitles.exercises:
             return ExercisesCategoryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case NRConstants.TabBarItemTitles.statistics:
-            return MenuViewController()
+            return MainStatisticsViewController()
         case NRConstants.TabBarItemTitles.settings:
             return SettingsTableViewController()
         default:

@@ -10,7 +10,7 @@ import Foundation
 
 class MyWorkout: Codable, Equatable {
     
-    private let id: Int
+    let id: Int
     var date: Date
     var name: String
     var exercises: [Exercise]

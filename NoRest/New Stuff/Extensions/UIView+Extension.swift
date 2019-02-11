@@ -103,4 +103,12 @@ extension UIView {
     func setupDefaultBackgroundColor() {
         self.backgroundColor = .mainColorLight
     }
+    
+    func applyShadow() {
+        self.layer.shadowColor = UIColor.mainColor.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 10)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 10
+        self.layer.masksToBounds = false
+    }
 }

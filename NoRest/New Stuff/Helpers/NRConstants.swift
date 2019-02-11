@@ -10,6 +10,11 @@ import UIKit
 
 struct NRConstants {
     
+    struct Text {
+        static let font = "CaviarDreams"
+        static let fontBold = "CaviarDreams_Bold"
+    }
+    
     struct TabBarItemTitles {
         static let addWorkout = "Workout"
         static let exercises = "Exercises"
@@ -22,6 +27,7 @@ struct NRConstants {
         static let categories = "Categories"
         static let settings = "Settings"
         static let licenses = "Licenses"
+        static let statistics = "Statistics"
     }
     
     struct CellIdentifiers {
@@ -31,10 +37,11 @@ struct NRConstants {
         static let settingsTimerTableViewCell = "settingsTimerTableViewCell"
         static let settingsYourDataTableViewCell = "settingsYourDataTableViewCell"
         static let settingsDefaultTableViewCell = "settingsDefaultTableViewCell"
-    }
-    
-    struct Insets {
-        static let `default`: CGFloat = 16
+        static let statisticsGeneralCollectionViewCell = "mainStatisticsGeneralCollectionViewCell"
+        static let statisticsExerciseCollectionViewCell = "mainStatisticsExerciseCollectionViewCell"
+        static let statisticsStatsCollectionViewCell = "statisticsStatsCollectionViewCell"
+        static let statisticsCategorySelectorCollectionViewCell = "statisticsCategorySelectorCollectionViewCell"
+        static let statisticsExerciseSelectorCollectionViewCell = "statisticsExerciseSelectorCollectionViewCell"
     }
     
     struct Padding {

@@ -17,7 +17,7 @@ class UserData: Codable {
     var myWorkouts: [MyWorkout] = []
     var workoutHistory: WorkoutHistory = WorkoutHistory()
     var statistics: Statistics = Statistics()
-    var exercises: [Exercise] = []
+    var exercises: [Exercise] = [] 
     
     private init(){}
 }

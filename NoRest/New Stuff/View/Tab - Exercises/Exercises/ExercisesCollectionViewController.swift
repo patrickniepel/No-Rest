@@ -34,18 +34,27 @@ class ExercisesCollectionViewController: UICollectionViewController {
         collectionView?.dataSource = dataSource
         
         setupScreen()
+        setupAddButton()
     }
     
     private func setupScreen() {
         navigationItem.title = selectedCategory?.rawValue
     }
     
+    private func setupAddButton() {
+        let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewExercise))
+        navigationItem.rightBarButtonItem = addBarButton
+    }
+    
     func injectCategory(_ category: Category) {
         selectedCategory = category
+    }
+    
+    @objc private func addNewExercise() {
+        
     }
     
     deinit {
         store.unsubscribe(self)
     }
-
 }

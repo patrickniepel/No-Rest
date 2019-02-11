@@ -26,4 +26,17 @@ class ExercisesCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return padding
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dataSource = collectionView.dataSource as? ExercisesCollectionViewDataSource
+        let currentCategory = dataSource?.category
+        
+        if let exercise = currentCategory?.exercises[indexPath.item] {
+            let editExerciseAction = EditExerciseAction(exercise: exercise)
+            store.dispatch(editExerciseAction)
+            
+            let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .present)
+            store.dispatch(routeAction)
+        }
+    }
 }

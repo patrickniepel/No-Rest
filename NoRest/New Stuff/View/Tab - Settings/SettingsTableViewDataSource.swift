@@ -30,40 +30,34 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         
         if indexPath.section == Section.general.rawValue {
             
-            if indexPath.row == 0 {
+            if indexPath.row == 0 { // Unit
                 let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsUnitTableViewCell) as? SettingsUnitTableViewCell
                 cell?.setup()
                 return cell ?? UITableViewCell()
                 
-            } else if indexPath.row == 1 {
+            } else if indexPath.row == 1 { // Timer
                 let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsTimerTableViewCell) as? SettingsTimerTableViewCell
                 cell?.setup()
                 return cell ?? UITableViewCell()
             }
             
         } else if indexPath.section == Section.yourData.rawValue {
-         
-            if indexPath.row == 0 {
+            
+            let currentRow = indexPath.row
+            
+            if let dataResetType = DataReset(rawValue: currentRow) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsYourDataTableViewCell) as? SettingsYourDataTableViewCell
-                cell?.setup(for: .workoutHistory)
-                return cell ?? UITableViewCell()
-                
-            } else if indexPath.row == 1 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsYourDataTableViewCell) as? SettingsYourDataTableViewCell
-                cell?.setup(for: .statistics)
+                cell?.setup(for: dataResetType)
                 return cell ?? UITableViewCell()
             }
+            return UITableViewCell()
             
         } else if indexPath.section == Section.about.rawValue {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsDefaultTableViewCell)
-            if indexPath.row == 0 {
-                cell?.textLabel?.text = NRConstants.Settings.RowTitles.rating
-            } else if indexPath.row == 1 {
-                cell?.textLabel?.text = NRConstants.Settings.RowTitles.licences
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsDefaultTableViewCell) as? NRDefaultTableViewCell
+            let title = indexPath.row == 0 ? NRConstants.Settings.RowTitles.rating : NRConstants.Settings.RowTitles.licences
+            cell?.setup(title: title)
             
-            cell?.accessoryType = .disclosureIndicator
             return cell ?? UITableViewCell()
         }
         
@@ -89,12 +83,6 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         
         return ""
     }
-}
-
-enum DataReset {
-    case workoutHistory
-    case statistics
-    case none
 }
 
 enum Section: Int {

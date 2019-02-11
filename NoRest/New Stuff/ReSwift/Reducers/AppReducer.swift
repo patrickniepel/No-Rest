@@ -11,7 +11,8 @@ import ReSwift
 func appReducer(action: Action, state: AppState?) -> AppState {
     return AppState(navigationState: navigationReducer(action: action, state: state?.navigationState),
                     exercisesState: exercisesReducer(action: action, state: state?.exercisesState),
-                    settingsState: settingsReducer(action: action, state: state?.settingsState))
+                    settingsState: settingsReducer(action: action, state: state?.settingsState),
+                    editExerciseState: editExerciseReducer(action: action, state: state?.editExerciseState))
 }
 
 

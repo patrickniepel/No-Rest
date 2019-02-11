@@ -11,6 +11,12 @@ import AVKit
 import StoreKit
 import SCLAlertView
 
+enum DataReset: Int {
+    case workoutHistory = 0
+    case statistics = 1
+    case none = -1
+}
+
 struct SettingsController {
     
     static var isTimerSoundActivated: Bool {
@@ -33,16 +39,8 @@ struct SettingsController {
     static func unitChanged(to index: Int) {
         let newUnit = Unit.allCases[index]
         UserData.sharedInstance.unit = newUnit
-        convertWeight(to: newUnit)
+        UnitConverter.convertUnit()
         PersistencyController.storeUserData()
-    }
-    
-    private static func convertWeight(to unit: Unit) {
-        if unit == .kg {
-            
-        } else {
-            
-        }
     }
     
     static func resetData(_ dataReset: DataReset) {

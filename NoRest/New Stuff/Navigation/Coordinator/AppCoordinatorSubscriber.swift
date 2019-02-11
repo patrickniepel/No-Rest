@@ -93,6 +93,9 @@ extension AppCoordinator: StoreSubscriber {
         case .present:
             navigationController?.present(vc, animated: true, completion: nil)
         }
+        
+        let invalidateRoutingAction = InvalidateRoutingAction()
+        store.dispatch(invalidateRoutingAction)
     }
     
     /**

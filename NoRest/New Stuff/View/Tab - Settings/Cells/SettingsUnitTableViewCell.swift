@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsUnitTableViewCell: UITableViewCell {
     
-    lazy var unitSegmentedControl: UISegmentedControl = {
+    private lazy var unitSegmentedControl: UISegmentedControl = {
         let items: [String] = [Unit.kg.rawValue, Unit.lbs.rawValue]
         let control = UISegmentedControl(items: items)
         control.tintColor = .mainColor
@@ -24,6 +24,11 @@ class SettingsUnitTableViewCell: UITableViewCell {
         control.addTarget(self, action: #selector(unitChanged), for: .valueChanged)
         return control
     }()
+    
+    private let contentLabel: NRLabel = {
+        let label = NRLabel(with: NRConstants.Settings.RowTitles.unit)
+        return label
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,13 +40,13 @@ class SettingsUnitTableViewCell: UITableViewCell {
     
     func setup() {
         self.selectionStyle = .none
-        textLabel?.text = NRConstants.Settings.RowTitles.unit
-        setupUnitSegmentedControl()
-    }
-    
-    private func setupUnitSegmentedControl() {
+        
+        contentView.addSubview(contentLabel)
         contentView.addSubview(unitSegmentedControl)
-        unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: true, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: NRConstants.Insets.default))
+        
+        unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: true, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
+        
+        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
     }
     
     @objc private func unitChanged(sender: UISegmentedControl) {
