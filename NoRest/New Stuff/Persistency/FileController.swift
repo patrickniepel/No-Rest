@@ -1,5 +1,5 @@
 //
-//  FileManager.swift
+//  FileController.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 01.02.19.

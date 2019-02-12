@@ -51,7 +51,11 @@ class ExercisesCollectionViewController: UICollectionViewController {
     }
     
     @objc private func addNewExercise() {
+        let editExerciseAction = EditExerciseAction(exercise: nil, category: selectedCategory)
+        store.dispatch(editExerciseAction)
         
+        let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .present)
+        store.dispatch(routeAction)
     }
     
     deinit {

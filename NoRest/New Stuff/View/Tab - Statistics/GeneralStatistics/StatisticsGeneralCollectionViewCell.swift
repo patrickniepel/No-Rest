@@ -12,7 +12,7 @@ class StatisticsGeneralCollectionViewCell: UICollectionViewCell {
     
     let statsCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .white
+        cv.backgroundColor = .lightBackgroundColor
         cv.register(StatisticsStatsCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statisticsStatsCollectionViewCell)
         cv.isScrollEnabled = true
         cv.isPagingEnabled = false
@@ -49,7 +49,7 @@ class StatisticsGeneralCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupDesign() {
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .lightBackgroundColor
         contentView.layer.cornerRadius = 25
         contentView.applyShadow()
     }

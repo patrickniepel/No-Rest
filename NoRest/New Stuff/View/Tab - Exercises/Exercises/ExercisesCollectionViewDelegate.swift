@@ -32,7 +32,7 @@ class ExercisesCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLay
         let currentCategory = dataSource?.category
         
         if let exercise = currentCategory?.exercises[indexPath.item] {
-            let editExerciseAction = EditExerciseAction(exercise: exercise)
+            let editExerciseAction = EditExerciseAction(exercise: exercise, category: nil)
             store.dispatch(editExerciseAction)
             
             let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .present)

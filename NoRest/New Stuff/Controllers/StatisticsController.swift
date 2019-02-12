@@ -10,14 +10,120 @@ import Foundation
 
 struct StatisticsController {
     
-    static let generalStatsTitles: [String] = []
-    static let exerciseStatsTitles: [String] = []
+    private static var allExercises: [Exercise] {
+        return UserData.sharedInstance.workoutHistory.allExercises()
+    }
     
     static func generalStats() -> [Stat] {
-        return []
+        
+        return [Stat(title: .maxWeight, value: maxWeight(exercises: allExercises)),
+                Stat(title: .totalVolume, value: totalVolume(exercises: allExercises)),
+                Stat(title: .totalReps, value: totalReps(exercises: allExercises))]
     }
     
     static func stats(for exercise: Exercise) -> [Stat] {
-        return []
+        
+        if exercise.type == .cardio {
+            return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: [exercise]))]
+        }
+        
+        return [Stat(title: .totalSets, value: totalSets(exercises: [exercise])),
+                Stat(title: .maxWeight, value: maxWeight(exercises: [exercise])),
+                Stat(title: .totalVolume, value: totalVolume(exercises: [exercise])),
+                Stat(title: .totalVolume, value: avgVolumePerSet(exercises: [exercise])),
+                Stat(title: .totalVolume, value: avgRepsPerSet(exercises: [exercise])),
+                Stat(title: .totalReps, value: totalReps(exercises: [exercise]))]
+    }
+    
+    static func stats(for category: Category) -> [Stat] {
+        let exercises = allExercises.filter { $0.category == category }
+        
+        if category == .cardio {
+            return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: exercises))]
+        }
+        
+        return [Stat(title: .totalSets, value: totalSets(exercises: exercises)),
+                Stat(title: .percentageOfSets, value: percentageOfSets(exercises: exercises)),
+                Stat(title: .totalVolume, value: totalVolume(exercises: exercises)),
+                Stat(title: .totalReps, value: totalReps(exercises: exercises))]
+    }
+    
+    private static func maxWeight(exercises: [Exercise]) -> Double {
+        var maxWeight: Double = 0
+
+        for exercise in exercises {
+            for set in exercise.sets {
+                if set.weight > maxWeight {
+                    maxWeight = set.weight
+                }
+            }
+        }
+        return maxWeight
+    }
+    
+    private static func totalVolume(exercises: [Exercise]) -> Double {
+        var volume: Double = 0
+        
+        for exercise in exercises {
+            for set in exercise.sets {
+                volume += Double(set.reps) * set.weight
+            }
+        }
+
+        return volume
+    }
+    
+    private static func totalReps(exercises: [Exercise]) -> Double {
+        var reps: Double = 0
+        
+        for exercise in exercises {
+            for set in exercise.sets {
+                reps += Double(set.reps)
+            }
+        }
+        return reps
+    }
+    
+    private static func totalSets(exercises: [Exercise]) -> Double {
+        var sets: Double = 0
+        
+        for exercise in exercises {
+            sets += Double(exercise.sets.count)
+        }
+        return sets
+    }
+    
+    private static func avgVolumePerSet(exercises: [Exercise]) -> Double {
+        let totalVolume = self.totalVolume(exercises: exercises)
+        let totalSets = self.totalSets(exercises: exercises)
+        
+        return totalVolume / totalSets
+    }
+    
+    private static func avgRepsPerSet(exercises: [Exercise]) -> Double {
+        let totalReps = self.totalReps(exercises: exercises)
+        let totalSets = self.totalSets(exercises: exercises)
+        
+        return totalReps / totalSets
+    }
+    
+    private static func totalRunningTime(exercises: [Exercise]) -> Double {
+        var totalTimer: Double = 0
+        
+        for exercise in exercises {
+            totalTimer += Double(exercise.timer)
+        }
+        return totalTimer
+    }
+    
+    private static func percentageOfSets(exercises: [Exercise]) -> Double {
+        var percentage: Double = 0
+        let setsForCategory = self.totalSets(exercises: exercises)
+        let totalSets = self.totalSets(exercises: allExercises)
+        percentage = (setsForCategory / totalSets) * 100
+        
+        return percentage
     }
 }
+
+

@@ -11,7 +11,6 @@ import ReSwift
 extension EditExerciseViewController: StoreSubscriber {
     
     func newState(state: EditExerciseState) {
-        let exerciseToEdit = state.exercise
-        setupExercise(exerciseToEdit)
+        setupExercise(state.exercise, for: state.category)
     }
 }

@@ -28,6 +28,8 @@ struct NRConstants {
         static let settings = "Settings"
         static let licenses = "Licenses"
         static let statistics = "Statistics"
+        static let newExercise = "New Exercise"
+        static let newWorkout = "New Workout"
     }
     
     struct CellIdentifiers {
@@ -40,8 +42,7 @@ struct NRConstants {
         static let statisticsGeneralCollectionViewCell = "mainStatisticsGeneralCollectionViewCell"
         static let statisticsExerciseCollectionViewCell = "mainStatisticsExerciseCollectionViewCell"
         static let statisticsStatsCollectionViewCell = "statisticsStatsCollectionViewCell"
-        static let statisticsCategorySelectorCollectionViewCell = "statisticsCategorySelectorCollectionViewCell"
-        static let statisticsExerciseSelectorCollectionViewCell = "statisticsExerciseSelectorCollectionViewCell"
+        static let statisticsSelectorCollectionViewCell = "statisticsSelectorCollectionViewCell"
     }
     
     struct Padding {
@@ -53,6 +54,13 @@ struct NRConstants {
         static let currentExerciseID = "CurrentExerciseID"
         static let userDataKey  = "UserDataObject"
         static let fileName = "userData.plist"
+    }
+    
+    struct ExerciseEditing {
+        static let nameLabel = "Name"
+        static let restTimerLabel = "Rest Timer (s)"
+        static let runningTimerLabel = "Running Timer (min)"
+        static let notesLabel = "Notes"
     }
     
     struct Settings {

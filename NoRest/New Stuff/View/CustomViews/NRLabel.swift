@@ -12,6 +12,7 @@ class NRLabel: UILabel {
     
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
+        font = UIFont(name: NRConstants.Text.font, size: .fontSizeRegular)
         setup()
     }
 
@@ -25,7 +26,6 @@ class NRLabel: UILabel {
     private func setup() {
         textColor = .textColor
         textAlignment = .left
-        font = UIFont(name: NRConstants.Text.font, size: .fontSizeRegular)
     }
   
     required init?(coder aDecoder: NSCoder) {

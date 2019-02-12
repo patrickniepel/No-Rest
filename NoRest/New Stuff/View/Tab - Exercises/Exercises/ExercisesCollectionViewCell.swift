@@ -10,16 +10,13 @@ import UIKit
 
 class ExercisesCollectionViewCell: UICollectionViewCell {
     
-    private var exercise: Exercise?
-    
-    private lazy var nameLabel: NRLabel = {
-        let label = NRLabel(with: exercise?.name ?? "Error", size: .fontSizeLarge)
+    private let nameLabel: NRLabel = {
+        let label = NRLabel(with: "", size: .fontSizeLarge)
         return label
     }()
     
-    private lazy var timerLabel: NRLabel = {
-        let timerAsString = "\(exercise?.restTimer ?? 0)" + "s"
-        let label = NRLabel(with: timerAsString)
+    private let timerLabel: NRLabel = {
+        let label = NRLabel(with: "")
         return label
     }()
     
@@ -36,6 +33,8 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    private var exercise: Exercise?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -48,16 +47,13 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
         self.exercise = exercise
         setupDesign()
         setupLayout()
+        fillLayout()
     }
     
     private func setupDesign() {
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 25
-        contentView.layer.shadowColor = UIColor.mainColor.cgColor
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        contentView.layer.shadowOpacity = 1.0
-        contentView.layer.shadowRadius = 10
-        contentView.layer.masksToBounds = false
+        contentView.applyShadow()
     }
     
     private func setupLayout() {
@@ -75,6 +71,13 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
         binButton.anchor(top: nil, leading: nil, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 16), size: CGSize(width: timerHeight / 1.5, height: timerHeight / 1.5))
         
         timerLabel.anchor(top: nameLabel.bottomAnchor, leading: timerImage.trailingAnchor, bottom: contentView.bottomAnchor, trailing: binButton.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16))
+    }
+    
+    private func fillLayout() {
+        if let exercise = exercise {
+            timerLabel.text = ExerciseController(exercise: exercise).timerAsString()
+            nameLabel.text = exercise.name
+        }
     }
     
     @objc func deleteExercise() {

@@ -47,7 +47,7 @@
 		A35127D22204558B007D024F /* ResetDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35127D12204558B007D024F /* ResetDataAction.swift */; };
 		A35127D4220455BC007D024F /* SettingsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35127D3220455BC007D024F /* SettingsReducer.swift */; };
 		A35127D62204560D007D024F /* SettingsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35127D52204560D007D024F /* SettingsState.swift */; };
-		A35127D822047536007D024F /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35127D722047536007D024F /* FileManager.swift */; };
+		A35127D822047536007D024F /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35127D722047536007D024F /* FileController.swift */; };
 		A353A5B81F9158D1006B9E2C /* MyWorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353A5B71F9158D1006B9E2C /* MyWorkoutTableViewCell.swift */; };
 		A353A5BA1F91595F006B9E2C /* MyWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353A5B91F91595F006B9E2C /* MyWorkoutTableViewController.swift */; };
 		A353A5BC1F915B24006B9E2C /* MyWorkoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A353A5BB1F915B24006B9E2C /* MyWorkoutDelegate.swift */; };
@@ -138,6 +138,7 @@
 		A3D100581F98F431004AB5D8 /* InputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D100571F98F431004AB5D8 /* InputDelegate.swift */; };
 		A3D1005A1F98F492004AB5D8 /* InputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D100591F98F492004AB5D8 /* InputTableViewCell.swift */; };
 		A3D9802522118A51006E0B68 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9802422118A51006E0B68 /* Stat.swift */; };
+		A3D980272211AF14006E0B68 /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D980262211AF14006E0B68 /* SelectorView.swift */; };
 		A3D9DEF222019D6600BCCAF4 /* PersistencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF122019D6600BCCAF4 /* PersistencyController.swift */; };
 		A3D9DEF42201A25F00BCCAF4 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF32201A25F00BCCAF4 /* Unit.swift */; };
 		A3D9DEF62201A7BB00BCCAF4 /* WorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF52201A7BB00BCCAF4 /* WorkoutHistory.swift */; };
@@ -154,6 +155,8 @@
 		A3E073231F90ED320099A7B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3E073211F90ED320099A7B8 /* LaunchScreen.storyboard */; };
 		A3E0734C1F90EECD0099A7B8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E0734B1F90EECD0099A7B8 /* AboutViewController.swift */; };
 		A3E073511F90EF8C0099A7B8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E073501F90EF8C0099A7B8 /* MenuViewController.swift */; };
+		A3FDE6FA221317E600D00814 /* UpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FDE6F9221317E600D00814 /* UpdateController.swift */; };
+		A3FDE6FC221346F200D00814 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FDE6FB221346F200D00814 /* String+Extension.swift */; };
 		FE0ED48807128A30570D5F44 /* Pods_NoRest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080F8BB25C17C51655105730 /* Pods_NoRest.framework */; };
 /* End PBXBuildFile section */
 
@@ -204,7 +207,7 @@
 		A35127D12204558B007D024F /* ResetDataAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetDataAction.swift; sourceTree = "<group>"; };
 		A35127D3220455BC007D024F /* SettingsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsReducer.swift; sourceTree = "<group>"; };
 		A35127D52204560D007D024F /* SettingsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsState.swift; sourceTree = "<group>"; };
-		A35127D722047536007D024F /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		A35127D722047536007D024F /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
 		A353A5B71F9158D1006B9E2C /* MyWorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		A353A5B91F91595F006B9E2C /* MyWorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutTableViewController.swift; sourceTree = "<group>"; };
 		A353A5BB1F915B24006B9E2C /* MyWorkoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutDelegate.swift; sourceTree = "<group>"; };
@@ -295,6 +298,7 @@
 		A3D100571F98F431004AB5D8 /* InputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDelegate.swift; sourceTree = "<group>"; };
 		A3D100591F98F492004AB5D8 /* InputTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTableViewCell.swift; sourceTree = "<group>"; };
 		A3D9802422118A51006E0B68 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
+		A3D980262211AF14006E0B68 /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		A3D9DEF122019D6600BCCAF4 /* PersistencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyController.swift; sourceTree = "<group>"; };
 		A3D9DEF32201A25F00BCCAF4 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		A3D9DEF52201A7BB00BCCAF4 /* WorkoutHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 		A3E073241F90ED320099A7B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3E0734B1F90EECD0099A7B8 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A3E073501F90EF8C0099A7B8 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A3FDE6F9221317E600D00814 /* UpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateController.swift; sourceTree = "<group>"; };
+		A3FDE6FB221346F200D00814 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +467,7 @@
 				A308E26821F79BBC001D2FE8 /* UIColor+Extension.swift */,
 				A391ADEA21FBA42D002A7D04 /* UIView+Extension.swift */,
 				A3C9D59B22072BEF00401E08 /* CGFloat+Extension.swift */,
+				A3FDE6FB221346F200D00814 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -470,7 +477,7 @@
 			children = (
 				A32DD1731F90FC23009D13CE /* UserData.swift */,
 				A3D9DEF122019D6600BCCAF4 /* PersistencyController.swift */,
-				A35127D722047536007D024F /* FileManager.swift */,
+				A35127D722047536007D024F /* FileController.swift */,
 			);
 			path = Persistency;
 			sourceTree = "<group>";
@@ -665,7 +672,6 @@
 				A35F8AFA21FC6FAC00062800 /* Categories */,
 				A35F8AF921FC6F9C00062800 /* Exercises */,
 				A392B7F9220C59660030FBD4 /* EditExercise */,
-				A392B804220C6CCB0030FBD4 /* ExerciseController.swift */,
 			);
 			path = "Tab - Exercises";
 			sourceTree = "<group>";
@@ -721,6 +727,7 @@
 				A391ADED21FBA948002A7D04 /* NRButton.swift */,
 				A3C9D5992207277A00401E08 /* NRLabel.swift */,
 				A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */,
+				A3D980262211AF14006E0B68 /* SelectorView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -859,10 +866,12 @@
 		A3D9DEFB2201AF6C00BCCAF4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A392B804220C6CCB0030FBD4 /* ExerciseController.swift */,
 				A3A09C191F9105FB00CD01AF /* SettingsController.swift */,
 				A3D9DEFD2201B00900BCCAF4 /* AudioPlayer.swift */,
 				A3DFA65E220849DF00E05DF4 /* UnitConverter.swift */,
 				A35AA6B0221187D500A6CD10 /* StatisticsController.swift */,
+				A3FDE6F9221317E600D00814 /* UpdateController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1107,11 +1116,12 @@
 				A35027261F9B668A00E2F4B0 /* MuscleStatisticCollectionViewCell.swift in Sources */,
 				A353A5C11F915BA4006B9E2C /* MyWorkoutController.swift in Sources */,
 				A32DD16E1F90F3CF009D13CE /* ViewController+Extension.swift in Sources */,
-				A35127D822047536007D024F /* FileManager.swift in Sources */,
+				A35127D822047536007D024F /* FileController.swift in Sources */,
 				A3BC59811F9237970050CD6D /* MyWorkoutHistoryDataSource.swift in Sources */,
 				A31715C61F9A7359005D420F /* TimerViewController.swift in Sources */,
 				A3A09C141F91002C00CD01AF /* MyWorkout.swift in Sources */,
 				A357897A1F97DA2F00F18FB3 /* CurrentWorkoutDataSource.swift in Sources */,
+				A3D980272211AF14006E0B68 /* SelectorView.swift in Sources */,
 				A3A09C2B1F9134F800CD01AF /* ExercisesController.swift in Sources */,
 				A355C4921F9B9B1C00F2350B /* ExerciseStatisticExerciseDelegateFlowLayout.swift in Sources */,
 				A37EE6D61F916651003F6B6B /* MyWorkoutExercisesTableViewCell.swift in Sources */,
@@ -1162,6 +1172,7 @@
 				A3D1005A1F98F492004AB5D8 /* InputTableViewCell.swift in Sources */,
 				A3D9802522118A51006E0B68 /* Stat.swift in Sources */,
 				A3BC597D1F9236AB0050CD6D /* MyWorkoutHistoryTableViewCell.swift in Sources */,
+				A3FDE6FA221317E600D00814 /* UpdateController.swift in Sources */,
 				A31BFC9221F667CF003214C2 /* AppCoordinator.swift in Sources */,
 				A3AC807C21FDF7D6000DE1EF /* ExercisesReducer.swift in Sources */,
 				A392B7FB220C597A0030FBD4 /* EditExerciseViewController.swift in Sources */,
@@ -1211,6 +1222,7 @@
 				A35AA6B1221187D500A6CD10 /* StatisticsController.swift in Sources */,
 				A392B801220C5A510030FBD4 /* EditExerciseReducer.swift in Sources */,
 				A35AA6AB2211857900A6CD10 /* StatisticsStatsCollectionViewCell.swift in Sources */,
+				A3FDE6FC221346F200D00814 /* String+Extension.swift in Sources */,
 				A392B7FF220C59F50030FBD4 /* EditExerciseState.swift in Sources */,
 				A38266EF1F93E9B000646603 /* DetailsViewController.swift in Sources */,
 				A3AE4A2221F74E0C007A97AB /* MainTabBarController.swift in Sources */,

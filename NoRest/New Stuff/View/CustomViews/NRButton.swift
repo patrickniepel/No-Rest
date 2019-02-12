@@ -44,10 +44,10 @@ class NRButton: UIButton {
     }
     
     private func setupNormal() {
-        backgroundColor = .white
+        backgroundColor = .lightBackgroundColor
         let attributedString = NSAttributedString.init(string: title ?? "", attributes: [.font: UIFont(name: NRConstants.Text.font, size: .fontSizeLarge) as Any, .foregroundColor: UIColor.textColor as Any])
         setAttributedTitle(attributedString, for: .normal)
-        layer.shadowColor = UIColor.mainColor.cgColor
+        layer.shadowColor = UIColor.shadowColor.cgColor
     }
     
     private func setupDestructive() {

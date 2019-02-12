@@ -25,4 +25,14 @@ struct WorkoutHistory: Codable {
     mutating func resetWorkoutHistory() {
         workouts = []
     }
+    
+    mutating func allExercises() -> [Exercise] {
+        var exercises: [Exercise] = []
+        
+        for workout in workouts {
+            exercises += workout.exercises
+        }
+        
+        return exercises
+    }
 }

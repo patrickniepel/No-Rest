@@ -106,10 +106,10 @@ struct DefaultExercise {
                 Exercise(name: "Standing Calf Raise Machine", category: .legs)]
         case .cardio:
             return [
-                Exercise(name: "Cross Trainer", category: .cardio, timer: 10),
-                Exercise(name: "Treadmill", category: .cardio, timer: 10),
-                Exercise(name: "Indoor Cycling", category: .cardio, timer: 10),
-                Exercise(name: "Climbing Machine", category: .cardio, timer: 10)]
+                Exercise(name: "Cross Trainer", category: .cardio, timer: 10, type: .cardio),
+                Exercise(name: "Treadmill", category: .cardio, timer: 10, type: .cardio),
+                Exercise(name: "Indoor Cycling", category: .cardio, timer: 10, type: .cardio),
+                Exercise(name: "Climbing Machine", category: .cardio, timer: 10, type: .cardio)]
         }
     }
 }

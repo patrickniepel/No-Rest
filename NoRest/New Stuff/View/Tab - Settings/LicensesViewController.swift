@@ -12,7 +12,7 @@ class LicensesViewController: UIViewController {
     
     let licensesTextView: UITextView = {
         let tv = UITextView()
-        tv.backgroundColor = .mainColorLight
+        tv.backgroundColor = .mainColor
         tv.textColor = .white
         tv.isUserInteractionEnabled = false
         tv.text = "Lorem Ipsum"

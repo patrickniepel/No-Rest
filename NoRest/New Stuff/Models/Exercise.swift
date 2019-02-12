@@ -12,30 +12,33 @@ struct Exercise: Codable, Equatable, Comparable {
     
     let id: Int
     var name: String
-    lazy var restTimer: Int = 0 // - Seconds
-    lazy var timer: Int = 0 // Cardio timer - Minutes
+    private var restTimer: Int = 0 // - Seconds
+    private var cardiotimer: Int = 0 // Cardio timer - Minutes
+    var timer: Int {
+        set(newValue) {
+            if self.type == .weightLifting {
+                restTimer = newValue
+            } else {
+                cardiotimer = newValue
+            }
+        }
+        get {
+            return self.type == .weightLifting ? restTimer : cardiotimer
+        }
+    }
     var notes: String
     
     let category: Category
     var type: ExerciseType
-    var sets: [Set]?
+    var sets: [Set]
     
-    init(name: String, category: Category, restTimer: Int = 90, notes: String = "No Entries Yet", type: ExerciseType = .weightLifting) {
+    init(name: String, category: Category, timer: Int = 90, notes: String = "No Entries Yet", type: ExerciseType = .weightLifting) {
         id = PersistencyController.currentExerciseID()
         self.name = name
         self.notes = notes
         self.category = category
         self.type = type
         self.sets = []
-        self.restTimer = restTimer
-    }
-    
-    init(name: String, category: Category, timer: Int, notes: String = "No Entries Yet", type: ExerciseType = .cardio) {
-        id = PersistencyController.currentExerciseID()
-        self.name = name
-        self.notes = notes
-        self.category = category
-        self.type = type
         self.timer = timer
     }
     
@@ -51,4 +54,6 @@ struct Exercise: Codable, Equatable, Comparable {
 enum ExerciseType: String, Codable {
     case weightLifting = "Weight Lifting"
     case cardio = "Cardio"
+    
+    static var allCases: [ExerciseType] = [.weightLifting, .cardio]
 }

@@ -13,9 +13,9 @@ class SettingsTimerTableViewCell: UITableViewCell {
     private let timerSwitch: UISwitch = {
         let timerSwitch = UISwitch()
         timerSwitch.isOn = SettingsController.isTimerSoundActivated
-        timerSwitch.tintColor = .mainColorLight
-        timerSwitch.thumbTintColor = .mainColor
-        timerSwitch.onTintColor = .mainColorLight
+        timerSwitch.tintColor = .mainColor
+        timerSwitch.thumbTintColor = .shadowColor
+        timerSwitch.onTintColor = .mainColor
         timerSwitch.addTarget(self, action: #selector(changedSwitchValue), for: .valueChanged)
         return timerSwitch
     }()
