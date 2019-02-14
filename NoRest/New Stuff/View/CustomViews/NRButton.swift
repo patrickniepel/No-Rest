@@ -10,7 +10,7 @@ import UIKit
 
 enum NRButtonStyle {
     case normal
-    case destructive
+    case danger
 }
 
 class NRButton: UIButton {
@@ -38,8 +38,8 @@ class NRButton: UIButton {
         
         if style == .normal {
             setupNormal()
-        } else if style == .destructive {
-            setupDestructive()
+        } else if style == .danger {
+            setupDanger()
         }
     }
     
@@ -50,7 +50,7 @@ class NRButton: UIButton {
         layer.shadowColor = UIColor.shadowColor.cgColor
     }
     
-    private func setupDestructive() {
+    private func setupDanger() {
         backgroundColor = .danger
         let attributedString = NSAttributedString.init(string: title ?? "", attributes: [.font: UIFont(name: NRConstants.Text.fontBold, size: .fontSizeRegular) as Any, .foregroundColor: UIColor.textColorLight as Any])
         setAttributedTitle(attributedString, for: .normal)

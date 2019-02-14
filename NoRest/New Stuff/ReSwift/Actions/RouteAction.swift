@@ -67,7 +67,7 @@ enum Screen {
     case settings
     case exercisesForCategory
     case editExercise
-    case licenses
+    case info
 }
 
 

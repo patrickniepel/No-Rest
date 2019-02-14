@@ -11,9 +11,9 @@ import UIKit
 class SettingsYourDataTableViewCell: UITableViewCell {
     
     private lazy var resetButton: NRButton = {
-        let button = NRButton(with: NRConstants.Settings.deleteButton, style: .destructive)
+        let button = NRButton(with: NRConstants.Settings.resetButton, style: .danger)
+        button.addTarget(self, action: #selector(resetTapped), for: .touchUpInside)
         button.layer.cornerRadius = 15
-        button.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -46,12 +46,12 @@ class SettingsYourDataTableViewCell: UITableViewCell {
         contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
     }
     
-    @objc private func resetButtonTapped() {
-//        let resetAction = ResetDataAction(dataReset: dataReset)
-//        store.dispatch(resetAction)
-//        
-//        let invalidateAction = InvalidateResetDataAction()
-//        store.dispatch(invalidateAction)
+    @objc private func resetTapped() {
+        let resetAction = ResetDataAction(dataReset: dataReset)
+        store.dispatch(resetAction)
+        
+        let invalidateAction = InvalidateResetDataAction()
+        store.dispatch(invalidateAction)
     }
 
 }

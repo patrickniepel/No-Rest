@@ -16,13 +16,15 @@ class SettingsTableViewDelegate: NSObject, UITableViewDelegate {
             // Rating
             if indexPath.row == 0 {
                 SettingsController.showRating()
-            }
-            // Licenses
-            else if indexPath.row == 1 {
-                let routeAction = RouteAction(screen: .licenses, in: .settings)
+            } else {
+                let info: Info = indexPath.row == 1 ? .licenses : indexPath.row == 2 ? .disclaimer : .none
+                let infoAction = InfoAction(info: info)
+                store.dispatch(infoAction)
+                
+                let routeAction = RouteAction(screen: .info, in: .settings)
                 store.dispatch(routeAction)
             }
-            
+
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }

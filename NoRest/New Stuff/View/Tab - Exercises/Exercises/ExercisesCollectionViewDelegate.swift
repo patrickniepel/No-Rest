@@ -35,7 +35,7 @@ class ExercisesCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLay
             let editExerciseAction = EditExerciseAction(exercise: exercise, category: nil)
             store.dispatch(editExerciseAction)
             
-            let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .present)
+            let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)
             store.dispatch(routeAction)
         }
     }

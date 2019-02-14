@@ -10,29 +10,49 @@ import Foundation
 
 struct ExerciseController {
     
-    let exercise: Exercise
-    
-    init(exercise: Exercise) {
-        self.exercise = exercise
-    }
-    
-    func deleteExercise() {
+    func deleteExercise(_ exercise: Exercise) {
         UpdateController.deleteExercise(exercise)
     }
     
-    func updateExercise() {
+    func saveExercise(_ exercise: Exercise) {
         UpdateController.updateExercise(exercise)
     }
     
-    func addExercise() {
-        UpdateController.addExercise(exercise)
-    }
-    
-    func timerAsString() -> String {
+    func timerAsString(for exercise: Exercise) -> String {
         if exercise.type == .weightLifting {
             return String.seconds(value: exercise.timer)
-        } else {
-            return String.minutes(value: exercise.timer)
         }
+        return String.minutes(value: exercise.timer)
+    }
+    
+    func checkNameInputCorrect(text: String?) -> String {
+        guard let text = text, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return NRConstants.ExerciseEditing.noName
+        }
+        return text
+    }
+    
+    func checkTimerInputCorrect(text: String?) -> Int {
+        guard let text = text, let numberAsInt = Int(text) else {
+            return NRConstants.ExerciseEditing.noTimer
+        }
+        return numberAsInt
+    }
+    
+    func checkNotesInputCorrect(text: String) -> String {
+        if text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return NRConstants.ExerciseEditing.noNotes
+        }
+        return text
+    }
+    
+    func exercisesCount(for category: Category?) -> Int {
+        return UserData.sharedInstance.exercises.map { $0.category == category }.count
+    }
+    
+    func exercises(for category: Category?) -> [Exercise] {
+        guard let category = category else { return [] }
+        let exercises = UserData.sharedInstance.exercises.filter { $0.category == category }.sorted()
+        return exercises
     }
 }

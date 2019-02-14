@@ -51,8 +51,8 @@ class AppCoordinator {
         switch screen {
         case .exercisesForCategory:
             return ExercisesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        case .licenses:
-            return LicensesViewController()
+        case .info:
+            return InfoViewController()
         case .editExercise:
             return EditExerciseViewController()
         default:

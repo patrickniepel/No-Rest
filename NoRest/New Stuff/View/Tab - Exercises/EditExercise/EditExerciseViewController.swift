@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class EditExerciseViewController: UIViewController, UITextViewDelegate {
+    
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.bounces = true
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
     
     private let mainView: UIView = {
         let view = UIView()
@@ -78,7 +87,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     private let typeSegmentedControl: UISegmentedControl = {
         let items: [String] = [ExerciseType.weightLifting.rawValue, ExerciseType.cardio.rawValue]
         let control = UISegmentedControl(items: items)
-        control.tintColor = .textColorMediumLight
+        control.tintColor = .shadowColor
         control.isUserInteractionEnabled = true
         control.selectedSegmentIndex = 0
         control.addTarget(self, action: #selector(exerciseTypeChanged), for: .valueChanged)
@@ -95,14 +104,21 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
                 $0.editExerciseState
             }
         }
+        notesTextView.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        setupNavigationBar()
         view.setupDefaultBackgroundColor()
         hideKeyboardWhenTapped()
         setupLayout()
         fillLayout()
+    }
+    
+    private func setupNavigationBar() {
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveExercise))
+        navigationItem.rightBarButtonItem = saveButton
     }
     
     private func fillLayout() {
@@ -123,6 +139,24 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         navigationItem.title = exercise?.name ?? NRConstants.ScreenTitles.newExercise
     }
     
+    @objc private func saveExercise() {
+        guard var exercise = exercise else {
+            AlertController.showSavingFailureAlert()
+            return
+        }
+        let exerciseCtrl = ExerciseController()
+        exercise.name = exerciseCtrl.checkNameInputCorrect(text: nameTextField.text)
+        exercise.timer = exerciseCtrl.checkTimerInputCorrect(text: timerTextField.text)
+        exercise.notes = exerciseCtrl.checkNotesInputCorrect(text: notesTextView.text)
+        exerciseCtrl.saveExercise(exercise)
+        AlertController.showSavingSuccessAlert()
+        navigationController?.popViewController(animated: true)
+        
+        // reload collection view
+        let reloadAction = ReloadExercisesAction()
+        store.dispatch(reloadAction)
+    }
+    
     @objc private func exerciseTypeChanged(sender: UISegmentedControl) {
         if let title = sender.titleForSegment(at: sender.selectedSegmentIndex) {
             let newType = ExerciseType(rawValue: title) ?? .weightLifting
@@ -131,29 +165,22 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if self.view.frame.origin.y == 0 {
-            UIView.animate(withDuration: 0.3) {
-                self.view.frame.origin.y -= self.view.frame.height * 0.40
-            }
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if self.view.frame.origin.y != 0 {
-            
-            UIView.animate(withDuration: 0.1) {
-                self.view.frame.origin.y = 0
-            }
-        }
-    }
-    
     @objc private func keyboardWillShow(notification: NSNotification) {
+        if !notesTextView.isFirstResponder {
+            return
+        }
         
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.scrollView.frame.origin.y == 0 {
+                self.scrollView.frame.origin.y -= keyboardSize.height
+            }
+        }
     }
     
     @objc private func keyboardWillHide(notification: NSNotification) {
-       
+        if self.scrollView.frame.origin.y != 0 {
+           self.scrollView.frame.origin.y = 0
+        }
     }
     
     deinit {
@@ -165,24 +192,24 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
 
 extension EditExerciseViewController {
     private func setupLayout() {
+        setupScrollView()
         setupMainView()
         setupSegmentedControl()
         setupLabels()
         setupTextInputs()
     }
+    
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+    }
  
     private func setupMainView() {
-        view.addSubview(mainView)
+        scrollView.addSubview(mainView)
         
-        var bottomAnchor: NSLayoutYAxisAnchor?
-        
-        if #available(iOS 11.0, *) {
-            bottomAnchor = view.safeAreaLayoutGuide.bottomAnchor
-        } else {
-            bottomAnchor = view.bottomAnchor
-        }
-        
-        mainView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: bottomAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: .defaultPadding, left: .defaultPadding, bottom: .defaultPadding, right: .defaultPadding))
+        let mainViewHeight = view.frame.height - 2 * .defaultPadding
+        let mainViewWidth = view.frame.width - 2 * .defaultPadding
+        mainView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor, padding: UIEdgeInsets(top: .defaultPadding, left: .defaultPadding, bottom: .defaultPadding, right: .defaultPadding), size: CGSize(width: mainViewWidth, height: mainViewHeight))
         
         mainView.addSubview(typeSegmentedControl)
         mainView.addSubview(nameLabel)
@@ -209,8 +236,6 @@ extension EditExerciseViewController {
         nameTextField.anchor(top: nameLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: .defaultPadding, bottom: 0, right: .defaultPadding))
         timerTextField.anchor(top: timerLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: .defaultPadding, bottom: 0, right: .defaultPadding))
         
-        notesTextView.delegate = self
-        let textViewHeight: CGFloat = view.frame.height / 4
-        notesTextView.anchor(top: notesLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: mainView.bottomAnchor, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: .defaultPadding, bottom: .defaultPadding, right: .defaultPadding), size: CGSize(width: 0, height: textViewHeight))
+        notesTextView.anchor(top: notesLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: mainView.bottomAnchor, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: .defaultPadding, bottom: .defaultPadding, right: .defaultPadding))
     }
 }

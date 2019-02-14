@@ -11,6 +11,7 @@ import UIKit
 class ExercisesCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     let category: Category?
+    let exerciseCtrl = ExerciseController()
     
     init(for category: Category?) {
         self.category = category
@@ -27,7 +28,7 @@ class ExercisesCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.exercisesCollectionViewCell, for: indexPath) as? ExercisesCollectionViewCell
         
-        if let exercise = category?.exercises.sorted()[indexPath.item] {
+        if let exercise = category?.exercises[indexPath.item] {
             cell?.setup(for: exercise)
         }
         

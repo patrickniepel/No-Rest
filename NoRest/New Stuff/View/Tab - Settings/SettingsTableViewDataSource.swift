@@ -20,7 +20,7 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         } else if section == Section.yourData.rawValue {
             return 2
         } else if section == Section.about.rawValue {
-            return 2
+            return 3
         }
         
         return 0
@@ -55,13 +55,22 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         } else if indexPath.section == Section.about.rawValue {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsDefaultTableViewCell) as? NRDefaultTableViewCell
-            let title = indexPath.row == 0 ? NRConstants.Settings.RowTitles.rating : NRConstants.Settings.RowTitles.licences
+            let title = determineRowTitle(for: indexPath.row)
             cell?.setup(title: title)
             
             return cell ?? UITableViewCell()
         }
         
         return UITableViewCell()
+    }
+    
+    private func determineRowTitle(for row: Int) -> String {
+        switch row {
+        case 0: return NRConstants.Settings.RowTitles.rating
+        case 1: return NRConstants.Settings.RowTitles.licences
+        case 2: return NRConstants.Settings.RowTitles.disclaimer
+        default: return ""
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

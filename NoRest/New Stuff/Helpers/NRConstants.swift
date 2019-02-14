@@ -12,7 +12,7 @@ struct NRConstants {
     
     struct Text {
         static let font = "CaviarDreams"
-        static let fontBold = "CaviarDreams_Bold"
+        static let fontBold = "CaviarDreams-Bold"
     }
     
     struct TabBarItemTitles {
@@ -27,6 +27,7 @@ struct NRConstants {
         static let categories = "Categories"
         static let settings = "Settings"
         static let licenses = "Licenses"
+        static let disclaimer = "Disclaimer"
         static let statistics = "Statistics"
         static let newExercise = "New Exercise"
         static let newWorkout = "New Workout"
@@ -61,6 +62,9 @@ struct NRConstants {
         static let restTimerLabel = "Rest Timer (s)"
         static let runningTimerLabel = "Running Timer (min)"
         static let notesLabel = "Notes"
+        static let noNotes = "No Entries Yet"
+        static let noName = "Exercise - No Name"
+        static let noTimer = 0
     }
     
     struct Settings {
@@ -77,13 +81,19 @@ struct NRConstants {
             static let workoutHistory = "Reset Workout History"
             static let statistics = "Reset Statistics"
             static let licences = "Licences"
+            static let disclaimer = "Disclaimer"
             static let rating = "Rate This App"
         }
         
-        static let deleteButton = "Reset"
+        static let resetButton = "Reset"
         static let cancelButton = "Cancel"
+        static let copyright = "© 2019 Patrick Niepel"
+    }
+    
+    struct Alerts {
         static let successful = "Successful"
         static let alertMessage = "Are You Sure?"
-        static let copyright = "© 2019 Patrick Niepel"
+        static let errorSavingFailure = "Couldn't Be Saved"
+        static let savingSuccess = "Saved"
     }
 }

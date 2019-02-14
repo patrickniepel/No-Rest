@@ -54,7 +54,7 @@ class ExercisesCollectionViewController: UICollectionViewController {
         let editExerciseAction = EditExerciseAction(exercise: nil, category: selectedCategory)
         store.dispatch(editExerciseAction)
         
-        let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .present)
+        let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)
         store.dispatch(routeAction)
     }
     

@@ -11,6 +11,11 @@ import ReSwift
 extension ExercisesCollectionViewController: StoreSubscriber {
     
     func newState(state: ExercisesState) {
-        injectCategory(state.category)
+        
+        if let category = state.category {
+            injectCategory(category)
+        } else {
+            collectionView.reloadData()
+        }
     }
 }

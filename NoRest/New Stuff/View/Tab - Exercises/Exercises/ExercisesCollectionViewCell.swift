@@ -26,7 +26,7 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
         return iv
     }()
     
-    private let binButton: UIButton = {
+    private lazy var binButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(#imageLiteral(resourceName: "bin"), for: .normal)
         button.addTarget(self, action: #selector(deleteExercise), for: .touchUpInside)
@@ -34,6 +34,7 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
     }()
     
     private var exercise: Exercise?
+    private let exerciseCtrl = ExerciseController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,19 +76,20 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
     
     private func fillLayout() {
         if let exercise = exercise {
-            timerLabel.text = ExerciseController(exercise: exercise).timerAsString()
+            timerLabel.text = exerciseCtrl.timerAsString(for: exercise)
             nameLabel.text = exercise.name
         }
     }
     
     @objc func deleteExercise() {
-        print("Delete")
-        if let exercise = exercise {
-            ExerciseController(exercise: exercise).deleteExercise()
+        if let exercise = exercise,
+            let collectionView = self.superview as? UICollectionView,
+            let indexPath = collectionView.indexPath(for: self) {
             
             //update collectionView
-            let collectionView = self.superview as? UICollectionView
-            collectionView?.reloadData()
+            collectionView.deleteItems(at: [indexPath])
+            exerciseCtrl.deleteExercise(exercise)
+            collectionView.reloadData()
         }
     }
 }

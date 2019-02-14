@@ -16,5 +16,9 @@ func exercisesReducer(action: Action, state: ExercisesState?) -> ExercisesState 
         newState.category = selectedCategoryAction.category
     }
     
+    if let _ = action as? ReloadExercisesAction {
+        newState.category = nil
+    }
+    
     return newState
 }

@@ -15,13 +15,13 @@ struct DefaultExercise {
         var exercises: [Exercise] = []
         
         for category in categories {
-            exercises += DefaultExercise.exercises(for: category)
+            exercises += DefaultExercise.defaultExercises(for: category)
         }
         
         return exercises
     }
     
-    static func exercises(for category: Category) -> [Exercise] {
+    static func defaultExercises(for category: Category) -> [Exercise] {
         
         switch category {
         case .chest:

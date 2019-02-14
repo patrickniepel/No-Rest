@@ -23,6 +23,10 @@ enum Category: String, Codable {
     }
     
     var exercises: [Exercise] {
-        return DefaultExercise.exercises(for: self)
+        return UserData.sharedInstance.exercises.filter { $0.category == self }.sorted()
+    }
+    
+    var defaultExercises: [Exercise] {
+        return DefaultExercise.defaultExercises(for: self).sorted()
     }
 }
