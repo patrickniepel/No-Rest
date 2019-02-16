@@ -13,6 +13,7 @@ struct PersistencyController: Codable {
     static func loadUserData() {
         if let userData = FileController.loadData() {
             UserData.sharedInstance = userData
+            UserData.sharedInstance.myWorkouts.append(MyWorkout(name: "Test", exercises: []))
         }
         
         if UserData.sharedInstance.exercises.isEmpty {

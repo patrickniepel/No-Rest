@@ -61,13 +61,15 @@ enum NavigationAction {
 enum Screen {
     case remain
     case initial
-    case addWorkout
+    case myWorkout
+    case editWorkout
     case exercises
     case statistics
     case settings
     case exercisesForCategory
     case editExercise
     case info
+    case history
 }
 
 

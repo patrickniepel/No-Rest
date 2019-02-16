@@ -14,7 +14,7 @@ struct AnchoredConstraints {
 extension UIView {
     
     @discardableResult
-    func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, centerX: Bool = false, centerY: Bool = false, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
+    func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, centerX: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
         
         translatesAutoresizingMaskIntoConstraints = false
         var anchoredConstraints = AnchoredConstraints()
@@ -35,16 +35,12 @@ extension UIView {
             anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
         }
         
-        if centerX {
-            if let superviewCenterXAnchor = superview?.centerXAnchor {
-                centerXAnchor.constraint(equalTo: superviewCenterXAnchor).isActive = true
-            }
+        if let viewCenterXAnchor = centerX {
+            centerXAnchor.constraint(equalTo: viewCenterXAnchor).isActive = true
         }
         
-        if centerY {
-            if let superviewCenterYAnchor = superview?.centerYAnchor {
-                centerYAnchor.constraint(equalTo: superviewCenterYAnchor).isActive = true
-            }
+        if let viewCenterYAnchor = centerY {
+            centerYAnchor.constraint(equalTo: viewCenterYAnchor).isActive = true
         }
         
         if size.width != 0 {

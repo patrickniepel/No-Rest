@@ -222,7 +222,7 @@ extension EditExerciseViewController {
     
     private func setupSegmentedControl() {
         let segmentedControlWidth = mainView.frame.width * 0.9
-        typeSegmentedControl.anchor(top: mainView.topAnchor, leading: nil, bottom: nil, trailing: nil, centerX: true, padding: UIEdgeInsets(top: .defaultPadding, left: 0, bottom: 0, right: 0), size: CGSize(width: segmentedControlWidth, height: 0))
+        typeSegmentedControl.anchor(top: mainView.topAnchor, leading: nil, bottom: nil, trailing: nil, centerX: mainView.centerXAnchor, padding: UIEdgeInsets(top: .defaultPadding, left: 0, bottom: 0, right: 0), size: CGSize(width: segmentedControlWidth, height: 0))
     }
     
     private func setupLabels() {

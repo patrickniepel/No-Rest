@@ -11,7 +11,7 @@ import UIKit
 class ExercisesCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     let category: Category?
-    let exerciseCtrl = ExerciseController()
+    private let exerciseCtrl = ExerciseController()
     
     init(for category: Category?) {
         self.category = category

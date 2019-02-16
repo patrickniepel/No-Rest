@@ -41,7 +41,7 @@ class SettingsYourDataTableViewCell: UITableViewCell {
         contentView.addSubview(resetButton)
         
         let width = contentView.frame.width * 0.5
-        resetButton.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: true, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding), size: CGSize(width: width, height: 40))
+        resetButton.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding), size: CGSize(width: width, height: 40))
         
         contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
     }

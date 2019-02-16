@@ -10,7 +10,7 @@ import UIKit
 
 class AppCoordinator {
     var tabBarController: MainTabBarController?
-    var addWorkoutNavigationController: UINavigationController?
+    var myWorkoutNavigationController: UINavigationController?
     var exercisesNavigationController: UINavigationController?
     var statisticsNavigationController: UINavigationController?
     var settingsNavigationController: UINavigationController?
@@ -25,9 +25,9 @@ class AppCoordinator {
     func setupInitialViewControllers() {
         let tabBarController = MainTabBarController()
         
-        let addWorkout = ViewBuilder.buildAddWorkoutScreen()
-        let addWorkoutNavigationController = buildNavigationController(for: addWorkout)
-        self.addWorkoutNavigationController = addWorkoutNavigationController
+        let myWorkout = ViewBuilder.buildMyWorkoutScreen()
+        let myWorkoutNavigationController = buildNavigationController(for: myWorkout)
+        self.myWorkoutNavigationController = myWorkoutNavigationController
         
         let exercises = ViewBuilder.buildExercisesScreen()
         let exercisesNavigationController = buildNavigationController(for: exercises)
@@ -43,8 +43,8 @@ class AppCoordinator {
         
         self.tabBarController = tabBarController
         
-        self.tabBarController?.viewControllers = [addWorkoutNavigationController, exercisesNavigationController, statisticsNavigationController, settingsNavigationController]
-        self.tabBarController?.selectedIndex = TabBarDestination.addWorkout.rawValue
+        self.tabBarController?.viewControllers = [myWorkoutNavigationController, exercisesNavigationController, statisticsNavigationController, settingsNavigationController]
+        self.tabBarController?.selectedIndex = TabBarDestination.myWorkout.rawValue
     }
     
     func build(screen: Screen, state: NavigationState? = nil) -> UIViewController {
@@ -55,6 +55,10 @@ class AppCoordinator {
             return InfoViewController()
         case .editExercise:
             return EditExerciseViewController()
+//        case .history:
+//            print("TODO")
+//        case .addWorkout:
+//            print("TODO")
         default:
             assertionFailure("Attempt to build invalid screen \(screen)")
             return UIViewController()
@@ -81,8 +85,8 @@ class AppCoordinator {
      */
     static func instantiateScreen(with title: String) -> UIViewController {
         switch title {
-        case NRConstants.TabBarItemTitles.addWorkout:
-            return MenuViewController()
+        case NRConstants.TabBarItemTitles.myWorkout:
+            return MyWorkoutCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case NRConstants.TabBarItemTitles.exercises:
             return ExercisesCategoryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case NRConstants.TabBarItemTitles.statistics:

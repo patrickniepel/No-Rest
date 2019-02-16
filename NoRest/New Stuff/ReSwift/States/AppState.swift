@@ -14,5 +14,7 @@ struct AppState: StateType, Equatable {
     let settingsState: SettingsState
     let editExerciseState: EditExerciseState
     let infoState: InfoState
+    let myWorkoutState: MyWorkoutState
+    let editWorkoutState: EditWorkoutState
 }
 

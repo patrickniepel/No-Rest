@@ -59,9 +59,9 @@ class MainStatisticsViewController: UIViewController {
         view.addSubview(pageControl)
         
         if #available(iOS 11.0, *) {
-            pageControl.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, centerX: true)
+            pageControl.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, centerX: view.centerXAnchor)
         } else {
-            pageControl.anchor(top: nil, leading: nil, bottom: view.bottomAnchor, trailing: nil, centerX: true)
+            pageControl.anchor(top: nil, leading: nil, bottom: view.bottomAnchor, trailing: nil, centerX: view.centerXAnchor)
         }
         
         mainStatisticsCollectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: pageControl.topAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0))

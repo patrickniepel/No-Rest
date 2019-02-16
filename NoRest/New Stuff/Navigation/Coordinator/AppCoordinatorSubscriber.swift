@@ -21,7 +21,7 @@ extension AppCoordinator: StoreSubscriber {
     }
     
     /**
-     Sets the displayed tab-screen of the app (addWorkout, exercises, statistics, settings), builds the
+     Sets the displayed tab-screen of the app (myWorkout, exercises, statistics, settings), builds the
      views and presents them on the target navigation-controller.
      
      - parameter state: The state containing required information to perform the view-configuration.
@@ -42,7 +42,7 @@ extension AppCoordinator: StoreSubscriber {
         }
         
         // The `screen` value will be completely ignored since the mainStack will be used to build the views.
-        if state.activeTabBar == .addWorkout && state.mainStack.count > 0 {
+        if state.activeTabBar == .myWorkout && state.mainStack.count > 0 {
             present(viewStack: state.mainStack)
             return
         }
@@ -106,8 +106,8 @@ extension AppCoordinator: StoreSubscriber {
      */
     private func determineNavigationController(destination: TabBarDestination) -> UINavigationController? {
         switch destination {
-        case .addWorkout:
-            return addWorkoutNavigationController
+        case .myWorkout:
+            return myWorkoutNavigationController
         case .exercises:
             return exercisesNavigationController
         case .statistics:
@@ -149,8 +149,8 @@ extension AppCoordinator: StoreSubscriber {
         let viewController = build(screen: screen, state: state)
         
         switch state.activeTabBar {
-        case .addWorkout:
-            handleAction(navigationController: addWorkoutNavigationController, vc: viewController, action: state.action)
+        case .myWorkout:
+            handleAction(navigationController: myWorkoutNavigationController, vc: viewController, action: state.action)
         case .exercises:
             handleAction(navigationController: exercisesNavigationController, vc: viewController, action: state.action)
         case .statistics:
@@ -183,7 +183,7 @@ extension AppCoordinator: StoreSubscriber {
     fileprivate func present(viewStack: [Screen]) {
         for screen in viewStack {
             let view = build(screen: screen)
-            addWorkoutNavigationController?.pushViewController(view, animated: true)
+            myWorkoutNavigationController?.pushViewController(view, animated: true)
         }
     }
 }

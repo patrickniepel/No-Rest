@@ -14,19 +14,26 @@ class InfoViewController: UIViewController {
         let tv = UITextView()
         tv.backgroundColor = .lightBackgroundColor
         tv.textColor = .textColor
-        tv.font = UIFont(name: NRConstants.Text.font, size: 8)
-        tv.isUserInteractionEnabled = false
+        tv.font = UIFont(name: NRConstants.Text.font, size: 12)
+        tv.isUserInteractionEnabled = true
+        tv.isEditable = false
+        tv.isSelectable = false
         return tv
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        store.subscribe(self) {
+            $0.select {
+                $0.infoState
+            }
+        }
         setupScreen()
     }
     
     private func setupScreen() {
         view.backgroundColor = .lightBackgroundColor
-        
         setupLicensesTextView()
     }
     
@@ -40,6 +47,10 @@ class InfoViewController: UIViewController {
         navigationItem.title = info == .licenses ? NRConstants.ScreenTitles.licenses : NRConstants.ScreenTitles.disclaimer
     }
     
+    deinit {
+        store.unsubscribe(self)
+    }
+    
     let licenses = """
     tabbaritem dumbbell:
     https://www.iconfinder.com/icons/310338/dumbbell_sport_icon
@@ -51,6 +62,12 @@ class InfoViewController: UIViewController {
 
     bin image:
     https://iconmonstr.com/trash-can-6-png/
+
+    editIcon:
+    https://iconmonstr.com/pencil-10-png/
+
+    dateIcon:
+    https://iconmonstr.com/calendar-6-png/
     """
     
     let disclaimer = """
@@ -66,13 +83,13 @@ class InfoViewController: UIViewController {
             (a) will be constantly available, or available at all; or
             (b) is true, accurate, complete, current or non-misleading.
     4. Health and fitness information
-        4.1 You acknowledge that all exercise involves a risk of personal injury, including a small risk of serious injury or   death, and agree that you are responsible for your health and well-being in relation to any exercise programme that you may undertake, whether or not such exercise programme uses the health and fitness information within this application.
-        4.2 If you are pregnant or suffer from any medical or physical condition or disability, you should not make any changes to  your diet, nutrition, lifestyle, activities or exercise programmes based on the fitness information published on our    website without first consulting your doctor or another suitably qualified professional.
+        4.1 You acknowledge that all exercise involves a risk of personal injury, including a small risk of serious injury or death, and agree that you are responsible for your health and well-being in relation to any exercise programme that you may undertake, whether or not such exercise programme uses the health and fitness information within this application.
+        4.2 If you are pregnant or suffer from any medical or physical condition or disability, you should not make any changes to  your diet, nutrition, lifestyle, activities or exercise programmes based on the fitness information published on our website without first consulting your doctor or another suitably qualified professional.
     5. Medical assistance
         5.1 You must not rely on the information on our website as an alternative to medical advice from your doctor or other   professional healthcare provider.
         5.2 If you have any specific questions about any medical matter, you should consult your doctor or other professional   healthcare provider.
         5.3 If you think you may be suffering from any medical condition, you should seek immediate medical attention.
-        5.4 You should never delay seeking medical advice, disregard medical advice or discontinue medical treatment because of     information in this application.
+        5.4 You should never delay seeking medical advice, disregard medical advice or discontinue medical treatment because of information in this application.
     6. No liability
         6.1 Subject to Section 7, we will not be liable to you in respect of any loss, injury or damage you may suffer as a     consequence your reliance upon the information published on our website.
     7. Limits upon exclusions of liability

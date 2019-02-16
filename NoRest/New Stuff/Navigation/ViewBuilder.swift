@@ -11,14 +11,14 @@ import UIKit
 struct ViewBuilder {
     
     /**
-     Builds the addWorkout-screen with the appurtenant tabBar item
+     Builds the myWorkout-screen with the appurtenant tabBar item
      - returns: The instantiated view-controller.
      */
-    static func buildAddWorkoutScreen() -> UIViewController {
-        let title = NRConstants.TabBarItemTitles.addWorkout
-        let addWorkoutTabBarItem = UITabBarItem(title: title, image: buildImage(for: "AddWorkout_inactive"), selectedImage: buildImage(for: "AddWorkout_active"))
+    static func buildMyWorkoutScreen() -> UIViewController {
+        let title = NRConstants.TabBarItemTitles.myWorkout
+        let myWorkoutTabBarItem = UITabBarItem(title: title, image: buildImage(for: "MyWorkout_inactive"), selectedImage: buildImage(for: "MyWorkout_active"))
         
-        return triggerInstantiation(with: title, for: addWorkoutTabBarItem)
+        return triggerInstantiation(with: title, for: myWorkoutTabBarItem)
     }
     
     /**

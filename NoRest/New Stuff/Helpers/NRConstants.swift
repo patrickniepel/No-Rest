@@ -16,7 +16,7 @@ struct NRConstants {
     }
     
     struct TabBarItemTitles {
-        static let addWorkout = "Workout"
+        static let myWorkout = "Workout"
         static let exercises = "Exercises"
         static let statistics = "Statistics"
         static let settings = "Settings"
@@ -31,6 +31,7 @@ struct NRConstants {
         static let statistics = "Statistics"
         static let newExercise = "New Exercise"
         static let newWorkout = "New Workout"
+        static let history = "History"
     }
     
     struct CellIdentifiers {
@@ -44,6 +45,7 @@ struct NRConstants {
         static let statisticsExerciseCollectionViewCell = "mainStatisticsExerciseCollectionViewCell"
         static let statisticsStatsCollectionViewCell = "statisticsStatsCollectionViewCell"
         static let statisticsSelectorCollectionViewCell = "statisticsSelectorCollectionViewCell"
+        static let myWorkoutCollectionViewCell = "myWorkoutCollectionViewCell"
     }
     
     struct Padding {

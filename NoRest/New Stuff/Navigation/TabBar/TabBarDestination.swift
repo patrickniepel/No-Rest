@@ -9,7 +9,7 @@
 import UIKit
 
 enum TabBarDestination: Int, Equatable {
-    case addWorkout = 0
+    case myWorkout = 0
     case exercises = 1
     case statistics = 2
     case settings = 3
