@@ -10,6 +10,11 @@ import UIKit
 
 /** Cell only with a label and accessory type */
 class NRDefaultTableViewCell: UITableViewCell {
+    
+    private let contentLabel: NRLabel = {
+        let textLabel = NRLabel(with: "")
+        return textLabel
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,10 +26,12 @@ class NRDefaultTableViewCell: UITableViewCell {
     
     func setup(title: String, accessoryType: AccessoryType = .disclosureIndicator) {
         self.accessoryType = accessoryType
-
-        let textLabel = NRLabel(with: title)
-        contentView.addSubview(textLabel)
-        textLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
+        
+        contentLabel.text = title
+        contentView.addSubview(contentLabel)
+        contentLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
     }
+    
+    
 
 }

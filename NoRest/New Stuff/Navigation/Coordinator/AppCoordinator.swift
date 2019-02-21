@@ -57,8 +57,8 @@ class AppCoordinator {
             return EditExerciseViewController()
 //        case .history:
 //            print("TODO")
-//        case .addWorkout:
-//            print("TODO")
+        case .workoutSetting:
+            return WorkoutSettingViewController()
         default:
             assertionFailure("Attempt to build invalid screen \(screen)")
             return UIViewController()

@@ -15,6 +15,14 @@ struct NRConstants {
         static let fontBold = "CaviarDreams-Bold"
     }
     
+    struct TableViews {
+        static let rowHeight: CGFloat = 65
+    }
+    
+    struct BarButtonItemTitles {
+        static let sortingButton = "Sort Exercises"
+    }
+    
     struct TabBarItemTitles {
         static let myWorkout = "Workout"
         static let exercises = "Exercises"
@@ -46,6 +54,8 @@ struct NRConstants {
         static let statisticsStatsCollectionViewCell = "statisticsStatsCollectionViewCell"
         static let statisticsSelectorCollectionViewCell = "statisticsSelectorCollectionViewCell"
         static let myWorkoutCollectionViewCell = "myWorkoutCollectionViewCell"
+        static let workoutSettingTableViewCell = "workoutSettingTableViewCell"
+        static let workoutSortingTableViewCell = "workoutSortingTableViewCell"
     }
     
     struct Padding {

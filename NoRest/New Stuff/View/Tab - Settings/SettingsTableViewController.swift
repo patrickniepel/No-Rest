@@ -44,7 +44,7 @@ class SettingsTableViewController: UITableViewController {
     private func setupScreen() {
         navigationItem.title = NRConstants.ScreenTitles.settings
         tableView.setupDefaultBackgroundColor()
-        tableView.rowHeight = 65
+        tableView.rowHeight = NRConstants.TableViews.rowHeight
         tableView.contentInset = UIEdgeInsets(top: .defaultPadding, left: 0, bottom: 0, right: 0)
     }
     

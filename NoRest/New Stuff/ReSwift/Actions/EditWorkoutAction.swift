@@ -8,6 +8,6 @@
 
 import ReSwift
 
-struct EditWorkoutAction: Action {
+struct WorkoutSettingAction: Action {
     let workout: MyWorkout?
 }

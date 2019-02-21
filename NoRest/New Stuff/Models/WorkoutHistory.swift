@@ -35,4 +35,8 @@ struct WorkoutHistory: Codable {
         
         return exercises
     }
+    
+    mutating func allWorkouts() -> [MyWorkout] {
+        return workouts
+    }
 }

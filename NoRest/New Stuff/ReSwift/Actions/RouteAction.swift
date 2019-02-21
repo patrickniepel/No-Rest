@@ -62,7 +62,8 @@ enum Screen {
     case remain
     case initial
     case myWorkout
-    case editWorkout
+    case workoutSetting
+    case workoutSorting
     case exercises
     case statistics
     case settings

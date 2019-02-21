@@ -53,10 +53,10 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
     }
     
     @objc private func addWorkout() {
-        let addWorkoutAction = EditWorkoutAction(workout: nil)
+        let addWorkoutAction = WorkoutSettingAction(workout: nil)
         store.dispatch(addWorkoutAction)
         
-        let routeAction = RouteAction(screen: .editWorkout, in: .myWorkout)
+        let routeAction = RouteAction(screen: .workoutSetting, in: .myWorkout)
         store.dispatch(routeAction)
     }
     

@@ -8,7 +8,7 @@
 
 import ReSwift
 
-struct EditWorkoutState: StateType, Equatable {
+struct WorkoutSettingState: StateType, Equatable {
     var workout: MyWorkout?
 }
 

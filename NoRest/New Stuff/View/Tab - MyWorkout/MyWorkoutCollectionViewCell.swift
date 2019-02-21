@@ -94,10 +94,10 @@ class MyWorkoutCollectionViewCell: UICollectionViewCell {
     
     @objc private func editWorkout() {
         guard let workout = workout else { return }
-        let editWorkoutAction = EditWorkoutAction(workout: workout)
+        let editWorkoutAction = WorkoutSettingAction(workout: workout)
         store.dispatch(editWorkoutAction)
         
-        let routeAction = RouteAction(screen: .editWorkout, in: .myWorkout)
+        let routeAction = RouteAction(screen: .workoutSetting, in: .myWorkout)
         store.dispatch(routeAction)
     }
     

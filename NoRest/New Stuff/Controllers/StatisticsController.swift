@@ -49,46 +49,31 @@ struct StatisticsController {
     }
     
     private static func maxWeight(exercises: [Exercise]) -> Double {
-        var maxWeight: Double = 0
-
-        for exercise in exercises {
-            for set in exercise.sets {
-                if set.weight > maxWeight {
-                    maxWeight = set.weight
-                }
-            }
-        }
+        let maxWeight = exercises.compactMap { $0.sets.compactMap { $0.weight }.max() }.max() ?? 0
         return maxWeight
     }
     
     private static func totalVolume(exercises: [Exercise]) -> Double {
-        var volume: Double = 0
-        
-        for exercise in exercises {
-            for set in exercise.sets {
-                volume += Double(set.reps) * set.weight
-            }
-        }
-
+        let volume = exercises.reduce(0, { (res, exercise) -> Double in
+            res + exercise.sets.reduce(0, { (res, set) -> Double in
+                res + Double(set.reps) * set.weight
+            })
+        })
         return volume
     }
     
     private static func totalReps(exercises: [Exercise]) -> Double {
-        var reps: Double = 0
-        
-        for exercise in exercises {
-            for set in exercise.sets {
-                reps += Double(set.reps)
-            }
-        }
+        let reps = exercises.reduce(0, { (res, exercise) -> Double in
+            res + exercise.sets.reduce(0, { (res, set) -> Double in
+                res + Double(set.reps)
+            })
+        })
         return reps
     }
     
     private static func totalSets(exercises: [Exercise]) -> Double {
-        var sets: Double = 0
-        
-        for exercise in exercises {
-            sets += Double(exercise.sets.count)
+        let sets = exercises.reduce(0) { (res, exercise) -> Double in
+            res + Double(exercise.sets.count)
         }
         return sets
     }
