@@ -16,5 +16,6 @@ struct AppState: StateType, Equatable {
     let infoState: InfoState
     let myWorkoutState: MyWorkoutState
     let workoutSettingState: WorkoutSettingState
+    let workoutSortingState: WorkoutSortingState
 }
 

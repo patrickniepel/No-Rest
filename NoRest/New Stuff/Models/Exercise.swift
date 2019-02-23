@@ -32,7 +32,7 @@ struct Exercise: Codable, Equatable, Comparable {
     var type: ExerciseType
     var sets: [Set]
     
-    init(name: String, category: Category, timer: Int = 90, notes: String = NRConstants.ExerciseEditing.noNotes, type: ExerciseType = .weightLifting) {
+    init(name: String, category: Category, timer: Int = 90, notes: String = NRConstants.Editing.noNotes, type: ExerciseType = .weightLifting) {
         id = PersistencyController.currentExerciseID()
         self.name = name
         self.notes = notes

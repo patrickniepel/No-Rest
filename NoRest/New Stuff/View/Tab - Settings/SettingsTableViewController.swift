@@ -38,13 +38,14 @@ class SettingsTableViewController: UITableViewController {
         tableView.register(SettingsUnitTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.settingsUnitTableViewCell)
         tableView.register(SettingsTimerTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.settingsTimerTableViewCell)
         tableView.register(SettingsYourDataTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.settingsYourDataTableViewCell)
-        tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.settingsDefaultTableViewCell)
+        tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell)
     }
     
     private func setupScreen() {
         navigationItem.title = NRConstants.ScreenTitles.settings
         tableView.setupDefaultBackgroundColor()
         tableView.rowHeight = NRConstants.TableViews.rowHeight
+        tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
         tableView.contentInset = UIEdgeInsets(top: .defaultPadding, left: 0, bottom: 0, right: 0)
     }
     

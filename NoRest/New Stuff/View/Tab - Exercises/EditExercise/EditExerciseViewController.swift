@@ -28,7 +28,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     }()
     
     private let nameLabel: NRLabel = {
-        let label = NRLabel(with: NRConstants.ExerciseEditing.nameLabel)
+        let label = NRLabel(with: NRConstants.Editing.nameLabel)
         label.textColor = .textColorMediumLight
         label.sizeToFit()
         return label
@@ -42,7 +42,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     }()
     
     private let notesLabel: NRLabel = {
-        let label = NRLabel(with: NRConstants.ExerciseEditing.notesLabel)
+        let label = NRLabel(with: NRConstants.Editing.notesLabel)
         label.textColor = .textColorMediumLight
         label.sizeToFit()
         return label
@@ -124,7 +124,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     private func fillLayout() {
         guard let exercise = exercise else { return }
         typeSegmentedControl.selectedSegmentIndex = ExerciseType.allCases.firstIndex(of: exercise.type) ?? 0
-        timerLabel.text = exercise.type == .weightLifting ? NRConstants.ExerciseEditing.restTimerLabel : NRConstants.ExerciseEditing.runningTimerLabel
+        timerLabel.text = exercise.type == .weightLifting ? NRConstants.Editing.restTimerLabel : NRConstants.Editing.runningTimerLabel
         nameTextField.text = exercise.name
         timerTextField.text = "\(exercise.timer)"
         notesTextView.text = exercise.notes
@@ -144,10 +144,10 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
             AlertController.showSavingFailureAlert()
             return
         }
+        exercise.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
+        exercise.timer = SyntaxController.checkTimerInputCorrect(text: timerTextField.text)
+        exercise.notes = SyntaxController.checkNotesInputCorrect(text: notesTextView.text)
         let exerciseCtrl = ExerciseController()
-        exercise.name = exerciseCtrl.checkNameInputCorrect(text: nameTextField.text)
-        exercise.timer = exerciseCtrl.checkTimerInputCorrect(text: timerTextField.text)
-        exercise.notes = exerciseCtrl.checkNotesInputCorrect(text: notesTextView.text)
         exerciseCtrl.saveExercise(exercise)
         AlertController.showSavingSuccessAlert()
         navigationController?.popViewController(animated: true)
@@ -161,7 +161,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         if let title = sender.titleForSegment(at: sender.selectedSegmentIndex) {
             let newType = ExerciseType(rawValue: title) ?? .weightLifting
             exercise?.type = newType
-            timerLabel.text = newType == .weightLifting ? NRConstants.ExerciseEditing.restTimerLabel : NRConstants.ExerciseEditing.runningTimerLabel
+            timerLabel.text = newType == .weightLifting ? NRConstants.Editing.restTimerLabel : NRConstants.Editing.runningTimerLabel
         }
     }
     

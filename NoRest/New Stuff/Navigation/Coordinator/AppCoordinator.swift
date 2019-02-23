@@ -59,6 +59,10 @@ class AppCoordinator {
 //            print("TODO")
         case .workoutSetting:
             return WorkoutSettingViewController()
+        case .workoutSorting:
+            return WorkoutSortingTableViewController()
+        case .myWorkout:
+            return MyWorkoutCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         default:
             assertionFailure("Attempt to build invalid screen \(screen)")
             return UIViewController()

@@ -86,9 +86,15 @@ class MyWorkoutCollectionViewCell: UICollectionViewCell {
     }
     
     private func fillLayout() {
-        if let workout = workout {
-            dateLabel.text = myWorkoutCtrl.dateAsString(for: workout.date)
-            nameLabel.text = workout.name
+        guard let workout = workout else { return }
+        nameLabel.text = workout.name
+        
+        let dateString = myWorkoutCtrl.dateAsString(for: workout.date)
+        
+        if dateString.isEmpty {
+            dateImage.removeFromSuperview()
+        } else {
+            dateLabel.text = dateString
         }
     }
     
@@ -107,8 +113,8 @@ class MyWorkoutCollectionViewCell: UICollectionViewCell {
             let indexPath = collectionView.indexPath(for: self) {
             
             //update collectionView
-            collectionView.deleteItems(at: [indexPath])
             myWorkoutCtrl.deleteWorkout(workout)
+            collectionView.deleteItems(at: [indexPath])
             collectionView.reloadData()
         }
     }

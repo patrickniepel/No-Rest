@@ -13,14 +13,22 @@ class WorkoutSettingViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = NRConstants.TableViews.rowHeight
+        tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
         tableView.allowsMultipleSelection = false
         tableView.allowsSelection = true
         tableView.setupDefaultBackgroundColor()
         return tableView
     }()
     
+    private let nameLabel: NRLabel = {
+        let label = NRLabel(with: NRConstants.Editing.nameLabel)
+        label.textColor = .textColorMediumLight
+        label.sizeToFit()
+        return label
+    }()
+    
     private let nameTextField: UITextField = {
-        let textField = UITextField()
+        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         textField.adjustsFontSizeToFitWidth = true
         textField.autocapitalizationType = .words
         textField.autocorrectionType = .default
@@ -33,6 +41,7 @@ class WorkoutSettingViewController: UIViewController {
     
     private var dataSource: WorkoutSettingTableViewDataSource?
     private var delegate: WorkoutSettingTableViewDelegate?
+    private var workoutSettingCtrl = WorkoutSettingController()
     var workout: MyWorkout?
 
     override func viewDidLoad() {
@@ -44,15 +53,17 @@ class WorkoutSettingViewController: UIViewController {
             }
         }
 
-        dataSource = WorkoutSettingTableViewDataSource()
+        dataSource = WorkoutSettingTableViewDataSource(workoutSettingCtrl: workoutSettingCtrl)
         delegate = WorkoutSettingTableViewDelegate()
         
         tableView.dataSource = dataSource
         tableView.delegate = delegate
-        tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.workoutSettingTableViewCell)
-        
-        view.setupDefaultBackgroundColor()
+        tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell)
+        view.backgroundColor = .lightBackgroundColor
+        setupNavigationBar()
+        hideKeyboardWhenTapped()
         setupLayout()
+        fillLayout()
     }
     
     private func setupNavigationBar() {
@@ -63,7 +74,8 @@ class WorkoutSettingViewController: UIViewController {
     private func fillLayout() {
         guard let workout = workout else { return }
         nameTextField.text = workout.name
-        //table view setup
+        workoutSettingCtrl.selectedExercises = workout.exercises
+        tableView.reloadData()
     }
     
     func setupWorkout(_ workout: MyWorkout?) {
@@ -76,7 +88,15 @@ class WorkoutSettingViewController: UIViewController {
     }
     
     @objc private func openSortingScreen() {
+        guard let workout = workout else { return }
+        workout.exercises = workoutSettingCtrl.selectedExercises
+        workout.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
         
+        let sortingAction = WorkoutSortingAction(workout: workout)
+        store.dispatch(sortingAction)
+        
+        let routeAction = RouteAction(screen: .workoutSorting, in: .myWorkout)
+        store.dispatch(routeAction)
     }
     
     deinit {
@@ -88,10 +108,27 @@ class WorkoutSettingViewController: UIViewController {
 extension WorkoutSettingViewController {
     
     private func setupLayout() {
+        view.addSubview(nameLabel)
         view.addSubview(nameTextField)
         view.addSubview(tableView)
-        nameTextField.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: .defaultPadding, left: .defaultPadding, bottom: 0, right: .defaultPadding))
         
+        setupNameLayout()
+        setupTableViewLayout()
+    }
+    
+    private func setupNameLayout() {
+        let topAnchor: NSLayoutYAxisAnchor?
+        if #available(iOS 11.0, *) {
+            topAnchor = view.safeAreaLayoutGuide.topAnchor
+        } else {
+            topAnchor = view.topAnchor
+        }
+        
+        nameLabel.anchor(top: topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: .defaultPadding, left: .defaultPadding, bottom: 0, right: 0))
+        nameTextField.anchor(top: nameLabel.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 8, left: .defaultPadding, bottom: 0, right: .defaultPadding))
+    }
+    
+    private func setupTableViewLayout() {
         let bottomAnchor: NSLayoutYAxisAnchor?
         if #available(iOS 11.0, *) {
             bottomAnchor = view.safeAreaLayoutGuide.bottomAnchor

@@ -25,27 +25,6 @@ struct ExerciseController {
         return String.minutes(value: exercise.timer)
     }
     
-    func checkNameInputCorrect(text: String?) -> String {
-        guard let text = text, !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            return NRConstants.ExerciseEditing.noName
-        }
-        return text
-    }
-    
-    func checkTimerInputCorrect(text: String?) -> Int {
-        guard let text = text, let numberAsInt = Int(text) else {
-            return NRConstants.ExerciseEditing.noTimer
-        }
-        return numberAsInt
-    }
-    
-    func checkNotesInputCorrect(text: String) -> String {
-        if text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return NRConstants.ExerciseEditing.noNotes
-        }
-        return text
-    }
-    
     func exercisesCount(for category: Category?) -> Int {
         return UserData.sharedInstance.exercises.map { $0.category == category }.count
     }

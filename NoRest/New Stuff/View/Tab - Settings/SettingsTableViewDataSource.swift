@@ -54,9 +54,9 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
             
         } else if indexPath.section == Section.about.rawValue {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsDefaultTableViewCell) as? NRDefaultTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell) as? NRDefaultTableViewCell
             let title = determineRowTitle(for: indexPath.row)
-            cell?.setup(title: title)
+            cell?.setup(title: title, accessoryType: .disclosureIndicator)
             
             return cell ?? UITableViewCell()
         }

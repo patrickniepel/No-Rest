@@ -10,7 +10,7 @@ import Foundation
 
 struct MyWorkoutController {
     
-    func updateWorkout(_ workout: MyWorkout) {
+    func saveWorkout(_ workout: MyWorkout) {
         UpdateController.updateWorkout(workout)
     }
     
@@ -27,6 +27,6 @@ struct MyWorkoutController {
     }
     
     func dateAsString(for: Date) -> String {
-        return ""
+        return "Today"
     }
 }

@@ -17,10 +17,11 @@ struct NRConstants {
     
     struct TableViews {
         static let rowHeight: CGFloat = 65
+        static let sectionHeight: CGFloat = TableViews.rowHeight / 2
     }
     
     struct BarButtonItemTitles {
-        static let sortingButton = "Sort Exercises"
+        static let sortingButton = "Continue"
     }
     
     struct TabBarItemTitles {
@@ -40,6 +41,7 @@ struct NRConstants {
         static let newExercise = "New Exercise"
         static let newWorkout = "New Workout"
         static let history = "History"
+        static let sorting = "Sorting"
     }
     
     struct CellIdentifiers {
@@ -48,14 +50,12 @@ struct NRConstants {
         static let settingsUnitTableViewCell = "settingsUnitTableViewCell"
         static let settingsTimerTableViewCell = "settingsTimerTableViewCell"
         static let settingsYourDataTableViewCell = "settingsYourDataTableViewCell"
-        static let settingsDefaultTableViewCell = "settingsDefaultTableViewCell"
         static let statisticsGeneralCollectionViewCell = "mainStatisticsGeneralCollectionViewCell"
         static let statisticsExerciseCollectionViewCell = "mainStatisticsExerciseCollectionViewCell"
         static let statisticsStatsCollectionViewCell = "statisticsStatsCollectionViewCell"
         static let statisticsSelectorCollectionViewCell = "statisticsSelectorCollectionViewCell"
         static let myWorkoutCollectionViewCell = "myWorkoutCollectionViewCell"
-        static let workoutSettingTableViewCell = "workoutSettingTableViewCell"
-        static let workoutSortingTableViewCell = "workoutSortingTableViewCell"
+        static let nrDefaultTableViewCell = "nrDefaultTableViewCell"
     }
     
     struct Padding {
@@ -69,13 +69,13 @@ struct NRConstants {
         static let fileName = "userData.plist"
     }
     
-    struct ExerciseEditing {
+    struct Editing {
         static let nameLabel = "Name"
         static let restTimerLabel = "Rest Timer (s)"
         static let runningTimerLabel = "Running Timer (min)"
         static let notesLabel = "Notes"
         static let noNotes = "No Entries Yet"
-        static let noName = "Exercise - No Name"
+        static let noName = "No Name"
         static let noTimer = 0
     }
     

@@ -87,8 +87,8 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
             let indexPath = collectionView.indexPath(for: self) {
             
             //update collectionView
-            collectionView.deleteItems(at: [indexPath])
             exerciseCtrl.deleteExercise(exercise)
+            collectionView.deleteItems(at: [indexPath])
             collectionView.reloadData()
         }
     }

@@ -10,7 +10,11 @@ import UIKit
 
 class WorkoutSettingTableViewDataSource: NSObject, UITableViewDataSource {
     
-    let workoutSettingCtrl = WorkoutSettingController()
+    let workoutSettingCtrl: WorkoutSettingController
+    
+    init(workoutSettingCtrl: WorkoutSettingController) {
+        self.workoutSettingCtrl = workoutSettingCtrl
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return workoutSettingCtrl.countOfCategories()
@@ -21,9 +25,16 @@ class WorkoutSettingTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.workoutSettingTableViewCell, for: indexPath) as? NRDefaultTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell, for: indexPath) as? NRDefaultTableViewCell
         let exercise = workoutSettingCtrl.exercise(for: indexPath.section, for: indexPath.row)
         cell?.setup(title: exercise.name, accessoryType: .checkmark)
+        
+        if workoutSettingCtrl.selectedExercises.contains(exercise) {
+            cell?.accessoryType = .checkmark
+        }
+        else {
+            cell?.accessoryType = .none
+        }
         
         return cell ?? UITableViewCell()
     }

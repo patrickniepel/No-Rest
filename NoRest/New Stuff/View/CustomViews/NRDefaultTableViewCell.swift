@@ -24,7 +24,7 @@ class NRDefaultTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setup(title: String, accessoryType: AccessoryType = .disclosureIndicator) {
+    func setup(title: String, accessoryType: AccessoryType = .none) {
         self.accessoryType = accessoryType
         
         contentLabel.text = title
