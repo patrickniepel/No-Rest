@@ -55,8 +55,9 @@ class AppCoordinator {
             return InfoViewController()
         case .editExercise:
             return EditExerciseViewController()
-//        case .history:
-//            print("TODO")
+        case .history:
+            return HistoryTableViewController()
+//        case .historyDetail:
         case .workoutSetting:
             return WorkoutSettingViewController()
         case .workoutSorting:

@@ -71,6 +71,7 @@ enum Screen {
     case editExercise
     case info
     case history
+    case historyDetail
 }
 
 

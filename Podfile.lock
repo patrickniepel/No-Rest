@@ -1,7 +1,7 @@
 PODS:
-  - ReSwift (4.0.1)
+  - ReSwift (4.1.1)
   - SCLAlertView (0.8)
-  - SwiftLint (0.29.3)
+  - SwiftLint (0.31.0)
   - Willow (5.1.0)
 
 DEPENDENCIES:
@@ -18,9 +18,9 @@ SPEC REPOS:
     - Willow
 
 SPEC CHECKSUMS:
-  ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
+  ReSwift: d925be0033558f55bd73d92869961230dfe19d52
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
-  SwiftLint: bfa7ca7b4d170cfaf0d236ca3ffd969e88a2f002
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Willow: ad7f75939db11f7d56a97df2ca04405815e73125
 
 PODFILE CHECKSUM: 3fc274a0447e8dac713763fe067c20fc27ec08c0

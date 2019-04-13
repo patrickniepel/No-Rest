@@ -25,7 +25,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
      - parameter item: The tab bar item that was selected.
      */
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        let index = tabBar.items?.index(of: item) ?? 0
+        let index = tabBar.items?.firstIndex(of: item) ?? 0
         
         let destination = RouteDestination.destinationFrom(index: index)
         

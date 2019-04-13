@@ -10,7 +10,7 @@ import Foundation
 
 class HistoryController {
     
-    var workoutsByID : [Int: [MyWorkout]] = [:]
+    var workoutsByID: [[MyWorkout]] = []
     
     init() {
         determineDifferentWorkouts()
@@ -18,6 +18,11 @@ class HistoryController {
     
     private func determineDifferentWorkouts() {
         let historyWorkouts = UserData.sharedInstance.workoutHistory.allWorkouts()
-        workoutsByID = Dictionary(grouping: historyWorkouts, by: { $0.id })
+        let workoutDictonary = Dictionary(grouping: historyWorkouts, by: { $0.id })
+        workoutsByID = Array(workoutDictonary.values)
+    }
+    
+    func workoutName(for index: Int) -> String? {
+        return workoutsByID[index].first?.name
     }
 }
