@@ -43,19 +43,15 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
             
         } else if indexPath.section == Section.yourData.rawValue {
             
-            let currentRow = indexPath.row
-            
-            if let dataResetType = DataReset(rawValue: currentRow) {
-                let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.settingsYourDataTableViewCell) as? SettingsYourDataTableViewCell
-                cell?.setup(for: dataResetType)
-                return cell ?? UITableViewCell()
-            }
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell) as? NRDefaultTableViewCell
+            let title = determineRowTitle(for: indexPath.section, row: indexPath.row)
+            cell?.setup(title: title, accessoryType: .disclosureIndicator)
+            return cell ?? UITableViewCell()
             
         } else if indexPath.section == Section.about.rawValue {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell) as? NRDefaultTableViewCell
-            let title = determineRowTitle(for: indexPath.row)
+            let title = determineRowTitle(for: indexPath.section, row: indexPath.row)
             cell?.setup(title: title, accessoryType: .disclosureIndicator)
             
             return cell ?? UITableViewCell()
@@ -64,13 +60,23 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         return UITableViewCell()
     }
     
-    private func determineRowTitle(for row: Int) -> String {
-        switch row {
-        case 0: return NRConstants.Settings.RowTitles.rating
-        case 1: return NRConstants.Settings.RowTitles.licences
-        case 2: return NRConstants.Settings.RowTitles.disclaimer
-        default: return ""
+    private func determineRowTitle(for section: Int, row: Int) -> String {
+        if section == Section.yourData.rawValue {
+            switch row {
+            case 0: return NRConstants.Settings.RowTitles.workoutHistory
+            case 1: return NRConstants.Settings.RowTitles.statistics
+            default: return ""
+            }
         }
+        else if section == Section.about.rawValue {
+            switch row {
+            case 0: return NRConstants.Settings.RowTitles.rating
+            case 1: return NRConstants.Settings.RowTitles.licences
+            case 2: return NRConstants.Settings.RowTitles.disclaimer
+            default: return ""
+            }
+        }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

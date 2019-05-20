@@ -28,12 +28,10 @@
 		A320B91A2201B9A100FFFA40 /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A320B9192201B9A100FFFA40 /* SettingsTableViewDelegate.swift */; };
 		A320B91E2201CC3E00FFFA40 /* SettingsUnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A320B91D2201CC3E00FFFA40 /* SettingsUnitTableViewCell.swift */; };
 		A320B9202201CC4D00FFFA40 /* SettingsTimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A320B91F2201CC4D00FFFA40 /* SettingsTimerTableViewCell.swift */; };
-		A320B9222201CC5B00FFFA40 /* SettingsYourDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A320B9212201CC5B00FFFA40 /* SettingsYourDataTableViewCell.swift */; };
 		A32DD1681F90F0D2009D13CE /* CaviarDreams_BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A32DD1641F90F0D1009D13CE /* CaviarDreams_BoldItalic.ttf */; };
 		A32DD1691F90F0D2009D13CE /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A32DD1651F90F0D1009D13CE /* CaviarDreams.ttf */; };
 		A32DD16A1F90F0D2009D13CE /* CaviarDreams_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A32DD1661F90F0D1009D13CE /* CaviarDreams_Bold.ttf */; };
 		A32DD16B1F90F0D2009D13CE /* CaviarDreams_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A32DD1671F90F0D2009D13CE /* CaviarDreams_Italic.ttf */; };
-		A32DD16E1F90F3CF009D13CE /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32DD16D1F90F3CF009D13CE /* ViewController+Extension.swift */; };
 		A32DD1741F90FC23009D13CE /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32DD1731F90FC23009D13CE /* UserData.swift */; };
 		A336C912222148560068FCAD /* WorkoutSortingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336C911222148560068FCAD /* WorkoutSortingTableViewController.swift */; };
 		A336C914222148730068FCAD /* WorkoutSortingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336C913222148730068FCAD /* WorkoutSortingTableViewDataSource.swift */; };
@@ -228,12 +226,10 @@
 		A320B9192201B9A100FFFA40 /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
 		A320B91D2201CC3E00FFFA40 /* SettingsUnitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUnitTableViewCell.swift; sourceTree = "<group>"; };
 		A320B91F2201CC4D00FFFA40 /* SettingsTimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTimerTableViewCell.swift; sourceTree = "<group>"; };
-		A320B9212201CC5B00FFFA40 /* SettingsYourDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsYourDataTableViewCell.swift; sourceTree = "<group>"; };
 		A32DD1641F90F0D1009D13CE /* CaviarDreams_BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_BoldItalic.ttf; sourceTree = "<group>"; };
 		A32DD1651F90F0D1009D13CE /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 		A32DD1661F90F0D1009D13CE /* CaviarDreams_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Bold.ttf; sourceTree = "<group>"; };
 		A32DD1671F90F0D2009D13CE /* CaviarDreams_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams_Italic.ttf; sourceTree = "<group>"; };
-		A32DD16D1F90F3CF009D13CE /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		A32DD1731F90FC23009D13CE /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		A336C911222148560068FCAD /* WorkoutSortingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSortingTableViewController.swift; sourceTree = "<group>"; };
 		A336C913222148730068FCAD /* WorkoutSortingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSortingTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -536,7 +532,6 @@
 			children = (
 				A320B91D2201CC3E00FFFA40 /* SettingsUnitTableViewCell.swift */,
 				A320B91F2201CC4D00FFFA40 /* SettingsTimerTableViewCell.swift */,
-				A320B9212201CC5B00FFFA40 /* SettingsYourDataTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -556,7 +551,6 @@
 		A32DD16C1F90F3B5009D13CE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A32DD16D1F90F3CF009D13CE /* ViewController+Extension.swift */,
 				A308E26821F79BBC001D2FE8 /* UIColor+Extension.swift */,
 				A391ADEA21FBA42D002A7D04 /* UIView+Extension.swift */,
 				A3C9D59B22072BEF00401E08 /* CGFloat+Extension.swift */,
@@ -1317,7 +1311,6 @@
 				A35027261F9B668A00E2F4B0 /* MuscleStatisticCollectionViewCell.swift in Sources */,
 				A3987633221865BC0019238B /* MyWorkoutStoreSubscriber.swift in Sources */,
 				A353A5C11F915BA4006B9E2C /* MyWorkoutControllerOld.swift in Sources */,
-				A32DD16E1F90F3CF009D13CE /* ViewController+Extension.swift in Sources */,
 				A35127D822047536007D024F /* FileController.swift in Sources */,
 				A3BC59811F9237970050CD6D /* MyWorkoutHistoryDataSource.swift in Sources */,
 				A31715C61F9A7359005D420F /* TimerViewController.swift in Sources */,
@@ -1432,7 +1425,6 @@
 				A35027241F9B667400E2F4B0 /* MuscleStatisticViewController.swift in Sources */,
 				A320B9182201B96900FFFA40 /* SettingsTableViewDataSource.swift in Sources */,
 				A39C2A191F913B1400AFF8C6 /* DefaultExercises.swift in Sources */,
-				A320B9222201CC5B00FFFA40 /* SettingsYourDataTableViewCell.swift in Sources */,
 				A3A09C161F91003400CD01AF /* Exercise.swift in Sources */,
 				A3A09C241F91185800CD01AF /* ExercisesTableViewCell.swift in Sources */,
 				A31BFC8B21F66644003214C2 /* AppState.swift in Sources */,
@@ -1612,7 +1604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6C2B5VUSRK;
 				INFOPLIST_FILE = "$(SRCROOT)/NoRest/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.patrickniepel.Push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1629,7 +1621,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6C2B5VUSRK;
 				INFOPLIST_FILE = "$(SRCROOT)/NoRest/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.patrickniepel.Push;
 				PRODUCT_NAME = "$(TARGET_NAME)";

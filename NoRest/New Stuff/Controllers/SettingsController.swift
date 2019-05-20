@@ -50,7 +50,8 @@ struct SettingsController {
         else if dataReset == .workoutHistory {
             UserData.sharedInstance.workoutHistory.resetWorkoutHistory()
             
-        } else if dataReset == .statistics {
+        }
+        else if dataReset == .statistics {
             UserData.sharedInstance.statistics.resetStatistics()
         }
         

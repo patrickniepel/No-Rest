@@ -11,7 +11,16 @@ import UIKit
 class SettingsTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == Section.about.rawValue {
+        if indexPath.section == Section.yourData.rawValue {
+            if let dataResetType = DataReset(rawValue: indexPath.row) {
+                let resetAction = ResetDataAction(dataReset: dataResetType)
+                store.dispatch(resetAction)
+                
+                let invalidateAction = InvalidateResetDataAction()
+                store.dispatch(invalidateAction)
+            }
+        }
+        else if indexPath.section == Section.about.rawValue {
             
             // Rating
             if indexPath.row == 0 {
@@ -24,9 +33,8 @@ class SettingsTableViewDelegate: NSObject, UITableViewDelegate {
                 let routeAction = RouteAction(screen: .info, in: .settings)
                 store.dispatch(routeAction)
             }
-
-            tableView.deselectRow(at: indexPath, animated: true)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

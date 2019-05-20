@@ -37,7 +37,6 @@ class SettingsTableViewController: UITableViewController {
     private func registerCells() {
         tableView.register(SettingsUnitTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.settingsUnitTableViewCell)
         tableView.register(SettingsTimerTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.settingsTimerTableViewCell)
-        tableView.register(SettingsYourDataTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.settingsYourDataTableViewCell)
         tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell)
     }
     
@@ -50,16 +49,12 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func showAlertForDataReset(_ dataReset: DataReset) {
-        let alert = UIAlertController(title: NRConstants.Alerts.alertMessage, message: nil, preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: NRConstants.Settings.cancelButton, style: .cancel, handler: nil)
-        let deleteButton = UIAlertAction(title: NRConstants.Settings.resetButton, style: .destructive) { action in
+        let buttonTitles = [NRConstants.Settings.cancelButton, NRConstants.Settings.resetButton]
+        let deleteButtonHandler: ((UIAlertAction) -> Void)? = { action in
             SettingsController.resetData(dataReset)
             AlertController.showSuccessAlert()
         }
-        
-        alert.addAction(cancelButton)
-        alert.addAction(deleteButton)
-        present(alert, animated: true)
+        showAlert(with: NRConstants.Alerts.alertMessage, message: "", buttonTitles: buttonTitles, buttonStyles: [.cancel, .destructive], buttonHandlers: [nil, deleteButtonHandler])
     }
     
     deinit {
