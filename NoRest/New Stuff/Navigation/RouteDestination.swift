@@ -14,7 +14,7 @@ enum RouteDestination {
     case statistics
     case settings
     
-    static func destinationFrom(index: Int) -> RouteDestination {
+    static func destination(for index: Int) -> RouteDestination {
         switch index {
         case 0:
             return .myWorkout

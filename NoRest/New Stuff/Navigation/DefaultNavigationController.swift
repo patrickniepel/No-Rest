@@ -20,16 +20,10 @@ class DefaultNavigationController: UINavigationController, UIGestureRecognizerDe
      Enables swipe-back gesture for all sub-ViewControllers.
      
      - parameter gestureRecognizer: An instance of a subclass of the abstract base class UIGestureRecognizer. This gesture-recognizer object is about to begin processing touches to determine if its gesture is occurring.
-     - returns: true (the default) to tell the gesture recognizer to proceed with interpreting touches, false to prevent it from attempting to recognize its gestur
+     - returns: true (the default) to tell the gesture recognizer to proceed with interpreting touches, false to prevent it from attempting to recognize its gesture
      */
     func gestureRecognizerShouldBegin(_: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
-    }
-    
-    func navigationController(_: UINavigationController, willShow viewController: UIViewController, animated _: Bool) {
-        
-//        let item = UIBarButtonItem(title: "Aber flott", style: .plain, target: nil, action: nil)
-//        viewController.navigationItem.backBarButtonItem = item
     }
 }
 

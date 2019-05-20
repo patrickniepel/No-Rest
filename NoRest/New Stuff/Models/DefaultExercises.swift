@@ -22,94 +22,112 @@ struct DefaultExercise {
     }
     
     static func defaultExercises(for category: Category) -> [Exercise] {
-        
+        var titles: [String] = []
         switch category {
         case .chest:
-            return [
-                Exercise(name: "Cable Crossover", category: .chest),
-                Exercise(name: "Decline Barbell Bench Press", category: .chest),
-                Exercise(name: "Flat Barbell Bench Press", category: .chest),
-                Exercise(name: "Flat Dumbbell Bench Press", category: .chest),
-                Exercise(name: "Flat Dumbbell Fly", category: .chest),
-                Exercise(name: "Hammer Strength Bench Press", category: .chest),
-                Exercise(name: "Incline Barbell Bench Press", category: .chest),
-                Exercise(name: "Incline Dumbbell Bench Press", category: .chest),
-                Exercise(name: "Incline Dumbbell Fly", category: .chest),
-                Exercise(name: "Push Up", category: .chest)]
+            titles = [
+                "Cable Crossover",
+                "Decline Barbell Bench Press",
+                "Flat Barbell Bench Press",
+                "Flat Dumbbell Bench Press",
+                "Flat Dumbbell Fly",
+                "Hammer Strength Bench Press",
+                "Incline Barbell Bench Press",
+                "Incline Dumbbell Bench Press",
+                "Incline Dumbbell Fly",
+                "Push Up"
+            ]
         case .back:
-            return [
-                Exercise(name: "Barbell Row", category: .back),
-                Exercise(name: "Barbell Shrug", category: .back),
-                Exercise(name: "Chin Up", category: .back),
-                Exercise(name: "Deadlift", category: .back),
-                Exercise(name: "Dumbbell Row", category: .back),
-                Exercise(name: "Hammer Strength Row", category: .back),
-                Exercise(name: "Lat Pulldown", category: .back),
-                Exercise(name: "Pull Up", category: .back),
-                Exercise(name: "Seated Cable Row", category: .back),
-                Exercise(name: "T-Bar Row", category: .back)]
+            titles = [
+                "Barbell Row",
+                "Barbell Shrug",
+                "Chin Up",
+                "Deadlift",
+                "Dumbbell Row",
+                "Hammer Strength Row",
+                "Lat Pulldown",
+                "Pull Up",
+                "Seated Cable Row",
+                "T-Bar Row"
+            ]
         case .shoulders:
-            return [
-                Exercise(name: "Arnold Dumbbell Press", category: .shoulders),
-                Exercise(name: "Behind The Neck Barbell Press", category: .shoulders),
-                Exercise(name: "Cable Face Pull", category: .shoulders),
-                Exercise(name: "Front Dumbbell Raise", category: .shoulders),
-                Exercise(name: "Hammer Strength Shoulder Press", category: .shoulders),
-                Exercise(name: "Lateral Machine Raise", category: .shoulders),
-                Exercise(name: "Military Press", category: .shoulders),
-                Exercise(name: "Rear Delt Dumbbell Raise", category: .shoulders),
-                Exercise(name: "Seated Lateral Dumbbell Raise", category: .shoulders),
-                Exercise(name: "Standing Lateral Dumbbell Raise", category: .shoulders)]
+            titles = [
+                "Arnold Dumbbell Press",
+                "Behind The Neck Barbell Press",
+                "Cable Face Pull",
+                "Front Dumbbell Raise",
+                "Hammer Strength Shoulder Press",
+                "Lateral Machine Raise",
+                "Military Press",
+                "Rear Delt Dumbbell Raise",
+                "Seated Lateral Dumbbell Raise",
+                "Standing Lateral Dumbbell Raise"
+            ]
         case .biceps:
-            return [
-                Exercise(name: "Barbell Curl", category: .biceps),
-                Exercise(name: "Cable Curl", category: .biceps),
-                Exercise(name: "Dumbbell Concentration Curl", category: .biceps),
-                Exercise(name: "Dumbbell Curl", category: .biceps),
-                Exercise(name: "Dumbbell Hammer Curl", category: .biceps),
-                Exercise(name: "EZ-Bar Curl", category: .biceps),
-                Exercise(name: "EZ-Bar Preacher Curl", category: .biceps),
-                Exercise(name: "Iron Cross Curl", category: .biceps),
-                Exercise(name: "Dumbbell Scott Curl", category: .biceps),
-                Exercise(name: "Seated Machine Curl", category: .biceps)]
+            titles = [
+                "Barbell Curl",
+                "Cable Curl",
+                "Dumbbell Concentration Curl",
+                "Dumbbell Curl",
+                "Dumbbell Hammer Curl",
+                "EZ-Bar Curl",
+                "EZ-Bar Preacher Curl",
+                "Iron Cross Curl",
+                "Dumbbell Scott Curl",
+                "Seated Machine Curl"
+            ]
         case .triceps:
-            return [
-                Exercise(name: "Cable Overhead Triceps Extension", category: .triceps),
-                Exercise(name: "Close Grip Barbell Bench Press", category: .triceps),
-                Exercise(name: "Dumbbell Overhead Triceps Extension", category: .triceps),
-                Exercise(name: "EZ-Bar French Press", category: .triceps),
-                Exercise(name: "Triceps Dip", category: .triceps),
-                Exercise(name: "Push Down", category: .triceps)]
+            titles = [
+                "Cable Overhead Triceps Extension",
+                "Close Grip Barbell Bench Press",
+                "Dumbbell Overhead Triceps Extension",
+                "EZ-Bar French Press",
+                "Triceps Dip",
+                "Push Down"
+            ]
         case .abs:
-            return [
-                Exercise(name: "Crunch", category: .abs),
-                Exercise(name: "Crunch Machine", category: .abs),
-                Exercise(name: "Hanging Knee Raise", category: .abs),
-                Exercise(name: "Hanging Leg Raise", category: .abs),
-                Exercise(name: "Plank", category: .abs),
-                Exercise(name: "Russian Twist", category: .abs),
-                Exercise(name: "Side Plank", category: .abs),
-                Exercise(name: "Situp", category: .abs),
-                Exercise(name: "Toes To Bar", category: .abs)]
+            titles = [
+                "Crunch",
+                "Crunch Machine",
+                "Hanging Knee Raise",
+                "Hanging Leg Raise",
+                "Plank",
+                "Russian Twist",
+                "Side Plank",
+                "Situp",
+                "Toes To Bar"
+            ]
         case .legs:
-            return [
-                Exercise(name: "Barbell Calf Raise", category: .legs),
-                Exercise(name: "Barbell Front Squat", category: .legs),
-                Exercise(name: "Barbell Glute Bridge", category: .legs),
-                Exercise(name: "Barbell Squat", category: .legs),
-                Exercise(name: "Donkey Calf Raise", category: .legs),
-                Exercise(name: "Glute-Ham Raise", category: .legs),
-                Exercise(name: "Leg Extension Machine", category: .legs),
-                Exercise(name: "Leg Press", category: .legs),
-                Exercise(name: "Lying Leg Curl Machine", category: .legs),
-                Exercise(name: "Seated Calf Raise Machine", category: .legs),
-                Exercise(name: "Standing Calf Raise Machine", category: .legs)]
+            titles = [
+                "Barbell Calf Raise",
+                "Barbell Front Squat",
+                "Barbell Glute Bridge",
+                "Barbell Squat",
+                "Donkey Calf Raise",
+                "Glute-Ham Raise",
+                "Leg Extension Machine",
+                "Leg Press",
+                "Lying Leg Curl Machine",
+                "Seated Calf Raise Machine",
+                "Standing Calf Raise Machine"
+            ]
         case .cardio:
-            return [
-                Exercise(name: "Cross Trainer", category: .cardio, timer: 10, type: .cardio),
-                Exercise(name: "Treadmill", category: .cardio, timer: 10, type: .cardio),
-                Exercise(name: "Indoor Cycling", category: .cardio, timer: 10, type: .cardio),
-                Exercise(name: "Climbing Machine", category: .cardio, timer: 10, type: .cardio)]
+            titles = [
+                "Cross Trainer",
+                "Treadmill",
+                "Indoor Cycling",
+                "Climbing Machine"
+            ]
         }
+        return createExercises(with: titles, for: category)
+    }
+    
+    private static func createExercises(with titles: [String], for category: Category) -> [Exercise] {
+        var exercises: [Exercise] = []
+        for title in titles {
+            let newExercise = Exercise(name: title, category: category)
+            exercises.append(newExercise)
+        }
+        return exercises
     }
 }

@@ -26,7 +26,7 @@ struct AlertController {
             hideWhenBackgroundViewIsTapped: true
         )
         let alertView = SCLAlertView(appearance: appearance)
-        alertView.showError(NRConstants.Alerts.errorSavingFailure, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
+        alertView.showError(NRConstants.Alerts.savingError, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
     }
     
     static func showSavingSuccessAlert() {

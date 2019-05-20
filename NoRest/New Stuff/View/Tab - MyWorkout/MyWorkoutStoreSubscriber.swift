@@ -11,6 +11,6 @@ import ReSwift
 extension MyWorkoutCollectionViewController: StoreSubscriber {
 
     func newState(state: MyWorkoutState) {
-        reloadCollectionView()
+        
     }
 }

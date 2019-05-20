@@ -34,15 +34,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.coordinator = coordinator
     }
-    
-    private func setAppearance() {
-        UITabBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().isTranslucent = false
-        UIWebView.appearance().scrollView.bounces = false
-        
-        UITabBar.appearance().tintColor = UIColor.mainColor
-    }
-
-
 }
 

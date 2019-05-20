@@ -11,7 +11,7 @@ import UIKit
 struct ViewBuilder {
     
     /**
-     Builds the myWorkout-screen with the appurtenant tabBar item
+     Builds the myWorkout-screen with its tabBar item
      - returns: The instantiated view-controller.
      */
     static func buildMyWorkoutScreen() -> UIViewController {
@@ -22,7 +22,7 @@ struct ViewBuilder {
     }
     
     /**
-     Builds the exercises-screen with the appurtenant tabBar item
+     Builds the exercises-screen with its tabBar item
      - returns: The instantiated view-controller.
      */
     static func buildExercisesScreen() -> UIViewController {
@@ -33,7 +33,7 @@ struct ViewBuilder {
     }
     
     /**
-     Builds the statistics-screen with the appurtenant tabBar item
+     Builds the statistics-screen with its tabBar item
      - returns: The instantiated view-controller.
      */
     static func buildStatisticsScreen() -> UIViewController {
@@ -44,7 +44,7 @@ struct ViewBuilder {
     }
     
     /**
-     Builds the settings-screen with the appurtenant tabBar item
+     Builds the settings-screen with its tabBar item
      - returns: The instantiated view-controller.
      */
     static func buildSettingsScreen() -> UIViewController {
@@ -73,8 +73,9 @@ struct ViewBuilder {
      */
     static func buildImage(for name: String) -> UIImage? {
         let image = UIImage(named: name)
-        return image?.withRenderingMode(.alwaysOriginal)
+        return image?.withRenderingMode(.alwaysTemplate)
     }
+    
 }
 
 
