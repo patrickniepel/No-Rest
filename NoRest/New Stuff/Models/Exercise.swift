@@ -11,7 +11,8 @@ import Foundation
 struct Exercise: Codable, Equatable, Comparable {
     
     let id: Int
-    var name: String
+    let category: Category
+    
     private var restTimer: Int = 0 // - Seconds
     private var cardiotimer: Int = 0 // Cardio timer - Minutes
     var timer: Int {
@@ -26,20 +27,19 @@ struct Exercise: Codable, Equatable, Comparable {
             return self.type == .weightLifting ? restTimer : cardiotimer
         }
     }
+    var name: String
     var notes: String
-    
-    let category: Category
     var type: ExerciseType
     var sets: [Set]
     
-    init(name: String, category: Category, timer: Int = 90, notes: String = NRConstants.Editing.noNotes, type: ExerciseType = .weightLifting) {
+    init(name: String, category: Category) {
         id = PersistencyController.currentExerciseID()
         self.name = name
-        self.notes = notes
         self.category = category
-        self.type = type
-        self.sets = []
-        self.timer = timer
+        notes = NRConstants.Editing.noNotes
+        sets = []
+        type = category.exercisesType
+        timer = type == .weightLifting ? 90 : 10
     }
     
     static func == (lhs: Exercise, rhs: Exercise) -> Bool {

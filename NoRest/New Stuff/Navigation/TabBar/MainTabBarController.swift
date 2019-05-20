@@ -12,9 +12,13 @@ import UIKit
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         delegate = self
-        super.viewDidLoad()
+        tabBar.isTranslucent = false
+        tabBar.barTintColor = .backgroundColorUIControl
+        tabBar.unselectedItemTintColor = .backgroundColorMain
+        tabBar.tintColor = .uiControl
     }
     
     /**
@@ -27,7 +31,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let index = tabBar.items?.firstIndex(of: item) ?? 0
         
-        let destination = RouteDestination.destinationFrom(index: index)
+        let destination = RouteDestination.destination(for: index)
         
         let updateTabBarPositionAction = UpdateTabBarPositionAction(destination: destination)
         store.dispatch(updateTabBarPositionAction)

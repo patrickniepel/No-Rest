@@ -42,14 +42,15 @@ class SettingsTableViewController: UITableViewController {
     
     private func setupScreen() {
         navigationItem.title = NRConstants.ScreenTitles.settings
-        tableView.setupDefaultBackgroundColor()
+        tableView.backgroundColor = .backgroundColorMain
         tableView.rowHeight = NRConstants.TableViews.rowHeight
         tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
-        tableView.contentInset = UIEdgeInsets(top: .defaultPadding, left: 0, bottom: 0, right: 0)
+        
+        tableView.separatorColor = .uiControl
     }
     
     func showAlertForDataReset(_ dataReset: DataReset) {
-        let buttonTitles = [NRConstants.Settings.cancelButton, NRConstants.Settings.resetButton]
+        let buttonTitles = [NRConstants.ButtonTitles.cancelButton, NRConstants.ButtonTitles.resetButton]
         let deleteButtonHandler: ((UIAlertAction) -> Void)? = { action in
             SettingsController.resetData(dataReset)
             AlertController.showSuccessAlert()

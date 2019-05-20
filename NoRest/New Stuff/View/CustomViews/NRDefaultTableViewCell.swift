@@ -12,8 +12,9 @@ import UIKit
 class NRDefaultTableViewCell: UITableViewCell {
     
     private let contentLabel: NRLabel = {
-        let textLabel = NRLabel(with: "")
-        return textLabel
+        let label = NRLabel(with: "")
+        label.makeBold()
+        return label
     }()
 
     override func awakeFromNib() {
@@ -28,6 +29,8 @@ class NRDefaultTableViewCell: UITableViewCell {
         self.accessoryType = accessoryType
         
         contentLabel.text = title
+        contentView.backgroundColor = .backgroundColorUIControl
+        backgroundColor = .backgroundColorUIControl
         contentView.addSubview(contentLabel)
         contentLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
     }

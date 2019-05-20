@@ -10,20 +10,16 @@ import UIKit
 
 struct NRConstants {
     
-    struct Text {
+    struct Font {
         static let font = "CaviarDreams"
         static let fontBold = "CaviarDreams-Bold"
     }
     
     struct TableViews {
         static let rowHeight: CGFloat = 65
-        static let sectionHeight: CGFloat = TableViews.rowHeight / 2
+        static let sectionHeight: CGFloat = TableViews.rowHeight * 0.75
     }
-    
-    struct BarButtonItemTitles {
-        static let sortingButton = "Continue"
-    }
-    
+
     struct TabBarItemTitles {
         static let myWorkout = "Workout"
         static let exercises = "Exercises"
@@ -59,6 +55,7 @@ struct NRConstants {
         static let historyTableViewCell = "historyTableViewCell"
         static let historyCollectionViewCell = "historyCollectionViewCell"
         static let historyDetailCollectionViewCell = "historyDetailCollectionViewCell"
+        static let emptyCollectionViewCell = "emptyCollectionViewCell"
     }
     
     struct Padding {
@@ -82,6 +79,11 @@ struct NRConstants {
         static let noTimer = 0
     }
     
+    struct Texts {
+        static let emptyWorkouts = "No Workouts Available"
+        static let emptyExercises = "No Exercises Available"
+    }
+    
     struct Settings {
         
         struct SectionTitles {
@@ -100,15 +102,20 @@ struct NRConstants {
             static let rating = "Rate This App"
         }
         
+        static let copyright = "© 2019 Patrick Niepel"
+    }
+    
+    struct ButtonTitles {
         static let resetButton = "Reset"
         static let cancelButton = "Cancel"
-        static let copyright = "© 2019 Patrick Niepel"
+        static let deleteButton = "Delete"
+        static let sortingButton = "Continue"
     }
     
     struct Alerts {
         static let successful = "Successful"
         static let alertMessage = "Are You Sure?"
-        static let errorSavingFailure = "Couldn't Be Saved"
+        static let savingError = "Couldn't Be Saved"
         static let savingSuccess = "Saved"
     }
 }

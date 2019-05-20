@@ -12,14 +12,14 @@ class NRLabel: UILabel {
     
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
-        font = UIFont(name: NRConstants.Text.font, size: .fontSizeRegular)
+        font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
         setup()
     }
 
     init(frame: CGRect = CGRect(), with title: String, size: CGFloat = .fontSizeRegular) {
         super.init(frame: frame)
         text = title
-        font = UIFont(name: NRConstants.Text.font, size: size)
+        font = UIFont(name: NRConstants.Font.font, size: size)
         setup()
     }
     
@@ -32,7 +32,7 @@ class NRLabel: UILabel {
         super.init(coder: aDecoder)
     }
     
-    func makeBold(with size: CGFloat = .fontSizeRegular) {
-        font = UIFont(name: NRConstants.Text.fontBold, size: size)
+    func makeBold() {
+        font = UIFont(name: NRConstants.Font.fontBold, size: font.pointSize)
     }
 }

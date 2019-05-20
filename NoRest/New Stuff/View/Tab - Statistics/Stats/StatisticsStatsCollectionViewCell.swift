@@ -12,13 +12,13 @@ class StatisticsStatsCollectionViewCell: UICollectionViewCell {
     
     let statsTitleLabel: NRLabel = {
         let label = NRLabel(with: "")
-        label.textColor = .textColorMediumLight
+        label.textColor = .textColor
         return label
     }()
     
     let statsValueLabel: NRLabel = {
         let label = NRLabel(with: "")
-        label.textColor = .textColorMediumLight
+        label.textColor = .textColor
         return label
     }()
     

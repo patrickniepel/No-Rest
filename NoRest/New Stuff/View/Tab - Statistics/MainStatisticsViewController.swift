@@ -12,7 +12,7 @@ class MainStatisticsViewController: UIViewController {
     
     let mainStatisticsCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.setupDefaultBackgroundColor()
+        cv.backgroundColor = .backgroundColorMain
         cv.register(StatisticsGeneralCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statisticsGeneralCollectionViewCell)
         cv.register(StatisticsExerciseCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statisticsExerciseCollectionViewCell)
         cv.isScrollEnabled = true
@@ -31,8 +31,8 @@ class MainStatisticsViewController: UIViewController {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 2
         pageControl.currentPage = 0
-        pageControl.pageIndicatorTintColor = .textColorMediumLight
-        pageControl.currentPageIndicatorTintColor = .textColorLight
+        pageControl.pageIndicatorTintColor = .backgroundColorUIControl
+        pageControl.currentPageIndicatorTintColor = .uiControl
         return pageControl
     }()
     
@@ -42,7 +42,7 @@ class MainStatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.setupDefaultBackgroundColor()
+        view.backgroundColor = .backgroundColorMain
         navigationItem.title = NRConstants.ScreenTitles.statistics
         
         dataSource = MainStatisticsCollectionViewDataSource()
@@ -55,8 +55,7 @@ class MainStatisticsViewController: UIViewController {
     }
     
     private func setupLayout() {
-        view.addSubview(mainStatisticsCollectionView)
-        view.addSubview(pageControl)
+        view.addSubviews(mainStatisticsCollectionView, pageControl)
         
         if #available(iOS 11.0, *) {
             pageControl.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, centerX: view.centerXAnchor)

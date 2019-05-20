@@ -24,9 +24,10 @@ class StatisticsExerciseCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupDesign() {
-        contentView.backgroundColor = .lightBackgroundColor
+        contentView.backgroundColor = .backgroundColorUIControl
         contentView.layer.cornerRadius = 25
-        contentView.applyShadow()
+        contentView.clipsToBounds = true
+        applyShadow()
     }
     
     private func setupLayout() {

@@ -9,12 +9,10 @@
 import UIKit
 
 class ExercisesCategoryCollectionViewCell: UICollectionViewCell {
-    
-    private var categoryTitle: String?
-    
-    private lazy var categoryButton: NRButton = {
-        let button = NRButton(with: categoryTitle, style: .normal)
-        button.addTarget(self, action: #selector(categoryTapped), for: .touchUpInside)
+
+    private let categoryButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .backgroundColorUIControl
         return button
     }()
     
@@ -27,9 +25,11 @@ class ExercisesCategoryCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell(with title: String) {
-        categoryTitle = title
+        let attributedString = NSAttributedString(string: title, attributes: [.font: UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge) as Any, .foregroundColor: UIColor.textColor as Any])
+        categoryButton.setAttributedTitle(attributedString, for: .normal)
+        categoryButton.addTarget(self, action: #selector(categoryTapped), for: .touchUpInside)
         
-        addSubview(categoryButton)
+        contentView.addSubview(categoryButton)
         categoryButton.fillSuperview()
         
         setupDesign()
@@ -37,9 +37,12 @@ class ExercisesCategoryCollectionViewCell: UICollectionViewCell {
 
     private func setupDesign() {
         contentView.backgroundColor = superview?.backgroundColor
+        contentView.layer.cornerRadius = 25
+        contentView.clipsToBounds = true
+        applyShadow()
     }
     
-    @objc private func categoryTapped(sender: NRButton) {
+    @objc private func categoryTapped(sender: UIButton) {
         if let categoryString = sender.titleLabel?.text,
             let category = Category(rawValue: categoryString) {
             

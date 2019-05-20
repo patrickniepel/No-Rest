@@ -13,7 +13,7 @@ class SettingsUnitTableViewCell: UITableViewCell {
     private lazy var unitSegmentedControl: UISegmentedControl = {
         let items: [String] = [Unit.kg.rawValue, Unit.lbs.rawValue]
         let control = UISegmentedControl(items: items)
-        control.tintColor = .shadowColor
+        control.tintColor = .uiControl
         
         let segmentWidth = self.contentView.frame.width * 0.75 / 2
         for i in 0..<items.count {
@@ -27,6 +27,7 @@ class SettingsUnitTableViewCell: UITableViewCell {
     
     private let contentLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Settings.RowTitles.unit)
+        label.makeBold()
         return label
     }()
 

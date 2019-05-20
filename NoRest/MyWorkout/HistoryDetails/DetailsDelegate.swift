@@ -12,9 +12,9 @@ class DetailsDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
-        if let headerTitle = view as? UITableViewHeaderFooterView {
-            headerTitle.textLabel?.textColor = .white
-            headerTitle.backgroundView?.backgroundColor = .myBlue
-        }
+//        if let headerTitle = view as? UITableViewHeaderFooterView {
+//            headerTitle.textLabel?.textColor = .white
+//            headerTitle.backgroundView?.backgroundColor = .myBlue
+//        }
     }
 }

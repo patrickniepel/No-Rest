@@ -14,8 +14,6 @@ extension ExercisesCollectionViewController: StoreSubscriber {
         
         if let category = state.category {
             injectCategory(category)
-        } else {
-            collectionView.reloadData()
         }
     }
 }

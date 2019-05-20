@@ -25,7 +25,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
     
     func setup(date: Date) {
         layer.cornerRadius = 20
-        backgroundColor = .lightBackgroundColor
+        backgroundColor = .backgroundColorUIControl
         applyShadow()
         
         dateLabel.text = "\(date)"

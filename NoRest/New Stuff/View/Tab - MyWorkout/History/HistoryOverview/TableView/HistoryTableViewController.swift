@@ -32,7 +32,7 @@ class HistoryTableViewController: UITableViewController {
     }
     
     private func setupTableView() {
-        tableView.setupDefaultBackgroundColor()
+        tableView.backgroundColor = .backgroundColorMain
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
         tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight

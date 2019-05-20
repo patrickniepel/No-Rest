@@ -22,15 +22,23 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
             }
         }
 
+        setupCollectionView()
+        setupNavBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
+    private func setupCollectionView() {
         dataSource = MyWorkoutCollectionViewDataSource()
         delegate = MyWorkoutCollectionViewDelegate()
         
         collectionView.delegate = delegate
         collectionView.dataSource = dataSource
         collectionView.register(MyWorkoutCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.myWorkoutCollectionViewCell)
-        
-        collectionView.setupDefaultBackgroundColor()
-        setupNavBar()
+        collectionView.register(NREmptyCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.emptyCollectionViewCell)
+        collectionView.backgroundColor = .backgroundColorMain
     }
     
     private func setupNavBar() {
@@ -42,11 +50,7 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
         
         navigationItem.title = NRConstants.ScreenTitles.myWorkout
     }
-    
-    func reloadCollectionView() {
-        collectionView.reloadData()
-    }
-    
+
     @objc private func openHistory() {
         let routeAction = RouteAction(screen: .history, in: .myWorkout)
         store.dispatch(routeAction)

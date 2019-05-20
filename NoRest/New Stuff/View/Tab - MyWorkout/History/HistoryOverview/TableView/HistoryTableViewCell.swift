@@ -12,7 +12,7 @@ class HistoryTableViewCell: UITableViewCell {
     
     let historyCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .lightBackgroundColor
+        cv.backgroundColor = .backgroundColorUIControl
         cv.register(HistoryCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.historyCollectionViewCell)
         cv.isScrollEnabled = true
         cv.isPagingEnabled = false
@@ -40,7 +40,7 @@ class HistoryTableViewCell: UITableViewCell {
     
     func setup(for workouts: [MyWorkout]) {
         self.workouts = workouts
-        contentView.backgroundColor = .lightBackgroundColor
+        contentView.backgroundColor = .backgroundColorUIControl
         dataSource = HistoryCollectionViewDataSource(workouts: workouts)
         delegate = HistoryCollectionViewDelegate()
         

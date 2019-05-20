@@ -40,14 +40,14 @@ class SettingsTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
             headerView.textLabel?.textColor = .white
-            headerView.backgroundView?.backgroundColor = .mainColor
+            headerView.backgroundView?.backgroundColor = .backgroundColorMain
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         if let footerView = view as? UITableViewHeaderFooterView {
             footerView.textLabel?.textColor = .white
-            footerView.backgroundView?.backgroundColor = .mainColor
+            footerView.backgroundView?.backgroundColor = .backgroundColorMain
         }
     }
 }

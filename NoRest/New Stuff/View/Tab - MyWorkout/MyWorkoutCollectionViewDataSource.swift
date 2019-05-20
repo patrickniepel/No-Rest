@@ -17,14 +17,26 @@ class MyWorkoutCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if myWorkoutController.workoutCount() == 0 {
+            return 1
+        }
         return myWorkoutController.workoutCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.myWorkoutCollectionViewCell, for: indexPath) as? MyWorkoutCollectionViewCell
-        let currentWorkout = myWorkoutController.allWorkouts()[indexPath.item]
-        cell?.setup(for: currentWorkout)
         
-        return cell ?? UICollectionViewCell()
+        if myWorkoutController.workoutCount() == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.emptyCollectionViewCell, for: indexPath) as? NREmptyCollectionViewCell
+            cell?.setup(with: NRConstants.Texts.emptyWorkouts)
+            return cell ?? UICollectionViewCell()
+        }
+        else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.myWorkoutCollectionViewCell, for: indexPath) as? MyWorkoutCollectionViewCell
+            if let currentWorkout = myWorkoutController.allWorkouts()[safe: indexPath.item] {
+                cell?.setup(for: currentWorkout)
+            }
+            
+            return cell ?? UICollectionViewCell()
+        }
     }
 }

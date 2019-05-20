@@ -29,4 +29,11 @@ enum Category: String, Codable {
     var defaultExercises: [Exercise] {
         return DefaultExercise.defaultExercises(for: self).sorted()
     }
+    
+    var exercisesType: ExerciseType {
+        if self == .cardio {
+            return .cardio
+        }
+        return .weightLifting
+    }
 }

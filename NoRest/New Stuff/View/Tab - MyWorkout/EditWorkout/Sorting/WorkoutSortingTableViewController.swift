@@ -47,7 +47,7 @@ class WorkoutSortingTableViewController: UITableViewController {
     private func setupTableView() {
         tableView.dataSource = dataSource
         tableView.delegate = delegate
-        tableView.setupDefaultBackgroundColor()
+        tableView.backgroundColor = .backgroundColorMain
         tableView.rowHeight = NRConstants.TableViews.rowHeight
         tableView.tableFooterView = UIView() // Remove empty rows
         tableView.isEditing = true
@@ -73,9 +73,6 @@ class WorkoutSortingTableViewController: UITableViewController {
         
         let routeAction = RouteAction(screen: .myWorkout, in: .myWorkout, action: .popAndReplace)
         store.dispatch(routeAction)
-//        // reload collection view
-//        let reloadAction = ReloadExercisesAction()
-//        store.dispatch(reloadAction)
     }
     
     deinit {

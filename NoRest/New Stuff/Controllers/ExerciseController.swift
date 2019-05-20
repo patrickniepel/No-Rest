@@ -26,7 +26,7 @@ struct ExerciseController {
     }
     
     func exercisesCount(for category: Category?) -> Int {
-        return UserData.sharedInstance.exercises.map { $0.category == category }.count
+        return UserData.sharedInstance.exercises.filter { $0.category == category }.count
     }
     
     func exercises(for category: Category?) -> [Exercise] {

@@ -13,15 +13,16 @@ class SettingsTimerTableViewCell: UITableViewCell {
     private let timerSwitch: UISwitch = {
         let timerSwitch = UISwitch()
         timerSwitch.isOn = SettingsController.isTimerSoundActivated
-        timerSwitch.tintColor = .mainColor
-        timerSwitch.thumbTintColor = .shadowColor
-        timerSwitch.onTintColor = .mainColor
+        timerSwitch.tintColor = .backgroundColorMain
+        timerSwitch.thumbTintColor = .uiControl
+        timerSwitch.onTintColor = .backgroundColorMain
         timerSwitch.addTarget(self, action: #selector(changedSwitchValue), for: .valueChanged)
         return timerSwitch
     }()
     
     private let contentLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Settings.RowTitles.timer)
+        label.makeBold()
         return label
     }()
 

@@ -12,11 +12,13 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
     
     private let nameLabel: NRLabel = {
         let label = NRLabel(with: "", size: .fontSizeLarge)
+        label.makeBold()
         return label
     }()
     
     private let timerLabel: NRLabel = {
         let label = NRLabel(with: "")
+        label.textColor = .black
         return label
     }()
     
@@ -52,16 +54,13 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupDesign() {
-        contentView.backgroundColor = .lightBackgroundColor
+        contentView.backgroundColor = .backgroundColorUIControl
         contentView.layer.cornerRadius = 25
         contentView.applyShadow()
     }
     
     private func setupLayout() {
-        addSubview(nameLabel)
-        addSubview(timerLabel)
-        addSubview(timerImage)
-        addSubview(binButton)
+        addSubviews(nameLabel, timerLabel, timerImage, binButton)
 
         let labelHeight = contentView.frame.height / 2
         nameLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 8, left: 16, bottom: 0, right: 16), size: CGSize(width: 0, height: labelHeight))
@@ -69,7 +68,7 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
         let timerHeight = contentView.frame.height / 2 - 24
         timerImage.anchor(top: nameLabel.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 0), size: CGSize(width: timerHeight, height: timerHeight))
         
-        binButton.anchor(top: nil, leading: nil, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 16), size: CGSize(width: timerHeight / 1.5, height: timerHeight / 1.5))
+        binButton.anchor(top: nil, leading: nil, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 16), size: CGSize(width: timerHeight / 1.2, height: timerHeight / 1.2))
         
         timerLabel.anchor(top: nameLabel.bottomAnchor, leading: timerImage.trailingAnchor, bottom: contentView.bottomAnchor, trailing: binButton.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16))
     }
@@ -84,12 +83,17 @@ class ExercisesCollectionViewCell: UICollectionViewCell {
     @objc func deleteExercise() {
         if let exercise = exercise,
             let collectionView = self.superview as? UICollectionView,
-            let indexPath = collectionView.indexPath(for: self) {
+            let indexPath = collectionView.indexPath(for: self),
+            let viewController = self.presentingViewController {
             
-            //update collectionView
-            exerciseCtrl.deleteExercise(exercise)
-            collectionView.deleteItems(at: [indexPath])
-            collectionView.reloadData()
+            let buttonTitles = [NRConstants.ButtonTitles.cancelButton, NRConstants.ButtonTitles.deleteButton]
+            let deleteButtonHandler: ((UIAlertAction) -> Void)? = { [weak self] action in
+                //update collectionView
+                self?.exerciseCtrl.deleteExercise(exercise)
+                collectionView.deleteItems(at: [indexPath])
+                collectionView.reloadData()
+            }
+            viewController.showAlert(with: NRConstants.Alerts.alertMessage, message: "", buttonTitles: buttonTitles, buttonStyles: [.cancel, .destructive], buttonHandlers: [nil, deleteButtonHandler])
         }
     }
 }

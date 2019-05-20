@@ -27,7 +27,9 @@ class AppCoordinator {
         
         let myWorkout = ViewBuilder.buildMyWorkoutScreen()
         let myWorkoutNavigationController = buildNavigationController(for: myWorkout)
+        myWorkoutNavigationController.navigationBar.prefersLargeTitles = false
         self.myWorkoutNavigationController = myWorkoutNavigationController
+        
         
         let exercises = ViewBuilder.buildExercisesScreen()
         let exercisesNavigationController = buildNavigationController(for: exercises)
@@ -72,8 +74,12 @@ class AppCoordinator {
     
     private func buildNavigationController(for vc: UIViewController) -> UINavigationController {
         let navigationController = DefaultNavigationController(rootViewController: vc)
-        navigationController.navigationItem.backBarButtonItem?.title = "Backö"
-        navigationController.navigationBar.backItem?.title = "Backö"
+        navigationController.navigationBar.tintColor = .uiControl
+        navigationController.navigationBar.barTintColor = .backgroundColorUIControl
+        navigationController.view.backgroundColor = .backgroundColorMain
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
         return navigationController
     }
     

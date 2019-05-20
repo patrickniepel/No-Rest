@@ -16,14 +16,18 @@ class WorkoutSettingViewController: UIViewController {
         tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
         tableView.allowsMultipleSelection = false
         tableView.allowsSelection = true
-        tableView.setupDefaultBackgroundColor()
+        tableView.separatorColor = .uiControl
+        tableView.tintColor = .uiControl
+        tableView.backgroundColor = .backgroundColorMain
+        tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell)
         return tableView
     }()
     
     private let nameLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Editing.nameLabel)
-        label.textColor = .textColorMediumLight
+        label.textColor = .textColor
         label.sizeToFit()
+        label.makeBold()
         return label
     }()
     
@@ -33,7 +37,7 @@ class WorkoutSettingViewController: UIViewController {
         textField.autocapitalizationType = .words
         textField.autocorrectionType = .default
         textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Text.font, size: .fontSizeRegular)
+        textField.font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .default
         return textField
@@ -53,21 +57,25 @@ class WorkoutSettingViewController: UIViewController {
             }
         }
 
-        dataSource = WorkoutSettingTableViewDataSource(workoutSettingCtrl: workoutSettingCtrl)
-        delegate = WorkoutSettingTableViewDelegate()
-        
-        tableView.dataSource = dataSource
-        tableView.delegate = delegate
-        tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell)
-        view.backgroundColor = .lightBackgroundColor
+        setupTableView()
+        view.backgroundColor = .backgroundColorUIControl
         setupNavigationBar()
         hideKeyboardWhenTapped()
         setupLayout()
         fillLayout()
     }
     
+    private func setupTableView() {
+        dataSource = WorkoutSettingTableViewDataSource(workoutSettingCtrl: workoutSettingCtrl)
+        delegate = WorkoutSettingTableViewDelegate()
+        
+        tableView.dataSource = dataSource
+        tableView.delegate = delegate
+        
+    }
+    
     private func setupNavigationBar() {
-        let sortingButton = UIBarButtonItem(title: NRConstants.BarButtonItemTitles.sortingButton, style: .plain, target: self, action: #selector(openSortingScreen))
+        let sortingButton = UIBarButtonItem(title: NRConstants.ButtonTitles.sortingButton, style: .plain, target: self, action: #selector(openSortingScreen))
         navigationItem.rightBarButtonItem = sortingButton
     }
     
@@ -108,10 +116,7 @@ class WorkoutSettingViewController: UIViewController {
 extension WorkoutSettingViewController {
     
     private func setupLayout() {
-        view.addSubview(nameLabel)
-        view.addSubview(nameTextField)
-        view.addSubview(tableView)
-        
+        view.addSubviews(nameLabel, nameTextField, tableView)
         setupNameLayout()
         setupTableViewLayout()
     }

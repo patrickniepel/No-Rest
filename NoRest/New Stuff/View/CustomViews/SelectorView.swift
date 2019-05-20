@@ -12,7 +12,7 @@ class SelectorView: UIView {
     
     let collectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .lightBackgroundColor
+        cv.backgroundColor = .backgroundColorUIControl
         cv.register(SelectorCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statisticsStatsCollectionViewCell)
         cv.isScrollEnabled = false
         cv.isPagingEnabled = false
@@ -51,7 +51,7 @@ class SelectorView: UIView {
     }
     
     private func setup() {
-        backgroundColor = .lightBackgroundColor
+        backgroundColor = .backgroundColorUIControl
         collectionView.delegate = self
         collectionView.dataSource = self
         

@@ -20,7 +20,7 @@ class WorkoutSettingTableViewDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
             headerView.textLabel?.textColor = .white
-            headerView.backgroundView?.backgroundColor = .mainColor
+            headerView.backgroundView?.backgroundColor = .backgroundColorMain
         }
     }
 }

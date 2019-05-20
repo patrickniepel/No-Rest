@@ -17,7 +17,7 @@ class ExercisesCategoryCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         collectionView?.register(ExercisesCategoryCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.exercisesCategoryCollectionViewCell)
-        collectionView.setupDefaultBackgroundColor()
+        collectionView.backgroundColor = .backgroundColorMain
         
         delegate = ExercisesCategoryCollectionViewDelegate()
         dataSource = ExercisesCategoryCollectionViewDataSource()

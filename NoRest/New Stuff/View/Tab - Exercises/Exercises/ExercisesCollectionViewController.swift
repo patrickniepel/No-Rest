@@ -25,7 +25,8 @@ class ExercisesCollectionViewController: UICollectionViewController {
         }
 
         collectionView?.register(ExercisesCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.exercisesCollectionViewCell)
-        collectionView.setupDefaultBackgroundColor()
+        collectionView?.register(NREmptyCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.emptyCollectionViewCell)
+        collectionView.backgroundColor = .backgroundColorMain
         
         delegate = ExercisesCollectionViewDelegate()
         dataSource = ExercisesCollectionViewDataSource(for: selectedCategory)
@@ -37,8 +38,14 @@ class ExercisesCollectionViewController: UICollectionViewController {
         setupAddButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+    
     private func setupScreen() {
         navigationItem.title = selectedCategory?.rawValue
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     private func setupAddButton() {

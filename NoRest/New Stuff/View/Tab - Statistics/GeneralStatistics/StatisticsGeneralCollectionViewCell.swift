@@ -12,7 +12,7 @@ class StatisticsGeneralCollectionViewCell: UICollectionViewCell {
     
     let statsCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .lightBackgroundColor
+        cv.backgroundColor = .backgroundColorUIControl
         cv.register(StatisticsStatsCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statisticsStatsCollectionViewCell)
         cv.isScrollEnabled = true
         cv.isPagingEnabled = false
@@ -39,23 +39,24 @@ class StatisticsGeneralCollectionViewCell: UICollectionViewCell {
     
     func setup() {
         let stats = StatisticsController.generalStats()
-        dataSource = StatisticsStatsCollectionViewDataSource(stats: stats)
-        delegate = StatisticsStatsCollectionViewDelegate()
-        statsCollectionView.dataSource = dataSource
-        statsCollectionView.delegate = delegate
+//        dataSource = StatisticsStatsCollectionViewDataSource(stats: stats)
+//        delegate = StatisticsStatsCollectionViewDelegate()
+//        statsCollectionView.dataSource = dataSource
+//        statsCollectionView.delegate = delegate
         
         setupDesign()
         setupLayout()
     }
     
     private func setupDesign() {
-        contentView.backgroundColor = .lightBackgroundColor
+        contentView.backgroundColor = .backgroundColorUIControl
+        contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 25
-        contentView.applyShadow()
+        applyShadow()
     }
     
     private func setupLayout() {
-        addSubview(statsCollectionView)
+        contentView.addSubview(statsCollectionView)
         
         statsCollectionView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
