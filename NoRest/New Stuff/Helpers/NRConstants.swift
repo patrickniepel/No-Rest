@@ -81,6 +81,12 @@ struct NRConstants {
     struct Texts {
         static let emptyWorkouts = "No Workouts Available"
         static let emptyExercises = "No Exercises Available"
+        
+    }
+    
+    struct Date {
+        static let workoutNotStarted = "Not Started Yet"
+        static let defaultFormat = "yyyy-MM-dd"
     }
     
     struct Settings {

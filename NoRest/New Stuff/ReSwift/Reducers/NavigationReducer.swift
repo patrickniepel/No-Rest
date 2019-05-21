@@ -10,7 +10,7 @@ import ReSwift
 
 func navigationReducer(action: Action, state: NavigationState?) -> NavigationState {
     
-    var newState = state ?? NavigationState(activeTabBar: .myWorkout, screen: .initial, action: .popAndReplace, userAction: false, mainStack: [])
+    var newState = state ?? NavigationState(activeTabBar: .myWorkout, screen: .initial, action: .popToRoot, userAction: false, mainStack: [])
     
     if let _ = action as? InvalidateRoutingAction {
         newState.screen = nil

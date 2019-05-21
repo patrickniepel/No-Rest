@@ -23,7 +23,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    func setup(date: Date) {
+    func setup(date: Date?) {
         layer.cornerRadius = 20
         backgroundColor = .backgroundColorUIControl
         applyShadow()

@@ -54,7 +54,7 @@ struct StackedRouteAction: Action {
 
 enum NavigationAction {
     case push
-    case popAndReplace
+    case popToRoot
     case present
 }
 

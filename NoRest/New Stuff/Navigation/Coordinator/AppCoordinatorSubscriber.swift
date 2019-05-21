@@ -83,9 +83,8 @@ extension AppCoordinator: StoreSubscriber {
         }
         
         switch action {
-        case .popAndReplace:
+        case .popToRoot:
             navigationController?.popToRootViewController(animated: false)
-            navigationController?.pushViewController(vc, animated: true)
             
         case .push:
             navigationController?.pushViewController(vc, animated: true)

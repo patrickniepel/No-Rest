@@ -50,9 +50,6 @@ class StatisticsGeneralCollectionViewCell: UICollectionViewCell {
     
     private func setupDesign() {
         contentView.backgroundColor = .backgroundColorUIControl
-        contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = 25
-        applyShadow()
     }
     
     private func setupLayout() {

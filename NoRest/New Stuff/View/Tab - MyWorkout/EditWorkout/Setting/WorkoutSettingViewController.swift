@@ -107,6 +107,15 @@ class WorkoutSettingViewController: UIViewController {
         store.dispatch(routeAction)
     }
     
+    @objc private func updateNavigationTitle() {
+        let textFieldText = nameTextField.text ?? ""
+        if textFieldText.isBlank {
+            navigationItem.title = NRConstants.ScreenTitles.newWorkout
+        } else {
+            navigationItem.title = textFieldText
+        }
+    }
+    
     deinit {
         store.unsubscribe(self)
     }
@@ -130,6 +139,8 @@ extension WorkoutSettingViewController {
         }
         
         nameLabel.anchor(top: topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: .defaultPadding, left: .defaultPadding, bottom: 0, right: 0))
+        
+        nameTextField.addTarget(self, action: #selector(updateNavigationTitle), for: .editingChanged)
         nameTextField.anchor(top: nameLabel.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 8, left: .defaultPadding, bottom: 0, right: .defaultPadding))
     }
     

@@ -71,7 +71,7 @@ class WorkoutSortingTableViewController: UITableViewController {
         
         AlertController.showSavingSuccessAlert()
         
-        let routeAction = RouteAction(screen: .myWorkout, in: .myWorkout, action: .popAndReplace)
+        let routeAction = RouteAction(screen: .myWorkout, in: .myWorkout, action: .popToRoot)
         store.dispatch(routeAction)
     }
     

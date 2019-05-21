@@ -23,10 +23,13 @@ struct MyWorkoutController {
     }
     
     func allWorkouts() -> [MyWorkout] {
-        return UserData.sharedInstance.myWorkouts
+        return UserData.sharedInstance.myWorkouts.sorted()
     }
     
-    func dateAsString(for: Date) -> String {
-        return "Today"
+    func dateAsString(for date: Date?) -> String {
+        if let date = date {
+            return Date.withFormat(date: date, format: NRConstants.Date.defaultFormat)
+        }
+        return NRConstants.Date.workoutNotStarted
     }
 }

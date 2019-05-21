@@ -8,21 +8,24 @@
 
 import Foundation
 
-class MyWorkout: Codable, Equatable {
+class MyWorkout: Codable, Equatable, Comparable {
     
     let id: Int
-    var date: Date
+    var date: Date?
     var name: String
     var exercises: [Exercise]
     
     init(name: String, exercises: [Exercise]) {
         id = PersistencyController.currentWorkoutID()
-        date = Date()
         self.name = name
         self.exercises = exercises
     }
     
     static func == (lhs: MyWorkout, rhs: MyWorkout) -> Bool {
         return lhs.id == rhs.id
+    }
+    
+    static func < (lhs: MyWorkout, rhs: MyWorkout) -> Bool {
+        return lhs.name < rhs.name
     }
 }
