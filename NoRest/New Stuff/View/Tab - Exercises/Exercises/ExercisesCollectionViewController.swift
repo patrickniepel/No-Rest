@@ -11,9 +11,10 @@ import ReSwift
 
 class ExercisesCollectionViewController: UICollectionViewController {
     
-    private var delegate: ExercisesCollectionViewDelegate?
-    private var dataSource: ExercisesCollectionViewDataSource?
+    private var delegate: NRItemCollectionViewDelegate<Any>?
+    private var dataSource: NRItemCollectionViewDataSource<Any>?
     private var selectedCategory: Category?
+    private let exerciseCtrl = ExerciseController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,23 +25,29 @@ class ExercisesCollectionViewController: UICollectionViewController {
             }
         }
 
-        collectionView?.register(ExercisesCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.exercisesCollectionViewCell)
-        collectionView?.register(NREmptyCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.emptyCollectionViewCell)
-        collectionView.backgroundColor = .backgroundColorMain
         
-        delegate = ExercisesCollectionViewDelegate()
-        dataSource = ExercisesCollectionViewDataSource(for: selectedCategory)
-        
-        collectionView?.delegate = delegate
-        collectionView?.dataSource = dataSource
-        
+        setupCollectionView()
         setupScreen()
         setupAddButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        dataSource?.items = exerciseCtrl.exercises(for: selectedCategory)
         collectionView.reloadData()
+    }
+    
+    private func setupCollectionView() {
+        collectionView?.register(NRItemCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.itemCollectionViewCell)
+        collectionView?.register(NREmptyCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.emptyCollectionViewCell)
+        collectionView.backgroundColor = .backgroundColorMain
+        
+        delegate = NRItemCollectionViewDelegate()
+        dataSource = NRItemCollectionViewDataSource(items: exerciseCtrl.exercises(for: selectedCategory))
+        
+        collectionView?.delegate = delegate
+        collectionView?.dataSource = dataSource
     }
     
     private func setupScreen() {
@@ -63,6 +70,14 @@ class ExercisesCollectionViewController: UICollectionViewController {
         
         let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)
         store.dispatch(routeAction)
+    }
+    
+    func deleteExercise(at indexPath: IndexPath) {
+        if let exercise = dataSource?.items[safe: indexPath.item] as? Exercise {
+            exerciseCtrl.deleteExercise(exercise)
+            dataSource?.deleteItem(at: indexPath.item)
+            collectionView.deleteItems(at: [indexPath])
+        }
     }
     
     deinit {

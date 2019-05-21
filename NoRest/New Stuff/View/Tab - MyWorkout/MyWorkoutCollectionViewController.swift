@@ -10,8 +10,10 @@ import UIKit
 
 class MyWorkoutCollectionViewController: UICollectionViewController {
     
-    private var dataSource: MyWorkoutCollectionViewDataSource?
-    private var delegate: MyWorkoutCollectionViewDelegate?
+    private var dataSource: NRItemCollectionViewDataSource<Any>?
+    private var delegate: NRItemCollectionViewDelegate<Any>?
+    
+    private let workoutCtrl = MyWorkoutController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +29,19 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        dataSource?.items = workoutCtrl.allWorkouts()
         collectionView.reloadData()
     }
     
     private func setupCollectionView() {
-        dataSource = MyWorkoutCollectionViewDataSource()
-        delegate = MyWorkoutCollectionViewDelegate()
+        dataSource = NRItemCollectionViewDataSource(items: workoutCtrl.allWorkouts())
+        delegate = NRItemCollectionViewDelegate()
         
         collectionView.delegate = delegate
         collectionView.dataSource = dataSource
-        collectionView.register(MyWorkoutCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.myWorkoutCollectionViewCell)
+        collectionView.register(NRItemCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.itemCollectionViewCell)
         collectionView.register(NREmptyCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.emptyCollectionViewCell)
         collectionView.backgroundColor = .backgroundColorMain
     }
@@ -62,6 +67,14 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
         
         let routeAction = RouteAction(screen: .workoutSetting, in: .myWorkout)
         store.dispatch(routeAction)
+    }
+    
+    func deleteWorkout(at indexPath: IndexPath) {
+        if let workout = dataSource?.items[safe: indexPath.item] as? MyWorkout {
+            workoutCtrl.deleteWorkout(workout)
+            dataSource?.deleteItem(at: indexPath.item)
+            collectionView.deleteItems(at: [indexPath])
+        }
     }
     
     deinit {
