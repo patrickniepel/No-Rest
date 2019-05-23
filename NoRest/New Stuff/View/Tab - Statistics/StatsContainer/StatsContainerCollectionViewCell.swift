@@ -12,12 +12,13 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
 
     let statsCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .backgroundColorUIControl
+        cv.backgroundColor = .backgroundColorMain
         cv.register(StatsCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statsCollectionViewCell)
         cv.isScrollEnabled = true
         cv.isPagingEnabled = false
         cv.showsVerticalScrollIndicator = true
         cv.showsHorizontalScrollIndicator = false
+        cv.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
 
         if let layout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical
@@ -26,7 +27,7 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
     }()
     
     let padding: CGFloat = NRConstants.Padding.collectionViewItem
-    var stats: Dictionary<String, Any> = [:]
+    var currentStats: [StatsContainerItem] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,8 +37,8 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    func setup(stats: Dictionary<String, Any>) {
-        self.stats = stats
+    func setup(stats: [StatsContainerItem]) {
+        currentStats = stats
         setupDesign()
         setupLayout()
         
@@ -46,7 +47,7 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupDesign() {
-        contentView.backgroundColor = .backgroundColorUIControl
+        contentView.backgroundColor = .backgroundColorMain
     }
     
     private func setupLayout() {

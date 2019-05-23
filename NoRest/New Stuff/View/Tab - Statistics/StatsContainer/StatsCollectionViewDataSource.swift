@@ -11,19 +11,24 @@ import UIKit
 extension StatsContainerCollectionViewCell: UICollectionViewDataSource  {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return currentStats.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return currentStats[safe: section]?.stats.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.statsCollectionViewCell, for: indexPath) as? StatsCollectionViewCell
         
-//        let currentStat = stats[indexPath.item]
-        cell?.setup()
+        if let statItem = currentStats[safe: indexPath.section],
+            let stat = statItem.stats[safe: indexPath.item] {
+            cell?.setup(with: stat)
+        }
+        
         
         return cell ?? UICollectionViewCell()
     }
+    
+   
 }

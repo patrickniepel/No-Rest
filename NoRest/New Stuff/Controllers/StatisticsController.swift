@@ -13,17 +13,20 @@ struct StatisticsController {
         return UserData.sharedInstance.workoutHistory.allExercises()
     }
     
-    static func provideGeneralStats() -> [String: [Stat]] {
+    static func provideGeneralStats() -> [StatsContainerItem] {
         let categories = Category.allCategories
-        var stats: [String: [Stat]] = [:]
-        categories.forEach { stats[$0.rawValue] = StatisticsController.stats(for: $0) }
+        var stats: [StatsContainerItem] = []
+        categories.forEach {
+            let item = StatsContainerItem(title: $0.rawValue, stats: StatisticsController.stats(for: $0))
+            stats.append(item)
+        }
 
         return stats
     }
     
-    static func provideExercisesStats(for category: Category) -> [String: [Stat]] {
+    static func provideExercisesStats(for category: Category) -> [StatsContainerItem] {
         
-        return [:]
+        return []
     }
 }
 

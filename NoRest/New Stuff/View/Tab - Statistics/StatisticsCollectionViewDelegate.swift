@@ -18,6 +18,10 @@ class StatisticsCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLa
         return CGSize(width: width, height: height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let vc = scrollView.presentingViewController as? StatisticsViewController,
             let cell = vc.statisticsCollectionView.visibleCells.first,

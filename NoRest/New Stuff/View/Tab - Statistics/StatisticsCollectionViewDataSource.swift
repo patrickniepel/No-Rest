@@ -10,24 +10,22 @@ import UIKit
 
 class StatisticsCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
-    var generalStats: [String: [Stat]] = [:]
-    var exercisesStats: [String: [Stat]] = [:]
+    var stats: [StatsType: [StatsContainerItem]] = [:]
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return stats.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.statsContainerCollectionViewCell, for: indexPath) as? StatsContainerCollectionViewCell
         
-        if indexPath.item == 0 {
-            cell?.setup(stats: generalStats as Dictionary<String, Any>)
-        } else {
-            cell?.setup(stats: exercisesStats as Dictionary<String, Any>)
+        let statsType = StatsType(rawValue: indexPath.item) ?? .general
+        if let statsToLoad = stats[statsType] {
+            cell?.setup(stats: statsToLoad)
         }
         
         return cell ?? UICollectionViewCell()

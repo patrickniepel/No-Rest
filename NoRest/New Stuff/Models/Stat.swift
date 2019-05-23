@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct StatsContainerItem {
+    let title: String
+    let stats: [Stat]
+}
+
 struct Stat {
     let title: StatsTitle
     let value: Double
@@ -22,4 +27,9 @@ enum StatsTitle: String, Codable {
     case totalRunningTime = "Total Running Time"
     case avgVolumePerSet = "Avg. Volume Per Set"
     case avgRepsPerSet = "Avg. Reps Per Set"
+}
+
+enum StatsType: Int {
+    case general = 0
+    case exercisesForCategory = 1
 }

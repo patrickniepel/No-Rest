@@ -41,7 +41,6 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
     
     private let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
-        pageControl.numberOfPages = 2
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = .backgroundColorUIControl
         pageControl.currentPageIndicatorTintColor = .uiControl
@@ -58,6 +57,7 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
         view.backgroundColor = .backgroundColorMain
         navigationItem.title = NRConstants.ScreenTitles.statistics
         
+        setupCollectionView()
         setupLayout()
         setupSearchBar()
     }
@@ -65,7 +65,9 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        dataSource?.generalStats = StatisticsController.provideGeneralStats()
+        dataSource?.stats[StatsType.general] = StatisticsController.provideGeneralStats()
+        dataSource?.stats[StatsType.exercisesForCategory] = []
+        pageControl.numberOfPages = dataSource?.stats.count ?? 0
     }
     
     private func setupCollectionView() {
@@ -87,7 +89,13 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
         
         searchBar.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
         
-        statisticsCollectionView.anchor(top: searchBar.bottomAnchor, leading: view.leadingAnchor, bottom: pageControl.topAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0))
+        //Add separator
+        let separator = UIView()
+        separator.backgroundColor = .backgroundColorUIControl
+        view.addSubview(separator)
+        separator.anchor(top: searchBar.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: searchBar.trailingAnchor, padding: UIEdgeInsets(top: 16, left: 32, bottom: 16, right: 32), size: CGSize(width: 0, height: 1))
+        
+        statisticsCollectionView.anchor(top: separator.bottomAnchor, leading: view.leadingAnchor, bottom: pageControl.topAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 24, left: 0, bottom: 8, right: 0))
     }
     
     private func setupSearchBar() {
@@ -108,7 +116,7 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
     }
     
     func injectExercisesStats(for category: Category) {
-        dataSource?.exercisesStats = StatisticsController.provideExercisesStats(for: category)
+        dataSource?.stats[StatsType.exercisesForCategory] = StatisticsController.provideExercisesStats(for: category)
     }
 }
 
