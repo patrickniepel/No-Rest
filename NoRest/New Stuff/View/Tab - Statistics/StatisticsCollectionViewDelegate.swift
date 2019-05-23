@@ -1,5 +1,5 @@
 //
-//  MainStatisticsCollectionViewDelegate.swift
+//  StatisticsCollectionViewDelegate.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 11.02.19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainStatisticsCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
+class StatisticsCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
     
     private let padding: CGFloat = NRConstants.Padding.collectionViewItem
     
@@ -19,11 +19,16 @@ class MainStatisticsCollectionViewDelegate: NSObject, UICollectionViewDelegateFl
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if let vc = scrollView.presentingViewController as? MainStatisticsViewController,
-            let cell = vc.mainStatisticsCollectionView.visibleCells.first,
-            let indexPath = vc.mainStatisticsCollectionView.indexPath(for: cell) {
+        if let vc = scrollView.presentingViewController as? StatisticsViewController,
+            let cell = vc.statisticsCollectionView.visibleCells.first,
+            let indexPath = vc.statisticsCollectionView.indexPath(for: cell) {
             
             vc.updatePageControl(page: indexPath.item)
         }
+    }
+    
+    //Load cell with stats for exercises
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        print("Will Decelerate")
     }
 }

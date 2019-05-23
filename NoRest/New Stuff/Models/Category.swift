@@ -17,9 +17,10 @@ enum Category: String, Codable {
     case abs = "Abs"
     case legs = "Legs"
     case cardio = "Cardio"
+    case none = "General"
     
     static var allCategories: [Category] {
-        return [.chest, .back, .shoulders, .biceps, .triceps, .abs, .legs, .cardio]
+        return [.none, .chest, .back, .shoulders, .biceps, .triceps, .abs, .legs, .cardio]
     }
     
     var exercises: [Exercise] {

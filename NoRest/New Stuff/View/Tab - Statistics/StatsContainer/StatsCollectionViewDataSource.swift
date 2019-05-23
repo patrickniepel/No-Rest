@@ -1,5 +1,5 @@
 //
-//  StatisticsGeneralCollectionViewDataSource.swift
+//  StatsCollectionViewDataSource.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 11.02.19.
@@ -8,13 +8,7 @@
 
 import UIKit
 
-class StatisticsStatsCollectionViewDataSource: NSObject, UICollectionViewDataSource {
-    
-    let stats: [Stat]
-    
-    init(stats: [Stat]) {
-        self.stats = stats
-    }
+extension StatsContainerCollectionViewCell: UICollectionViewDataSource  {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -25,7 +19,7 @@ class StatisticsStatsCollectionViewDataSource: NSObject, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.statisticsStatsCollectionViewCell, for: indexPath) as? StatisticsStatsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.statsCollectionViewCell, for: indexPath) as? StatsCollectionViewCell
         
 //        let currentStat = stats[indexPath.item]
         cell?.setup()

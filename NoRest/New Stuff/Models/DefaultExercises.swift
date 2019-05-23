@@ -24,6 +24,8 @@ struct DefaultExercise {
     static func defaultExercises(for category: Category) -> [Exercise] {
         var titles: [String] = []
         switch category {
+        case .none:
+            return []
         case .chest:
             titles = [
                 "Cable Crossover",

@@ -1,5 +1,5 @@
 //
-//  StatisticsGeneralCollectionViewCell.swift
+//  StatsContainerCollectionViewCell.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 11.02.19.
@@ -8,26 +8,25 @@
 
 import UIKit
 
-class StatisticsGeneralCollectionViewCell: UICollectionViewCell {
-    
+class StatsContainerCollectionViewCell: UICollectionViewCell {
+
     let statsCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         cv.backgroundColor = .backgroundColorUIControl
-        cv.register(StatisticsStatsCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statisticsStatsCollectionViewCell)
+        cv.register(StatsCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statsCollectionViewCell)
         cv.isScrollEnabled = true
         cv.isPagingEnabled = false
-        cv.showsVerticalScrollIndicator = false
+        cv.showsVerticalScrollIndicator = true
         cv.showsHorizontalScrollIndicator = false
 
         if let layout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical
         }
-        
         return cv
     }()
     
-    private var dataSource: StatisticsStatsCollectionViewDataSource?
-    private var delegate: StatisticsStatsCollectionViewDelegate?
+    let padding: CGFloat = NRConstants.Padding.collectionViewItem
+    var stats: Dictionary<String, Any> = [:]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,15 +36,13 @@ class StatisticsGeneralCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    func setup() {
-        let stats = StatisticsController.generalStats()
-//        dataSource = StatisticsStatsCollectionViewDataSource(stats: stats)
-//        delegate = StatisticsStatsCollectionViewDelegate()
-//        statsCollectionView.dataSource = dataSource
-//        statsCollectionView.delegate = delegate
-        
+    func setup(stats: Dictionary<String, Any>) {
+        self.stats = stats
         setupDesign()
         setupLayout()
+        
+        statsCollectionView.delegate = self
+        statsCollectionView.dataSource = self
     }
     
     private func setupDesign() {

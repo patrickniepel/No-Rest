@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Exercise: Codable, Equatable, Comparable {
+struct Exercise: Codable, Equatable, Comparable, Hashable {
     
     let id: Int
     let category: Category
@@ -48,6 +48,10 @@ struct Exercise: Codable, Equatable, Comparable {
     
     static func < (lhs: Exercise, rhs: Exercise) -> Bool {
         return lhs.name < rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 

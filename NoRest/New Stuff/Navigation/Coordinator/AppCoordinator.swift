@@ -101,7 +101,7 @@ class AppCoordinator {
         case NRConstants.TabBarItemTitles.exercises:
             return ExercisesCategoryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case NRConstants.TabBarItemTitles.statistics:
-            return MainStatisticsViewController()
+            return StatisticsViewController()
         case NRConstants.TabBarItemTitles.settings:
             return SettingsTableViewController()
         default:

@@ -1,5 +1,5 @@
 //
-//  StatisticsGeneralCollectionViewDelegate.swift
+//  StatsCollectionViewDelegate.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 11.02.19.
@@ -8,9 +8,7 @@
 
 import UIKit
 
-class StatisticsStatsCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
-    
-    let padding: CGFloat = NRConstants.Padding.collectionViewItem
+extension StatsContainerCollectionViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

@@ -1,5 +1,5 @@
 //
-//  StatisticsStatsCollectionViewCell.swift
+//  StatsCollectionViewCell.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 11.02.19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatisticsStatsCollectionViewCell: UICollectionViewCell {
+class StatsCollectionViewCell: UICollectionViewCell {
     
     let statsTitleLabel: NRLabel = {
         let label = NRLabel(with: "")

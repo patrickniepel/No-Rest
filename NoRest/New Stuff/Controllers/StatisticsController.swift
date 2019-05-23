@@ -9,17 +9,25 @@
 import Foundation
 
 struct StatisticsController {
-    
     private static var allExercises: [Exercise] {
         return UserData.sharedInstance.workoutHistory.allExercises()
     }
     
-    static func generalStats() -> [Stat] {
-        
-        return [Stat(title: .maxWeight, value: maxWeight(exercises: allExercises)),
-                Stat(title: .totalVolume, value: totalVolume(exercises: allExercises)),
-                Stat(title: .totalReps, value: totalReps(exercises: allExercises))]
+    static func provideGeneralStats() -> [String: [Stat]] {
+        let categories = Category.allCategories
+        var stats: [String: [Stat]] = [:]
+        categories.forEach { stats[$0.rawValue] = StatisticsController.stats(for: $0) }
+
+        return stats
     }
+    
+    static func provideExercisesStats(for category: Category) -> [String: [Stat]] {
+        
+        return [:]
+    }
+}
+
+extension StatisticsController {
     
     static func stats(for exercise: Exercise) -> [Stat] {
         
@@ -38,6 +46,10 @@ struct StatisticsController {
     static func stats(for category: Category) -> [Stat] {
         let exercises = allExercises.filter { $0.category == category }
         
+        if category == .none {
+            return generalStats()
+        }
+        
         if category == .cardio {
             return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: exercises))]
         }
@@ -46,6 +58,13 @@ struct StatisticsController {
                 Stat(title: .percentageOfSets, value: percentageOfSets(exercises: exercises)),
                 Stat(title: .totalVolume, value: totalVolume(exercises: exercises)),
                 Stat(title: .totalReps, value: totalReps(exercises: exercises))]
+    }
+    
+    static func generalStats() -> [Stat] {
+        
+        return [Stat(title: .maxWeight, value: maxWeight(exercises: allExercises)),
+                Stat(title: .totalVolume, value: totalVolume(exercises: allExercises)),
+                Stat(title: .totalReps, value: totalReps(exercises: allExercises))]
     }
     
     private static func maxWeight(exercises: [Exercise]) -> Double {
