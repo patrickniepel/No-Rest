@@ -14,6 +14,9 @@ class StatsCollectionViewCell: UICollectionViewCell {
         let label = NRLabel(with: "")
         label.textColor = .textColor
         label.makeBold()
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -35,7 +38,7 @@ class StatsCollectionViewCell: UICollectionViewCell {
     
     func setup(with stat: Stat) {
         statsTitleLabel.text = stat.title.rawValue
-        statsValueLabel.text = "\(stat.value)"
+        statsValueLabel.text = "\(stat.value) \(SettingsController.currentUnit.rawValue)"
         
         setupDesign()
         setupLayout()

@@ -43,6 +43,7 @@
 		A336C92022214B030068FCAD /* WorkoutSortingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336C91F22214B030068FCAD /* WorkoutSortingController.swift */; };
 		A336C92222215B510068FCAD /* SyntaxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336C92122215B510068FCAD /* SyntaxController.swift */; };
 		A33F855A220324D900E971E7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F8559220324D900E971E7 /* InfoViewController.swift */; };
+		A349C3762297CD85002555B1 /* StatsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349C3752297CD85002555B1 /* StatsHeaderView.swift */; };
 		A34B8DF21FA2175D00E62356 /* timerSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A34B8DF11FA2175D00E62356 /* timerSound.wav */; };
 		A35027221F9B664C00E2F4B0 /* StatisticsControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35027211F9B664C00E2F4B0 /* StatisticsControllerOld.swift */; };
 		A35027241F9B667400E2F4B0 /* MuscleStatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35027231F9B667400E2F4B0 /* MuscleStatisticViewController.swift */; };
@@ -236,6 +237,7 @@
 		A336C91F22214B030068FCAD /* WorkoutSortingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSortingController.swift; sourceTree = "<group>"; };
 		A336C92122215B510068FCAD /* SyntaxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxController.swift; sourceTree = "<group>"; };
 		A33F8559220324D900E971E7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		A349C3752297CD85002555B1 /* StatsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsHeaderView.swift; sourceTree = "<group>"; };
 		A34B8DF11FA2175D00E62356 /* timerSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = timerSound.wav; sourceTree = "<group>"; };
 		A35027211F9B664C00E2F4B0 /* StatisticsControllerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsControllerOld.swift; sourceTree = "<group>"; };
 		A35027231F9B667400E2F4B0 /* MuscleStatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleStatisticViewController.swift; sourceTree = "<group>"; };
@@ -949,6 +951,7 @@
 				A35AA6A622116F3500A6CD10 /* StatsContainerCollectionViewCell.swift */,
 				A35AA6AC2211877E00A6CD10 /* StatsCollectionViewDataSource.swift */,
 				A35AA6AE221187A900A6CD10 /* StatsCollectionViewDelegate.swift */,
+				A349C3752297CD85002555B1 /* StatsHeaderView.swift */,
 			);
 			path = StatsContainer;
 			sourceTree = "<group>";
@@ -1300,6 +1303,7 @@
 				A3BC59811F9237970050CD6D /* MyWorkoutHistoryDataSource.swift in Sources */,
 				A31715C61F9A7359005D420F /* TimerViewController.swift in Sources */,
 				A3E07FCE221F164600A61A14 /* HistoryController.swift in Sources */,
+				A349C3762297CD85002555B1 /* StatsHeaderView.swift in Sources */,
 				A3A09C141F91002C00CD01AF /* MyWorkout.swift in Sources */,
 				A38413352215F1D0003E0C50 /* InfoAction.swift in Sources */,
 				A357897A1F97DA2F00F18FB3 /* CurrentWorkoutDataSource.swift in Sources */,

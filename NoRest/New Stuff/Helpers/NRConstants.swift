@@ -53,6 +53,7 @@ struct NRConstants {
         static let historyDetailCollectionViewCell = "historyDetailCollectionViewCell"
         static let emptyCollectionViewCell = "emptyCollectionViewCell"
         static let itemCollectionViewCell = "itemCollectionViewCell"
+        static let statsHeaderView = "statsHeaderView"
     }
     
     struct Padding {

@@ -104,12 +104,20 @@ extension StatisticsController {
         let totalVolume = self.totalVolume(exercises: exercises)
         let totalSets = self.totalSets(exercises: exercises)
         
+        if totalSets == 0 {
+            return 0
+        }
+        
         return totalVolume / totalSets
     }
     
     private static func avgRepsPerSet(exercises: [Exercise]) -> Double {
         let totalReps = self.totalReps(exercises: exercises)
         let totalSets = self.totalSets(exercises: exercises)
+        
+        if totalSets == 0 {
+            return 0
+        }
         
         return totalReps / totalSets
     }
@@ -127,6 +135,11 @@ extension StatisticsController {
         var percentage: Double = 0
         let setsForCategory = self.totalSets(exercises: exercises)
         let totalSets = self.totalSets(exercises: allExercises)
+        
+        if totalSets == 0 {
+            return 0
+        }
+        
         percentage = (setsForCategory / totalSets) * 100
         
         return percentage

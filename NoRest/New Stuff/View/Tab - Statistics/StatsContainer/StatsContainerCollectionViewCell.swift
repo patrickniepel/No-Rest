@@ -14,6 +14,7 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         cv.backgroundColor = .backgroundColorMain
         cv.register(StatsCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statsCollectionViewCell)
+        cv.register(StatsHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: NRConstants.CellIdentifiers.statsHeaderView)
         cv.isScrollEnabled = true
         cv.isPagingEnabled = false
         cv.showsVerticalScrollIndicator = true
@@ -54,5 +55,20 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(statsCollectionView)
         
         statsCollectionView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+    }
+    
+    func scrollToSection(_ searchText: String) {
+        guard let index = currentStats.firstIndex(where: { $0.title.lowercased().contains(searchText.lowercased()) }) else { return }
+        
+        let indexPath = IndexPath(item: 0, section: index)
+        
+        guard let attributes = statsCollectionView.layoutAttributesForSupplementaryElement(ofKind: UICollectionView.elementKindSectionHeader, at: indexPath) else { return }
+//        
+//        let frame = attributes.frame
+//        let contentInsetY = statsCollectionView.contentInset.top
+//        let sectionInsetY = (statsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset.top ?? 0
+//        let yValue = (frame.origin.y - frame.height)
+//        let rect = CGRect(x: frame.minX, y: frame.origin.y + yValue, width: frame.width, height: frame.height)
+//        statsCollectionView.scrollRectToVisible(rect, animated: true)
     }
 }

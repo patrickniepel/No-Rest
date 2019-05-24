@@ -23,6 +23,12 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
         return searchBar
     }()
     
+    private let separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = .backgroundColorUIControl
+        return view
+    }()
+    
     let statisticsCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         cv.backgroundColor = .backgroundColorMain
@@ -79,7 +85,7 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
     }
     
     private func setupLayout() {
-        view.addSubviews(searchBar, statisticsCollectionView, pageControl)
+        view.addSubviews(searchBar, separator, statisticsCollectionView, pageControl)
         
         if #available(iOS 11.0, *) {
             pageControl.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, centerX: view.centerXAnchor)
@@ -89,10 +95,6 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
         
         searchBar.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
         
-        //Add separator
-        let separator = UIView()
-        separator.backgroundColor = .backgroundColorUIControl
-        view.addSubview(separator)
         separator.anchor(top: searchBar.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: searchBar.trailingAnchor, padding: UIEdgeInsets(top: 16, left: 32, bottom: 16, right: 32), size: CGSize(width: 0, height: 1))
         
         statisticsCollectionView.anchor(top: separator.bottomAnchor, leading: view.leadingAnchor, bottom: pageControl.topAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 24, left: 0, bottom: 8, right: 0))
@@ -123,10 +125,13 @@ class StatisticsViewController: UIViewController, UISearchBarDelegate {
 extension StatisticsViewController {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
         searchBar.resignFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //search for category or exercise
+        guard let currentCell = statisticsCollectionView.visibleCells.first as? StatsContainerCollectionViewCell, !searchText.isBlank else { return }
+        
+        currentCell.scrollToSection(searchText)
     }
 }

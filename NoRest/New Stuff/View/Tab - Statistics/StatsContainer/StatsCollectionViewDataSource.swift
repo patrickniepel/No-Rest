@@ -30,5 +30,19 @@ extension StatsContainerCollectionViewCell: UICollectionViewDataSource  {
         return cell ?? UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NRConstants.CellIdentifiers.statsHeaderView, for: indexPath) as? StatsHeaderView
+            
+            let title = currentStats[safe: indexPath.section]?.title ?? ""
+            header?.setup(with: title)
+            
+            return header ?? UICollectionReusableView()
+        }
+        
+        return UICollectionReusableView()
+    }
+    
    
 }

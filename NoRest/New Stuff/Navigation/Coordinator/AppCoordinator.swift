@@ -72,19 +72,24 @@ class AppCoordinator {
         }
     }
     
-    private func buildNavigationController(for vc: UIViewController) -> UINavigationController {
-        let navigationController = DefaultNavigationController(rootViewController: vc)
-        navigationController.navigationBar.tintColor = .uiControl
-        navigationController.navigationBar.barTintColor = .backgroundColorUIControl
-        navigationController.view.backgroundColor = .backgroundColorMain
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.navigationBar.isTranslucent = false
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
-        return navigationController
-    }
-    
     func provideInitialView() -> UIViewController {
         return tabBarController ?? UIViewController()
+    }
+    
+    private func buildNavigationController(for vc: UIViewController) -> UINavigationController {
+        let navigationController = DefaultNavigationController(rootViewController: vc)
+        return setupNavigationController(nc: navigationController)
+    }
+    
+    private func setupNavigationController(nc: DefaultNavigationController) -> DefaultNavigationController {
+        nc.navigationBar.tintColor = .uiControl
+        nc.navigationBar.barTintColor = .backgroundColorUIControl
+        nc.view.backgroundColor = .backgroundColorMain
+        nc.navigationBar.prefersLargeTitles = true
+        nc.navigationBar.isTranslucent = false
+        nc.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+        return nc
     }
     
     /**
