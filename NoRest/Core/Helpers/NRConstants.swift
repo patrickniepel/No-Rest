@@ -122,4 +122,9 @@ struct NRConstants {
         static let savingError = "Couldn't Be Saved"
         static let savingSuccess = "Saved"
     }
+    
+    struct Animations {
+        static let pulsatingAnimationKey = "pulsatingAnimationKey"
+        static let transformScaleKeyPath = "transform.scale"
+    }
 }

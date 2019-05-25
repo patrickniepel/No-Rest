@@ -10,15 +10,22 @@ import Foundation
 
 public extension String {
     
+    /** Checks if the String is empty */
     var isBlank: Bool {
-        return self.trimmed().isEmpty
+        return trimmed.isEmpty
     }
-}
-
-public extension String {
     
-    func trimmed() -> String {
-        return self.trimmingCharacters(in: .whitespaces)
+    /** Removes a new string without whitespaces */
+    var trimmed: String {
+        return trimmingCharacters(in: .whitespaces)
+    }
+    
+    /**
+     Removes whitespaces
+     */
+    mutating func trim() {
+        let trimmedString = trimmingCharacters(in: .whitespaces)
+        self = trimmedString
     }
     
     /**

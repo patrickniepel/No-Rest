@@ -39,6 +39,11 @@
 		A336C92022214B030068FCAD /* WorkoutSortingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336C91F22214B030068FCAD /* WorkoutSortingController.swift */; };
 		A336C92222215B510068FCAD /* SyntaxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336C92122215B510068FCAD /* SyntaxController.swift */; };
 		A33F855A220324D900E971E7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F8559220324D900E971E7 /* InfoViewController.swift */; };
+		A3480A6E229970EB000AA3A8 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A6D229970EB000AA3A8 /* TimerViewController.swift */; };
+		A3480A702299711D000AA3A8 /* TimerAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A6F2299711D000AA3A8 /* TimerAction.swift */; };
+		A3480A7222997171000AA3A8 /* TimerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A7122997171000AA3A8 /* TimerState.swift */; };
+		A3480A742299719C000AA3A8 /* TimerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A732299719C000AA3A8 /* TimerReducer.swift */; };
+		A3480A7622997241000AA3A8 /* TimerSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A7522997241000AA3A8 /* TimerSubscriber.swift */; };
 		A349C3762297CD85002555B1 /* StatsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349C3752297CD85002555B1 /* StatsHeaderView.swift */; };
 		A34B8DF21FA2175D00E62356 /* timerSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A34B8DF11FA2175D00E62356 /* timerSound.wav */; };
 		A35127D0220454B9007D024F /* SettingsSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35127CF220454B9007D024F /* SettingsSubscriber.swift */; };
@@ -173,6 +178,11 @@
 		A336C91F22214B030068FCAD /* WorkoutSortingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSortingController.swift; sourceTree = "<group>"; };
 		A336C92122215B510068FCAD /* SyntaxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxController.swift; sourceTree = "<group>"; };
 		A33F8559220324D900E971E7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		A3480A6D229970EB000AA3A8 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		A3480A6F2299711D000AA3A8 /* TimerAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAction.swift; sourceTree = "<group>"; };
+		A3480A7122997171000AA3A8 /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
+		A3480A732299719C000AA3A8 /* TimerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerReducer.swift; sourceTree = "<group>"; };
+		A3480A7522997241000AA3A8 /* TimerSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSubscriber.swift; sourceTree = "<group>"; };
 		A349C3752297CD85002555B1 /* StatsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsHeaderView.swift; sourceTree = "<group>"; };
 		A34B8DF11FA2175D00E62356 /* timerSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = timerSound.wav; sourceTree = "<group>"; };
 		A35127CF220454B9007D024F /* SettingsSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSubscriber.swift; sourceTree = "<group>"; };
@@ -332,6 +342,7 @@
 				A3987634221866120019238B /* MyWorkoutState.swift */,
 				A398763E2218693C0019238B /* WorkoutSettingState.swift */,
 				A336C91B2221496C0068FCAD /* WorkingSortingState.swift */,
+				A3480A7122997171000AA3A8 /* TimerState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -348,6 +359,7 @@
 				A3987636221866710019238B /* MyWorkoutReducer.swift */,
 				A398763C221869060019238B /* WorkoutSettingReducer.swift */,
 				A336C91D2221499D0068FCAD /* WorkoutSortingReducer.swift */,
+				A3480A732299719C000AA3A8 /* TimerReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -387,6 +399,7 @@
 				A3987638221867350019238B /* ReloadMyWorkoutAction.swift */,
 				A398763A221868C40019238B /* WorkoutSettingAction.swift */,
 				A336C919222149460068FCAD /* WorkoutSortingAction.swift */,
+				A3480A6F2299711D000AA3A8 /* TimerAction.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -429,6 +442,15 @@
 				A35127D722047536007D024F /* FileController.swift */,
 			);
 			path = Persistency;
+			sourceTree = "<group>";
+		};
+		A3480A6C2299701F000AA3A8 /* TimerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A3480A6D229970EB000AA3A8 /* TimerViewController.swift */,
+				A3480A7522997241000AA3A8 /* TimerSubscriber.swift */,
+			);
+			path = TimerViewController;
 			sourceTree = "<group>";
 		};
 		A34841602299178900FDC90F /* Resources */ = {
@@ -556,6 +578,7 @@
 		A391ADEC21FBA930002A7D04 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				A3480A6C2299701F000AA3A8 /* TimerViewController */,
 				A32C072C22944CBA0055C409 /* CollectionView */,
 				A3C9D5992207277A00401E08 /* NRLabel.swift */,
 				A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */,
@@ -849,8 +872,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NoRest/Pods-NoRest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PNCommons/PNCommons.framework",
@@ -859,8 +880,6 @@
 				"${BUILT_PRODUCTS_DIR}/Willow/Willow.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PNCommons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
@@ -892,6 +911,7 @@
 				A392B805220C6CCB0030FBD4 /* ExerciseController.swift in Sources */,
 				A35AA6A722116F3500A6CD10 /* StatsContainerCollectionViewCell.swift in Sources */,
 				A3D9DEFE2201B00900BCCAF4 /* AudioPlayer.swift in Sources */,
+				A3480A7222997171000AA3A8 /* TimerState.swift in Sources */,
 				A31BFC9A21F66865003214C2 /* NavigationState.swift in Sources */,
 				A391ADE921FB95B5002A7D04 /* ExercisesCategoryCollectionViewCell.swift in Sources */,
 				A31BFC8E21F66684003214C2 /* AppReducer.swift in Sources */,
@@ -913,6 +933,7 @@
 				A3DE1C5D2228394000EDB6C9 /* HistoryCollectionViewDataSource.swift in Sources */,
 				A35127D0220454B9007D024F /* SettingsSubscriber.swift in Sources */,
 				A3AE4A2C21F75004007A97AB /* EmojiModifier.swift in Sources */,
+				A3480A742299719C000AA3A8 /* TimerReducer.swift in Sources */,
 				A3C9D59A2207277A00401E08 /* NRLabel.swift in Sources */,
 				A38413392215F24E003E0C50 /* InfoState.swift in Sources */,
 				A3DE1C55222834C000EDB6C9 /* HistoryTableViewDelegate.swift in Sources */,
@@ -921,10 +942,12 @@
 				A3D9DEFA2201AABA00BCCAF4 /* Set.swift in Sources */,
 				A3AC807E21FDF8A4000DE1EF /* ExercisesSubscriber.swift in Sources */,
 				A31BFCA321F66C53003214C2 /* DefaultNavigationController.swift in Sources */,
+				A3480A6E229970EB000AA3A8 /* TimerViewController.swift in Sources */,
 				A38413312215CC80003E0C50 /* AlertController.swift in Sources */,
 				A336C91A222149460068FCAD /* WorkoutSortingAction.swift in Sources */,
 				A391ADE521FB94E4002A7D04 /* ExercisesCategoryCollectionViewDelegate.swift in Sources */,
 				A3E07FD9221F2F2E00A61A14 /* WorkoutSettingSubsriber.swift in Sources */,
+				A3480A7622997241000AA3A8 /* TimerSubscriber.swift in Sources */,
 				A3987629221864610019238B /* MyWorkoutCollectionViewController.swift in Sources */,
 				A3AE4A1D21F74CCE007A97AB /* LoggingMiddleware.swift in Sources */,
 				A3A09C1A1F9105FB00CD01AF /* SettingsController.swift in Sources */,
@@ -975,6 +998,7 @@
 				A320B9182201B96900FFFA40 /* SettingsTableViewDataSource.swift in Sources */,
 				A39C2A191F913B1400AFF8C6 /* DefaultExercises.swift in Sources */,
 				A3A09C161F91003400CD01AF /* Exercise.swift in Sources */,
+				A3480A702299711D000AA3A8 /* TimerAction.swift in Sources */,
 				A31BFC8B21F66644003214C2 /* AppState.swift in Sources */,
 				A336C914222148730068FCAD /* WorkoutSortingTableViewDataSource.swift in Sources */,
 				A398762F221864D60019238B /* NRItemCollectionViewCell.swift in Sources */,

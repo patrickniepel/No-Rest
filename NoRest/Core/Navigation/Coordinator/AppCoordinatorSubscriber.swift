@@ -91,6 +91,11 @@ extension AppCoordinator: StoreSubscriber {
         
         case .present:
             navigationController?.present(vc, animated: true, completion: nil)
+            
+        case .modally:
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            navigationController?.present(vc, animated: true, completion: nil)
         }
         
         let invalidateRoutingAction = InvalidateRoutingAction()

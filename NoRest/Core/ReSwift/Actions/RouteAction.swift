@@ -56,6 +56,7 @@ enum NavigationAction {
     case push
     case popToRoot
     case present
+    case modally
 }
 
 enum Screen {
@@ -72,6 +73,7 @@ enum Screen {
     case info
     case history
     case historyDetail
+    case timer
 }
 
 

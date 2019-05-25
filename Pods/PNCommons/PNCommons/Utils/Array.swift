@@ -10,25 +10,31 @@ import Foundation
 
 public extension Array where Element: Numeric {
     var sum: Element {
-        return self.reduce(0, +)
+        return reduce(0, +)
     }
     
     var product: Element {
-        return self.reduce(0, *)
+        return reduce(1, *)
     }
 }
 
 public extension Array where Element == String {
     var concatenated: Element {
-        return self.reduce("", +)
+        return reduce("", +)
     }
 }
 
 public extension Array where Element: Hashable {
     
-    /** Returns the array without duplicates */
-    var unique: [Element] {
-        return Array(Set(self))
+    /**
+     Removes all duplicates
+     - returns: The new array without duplicates
+     */
+    @discardableResult
+    mutating func unify() -> [Element] {
+        let newArray = Array(Set(self))
+        self = newArray
+        return newArray
     }
     
     /**
@@ -46,7 +52,7 @@ public extension Array where Element: Hashable {
      - parameter elements: The array of elements to append
      */
     mutating func appendUnique(_ elements: [Element]) {
-        let uniques = elements.filter { !self.contains($0) }
+        let uniques = elements.filter { !contains($0) }
         self += uniques
     }
     

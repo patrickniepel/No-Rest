@@ -142,7 +142,11 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func startWorkout() {
+        let timerAction = TimerAction(seconds: 10)
+        store.dispatch(timerAction)
         
+        let routeAction = RouteAction(screen: .timer, in: .myWorkout, action: .modally)
+        store.dispatch(routeAction)
     }
     
     deinit {

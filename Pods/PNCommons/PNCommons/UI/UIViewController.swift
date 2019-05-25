@@ -10,16 +10,26 @@ import Foundation
 
 public extension UIViewController {
     
+    /**
+     Adds a tap gesture recognizer to this view controller instance.
+     Dimisses an eventually opened keyboard when invoked
+     */
     func hideKeyboardWhenTapped() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKB))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
+    /** Selector function to dimiss the keyboard */
     @objc func dismissKB() {
         view.endEditing(true)
     }
     
+    /**
+     Presents a system alert in this view controller
+     - parameter title: The title of the alert
+     - parameter message: The message of the alert. Empty by default
+     */
     func showAlert(with title: String, message: String = "") {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -27,6 +37,15 @@ public extension UIViewController {
         present(alert, animated: true)
     }
     
+    /**
+     Presents a system alert in this view controller.
+     Make sure that the count of buttonTitles, buttonStyles and buttonHandlers is equal
+     - parameter title: The title of the alert
+     - parameter message: The message of the alert. Empty by default
+     - parameter buttonTitles: The titles of the desired buttons in the alert window
+     - parameter buttonStyles: The styles of the desired buttons in the alert window
+     - parameter buttonHandlers: The handlers of the desired buttons in the alert window
+     */
     func showAlert(
         with title: String,
         message: String = "",

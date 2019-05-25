@@ -66,6 +66,8 @@ class AppCoordinator {
             return WorkoutSortingTableViewController()
         case .myWorkout:
             return MyWorkoutCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        case .timer:
+            return TimerViewController()
         default:
             assertionFailure("Attempt to build invalid screen \(screen)")
             return UIViewController()

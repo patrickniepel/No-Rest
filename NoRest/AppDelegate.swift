@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         PersistencyController.loadUserData()
         
@@ -33,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         self.coordinator = coordinator
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        PersistencyController.storeUserData()
     }
 }
 

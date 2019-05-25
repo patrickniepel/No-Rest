@@ -17,34 +17,3 @@ extension UIView {
         self.layer.masksToBounds = false
     }
 }
-
-extension UIImage {
-    
-    func dye(with color: UIColor) -> UIImage {
-        defer {
-            UIGraphicsEndImageContext()
-        }
-        
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        color.setFill()
-        
-        let context = UIGraphicsGetCurrentContext()
-        context?.translateBy(x: 0, y: self.size.height)
-        context?.scaleBy(x: 1.0, y: -1.0)
-        context?.setBlendMode(CGBlendMode.normal)
-        
-        let rect = CGRect(origin: .zero, size: CGSize(width: self.size.width, height: self.size.height))
-        
-        guard let cgImage = self.cgImage else {
-            return self
-        }
-        context?.clip(to: rect, mask: cgImage)
-        context?.fill(rect)
-        
-        guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else {
-            return self
-        }
-        
-        return newImage
-    }
-}

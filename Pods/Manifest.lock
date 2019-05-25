@@ -1,12 +1,12 @@
 PODS:
-  - PNCommons (1.0.0)
+  - PNCommons (1.1.1)
   - ReSwift (4.1.1)
   - SCLAlertView (0.8)
   - SwiftLint (0.31.0)
   - Willow (5.1.0)
 
 DEPENDENCIES:
-  - PNCommons
+  - PNCommons (~> 1.1.1)
   - ReSwift
   - SCLAlertView
   - SwiftLint
@@ -22,12 +22,12 @@ SPEC REPOS:
     - PNCommons
 
 SPEC CHECKSUMS:
-  PNCommons: 243e7c5e566a4933b08cd9145b6ee32bee6b94ee
+  PNCommons: 16e86765632351c488905e1a61138cf02e63797d
   ReSwift: d925be0033558f55bd73d92869961230dfe19d52
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   Willow: ad7f75939db11f7d56a97df2ca04405815e73125
 
-PODFILE CHECKSUM: 977a84bd84dc310322f9058ba24b5a9e081edaa1
+PODFILE CHECKSUM: ac2edc31316a49fbf013f341b1950f652f76c4d8
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0

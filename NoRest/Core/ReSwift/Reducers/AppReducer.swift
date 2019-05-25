@@ -16,7 +16,8 @@ func appReducer(action: Action, state: AppState?) -> AppState {
                     infoState: infoReducer(action: action, state: state?.infoState),
                     myWorkoutState: myWorkoutReducer(action: action, state: state?.myWorkoutState),
                     workoutSettingState: workoutSettingReducer(action: action, state: state?.workoutSettingState),
-                    workoutSortingState: workoutSortingReducer(action: action, state: state?.workoutSortingState))
+                    workoutSortingState: workoutSortingReducer(action: action, state: state?.workoutSortingState),
+                    timerState: timerReducer(action: action, state: state?.timerState))
 }
 
 

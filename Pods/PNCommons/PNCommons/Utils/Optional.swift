@@ -9,7 +9,9 @@
 import Foundation
 
 public extension Optional where Wrapped == String {
+    
+    /** Checks if the String Optional is empty */
     var isBlank: Bool {
-        return self?.trimmed().isEmpty ?? true
+        return self?.trimmed.isEmpty ?? true
     }
 }

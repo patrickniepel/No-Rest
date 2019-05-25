@@ -25,16 +25,30 @@ public extension UIView {
 
 /** Design */
 public extension UIView {
+    
+    /**
+     Applies rounded corners to this view instance
+     - parameter cornerRadius: The desired cornerRadius value. The default value is '15'
+     */
     func addRoundEdges(cornerRadius: CGFloat = 15) {
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = true
     }
     
+    /**
+     Applies a border to this view instance
+     - parameter width: The desired border width. The default value is '1'
+     - parameter color: The desired border color. The default value is 'black'
+     */
     func addBorder(width: CGFloat = 1, color: UIColor = .black) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
     }
     
+    /**
+     Applies a default shadow to this view instance
+     - parameter color: The desired shadow color. The default value is 'black'
+     */
     func addDefaultShadow(color: UIColor = .black) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 10)
@@ -72,8 +86,8 @@ public extension UIView {
      - parameter trailing: The trailing anchor of the view to align this view's trailing anchor to; not active if nil
      - parameter centerX: The centerX anchor of the view to align this view's centerX anchor to; not active if nil
      - parameter centerY: The centerY anchor of the view to align this view's centerY anchor to; not active if nil
-     - parameter padding: The desired edge insets; zero if nil
-     - parameter size: The desired size for this view instance; zero if nil
+     - parameter padding: The desired edge insets. Zero by default
+     - parameter size: The desired size for this view instance. Zero by default
      - returns: The anchored constraints (top, leading, bottom, trailing, centerX, centerY, width, height)
     */
     @discardableResult
@@ -121,7 +135,7 @@ public extension UIView {
     
     /**
      Aligns this view instance to all four edges of its superview
-     - parameter padding: The desired edge insets
+     - parameter padding: The desired edge insets. Zero by default
     */
     func fillSuperview(padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
@@ -144,7 +158,7 @@ public extension UIView {
     
     /**
      Centers this view instance within its superview
-     - parameter size: The desired size for this view instance
+     - parameter size: The desired size for this view instance. Zero by default
     */
     func centerInSuperview(size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
