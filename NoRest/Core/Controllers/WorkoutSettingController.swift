@@ -17,7 +17,7 @@ class WorkoutSettingController {
     }
     
     func countOfExercises(for categoryIndex: Int) -> Int {
-        return Category.allCategories[safe: categoryIndex]?.exercises.count ?? 0
+        return Category.allMuscleCategories[safe: categoryIndex]?.exercises.count ?? 0
     }
     
     func exercise(for categoryIndex: Int, for exerciseIndex: Int) -> Exercise? {

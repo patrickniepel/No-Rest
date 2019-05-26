@@ -72,6 +72,12 @@ class InfoViewController: UIViewController {
 
     dateIcon:
     https://iconmonstr.com/calendar-6-png/
+
+    timerIcon:
+    https://iconmonstr.com/time-19-png/
+
+    notesIcon:
+    https://iconmonstr.com/note-23-svg/
     """
     
     let disclaimer = """

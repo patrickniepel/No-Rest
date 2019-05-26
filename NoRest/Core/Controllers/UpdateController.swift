@@ -10,16 +10,9 @@ import Foundation
 
 struct UpdateController {
     
-    static func finishWorkout(_ workout: MyWorkout) {
+    static func addWorkoutToHistory(_ workout: MyWorkout) {
         //update myWorkouts, add to history, calculate for statistics
-        UpdateController.updateWorkout(workout)
         UserData.sharedInstance.workoutHistory.addWorkoutToHistory(workout)
-        PersistencyController.storeUserData()
-    }
-    
-    static func addWorkout(_ workout: MyWorkout) {
-        // add to history and workouts / statistics
-        UserData.sharedInstance.myWorkouts.append(workout)
         PersistencyController.storeUserData()
     }
     
@@ -40,9 +33,12 @@ struct UpdateController {
         //update in exercises and workouts
         UserData.sharedInstance.exercises.removeAll(where: { $0.id == exercise.id })
         UserData.sharedInstance.exercises.append(exercise)
-        
-        //TODO: - update workouts that contain exercise
-        UserData.sharedInstance.myWorkouts.forEach { $0.exercises.removeAll(where: { $0.id == exercise.id })}
+        UserData.sharedInstance.myWorkouts.forEach {
+            if let index = $0.exercises.firstIndex(where: { $0.id == exercise.id }) {
+                $0.exercises.remove(at: index)
+                $0.exercises.insert(exercise, at: index)
+            }
+        }
         PersistencyController.storeUserData()
     }
     

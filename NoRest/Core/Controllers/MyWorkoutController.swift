@@ -14,6 +14,10 @@ struct MyWorkoutController {
         UpdateController.updateWorkout(workout)
     }
     
+    func addWorkoutToHistory(_ workout: MyWorkout) {
+        UpdateController.addWorkoutToHistory(workout)
+    }
+    
     func deleteWorkout(_ workout: MyWorkout) {
         UpdateController.deleteWorkout(workout)
     }

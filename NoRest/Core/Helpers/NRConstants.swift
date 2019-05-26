@@ -117,6 +117,8 @@ struct NRConstants {
         static let cancelButton = "Cancel"
         static let deleteButton = "Delete"
         static let sortingButton = "Continue"
+        static let add = "Add"
+        static let update = "Update"
     }
     
     struct Alerts {
@@ -129,5 +131,17 @@ struct NRConstants {
     struct Animations {
         static let pulsatingAnimationKey = "pulsatingAnimationKey"
         static let transformScaleKeyPath = "transform.scale"
+    }
+    
+    enum Images: String {
+        case play
+        case bin
+        case date
+        case timer
+        case notes
+        
+        var image: UIImage? {
+            return UIImage(named: self.rawValue)
+        }
     }
 }

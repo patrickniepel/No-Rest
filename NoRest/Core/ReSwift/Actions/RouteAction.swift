@@ -72,7 +72,7 @@ enum Screen {
     case info
     case history
     case historyDetail
-    case timer
+    case popUp
     case currentWorkout
 }
 

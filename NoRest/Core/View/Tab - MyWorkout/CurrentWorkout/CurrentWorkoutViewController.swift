@@ -10,7 +10,7 @@ import UIKit
 
 class CurrentWorkoutViewController: UIViewController {
     
-    private let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         cv.backgroundColor = .backgroundColorMain
         cv.isPagingEnabled = true
@@ -29,6 +29,7 @@ class CurrentWorkoutViewController: UIViewController {
         let pageControl = UIPageControl()
         pageControl.pageIndicatorTintColor = .backgroundColorUIControl
         pageControl.currentPageIndicatorTintColor = .uiControl
+        pageControl.backgroundColor = .backgroundColorMain
         return pageControl
     }()
     
@@ -42,19 +43,20 @@ class CurrentWorkoutViewController: UIViewController {
         super.viewDidLoad()
 
         subscribe()
+        view.backgroundColor = .backgroundColorMain
         navigationItem.hidesBackButton = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDoneButton))
-        updatePage(page: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateCollectionView()
+        updateView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        handleDoneButton()
+        saveWorkout()
     }
     
     func setup() {
@@ -75,7 +77,7 @@ class CurrentWorkoutViewController: UIViewController {
         collectionView.dataSource = dataSource
     }
     
-    private func updateCollectionView() {
+    private func updateView() {
         //Reload workout from user data
         myWorkout = workoutCtrl.loadWorkout(with: myWorkout?.id)
         guard let workout = myWorkout else { return }
@@ -88,8 +90,14 @@ class CurrentWorkoutViewController: UIViewController {
         //Scroll to last 'visited' exercise
         let pageIndex = currentPage < workout.exercises.count ? currentPage : workout.exercises.count - 1
         let indexPath = IndexPath(item: pageIndex, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+        
+        dataSource?.exercises = workout.exercises
+        pageControl.numberOfPages = workout.exercises.count
+        
         collectionView.reloadData()
+        updatePage(page: currentPage)
+        
+        collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
     }
 
     func updatePage(page: Int) {
@@ -98,11 +106,20 @@ class CurrentWorkoutViewController: UIViewController {
         navigationItem.title = myWorkout?.exercises[safe: page]?.name ?? NRConstants.ScreenTitles.currentWorkout
     }
     
-    @objc private func handleDoneButton() {
-        //Save workout
+    private func saveWorkout(toHistory: Bool = false) {
         guard let workout = myWorkout, let dataSource = dataSource else { return }
         workout.exercises = dataSource.exercises
+        workout.date = Date()
         workoutCtrl.saveWorkout(workout)
+        
+        if toHistory {
+            workoutCtrl.addWorkoutToHistory(workout)
+        }
+    }
+    
+    @objc private func handleDoneButton() {
+        saveWorkout(toHistory: true)
+        navigationController?.popViewController(animated: true)
     }
     
     deinit {

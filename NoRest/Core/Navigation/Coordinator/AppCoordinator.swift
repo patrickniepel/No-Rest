@@ -66,8 +66,8 @@ class AppCoordinator {
             return WorkoutSortingTableViewController()
         case .myWorkout:
             return MyWorkoutCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        case .timer:
-            return TimerViewController()
+        case .popUp:
+            return PopUpViewController()
         case .currentWorkout:
             return CurrentWorkoutViewController()
         default:

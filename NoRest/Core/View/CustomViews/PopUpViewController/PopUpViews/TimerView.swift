@@ -1,16 +1,16 @@
 //
-//  TimerViewController.swift
+//  TimerView.swift
 //  NoRest
 //
-//  Created by Patrick Niepel on 25.05.19.
+//  Created by Patrick Niepel on 26.05.19.
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
 import UIKit
 
-class TimerViewController: UIViewController {
+class TimerView: UIView {
     
-    var seconds: Int = 0 {
+    private var seconds: Int = 0 {
         didSet {
             timerCounter = seconds
             animationCounter = seconds * 100
@@ -20,7 +20,7 @@ class TimerViewController: UIViewController {
     private var animationCounter: Int = 0
     private var timer: Timer?
     private var animationTimer: Timer?
-    private var tapGesture: UITapGestureRecognizer!
+    
     private var isShapeLayerSet = false
     private let shapeLayer = CAShapeLayer()
     private var pulsatingLayer: CAShapeLayer?
@@ -33,37 +33,35 @@ class TimerViewController: UIViewController {
         return label
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViewController))
-        view.addGestureRecognizer(tapGesture)
-        subscribe()
+    convenience init(seconds: Int) {
+        self.init()
+        self.seconds = seconds
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        startTimer()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setup()
     }
     
-    func setup() {
+    private func setup() {
         setupLayout()
         setupDesign()
     }
     
     private func setupDesign() {
-       view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
+        backgroundColor = .clear
     }
     
     private func updateLayout() {
         timerLabel.text = "\(timerCounter)"
     }
     
-    private func startTimer() {
+    func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleTimer), userInfo: nil, repeats: true)
         animationTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(handleAnimationTimer), userInfo: nil, repeats: true)
     }
     
-    private func stopTimer() {
+    func stopTimer() {
         timer?.invalidate()
         timer = nil
         
@@ -90,35 +88,26 @@ class TimerViewController: UIViewController {
         animatePulsatingLayer()
     }
     
-    @objc private func dismissViewController() {
-        dismiss(animated: true)
-    }
-    
     deinit {
         stopTimer()
-        unsubscribe()
-        view.removeGestureRecognizer(tapGesture)
-        print("Deinit")
     }
 }
 
-extension TimerViewController {
+extension TimerView {
     
     private func setupLayout() {
         setupTimerLabel()
-        
         setupShapeLayer()
     }
     
     private func setupTimerLabel() {
-        view.addSubview(timerLabel)
+        addSubview(timerLabel)
         
         timerLabel.text = "\(timerCounter)"
         timerLabel.centerInSuperview(size: CGSize(width: 100, height: 100))
     }
     
     private func setupShapeLayer() {
-        let center = view.center
         let lineWidth: CGFloat = 20
         let trackLayer = CAShapeLayer()
         let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
@@ -129,7 +118,7 @@ extension TimerViewController {
         trackLayer.lineWidth = lineWidth
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.position = center
-        view.layer.addSublayer(trackLayer)
+        layer.addSublayer(trackLayer)
         
         pulsatingLayer = CAShapeLayer()
         pulsatingLayer?.path = circularPath.cgPath
@@ -137,9 +126,7 @@ extension TimerViewController {
         pulsatingLayer?.lineWidth = lineWidth
         pulsatingLayer?.fillColor = UIColor.yellow.cgColor
         pulsatingLayer?.position = center
-        view.layer.addSublayer(pulsatingLayer!)
-        
-       
+        layer.addSublayer(pulsatingLayer!)
         
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = UIColor.uiControl.cgColor
@@ -152,12 +139,12 @@ extension TimerViewController {
         //Rotate layer -90 degrees
         shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
         animatePulsatingLayer()
-        view.layer.addSublayer(shapeLayer)
+        layer.addSublayer(shapeLayer)
         
     }
     
     private func addTrackLayer() {
-    
+        
     }
     
     private func addStrokeLayer() {

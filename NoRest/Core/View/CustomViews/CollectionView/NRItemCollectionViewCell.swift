@@ -115,14 +115,14 @@ class NRItemCollectionViewCell: UICollectionViewCell {
         guard let workout = workout else { return }
         nameLabel.text = workout.name
         infoLabel.text = myWorkoutCtrl.dateAsString(for: workout.date)
-        infoImage.image = #imageLiteral(resourceName: "date")
+        infoImage.image = NRConstants.Images.date.image
     }
     
     private func fillExercise() {
         guard let exercise = exercise else { return }
         infoLabel.text = exerciseCtrl.timerAsString(for: exercise)
         nameLabel.text = exercise.name
-        infoImage.image = #imageLiteral(resourceName: "timer")
+        infoImage.image = NRConstants.Images.timer.image?.dye(.black)
     }
     
     private func deleteItem() {
@@ -201,11 +201,11 @@ extension NRItemCollectionViewCell {
         }
         else if p.x > 0 { // Start Workout
             actionView.backgroundColor = .successColor
-            image = UIImage(named: "play")
+            image = NRConstants.Images.play.image
         }
         else if p.x < 0 { // Delete Item
             actionView.backgroundColor = .deleteColor
-            image = UIImage(named: "bin")
+            image = NRConstants.Images.bin.image
         }
         actionImageView.image = image
         actionView.layer.opacity = Float(abs(p.x / (contentView.bounds.width / 1.25)))

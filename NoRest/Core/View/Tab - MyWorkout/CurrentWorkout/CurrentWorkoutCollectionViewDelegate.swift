@@ -21,4 +21,13 @@ class CurrentWorkoutCollectionViewDelegate: NSObject, UICollectionViewDelegateFl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if let vc = scrollView.presentingViewController as? CurrentWorkoutViewController,
+            let cell = vc.collectionView.visibleCells.first,
+            let indexPath = vc.collectionView.indexPath(for: cell) {
+            
+            vc.updatePage(page: indexPath.item)
+        }
+    }
 }

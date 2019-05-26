@@ -52,7 +52,7 @@ extension AppCoordinator: StoreSubscriber {
             navigationController?.popToRootViewController(animated: true)
             changeTabBarPosition(state: state)
         } else if screen == .remain {
-            /* do nothing if screen-state should remain */
+            // do nothing if screen-state should remain
             changeTabBarPosition(state: state)
         } else {
             showView(screen, state)
