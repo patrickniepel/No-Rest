@@ -142,10 +142,19 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func startWorkout() {
-        let timerAction = TimerAction(seconds: 10)
-        store.dispatch(timerAction)
+        guard let currentWorkout = workout,
+            currentWorkout.exercises.count != 0
+        else {
+            if let vc = self.presentingViewController as? MyWorkoutCollectionViewController {
+                vc.showAlert(with: NRConstants.Texts.noExercisesSelected)
+            }
+            return
+        }
         
-        let routeAction = RouteAction(screen: .timer, in: .myWorkout, action: .modally)
+        let currentWorkoutAction = CurrentWorkoutAction(myWorkout: currentWorkout)
+        store.dispatch(currentWorkoutAction)
+        
+        let routeAction = RouteAction(screen: .currentWorkout, in: .myWorkout)
         store.dispatch(routeAction)
     }
     
@@ -155,7 +164,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
 }
 
 //Layout
-private extension NRItemCollectionViewCell {
+extension NRItemCollectionViewCell {
     private func setupLayout() {
         contentView.addSubviews(nameLabel, infoLabel, infoImage)
         
@@ -180,7 +189,7 @@ private extension NRItemCollectionViewCell {
 }
 
 //Repositioning
-private extension NRItemCollectionViewCell {
+extension NRItemCollectionViewCell {
     private func repositionContent() {
         let p: CGPoint = pan.translation(in: self)
         let width = self.contentView.frame.width

@@ -32,4 +32,9 @@ struct MyWorkoutController {
         }
         return NRConstants.Date.workoutNotStarted
     }
+    
+    func loadWorkout(with id: Int?) -> MyWorkout? {
+        guard let id = id else { return nil }
+        return UserData.sharedInstance.myWorkouts.first(where: { $0.id == id })
+    }
 }

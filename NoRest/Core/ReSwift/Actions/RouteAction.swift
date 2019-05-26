@@ -65,7 +65,6 @@ enum Screen {
     case myWorkout
     case workoutSetting
     case workoutSorting
-    case exercises
     case statistics
     case settings
     case exercisesForCategory
@@ -74,6 +73,7 @@ enum Screen {
     case history
     case historyDetail
     case timer
+    case currentWorkout
 }
 
 

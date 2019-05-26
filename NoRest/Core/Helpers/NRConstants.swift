@@ -38,6 +38,7 @@ struct NRConstants {
         static let newWorkout = "New Workout"
         static let history = "History"
         static let sorting = "Sorting"
+        static let currentWorkout = "Current Workout"
     }
     
     struct CellIdentifiers {
@@ -54,6 +55,7 @@ struct NRConstants {
         static let emptyCollectionViewCell = "emptyCollectionViewCell"
         static let itemCollectionViewCell = "itemCollectionViewCell"
         static let statsHeaderView = "statsHeaderView"
+        static let currentWorkoutCollectionViewCell = "currentWorkoutCollectionViewCell"
     }
     
     struct Padding {
@@ -80,6 +82,7 @@ struct NRConstants {
     struct Texts {
         static let emptyWorkouts = "No Workouts Available"
         static let emptyExercises = "No Exercises Available"
+        static let noExercisesSelected = "No Exercises Selected"
         
     }
     

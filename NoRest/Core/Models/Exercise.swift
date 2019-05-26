@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Exercise: Codable, Equatable, Comparable, Hashable {
+struct Exercise: Codable, Equatable, Comparable, Hashable {
     
     let id: Int
     let category: Category
