@@ -53,10 +53,10 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     private var cellType: CellType = .workout
     
     private var workout: MyWorkout?
-    private let myWorkoutCtrl = MyWorkoutController()
+    private lazy var myWorkoutCtrl = MyWorkoutController()
     
     private var exercise: Exercise?
-    private let exerciseCtrl = ExerciseController()
+    private lazy var exerciseCtrl = ExerciseController()
     
     private var pan: UIPanGestureRecognizer!
     

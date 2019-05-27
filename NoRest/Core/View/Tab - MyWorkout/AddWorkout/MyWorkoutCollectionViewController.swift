@@ -30,7 +30,7 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         dataSource?.items = workoutCtrl.allWorkouts()
         collectionView.reloadData()
     }

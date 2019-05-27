@@ -16,4 +16,6 @@ extension UIColor {
     static let uiControl = textColor
     static let deleteColor = UIColor.rgb(red: 204, green: 0, blue: 0, alpha: 1)
     static let successColor = UIColor.rgb(red: 0, green: 153, blue: 0, alpha: 1)
+    static let dark = UIColor.rgb(red: 21, green: 2, blue: 33, alpha: 1)
+    static let pulsatingColor = UIColor.rgb(red: 275, green: 108, blue: 31, alpha: 1)
 }

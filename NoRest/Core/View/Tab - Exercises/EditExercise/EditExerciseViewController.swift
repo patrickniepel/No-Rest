@@ -31,6 +31,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     private let nameLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Editing.nameLabel)
         label.textColor = .textColor
+        label.makeBold()
         label.sizeToFit()
         return label
     }()
@@ -38,6 +39,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     private let timerLabel: NRLabel = {
         let label = NRLabel(with: "")
         label.textColor = .textColor
+        label.makeBold()
         label.sizeToFit()
         return label
     }()
@@ -45,6 +47,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     private let notesLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Editing.notesLabel)
         label.textColor = .textColor
+        label.makeBold()
         label.sizeToFit()
         return label
     }()
@@ -82,6 +85,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         textView.layer.cornerRadius = 5
         textView.layer.borderWidth = 0.5
         textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return textView
     }()
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopUpViewController: UIViewController {
+class PopUpViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var type: PopUpType = .unitialized
     var exercise: Exercise?
@@ -21,9 +21,12 @@ class PopUpViewController: UIViewController {
         super.viewDidLoad()
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViewController))
+        tapGesture.delegate = self
+        
         view.addGestureRecognizer(tapGesture)
+        view.backgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.7)
+        
         subscribe()
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
     }
     
     func setupTimer() {
@@ -63,6 +66,15 @@ class PopUpViewController: UIViewController {
         }
         
         dismiss(animated: true)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if type == .timer {
+            if touch.view == timerView {
+                return false
+            }
+        }
+        return true
     }
     
     deinit {

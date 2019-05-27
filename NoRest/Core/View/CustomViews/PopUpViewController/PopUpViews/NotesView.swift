@@ -18,9 +18,10 @@ class NotesView: UIView {
         textView.isEditable = true
         textView.keyboardAppearance = .default
         textView.keyboardType = .default
-        textView.layer.cornerRadius = 5
+        textView.layer.cornerRadius = 15
         textView.layer.borderWidth = 0.5
         textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return textView
     }()
     
@@ -38,7 +39,7 @@ class NotesView: UIView {
     
     private func setup() {
         addSubview(notesTextView)
-        notesTextView.fillSuperview(padding: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        notesTextView.fillSuperview()
         
         notesTextView.text = notes
     }
