@@ -16,7 +16,6 @@ class SettingsTimerTableViewCell: UITableViewCell {
         timerSwitch.tintColor = .backgroundColorMain
         timerSwitch.thumbTintColor = .uiControl
         timerSwitch.onTintColor = .backgroundColorMain
-        timerSwitch.addTarget(self, action: #selector(changedSwitchValue), for: .valueChanged)
         return timerSwitch
     }()
     
@@ -43,6 +42,8 @@ class SettingsTimerTableViewCell: UITableViewCell {
         timerSwitch.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
         
         contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
+        
+        timerSwitch.addTarget(self, action: #selector(changedSwitchValue), for: .valueChanged)
     }
 
     @objc private func changedSwitchValue(sender: UISwitch) {

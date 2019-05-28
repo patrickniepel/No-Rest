@@ -10,6 +10,8 @@ import UIKit
 
 class TimerView: UIView {
     
+    weak var delegate: PopUpDelegate?
+    
     private var seconds: Int = 0
     private var timerCounter: Int = 0
     private var animationCounter: Int = 0
@@ -63,17 +65,26 @@ class TimerView: UIView {
         animatePulsatingLayer()
     }
     
-    func stopTimer() {
+    private func stopTimers() {
+        stopMainTimer()
+        stopAnimationTimer()
+    }
+    
+    private func stopMainTimer() {
         timer?.invalidate()
         timer = nil
-        
+    }
+    
+    private func stopAnimationTimer() {
         animationTimer?.invalidate()
         animationTimer = nil
     }
     
     @objc private func handleTimer() {
         if timerCounter == 0 {
-            stopTimer()
+            stopMainTimer()
+            AudioPlayer.playTimerSound()
+            delegate?.timerDidEnd()
             return
         }
         
@@ -83,7 +94,7 @@ class TimerView: UIView {
     
     @objc private func handleAnimationTimer() {
         if animationCounter == 0 {
-            stopTimer()
+            stopAnimationTimer()
             return
         }
         animationCounter -= 1
@@ -91,7 +102,7 @@ class TimerView: UIView {
     }
     
     deinit {
-        stopTimer()
+        stopTimers()
     }
 }
 

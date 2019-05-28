@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PopUpViewController: UIViewController, UIGestureRecognizerDelegate {
+protocol PopUpDelegate: class {
+    func timerDidEnd()
+}
+
+class PopUpViewController: UIViewController, UIGestureRecognizerDelegate, PopUpDelegate {
     
     var type: PopUpType = .unitialized
     var exercise: Exercise?
@@ -31,6 +35,7 @@ class PopUpViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func setupTimer() {
         timerView = TimerView(seconds: exercise?.timer ?? 0)
+        timerView?.delegate = self
         view.addSubview(timerView!)
         let length = view.bounds.width * 0.8
         timerView?.centerInSuperview(size: CGSize(width: length, height: length))
@@ -50,10 +55,6 @@ class PopUpViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc private func dismissViewController() {
-        if type == .timer {
-            timerView?.stopTimer()
-        }
-        
         if type == .notes {
             let notes = notesView?.currentNotes() ?? ""
             exercise?.notes = notes
@@ -75,6 +76,10 @@ class PopUpViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         return true
+    }
+    
+    func timerDidEnd() {
+        dismiss(animated: true)
     }
     
     deinit {

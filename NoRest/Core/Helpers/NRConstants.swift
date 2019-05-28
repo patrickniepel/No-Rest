@@ -83,7 +83,9 @@ struct NRConstants {
         static let emptyWorkouts = "No Workouts Available"
         static let emptyExercises = "No Exercises Available"
         static let noExercisesSelected = "No Exercises Selected"
-        
+        static let reps = "Reps"
+        static let weight = "Weight"
+        static let sets = "Sets"
     }
     
     struct Date {
@@ -139,6 +141,7 @@ struct NRConstants {
         case date
         case timer
         case notes
+        case x
         
         var image: UIImage? {
             return UIImage(named: self.rawValue)

@@ -61,6 +61,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         textField.font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .default
+        textField.tintColor = .uiControl
         return textField
     }()
     
@@ -71,6 +72,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         textField.font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .numberPad
+        textField.tintColor = .uiControl
         return textField
     }()
     
@@ -82,6 +84,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         textView.isEditable = true
         textView.keyboardAppearance = .default
         textView.keyboardType = .default
+        textView.tintColor = .uiControl
         textView.layer.cornerRadius = 5
         textView.layer.borderWidth = 0.5
         textView.layer.borderColor = UIColor.lightGray.cgColor

@@ -47,6 +47,7 @@ class CurrentWorkoutViewController: UIViewController {
         navigationItem.hidesBackButton = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDoneButton))
+        hideKeyboardWhenTapped()
     }
     
     override func viewWillAppear(_ animated: Bool) {

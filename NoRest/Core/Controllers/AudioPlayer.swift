@@ -11,10 +11,12 @@ import AVKit
 
 struct AudioPlayer {
     
+    private static var audioPlayer: AVAudioPlayer?
+    
     static func playTimerSound() {
         if SettingsController.isTimerSoundActivated {
             
-            var audioPlayer: AVAudioPlayer?
+            
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "timerSound", ofType: "wav") ?? ""))
             }
