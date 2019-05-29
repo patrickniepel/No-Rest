@@ -45,7 +45,6 @@ class SettingsTableViewController: UITableViewController {
         tableView.backgroundColor = .backgroundColorMain
         tableView.rowHeight = NRConstants.TableViews.rowHeight
         tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
-        
         tableView.separatorColor = .uiControl
     }
     

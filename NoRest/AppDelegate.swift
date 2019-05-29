@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Push
+//  NoRest
 //
 //  Created by Patrick Niepel on 13.10.17.
 //  Copyright © 2017 Patrick Niepel. All rights reserved.

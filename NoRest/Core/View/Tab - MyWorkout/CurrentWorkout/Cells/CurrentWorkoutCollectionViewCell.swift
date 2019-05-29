@@ -18,7 +18,10 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     private let repsTextField = LayoutContent.repsTextField
     private let timesImageView = LayoutContent.timesImageView
     private let weightTextField = LayoutContent.weightTextField
+    private let setsLabel = LayoutContent.setsLabel
+    let tableView = LayoutContent.tableView
     
+    private let baseScrollView = UIScrollView()
     private let baseStackView = LayoutContent.baseStackView
     private let topButtonsStackView = LayoutContent.topButtonsStackView
     private let inputStackView = LayoutContent.inputStackView
@@ -26,7 +29,15 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     private let inputTextFieldsStackView = LayoutContent.inputTextFieldsStackView
     private let tableViewStackView = LayoutContent.tableViewStackView
     
-    private var exercise: Exercise?
+    private let labelHeight: CGFloat = 30
+    private var actionButtonState: ActionButtonState = .add
+    
+    enum ActionButtonState {
+        case add
+        case update
+    }
+    
+    var exercise: Exercise?
     
     override func prepareForReuse() {
         baseStackView.removeFromSuperview()
@@ -43,6 +54,8 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         self.exercise = exercise
         setupLayout()
         setupTargets()
+        setupTableView()
+        setupActionButton()
     }
     
     private func setupDesign() {
@@ -55,11 +68,32 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         actionButton.applyShadow()
         
         weightLabel.text = NRConstants.Texts.weight + " (\(SettingsController.currentUnit.rawValue))"
+        
+        tableView.separatorColor = .uiControl
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
+        tableView.backgroundColor = .backgroundColorMain
+        tableView.layer.cornerRadius = 15
+        tableView.layer.borderWidth = 1
+        tableView.layer.borderColor = UIColor.uiControl.cgColor
     }
     
     private func setupTargets() {
         [notesButton, timerButton, actionButton].forEach {
             $0.addTarget(self, action: #selector(handleButtonTapped), for: .touchUpInside)
+        }
+    }
+    
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    private func setupActionButton() {
+        if actionButtonState == .add {
+            actionButton.setTitle(NRConstants.ButtonTitles.add, for: .normal)
+        } else if actionButtonState == .update {
+            actionButton.setTitle(NRConstants.ButtonTitles.update, for: .normal)
         }
     }
     
@@ -95,12 +129,29 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     }
     
     private func handleActionButton() {
+        if actionButtonState == .add {
+            let reps = Int(repsTextField.text!)!
+            let weight = Double(weightTextField.text!)!
+            let set = Set(reps: reps, weight: weight)
+            addSet(set)
+        } else if actionButtonState == .update {
+            
+        }
         clearTextFields()
     }
     
-    private func clearTextFields() {
+    func fillTextFields(with set: Set) {
+        repsTextField.text = "\(set.reps)"
+        weightTextField.text = "\(set.weight)"
+    }
+    
+    func clearTextFields() {
         repsTextField.text = nil
         weightTextField.text = nil
+    }
+    
+    func toggleTableStackViewVisibility(isHidden: Bool) {
+        tableViewStackView.isHidden = isHidden
     }
     
     deinit {
@@ -111,11 +162,14 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
 extension CurrentWorkoutCollectionViewCell {
     
     private func setupLayout() {
-        contentView.addSubview(baseStackView)
+        contentView.addSubview(baseScrollView)
+        baseScrollView.fillSuperview()
+        baseScrollView.addSubview(baseStackView)
+        
         setupBaseStackView()
         setupTopButtonsStackView()
         setupInputStackView()
-        setupActionButton()
+        setupActionButtonLayout()
         setupTableViewStackView()
     }
     
@@ -143,7 +197,6 @@ extension CurrentWorkoutCollectionViewCell {
         inputLabelsStackView.axis = .horizontal
         inputLabelsStackView.addArrangedSubviews(repsLabel, weightLabel)
         
-        let labelHeight = 30
         repsLabel.anchor(size: CGSize(width: 0, height: labelHeight))
         weightLabel.anchor(size: CGSize(width: 0, height: labelHeight))
         
@@ -164,18 +217,26 @@ extension CurrentWorkoutCollectionViewCell {
         inputStackView.anchor(leading: baseStackView.leadingAnchor, trailing: baseStackView.trailingAnchor)
     }
     
-    private func setupActionButton() {
+    private func setupActionButtonLayout() {
         actionButton.anchor(size: CGSize(width: bounds.width / 2, height: 0))
     }
     
     private func setupTableViewStackView() {
-        
+        tableViewStackView.alignment = .center
+        tableViewStackView.distribution = .fill
+        tableViewStackView.axis = .vertical
+        tableViewStackView.addArrangedSubviews(setsLabel, tableView)
+
+        setsLabel.anchor(leading: tableViewStackView.leadingAnchor, trailing: tableViewStackView.trailingAnchor, size: CGSize(width: 0, height: labelHeight))
+        tableView.anchor(leading: tableViewStackView.leadingAnchor, trailing: tableViewStackView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        tableViewStackView.anchor(leading: baseStackView.leadingAnchor, trailing: baseStackView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32))
     }
     
     private func setupBaseStackView() {
         baseStackView.axis = .vertical
         baseStackView.alignment = .center
-        baseStackView.distribution = .equalSpacing
+        baseStackView.distribution = .fill
+        baseStackView.spacing = 48
         baseStackView.addArrangedSubviews(topButtonsStackView, inputStackView, actionButton, tableViewStackView)
         baseStackView.fillSuperview(padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0))
     }
@@ -273,5 +334,20 @@ fileprivate struct LayoutContent {
         imageView.contentMode = .scaleAspectFit
         imageView.image = NRConstants.Images.x.image?.dye(.uiControl).withAlignmentRectInsets(UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
         return imageView
+    }()
+    
+    static let setsLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .textColor
+        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
+        label.textAlignment = .center
+        label.text = NRConstants.Texts.sets
+        return label
+    }()
+    
+    static let tableView: SetsTableView = {
+        let tableView = SetsTableView()
+        tableView.register(SetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.setsTableViewCell)
+        return tableView
     }()
 }

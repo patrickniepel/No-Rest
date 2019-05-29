@@ -78,6 +78,9 @@ class InfoViewController: UIViewController {
 
     notesIcon:
     https://iconmonstr.com/note-23-svg/
+
+    x-Icon:
+    https://iconmonstr.com/x-mark-1-png/
     """
     
     let disclaimer = """

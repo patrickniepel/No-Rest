@@ -59,6 +59,10 @@
 		A3480A742299719C000AA3A8 /* PopUpReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A732299719C000AA3A8 /* PopUpReducer.swift */; };
 		A3480A7622997241000AA3A8 /* PopUpSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A7522997241000AA3A8 /* PopUpSubscriber.swift */; };
 		A349C3762297CD85002555B1 /* StatsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349C3752297CD85002555B1 /* StatsHeaderView.swift */; };
+		A349E38D229E796500E3C0DB /* SetsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349E38C229E796500E3C0DB /* SetsTableViewDataSource.swift */; };
+		A349E38F229E797700E3C0DB /* SetsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349E38E229E797700E3C0DB /* SetsTableViewDelegate.swift */; };
+		A349E391229E7A7A00E3C0DB /* SetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349E390229E7A7A00E3C0DB /* SetsTableViewCell.swift */; };
+		A349E393229E90AA00E3C0DB /* SetsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349E392229E90AA00E3C0DB /* SetsTableView.swift */; };
 		A34B8DF21FA2175D00E62356 /* timerSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A34B8DF11FA2175D00E62356 /* timerSound.wav */; };
 		A35127D0220454B9007D024F /* SettingsSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35127CF220454B9007D024F /* SettingsSubscriber.swift */; };
 		A35127D22204558B007D024F /* ResetDataAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35127D12204558B007D024F /* ResetDataAction.swift */; };
@@ -212,6 +216,10 @@
 		A3480A732299719C000AA3A8 /* PopUpReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpReducer.swift; sourceTree = "<group>"; };
 		A3480A7522997241000AA3A8 /* PopUpSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpSubscriber.swift; sourceTree = "<group>"; };
 		A349C3752297CD85002555B1 /* StatsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsHeaderView.swift; sourceTree = "<group>"; };
+		A349E38C229E796500E3C0DB /* SetsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewDataSource.swift; sourceTree = "<group>"; };
+		A349E38E229E797700E3C0DB /* SetsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewDelegate.swift; sourceTree = "<group>"; };
+		A349E390229E7A7A00E3C0DB /* SetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewCell.swift; sourceTree = "<group>"; };
+		A349E392229E90AA00E3C0DB /* SetsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableView.swift; sourceTree = "<group>"; };
 		A34B8DF11FA2175D00E62356 /* timerSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = timerSound.wav; sourceTree = "<group>"; };
 		A35127CF220454B9007D024F /* SettingsSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSubscriber.swift; sourceTree = "<group>"; };
 		A35127D12204558B007D024F /* ResetDataAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetDataAction.swift; sourceTree = "<group>"; };
@@ -513,6 +521,7 @@
 			children = (
 				A3476EAB229A85E700031FD9 /* CurrentWorkoutCollectionViewCell.swift */,
 				A3476EB2229ACDAD00031FD9 /* CurrentWorkoutCollectionViewCellStoreSubscriber.swift */,
+				A349E38B229E794500E3C0DB /* SetsTableView */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -537,6 +546,17 @@
 				A32DD1651F90F0D1009D13CE /* CaviarDreams.ttf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A349E38B229E794500E3C0DB /* SetsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				A349E38C229E796500E3C0DB /* SetsTableViewDataSource.swift */,
+				A349E38E229E797700E3C0DB /* SetsTableViewDelegate.swift */,
+				A349E390229E7A7A00E3C0DB /* SetsTableViewCell.swift */,
+				A349E392229E90AA00E3C0DB /* SetsTableView.swift */,
+			);
+			path = SetsTableView;
 			sourceTree = "<group>";
 		};
 		A35AA69E22116C8000A6CD10 /* Stats */ = {
@@ -987,6 +1007,7 @@
 				A3476EA2229A748100031FD9 /* CurrentWorkoutState.swift in Sources */,
 				A392B805220C6CCB0030FBD4 /* ExerciseController.swift in Sources */,
 				A35AA6A722116F3500A6CD10 /* StatsContainerCollectionViewCell.swift in Sources */,
+				A349E391229E7A7A00E3C0DB /* SetsTableViewCell.swift in Sources */,
 				A3D9DEFE2201B00900BCCAF4 /* AudioPlayer.swift in Sources */,
 				A3480A7222997171000AA3A8 /* PopUpState.swift in Sources */,
 				A31BFC9A21F66865003214C2 /* NavigationState.swift in Sources */,
@@ -1009,6 +1030,7 @@
 				A336C92022214B030068FCAD /* WorkoutSortingController.swift in Sources */,
 				A3AC807A21FDF79C000DE1EF /* ExercisesState.swift in Sources */,
 				A3DE1C5D2228394000EDB6C9 /* HistoryCollectionViewDataSource.swift in Sources */,
+				A349E38D229E796500E3C0DB /* SetsTableViewDataSource.swift in Sources */,
 				A35127D0220454B9007D024F /* SettingsSubscriber.swift in Sources */,
 				A3AE4A2C21F75004007A97AB /* EmojiModifier.swift in Sources */,
 				A3480A742299719C000AA3A8 /* PopUpReducer.swift in Sources */,
@@ -1050,6 +1072,7 @@
 				A308E26621F79B87001D2FE8 /* NRConstants.swift in Sources */,
 				A3D9802522118A51006E0B68 /* Stat.swift in Sources */,
 				A398764122186A3C0019238B /* MyWorkoutController.swift in Sources */,
+				A349E393229E90AA00E3C0DB /* SetsTableView.swift in Sources */,
 				A3476EA4229A74B600031FD9 /* CurrentWorkoutAction.swift in Sources */,
 				A3FDE6FA221317E600D00814 /* UpdateController.swift in Sources */,
 				A31BFC9221F667CF003214C2 /* AppCoordinator.swift in Sources */,
@@ -1060,6 +1083,7 @@
 				A384133C2215F338003E0C50 /* InfoSubscriber.swift in Sources */,
 				A35AA6A122116CB100A6CD10 /* StatisticsViewController.swift in Sources */,
 				A38413332215D240003E0C50 /* ReloadExercisesAction.swift in Sources */,
+				A349E38F229E797700E3C0DB /* SetsTableViewDelegate.swift in Sources */,
 				A3D9DEF222019D6600BCCAF4 /* PersistencyController.swift in Sources */,
 				A398763F2218693C0019238B /* WorkoutSettingState.swift in Sources */,
 				A336C916222148840068FCAD /* WorkoutSortingTableViewDelegate.swift in Sources */,

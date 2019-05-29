@@ -1,6 +1,6 @@
 //
 //  NRConstants.swift
-//  Push
+//  NoRest
 //
 //  Created by Patrick Niepel on 22.01.19.
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
@@ -56,6 +56,7 @@ struct NRConstants {
         static let itemCollectionViewCell = "itemCollectionViewCell"
         static let statsHeaderView = "statsHeaderView"
         static let currentWorkoutCollectionViewCell = "currentWorkoutCollectionViewCell"
+        static let setsTableViewCell = "setsTableViewCell"
     }
     
     struct Padding {
