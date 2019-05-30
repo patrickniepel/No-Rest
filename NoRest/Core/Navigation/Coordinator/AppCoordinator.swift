@@ -60,8 +60,8 @@ class AppCoordinator {
         case .history:
             return HistoryTableViewController()
 //        case .historyDetail:
-        case .workoutSetting:
-            return WorkoutSettingViewController()
+        case .workoutSetup:
+            return WorkoutSetupViewController()
         case .workoutSorting:
             return WorkoutSortingTableViewController()
         case .myWorkout:
