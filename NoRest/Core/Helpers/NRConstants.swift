@@ -112,7 +112,7 @@ struct NRConstants {
             static let rating = "Rate This App"
         }
         
-        static let copyright = "© 2019 Patrick Niepel"
+        static let copyright = "© 2019 Patrick Niepel - v2.0.0"
     }
     
     struct ButtonTitles {

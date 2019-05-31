@@ -28,6 +28,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
         backgroundColor = .backgroundColorUIControl
         applyShadow()
         
+        guard let date = date else { return }
         dateLabel.text = "\(date)"
         setupLabelLayout()
     }

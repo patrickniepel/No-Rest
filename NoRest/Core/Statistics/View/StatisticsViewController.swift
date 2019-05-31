@@ -15,7 +15,8 @@ class StatisticsViewController: UIViewController {
         searchBar.autocapitalizationType = .none
         searchBar.autocorrectionType = .no
         searchBar.showsCancelButton = true
-        searchBar.barTintColor = .backgroundColorMain
+        searchBar.barTintColor = .red
+        searchBar.showsSearchResultsButton = false
         searchBar.tintColor = .uiControl
         searchBar.keyboardType = .default
         searchBar.keyboardAppearance = .default
@@ -74,7 +75,7 @@ class StatisticsViewController: UIViewController {
         super.viewWillAppear(animated)
         stats[StatsType.general] = StatisticsController.provideGeneralStats()
         stats[StatsType.exercisesForCategory] = []
-        pageControl.numberOfPages = stats.count ?? 0
+        pageControl.numberOfPages = stats.count
     }
     
     private func setupCollectionView() {
@@ -106,6 +107,7 @@ class StatisticsViewController: UIViewController {
         if let textField = self.searchBar.value(forKey: "searchField") as? UITextField,
             let iconView = textField.leftView as? UIImageView {
             
+            textField.backgroundColor = .backgroundColorUIControl
             iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
             iconView.tintColor = .uiControl
         }

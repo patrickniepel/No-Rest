@@ -35,6 +35,8 @@ class SettingsTimerTableViewCell: UITableViewCell {
         
         contentView.addSubview(contentLabel)
         contentView.addSubview(timerSwitch)
+        contentView.backgroundColor = .backgroundColorUIControl
+        backgroundColor = .backgroundColorUIControl
         
         timerSwitch.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
         

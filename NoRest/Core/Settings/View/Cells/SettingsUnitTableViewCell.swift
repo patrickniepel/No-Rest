@@ -41,6 +41,7 @@ class SettingsUnitTableViewCell: UITableViewCell {
         
         contentView.addSubview(contentLabel)
         contentView.addSubview(unitSegmentedControl)
+        contentView.backgroundColor = .backgroundColorUIControl
         
         unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
         
