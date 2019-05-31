@@ -9,8 +9,8 @@
 import Foundation
 
 struct StatisticsController {
-    private static var allExercises: [Exercise] {
-        return UserData.sharedInstance.workoutHistory.allExercises()
+    private static var allExercisesOfStatistics: [Exercise] {
+        return UserData.sharedInstance.statistics.allExercises()
     }
     
     static func provideGeneralStats() -> [StatsContainerItem] {
@@ -29,7 +29,7 @@ struct StatisticsController {
         let exercisesForCategory = category.exercises
         
         exercisesForCategory.forEach {
-            let item = StatsContainerItem(title: $0.name, stats: [])
+            let item = StatsContainerItem(title: $0.name, stats: StatisticsController.stats(for: $0))
             stats.append(item)
         }
         
@@ -40,21 +40,22 @@ struct StatisticsController {
 extension StatisticsController {
     
     static func stats(for exercise: Exercise) -> [Stat] {
+        let exercises = allExercisesOfStatistics.filter { $0.id == exercise.id }
         
         if exercise.type == .cardio {
             return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: [exercise]))]
         }
         
-        return [Stat(title: .totalSets, value: totalSets(exercises: [exercise])),
-                Stat(title: .maxWeight, value: maxWeight(exercises: [exercise])),
-                Stat(title: .totalVolume, value: totalVolume(exercises: [exercise])),
-                Stat(title: .totalVolume, value: avgVolumePerSet(exercises: [exercise])),
-                Stat(title: .totalVolume, value: avgRepsPerSet(exercises: [exercise])),
-                Stat(title: .totalReps, value: totalReps(exercises: [exercise]))]
+        return [Stat(title: .totalSets, value: totalSets(exercises: exercises)),
+                Stat(title: .maxWeight, value: maxWeight(exercises: exercises)),
+                Stat(title: .totalVolume, value: totalVolume(exercises: exercises)),
+                Stat(title: .avgVolumePerSet, value: avgVolumePerSet(exercises: exercises)),
+                Stat(title: .avgRepsPerSet, value: avgRepsPerSet(exercises: exercises)),
+                Stat(title: .totalReps, value: totalReps(exercises: exercises))]
     }
     
     static func stats(for category: Category) -> [Stat] {
-        let exercises = allExercises.filter { $0.category == category }
+        let exercises = allExercisesOfStatistics.filter { $0.category == category }
         
         if category == .none {
             return generalStats()
@@ -72,9 +73,9 @@ extension StatisticsController {
     
     static func generalStats() -> [Stat] {
         
-        return [Stat(title: .maxWeight, value: maxWeight(exercises: allExercises)),
-                Stat(title: .totalVolume, value: totalVolume(exercises: allExercises)),
-                Stat(title: .totalReps, value: totalReps(exercises: allExercises))]
+        return [Stat(title: .maxWeight, value: maxWeight(exercises: allExercisesOfStatistics)),
+                Stat(title: .totalVolume, value: totalVolume(exercises: allExercisesOfStatistics)),
+                Stat(title: .totalReps, value: totalReps(exercises: allExercisesOfStatistics))]
     }
     
     private static func maxWeight(exercises: [Exercise]) -> Double {
@@ -141,7 +142,7 @@ extension StatisticsController {
     private static func percentageOfSets(exercises: [Exercise]) -> Double {
         var percentage: Double = 0
         let setsForCategory = self.totalSets(exercises: exercises)
-        let totalSets = self.totalSets(exercises: allExercises)
+        let totalSets = self.totalSets(exercises: allExercisesOfStatistics)
         
         if totalSets == 0 {
             return 0

@@ -21,6 +21,18 @@ class MyWorkout: Codable, Equatable, Comparable {
         self.exercises = exercises
     }
     
+    func convertWeights(with factor: Double) {
+        for exercise in exercises {
+            if exercise.type == .cardio {
+                continue
+            }
+            
+            for var set in exercise.sets {
+                set.convertValue(with: factor)
+            }
+        }
+    }
+    
     static func == (lhs: MyWorkout, rhs: MyWorkout) -> Bool {
         return lhs.id == rhs.id
     }

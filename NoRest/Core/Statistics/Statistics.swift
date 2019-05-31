@@ -23,4 +23,12 @@ struct Statistics: Codable {
     mutating func resetStatistics() {
         workouts = []
     }
+    
+    func allExercises() -> [Exercise] {
+        return workouts.map { $0.exercises }.flatMap { $0 }
+    }
+    
+    func allWorkouts() -> [MyWorkout] {
+        return workouts
+    }
 }

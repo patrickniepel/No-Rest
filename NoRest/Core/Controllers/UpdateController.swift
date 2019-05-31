@@ -11,8 +11,9 @@ import Foundation
 struct UpdateController {
     
     static func addWorkoutToHistory(_ workout: MyWorkout) {
-        //update myWorkouts, add to history, calculate for statistics
+        //To history and statistics
         UserData.sharedInstance.workoutHistory.addWorkoutToHistory(workout)
+        UserData.sharedInstance.statistics.addWorkoutToStatistics(workout)
         PersistencyController.storeUserData()
     }
     

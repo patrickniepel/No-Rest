@@ -35,7 +35,7 @@ class StatsCollectionViewCell: UICollectionViewCell {
     
     func setup(with stat: Stat) {
         statsTitleLabel.text = stat.title.rawValue
-        statsValueLabel.text = "\(stat.value) \(SettingsController.currentUnit.rawValue)"
+        statsValueLabel.text = "\(stat.value) \(stat.title.unit)"
         
         setupDesign()
         setupLayout()
