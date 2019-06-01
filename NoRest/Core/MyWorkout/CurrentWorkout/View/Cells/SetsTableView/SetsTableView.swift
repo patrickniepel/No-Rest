@@ -22,4 +22,17 @@ class SetsTableView: UITableView {
         let height = min(contentHeight, maxHeight)
         return CGSize(width: contentSize.width, height: height)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupDesign()
+    }
+    
+    private func setupDesign() {
+        separatorColor = .uiControl
+        separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        layer.cornerRadius = 15
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.uiControl.cgColor
+    }
 }

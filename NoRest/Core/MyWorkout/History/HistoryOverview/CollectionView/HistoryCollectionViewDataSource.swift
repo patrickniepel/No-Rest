@@ -8,13 +8,7 @@
 
 import UIKit
 
-class HistoryCollectionViewDataSource: NSObject, UICollectionViewDataSource {
-    
-    let workouts: [MyWorkout]
-    
-    init(workouts: [MyWorkout]) {
-        self.workouts = workouts
-    }
+extension HistoryTableViewCell: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

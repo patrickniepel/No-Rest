@@ -38,6 +38,10 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDataSource {
         return cell ?? UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return SetsTableViewHeader(backgroundColor: .uiControl)
+    }
+    
     func addSet(_ set: Set) {
         exercise?.sets.append(set)
         tableView.reloadData()

@@ -26,26 +26,24 @@ class HistoryTableViewCell: UITableViewCell {
         return cv
     }()
     
-    private var dataSource: HistoryCollectionViewDataSource?
-    private var delegate: HistoryCollectionViewDelegate?
-    private var workouts: [MyWorkout] = []
+    var workouts: [MyWorkout] = []
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        workouts = []
     }
     
     func setup(for workouts: [MyWorkout]) {
-        self.workouts = workouts
-        contentView.backgroundColor = .backgroundColorUIControl
-        dataSource = HistoryCollectionViewDataSource(workouts: workouts)
-        delegate = HistoryCollectionViewDelegate()
+        self.workouts = workouts.sorted(by: { (lhs, rhs) -> Bool in
+            guard let date0 = lhs.date, let date1 = rhs.date else { return false}
+            return date0 > date1
+        })
         
-        historyCollectionView.dataSource = dataSource
-        historyCollectionView.delegate = delegate
+        backgroundColor = .backgroundColorUIControl
+        contentView.backgroundColor = .backgroundColorUIControl
+        
+        historyCollectionView.dataSource = self
+        historyCollectionView.delegate = self
         
         setupCollectionViewLayout()
     }

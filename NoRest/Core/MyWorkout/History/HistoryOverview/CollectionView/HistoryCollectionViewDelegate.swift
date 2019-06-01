@@ -8,11 +8,11 @@
 
 import UIKit
 
-class HistoryCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
+extension HistoryTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.frame.height - 32
-        let width = height
+        let height = collectionView.frame.height - 24
+        let width = collectionView.bounds.width / 3
         
         return CGSize(width: width, height: height)
     }
@@ -26,6 +26,12 @@ class HistoryCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let workout = workouts[safe: indexPath.item] {
+            let historyDetailAction = HistoryDetailAction(myWorkout: workout)
+            store.dispatch(historyDetailAction)
+            
+            let routeAction = RouteAction(screen: .historyDetail, in: .myWorkout)
+            store.dispatch(routeAction)
+        }
     }
 }

@@ -20,6 +20,9 @@ class HistoryController {
         let historyWorkouts = UserData.sharedInstance.workoutHistory.allWorkouts()
         let workoutDictonary = Dictionary(grouping: historyWorkouts, by: { $0.id })
         workoutsByID = Array(workoutDictonary.values)
+        workoutsByID.sort { (lhs, rhs) -> Bool in
+            lhs.first?.name ?? "" < rhs.first?.name ?? ""
+        }
     }
     
     func workoutName(for index: Int) -> String? {

@@ -12,15 +12,17 @@ class HistoryCollectionViewCell: UICollectionViewCell {
     
     private let dateLabel: NRLabel = {
         let label = NRLabel()
+        label.makeBold()
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        dateLabel.text = nil
     }
     
     func setup(date: Date?) {
@@ -29,12 +31,13 @@ class HistoryCollectionViewCell: UICollectionViewCell {
         applyShadow()
         
         guard let date = date else { return }
-        dateLabel.text = "\(date)"
+        let stringDate = Date.withFormat(date: date, format: NRConstants.Date.defaultFormat)
+        dateLabel.text = stringDate
         setupLabelLayout()
     }
     
     private func setupLabelLayout() {
         addSubview(dateLabel)
-        dateLabel.fillSuperview()
+        dateLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
 }

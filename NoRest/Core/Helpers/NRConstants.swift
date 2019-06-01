@@ -51,12 +51,13 @@ struct NRConstants {
         static let nrDefaultTableViewCell = "nrDefaultTableViewCell"
         static let historyTableViewCell = "historyTableViewCell"
         static let historyCollectionViewCell = "historyCollectionViewCell"
-        static let historyDetailCollectionViewCell = "historyDetailCollectionViewCell"
         static let emptyCollectionViewCell = "emptyCollectionViewCell"
         static let itemCollectionViewCell = "itemCollectionViewCell"
         static let statsHeaderView = "statsHeaderView"
         static let currentWorkoutCollectionViewCell = "currentWorkoutCollectionViewCell"
         static let setsTableViewCell = "setsTableViewCell"
+        static let historyDetailCollectionViewCell = "historyDetailCollectionViewCell"
+        static let historyDetailSetsTableViewCell = "historyDetailSetsTableViewCell"
     }
     
     struct Padding {
@@ -91,7 +92,7 @@ struct NRConstants {
     
     struct Date {
         static let workoutNotStarted = "Not Started Yet"
-        static let defaultFormat = "yyyy-MM-dd"
+        static let defaultFormat = "EEEE, MMMM dd yyyy"
     }
     
     struct Settings {

@@ -30,6 +30,7 @@ class CurrentWorkoutViewController: UIViewController {
         pageControl.pageIndicatorTintColor = .backgroundColorUIControl
         pageControl.currentPageIndicatorTintColor = .uiControl
         pageControl.backgroundColor = .backgroundColorMain
+        pageControl.isUserInteractionEnabled = false
         return pageControl
     }()
     

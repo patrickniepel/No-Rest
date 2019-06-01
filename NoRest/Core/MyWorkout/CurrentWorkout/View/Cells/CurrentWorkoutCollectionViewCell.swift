@@ -69,13 +69,8 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         
         weightLabel.text = NRConstants.Texts.weight + " (\(SettingsController.currentUnit.rawValue))"
         
-        tableView.separatorColor = .uiControl
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
         tableView.backgroundColor = .backgroundColorMain
-        tableView.layer.cornerRadius = 15
-        tableView.layer.borderWidth = 1
-        tableView.layer.borderColor = UIColor.uiControl.cgColor
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
     }
     
     private func setupTargets() {

@@ -10,19 +10,11 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     
-    private var dataSource: HistoryTableViewDataSource?
-    private var delegate: HistoryTableViewDelegate?
-    private var historyCtrl = HistoryController()
+    var historyCtrl = HistoryController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = HistoryTableViewDataSource(historyCtrl: historyCtrl)
-        delegate = HistoryTableViewDelegate()
-        
-        tableView.dataSource = dataSource
-        tableView.delegate = delegate
-
         setupTitle()
         setupTableView()
     }
@@ -32,11 +24,11 @@ class HistoryTableViewController: UITableViewController {
     }
     
     private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
         tableView.backgroundColor = .backgroundColorMain
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
-        tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
-        tableView.rowHeight = NRConstants.TableViews.rowHeight * 2
         tableView.tableFooterView = UIView()
         tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.historyTableViewCell)
     }

@@ -32,12 +32,4 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return NRConstants.TableViews.rowHeight * 0.75 / 2
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.textColor = .white
-            headerView.textLabel?.text = "asda"
-            headerView.backgroundView?.backgroundColor = .red
-        }
-    }
 }
