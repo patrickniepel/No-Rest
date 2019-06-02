@@ -12,7 +12,7 @@ class HistoryTableViewCell: UITableViewCell {
     
     let historyCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .backgroundColorUIControl
+        cv.backgroundColor = .backgroundColorMain
         cv.register(HistoryCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.historyCollectionViewCell)
         cv.isScrollEnabled = true
         cv.isPagingEnabled = false
@@ -24,6 +24,12 @@ class HistoryTableViewCell: UITableViewCell {
         }
         
         return cv
+    }()
+    
+    private let separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = .backgroundColorUIControl
+        return view
     }()
     
     var workouts: [MyWorkout] = []
@@ -39,8 +45,8 @@ class HistoryTableViewCell: UITableViewCell {
             return date0 > date1
         })
         
-        backgroundColor = .backgroundColorUIControl
-        contentView.backgroundColor = .backgroundColorUIControl
+        backgroundColor = .backgroundColorMain
+        contentView.backgroundColor = .backgroundColorMain
         
         historyCollectionView.dataSource = self
         historyCollectionView.delegate = self
@@ -49,8 +55,10 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     private func setupCollectionViewLayout() {
-        addSubview(historyCollectionView)
-        historyCollectionView.fillSuperview()
+        contentView.addSubviews(historyCollectionView, separator)
+        
+        separator.anchor(leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 8, bottom: 12, right: 8), size: CGSize(width: 0, height: 1))
+        historyCollectionView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: separator.topAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 13, right: 0))
     }
 
 }

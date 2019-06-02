@@ -30,18 +30,14 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.setsTableViewCell) as? SetsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell) as? NRSetsTableViewCell
         if let set = exercise?.sets[safe: indexPath.row] {
             cell?.setup(with: set)
         }
         
         return cell ?? UITableViewCell()
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SetsTableViewHeader(backgroundColor: .uiControl)
-    }
-    
+   
     func addSet(_ set: Set) {
         exercise?.sets.append(set)
         tableView.reloadData()

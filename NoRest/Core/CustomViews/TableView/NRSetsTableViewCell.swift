@@ -1,5 +1,5 @@
 //
-//  HistoryDetailSetsTableViewCell.swift
+//  NRSetsTableViewCell.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 01.06.19.
@@ -8,22 +8,13 @@
 
 import UIKit
 
-class HistoryDetailSetsTableViewCell: UITableViewCell {
-    
-    private let contentStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.axis = .horizontal
-        return stackView
-    }()
+class NRSetsTableViewCell: UITableViewCell {
     
     private let repsLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .textColor
         label.textAlignment = .center
         label.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeMedium)
-        label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -32,16 +23,15 @@ class HistoryDetailSetsTableViewCell: UITableViewCell {
     private let xImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = NRConstants.Images.x.image?.dye(.black).withAlignmentRectInsets(UIEdgeInsets(top: -20, left: -20, bottom: -20, right: -20))
+        imageView.image = NRConstants.Images.x.image?.dye(.black)
         return imageView
     }()
     
     private let weightLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.textAlignment = .left
+        label.textColor = .textColor
+        label.textAlignment = .center
         label.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeMedium)
-        label.numberOfLines = 0
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -62,16 +52,16 @@ class HistoryDetailSetsTableViewCell: UITableViewCell {
     }
 }
 
-private extension HistoryDetailSetsTableViewCell {
+private extension NRSetsTableViewCell {
     
     func setupLayout() {
         contentView.addSubviews(repsLabel, xImageView, weightLabel)
         
-        xImageView.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, centerX: contentView.centerXAnchor)
-        xImageView.widthAnchor.constraint(equalTo: xImageView.heightAnchor)
+        let imageWidth: CGFloat = 15
+            xImageView.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, centerX: contentView.centerXAnchor, size: CGSize(width: imageWidth, height: 0))
         
-        repsLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: xImageView.leadingAnchor)
+        repsLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: xImageView.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4))
         
-        weightLabel.anchor(top: contentView.topAnchor, leading: xImageView.trailingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor)
+        weightLabel.anchor(top: contentView.topAnchor, leading: xImageView.trailingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4))
     }
 }

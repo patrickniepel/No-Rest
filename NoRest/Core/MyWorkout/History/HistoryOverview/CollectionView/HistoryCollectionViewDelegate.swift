@@ -11,7 +11,7 @@ import UIKit
 extension HistoryTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.frame.height - 24
+        let height = collectionView.frame.height - 56
         let width = collectionView.bounds.width / 3
         
         return CGSize(width: width, height: height)

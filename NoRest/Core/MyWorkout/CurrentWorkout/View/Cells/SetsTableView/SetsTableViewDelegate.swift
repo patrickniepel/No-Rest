@@ -28,8 +28,4 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return NRConstants.TableViews.rowHeight * 0.75
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return NRConstants.TableViews.rowHeight * 0.75 / 2
-    }
 }

@@ -1,5 +1,5 @@
 //
-//  SetsTableViewHeader.swift
+//  NRSetsTableViewHeader.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 01.06.19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetsTableViewHeader: UIView {
+class NRSetsTableViewHeader: UIView {
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()

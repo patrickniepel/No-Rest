@@ -1,5 +1,5 @@
 //
-//  SetsTableView.swift
+//  NRSetsTableView.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 29.05.19.
@@ -8,8 +8,14 @@
 
 import UIKit
 
-class SetsTableView: UITableView {
-    var maxHeight: CGFloat = 300
+class NRSetsTableView: UITableView {
+    var maxHeight: CGFloat = NRConstants.TableViews.rowHeight * 2
+    
+    convenience init(maxHeight: CGFloat) {
+        self.init()
+        self.maxHeight = maxHeight
+        setupDesign()
+    }
     
     override func reloadData() {
         super.reloadData()
@@ -21,11 +27,6 @@ class SetsTableView: UITableView {
         let contentHeight: CGFloat = CGFloat(self.visibleCells.count) * NRConstants.TableViews.rowHeight * 0.75
         let height = min(contentHeight, maxHeight)
         return CGSize(width: contentSize.width, height: height)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setupDesign()
     }
     
     private func setupDesign() {

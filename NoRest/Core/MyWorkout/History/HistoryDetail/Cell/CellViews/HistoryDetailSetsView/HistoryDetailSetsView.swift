@@ -19,10 +19,10 @@ class HistoryDetailSetsView: UIView {
         return label
     }()
     
-    private let tableView: SetsTableView = {
-        let tableView = SetsTableView()
+    private lazy var tableView: NRSetsTableView = {
+        let tableView = NRSetsTableView(maxHeight: self.bounds.height / 2)
         tableView.allowsSelection = false
-        tableView.register(HistoryDetailSetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.historyDetailSetsTableViewCell)
+        tableView.register(NRSetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell)
         return tableView
     }()
     
@@ -31,41 +31,17 @@ class HistoryDetailSetsView: UIView {
     convenience init(sets: [Set]) {
         self.init()
         
-        self.sets = [Set(reps: 12, weight: 39),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-                     Set(reps: 10, weight: 11),
-        
-        ]
+        self.sets = sets
         setupLayout()
         setupTableView()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setupDesign()
     }
     
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        
-    }
-    
-    private func setupDesign() {
         tableView.backgroundColor = .backgroundColorUIControl
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
     }
-
 }
 
 private extension HistoryDetailSetsView {
@@ -74,6 +50,6 @@ private extension HistoryDetailSetsView {
         addSubviews(setsLabel, tableView)
         
         setsLabel.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: CGSize(width: 0, height: 30))
-        tableView.anchor(top: setsLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 8, left: 16, bottom: 16, right: 16))
+        tableView.anchor(top: setsLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16))
     }
 }

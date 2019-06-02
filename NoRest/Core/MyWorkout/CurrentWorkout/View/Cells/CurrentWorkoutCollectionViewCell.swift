@@ -40,15 +40,17 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     var exercise: Exercise?
     
     override func prepareForReuse() {
-        baseStackView.removeFromSuperview()
+        super.prepareForReuse()
+        exercise = nil
+        repsTextField.text = nil
+        weightTextField.text = nil
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         setupDesign()
     }
-    
+
     func setup(exercise: Exercise) {
         subscribe()
         self.exercise = exercise
@@ -66,11 +68,6 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         
         actionButton.layer.cornerRadius = 15
         actionButton.applyShadow()
-        
-        weightLabel.text = NRConstants.Texts.weight + " (\(SettingsController.currentUnit.rawValue))"
-        
-        tableView.backgroundColor = .backgroundColorMain
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
     }
     
     private func setupTargets() {
@@ -340,9 +337,11 @@ fileprivate struct LayoutContent {
         return label
     }()
     
-    static let tableView: SetsTableView = {
-        let tableView = SetsTableView()
-        tableView.register(SetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.setsTableViewCell)
+    static let tableView: NRSetsTableView = {
+        let tableView = NRSetsTableView(maxHeight: 300)
+        tableView.register(NRSetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell)
+        tableView.backgroundColor = .backgroundColorMain
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
         return tableView
     }()
 }

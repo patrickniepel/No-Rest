@@ -10,7 +10,6 @@ import UIKit
 
 extension HistoryDetailSetsView: UITableViewDataSource {
 
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -20,16 +19,12 @@ extension HistoryDetailSetsView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.historyDetailSetsTableViewCell, for: indexPath) as? HistoryDetailSetsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell, for: indexPath) as? NRSetsTableViewCell
         
         if let set = sets[safe: indexPath.row] {
             cell?.setup(with: set)
         }
         
         return cell ?? UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return SetsTableViewHeader(backgroundColor: .uiControl)
     }
 }

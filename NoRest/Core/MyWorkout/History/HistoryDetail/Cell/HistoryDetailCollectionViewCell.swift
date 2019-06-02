@@ -14,6 +14,8 @@ class HistoryDetailCollectionViewCell: UICollectionViewCell {
         let label = NRLabel()
         label.textAlignment = .center
         label.makeBold()
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -29,12 +31,6 @@ class HistoryDetailCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         nameLabel.text = nil
         exercise = nil
-        exerciseContentView.removeFromSuperview()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setupDesign()
     }
     
     func setup(with exercise: Exercise) {
@@ -42,6 +38,7 @@ class HistoryDetailCollectionViewCell: UICollectionViewCell {
         setupLayout()
         nameLabel.text = exercise.name
         setupExerciseContentView()
+        setupDesign()
     }
     
     func setupDesign() {
