@@ -21,10 +21,8 @@ class TimerView: UIView {
     private var shapeLayer: CAShapeLayer!
     private var pulsatingLayer: CAShapeLayer!
     private let lineWidth: CGFloat = 20
-    private lazy var circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
-    private lazy var centerPoint: CGPoint = {
-        return CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
-    }()
+    private let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
+    private let timerBackgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
     
     private let timerLabel: UILabel = {
         let label = UILabel()
@@ -37,22 +35,26 @@ class TimerView: UIView {
     convenience init(seconds: Int) {
         self.init()
         self.seconds = seconds
+        setup()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setup()
+        setupLayout()
     }
     
     private func setup() {
         timerCounter = seconds
         animationCounter = seconds * 100
-        setupLayout()
+        layoutIfNeeded()
         setupDesign()
     }
     
     private func setupDesign() {
-        backgroundColor = .clear
+        backgroundColor = timerBackgroundColor
+        layer.cornerRadius = 25
+        layer.borderColor = timerBackgroundColor.cgColor
+        layer.borderWidth = 1
     }
     
     private func updateLayout() {
@@ -152,7 +154,7 @@ extension TimerView {
         layer.strokeColor = strokeColor.cgColor
         layer.lineWidth = lineWidth
         layer.fillColor = fillColor.cgColor
-        layer.position = centerPoint
+        layer.position = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
         return layer
     }
     

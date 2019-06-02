@@ -24,28 +24,31 @@ class PopUpViewController: UIViewController, PopUpDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        subscribe()
+        
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViewController))
         tapGesture.delegate = self
         
         view.addGestureRecognizer(tapGesture)
         view.backgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.7)
-        
-        subscribe()
     }
     
     func setupTimer() {
         timerView = TimerView(seconds: exercise?.timer ?? 0)
         timerView?.delegate = self
-        view.addSubview(timerView!)
-        let length = view.bounds.width * 0.8
-        timerView?.centerInSuperview(size: CGSize(width: length, height: length))
+        setupView(subView: timerView)
     }
     
     func setupNotes() {
         notesView = NotesView(notes: exercise?.notes ?? "")
-        view.addSubview(notesView!)
+        setupView(subView: notesView)
+    }
+    
+    private func setupView(subView: UIView?) {
+        guard let subView = subView else { return }
+        view.addSubview(subView)
         let length = view.bounds.width * 0.8
-        notesView?.centerInSuperview(size: CGSize(width: length, height: length))
+        subView.centerInSuperview(size: CGSize(width: length, height: length))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,8 +77,9 @@ class PopUpViewController: UIViewController, PopUpDelegate {
     }
     
     deinit {
-        unsubscribe()
         view.removeGestureRecognizer(tapGesture)
+        unsubscribe()
+        print("Deinit PopUp")
     }
 }
 

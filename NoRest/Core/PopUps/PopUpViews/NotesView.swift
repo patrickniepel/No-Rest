@@ -30,13 +30,9 @@ class NotesView: UIView {
     convenience init(notes: String) {
         self.init()
         self.notes = notes
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
         setup()
     }
-    
+ 
     private func setup() {
         addSubview(notesTextView)
         notesTextView.fillSuperview()
