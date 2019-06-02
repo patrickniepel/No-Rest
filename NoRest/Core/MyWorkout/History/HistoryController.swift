@@ -12,11 +12,7 @@ class HistoryController {
     
     var workoutsByID: [[MyWorkout]] = []
     
-    init() {
-        determineDifferentWorkouts()
-    }
-    
-    private func determineDifferentWorkouts() {
+    func determineDifferentWorkouts() {
         let historyWorkouts = UserData.sharedInstance.workoutHistory.allWorkouts()
         let workoutDictonary = Dictionary(grouping: historyWorkouts, by: { $0.id })
         workoutsByID = Array(workoutDictonary.values)
@@ -26,6 +22,10 @@ class HistoryController {
     }
     
     func workoutName(for index: Int) -> String? {
-        return workoutsByID[index].first?.name
+        return workoutsByID[safe: index]?.first?.name
+    }
+    
+    func isHistoryAvailable() -> Bool {
+        return workoutsByID.count != 0
     }
 }

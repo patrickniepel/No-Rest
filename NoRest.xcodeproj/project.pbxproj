@@ -87,6 +87,7 @@
 		A3696F7922A2D1E500A37AF7 /* NRSetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3696F7822A2D1E500A37AF7 /* NRSetsTableViewCell.swift */; };
 		A3696F7B22A2D3DE00A37AF7 /* HistoryDetailSetsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3696F7A22A2D3DE00A37AF7 /* HistoryDetailSetsTableViewDataSource.swift */; };
 		A3696F7D22A2D40600A37AF7 /* HistoryDetailSetsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3696F7C22A2D40600A37AF7 /* HistoryDetailSetsTableViewDelegate.swift */; };
+		A3802B7622A43D9E00AA04FD /* NREmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3802B7522A43D9E00AA04FD /* NREmptyView.swift */; };
 		A38413312215CC80003E0C50 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38413302215CC80003E0C50 /* AlertController.swift */; };
 		A38413352215F1D0003E0C50 /* InfoAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38413342215F1D0003E0C50 /* InfoAction.swift */; };
 		A38413372215F208003E0C50 /* InfoReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38413362215F208003E0C50 /* InfoReducer.swift */; };
@@ -248,6 +249,7 @@
 		A3696F7822A2D1E500A37AF7 /* NRSetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRSetsTableViewCell.swift; sourceTree = "<group>"; };
 		A3696F7A22A2D3DE00A37AF7 /* HistoryDetailSetsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailSetsTableViewDataSource.swift; sourceTree = "<group>"; };
 		A3696F7C22A2D40600A37AF7 /* HistoryDetailSetsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailSetsTableViewDelegate.swift; sourceTree = "<group>"; };
+		A3802B7522A43D9E00AA04FD /* NREmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NREmptyView.swift; sourceTree = "<group>"; };
 		A38413302215CC80003E0C50 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		A38413342215F1D0003E0C50 /* InfoAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAction.swift; sourceTree = "<group>"; };
 		A38413362215F208003E0C50 /* InfoReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoReducer.swift; sourceTree = "<group>"; };
@@ -856,6 +858,7 @@
 				A32C072C22944CBA0055C409 /* ItemCollectionView */,
 				A3C9D5992207277A00401E08 /* NRLabel.swift */,
 				A357389D22929FB600FBC896 /* NREmptyCollectionViewCell.swift */,
+				A3802B7522A43D9E00AA04FD /* NREmptyView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1195,6 +1198,7 @@
 				A3696F6122A2BC9400A37AF7 /* HistoryDetailViewController.swift in Sources */,
 				A398763B221868C40019238B /* WorkoutSetupAction.swift in Sources */,
 				A3696F7B22A2D3DE00A37AF7 /* HistoryDetailSetsTableViewDataSource.swift in Sources */,
+				A3802B7622A43D9E00AA04FD /* NREmptyView.swift in Sources */,
 				A3DFA65F220849DF00E05DF4 /* UnitConverter.swift in Sources */,
 				A392B803220C5AF00030FBD4 /* EditExerciseAction.swift in Sources */,
 				A32DD1741F90FC23009D13CE /* UserData.swift in Sources */,

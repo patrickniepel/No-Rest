@@ -83,10 +83,12 @@ struct NRConstants {
     struct Texts {
         static let emptyWorkouts = "No Workouts Available"
         static let emptyExercises = "No Exercises Available"
+        static let emptyHistory = "No History Available"
         static let noExercisesSelected = "No Exercises Selected"
         static let reps = "Reps"
         static let weight = "Weight"
         static let sets = "Sets"
+        static let noSets = "No Sets"
     }
     
     struct Date {
