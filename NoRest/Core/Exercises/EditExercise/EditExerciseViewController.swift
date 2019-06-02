@@ -120,7 +120,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         guard let exercise = exercise else { return }
         timerLabel.text = exercise.type == .weightLifting ? NRConstants.Editing.restTimerLabel : NRConstants.Editing.runningTimerLabel
         nameTextField.text = exercise.name
-        timerTextField.text = "\(exercise.timer)"
+        timerTextField.text = "\(exercise.timer.valueForType)"
         notesTextView.text = exercise.notes
     }
     
@@ -139,7 +139,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
             return
         }
         exercise.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
-        exercise.timer = SyntaxController.checkTimerInputCorrect(text: timerTextField.text)
+        exercise.timer.calculateSeconds(value: SyntaxController.checkTimerInputCorrect(text: timerTextField.text))
         exercise.notes = SyntaxController.checkNotesInputCorrect(text: notesTextView.text)
         let exerciseCtrl = ExerciseController()
         exerciseCtrl.saveExercise(exercise)

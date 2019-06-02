@@ -31,22 +31,36 @@ struct UpdateController {
     }
 
     static func updateExercise(_ exercise: Exercise) {
-        //update in exercises and workouts
+        //exercises
         UserData.sharedInstance.exercises.removeAll(where: { $0.id == exercise.id })
         UserData.sharedInstance.exercises.append(exercise)
-        UserData.sharedInstance.myWorkouts.forEach {
-            if let index = $0.exercises.firstIndex(where: { $0.id == exercise.id }) {
-                $0.exercises.remove(at: index)
-                $0.exercises.insert(exercise, at: index)
+        
+        //Workouts
+        let workouts = UserData.sharedInstance.myWorkouts
+        var updatedWorkouts: [MyWorkout] = []
+        for var workout in workouts {
+            if let index = workout.exercises.firstIndex(where: { $0.id == exercise.id }) {
+                workout.exercises[index] = exercise
             }
+            updatedWorkouts.append(workout)
         }
+        UserData.sharedInstance.myWorkouts = updatedWorkouts
         PersistencyController.storeUserData()
     }
     
     static func deleteExercise(_ exercise: Exercise) {
-        //exercises and workouts
+        //exercises
         UserData.sharedInstance.exercises.removeAll(where: { $0.id == exercise.id })
-        UserData.sharedInstance.myWorkouts.forEach { $0.exercises.removeAll(where: { $0.id == exercise.id })}
+        
+        //Workouts
+        let workouts = UserData.sharedInstance.myWorkouts
+        var updatedWorkouts: [MyWorkout] = []
+        for var workout in workouts {
+            if let index = workout.exercises.firstIndex(where: { $0.id == exercise.id }) {
+                workout.exercises.remove(at: index)
+            }
+            updatedWorkouts.append(workout)
+        }
         PersistencyController.storeUserData()
     }
     

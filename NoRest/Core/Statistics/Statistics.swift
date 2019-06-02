@@ -10,7 +10,7 @@ import Foundation
 
 struct Statistics: Codable {
     
-    private var workouts: [MyWorkout]
+    var workouts: [MyWorkout]
     
     init() {
         workouts = []
@@ -26,9 +26,5 @@ struct Statistics: Codable {
     
     func allExercises() -> [Exercise] {
         return workouts.map { $0.exercises }.flatMap { $0 }
-    }
-    
-    func allWorkouts() -> [MyWorkout] {
-        return workouts
     }
 }

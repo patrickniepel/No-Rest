@@ -18,6 +18,7 @@ class TimerView: UIView {
     private var timer: Timer?
     private var animationTimer: Timer?
     
+    private var didSetupLayout = false
     private var shapeLayer: CAShapeLayer!
     private var pulsatingLayer: CAShapeLayer!
     private let lineWidth: CGFloat = 20
@@ -40,7 +41,11 @@ class TimerView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupLayout()
+        
+        if !didSetupLayout {
+            setupLayout()
+            didSetupLayout = true
+        }
     }
     
     private func setup() {
@@ -57,8 +62,13 @@ class TimerView: UIView {
         layer.borderWidth = 1
     }
     
-    private func updateLayout() {
-        timerLabel.text = "\(timerCounter)"
+    private func updateTimerLabel() {
+        let minutes = timerCounter / 60
+        let seconds = timerCounter % 60
+        
+        let secondsString = seconds < 10 ? "0\(seconds)" : "\(seconds)"
+        let timerText = minutes == 0 ? "\(secondsString)" : "\(minutes):\(secondsString)"
+        timerLabel.text = timerText
     }
     
     func startTimer() {
@@ -91,7 +101,7 @@ class TimerView: UIView {
         }
         
         timerCounter -= 1
-        updateLayout()
+        updateTimerLabel()
     }
     
     @objc private func handleAnimationTimer() {
@@ -118,8 +128,8 @@ extension TimerView {
     private func setupTimerLabel() {
         addSubview(timerLabel)
         
-        timerLabel.text = "\(timerCounter)"
-        timerLabel.centerInSuperview(size: CGSize(width: 100, height: 100))
+        updateTimerLabel()
+        timerLabel.centerInSuperview()
     }
     
     private func setupShapeLayer() {

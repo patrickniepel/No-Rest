@@ -14,6 +14,8 @@ class StatsHeaderView: UICollectionReusableView {
         let label = NRLabel()
         label.textColor = .uiControl
         label.font = UIFont(name: NRConstants.Font.fontBold, size: 30)
+        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     

@@ -53,7 +53,7 @@ class HistoryDetailCollectionViewCell: UICollectionViewCell {
         
         let view: UIView
         if exercise.category == .cardio {
-            view = HistoryDetailCardioView(timerValue: exercise.timer)
+            view = HistoryDetailCardioView(timerValue: exercise.timer.displayValue)
         } else {
             view = HistoryDetailSetsView(sets: exercise.sets)
         }

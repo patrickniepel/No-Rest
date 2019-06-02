@@ -51,7 +51,7 @@ class WorkoutSortingTableViewController: UITableViewController {
     }
     
     @objc private func saveWorkout() {
-        guard let workout = workout else {
+        guard var workout = workout else {
             AlertController.showSavingFailureAlert()
             return
         }

@@ -121,7 +121,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     
     private func fillExercise() {
         guard let exercise = exercise else { return }
-        infoLabel.text = exerciseCtrl.timerAsString(for: exercise)
+        infoLabel.text = exercise.timer.displayValue
         nameLabel.text = exercise.name
         infoImageView.image = NRConstants.Images.timer.image?.dye(.black)
     }

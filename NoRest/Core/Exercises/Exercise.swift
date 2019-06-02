@@ -13,20 +13,7 @@ struct Exercise: Codable, Equatable, Comparable, Hashable {
     let id: Int
     let category: Category
     
-    private var restTimer: Int = 0 // - Seconds
-    private var cardiotimer: Int = 0 // Cardio timer - Minutes
-    var timer: Int {
-        set(newValue) {
-            if self.type == .weightLifting {
-                restTimer = newValue
-            } else {
-                cardiotimer = newValue
-            }
-        }
-        get {
-            return self.type == .weightLifting ? restTimer : cardiotimer
-        }
-    }
+    var timer: NRTimer
     var name: String
     var notes: String
     var type: ExerciseType
@@ -39,7 +26,9 @@ struct Exercise: Codable, Equatable, Comparable, Hashable {
         notes = NRConstants.Editing.noNotes
         sets = []
         type = category.exercisesType
-        timer = type == .weightLifting ? 90 : 10
+        
+        let timerValue = type == .weightLifting ? 90 : 10
+        timer = NRTimer(timeValue: timerValue, type: type)
     }
     
     static func == (lhs: Exercise, rhs: Exercise) -> Bool {
@@ -52,6 +41,33 @@ struct Exercise: Codable, Equatable, Comparable, Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+    }
+}
+
+struct NRTimer: Codable {
+    private(set) var seconds: Int = 0
+    
+    var displayValue: String {
+        get {
+            return self.type == .cardio ? "\(self.seconds / 60) min" : "\(seconds) s"
+        }
+    }
+    
+    var valueForType: Int {
+        get {
+            return self.type == .cardio ? seconds / 60 : seconds
+        }
+    }
+    
+    private let type: ExerciseType
+    
+    init(timeValue: Int, type: ExerciseType) {
+        self.type = type
+        calculateSeconds(value: timeValue)
+    }
+    
+    mutating func calculateSeconds(value: Int) {
+        seconds = type == .cardio ? value * 60 : value
     }
 }
 

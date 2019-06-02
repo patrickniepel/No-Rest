@@ -18,13 +18,6 @@ struct ExerciseController {
         UpdateController.updateExercise(exercise)
     }
     
-    func timerAsString(for exercise: Exercise) -> String {
-        if exercise.type == .weightLifting {
-            return String.seconds(value: exercise.timer)
-        }
-        return String.minutes(value: exercise.timer)
-    }
-    
     func exercisesCount(for category: Category?) -> Int {
         return UserData.sharedInstance.exercises.filter { $0.category == category }.count
     }

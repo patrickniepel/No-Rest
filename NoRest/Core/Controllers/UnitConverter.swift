@@ -22,6 +22,6 @@ struct UnitConverter {
     private static func convert(with factor: Double) {
         UserData.sharedInstance.myWorkouts.forEach { $0.convertWeights(with: factor) }
         UserData.sharedInstance.workoutHistory.allWorkouts().forEach { $0.convertWeights(with: factor) }
-        UserData.sharedInstance.statistics.allWorkouts().forEach { $0.convertWeights(with: factor) }
+        UserData.sharedInstance.statistics.workouts.forEach { $0.convertWeights(with: factor) }
     }
 }

@@ -109,7 +109,7 @@ class CurrentWorkoutViewController: UIViewController {
     }
     
     private func saveWorkout(toHistory: Bool = false) {
-        guard let workout = myWorkout, let dataSource = dataSource else { return }
+        guard var workout = myWorkout, let dataSource = dataSource else { return }
         workout.exercises = dataSource.exercises
         workout.date = Date()
         workoutCtrl.saveWorkout(workout)

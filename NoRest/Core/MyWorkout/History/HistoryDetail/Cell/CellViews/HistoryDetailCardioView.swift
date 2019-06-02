@@ -18,10 +18,10 @@ class HistoryDetailCardioView: UIView {
         return label
     }()
     
-    convenience init(timerValue: Int) {
+    convenience init(timerValue: String) {
         self.init()
         
-        timerLabel.text = "\(timerValue) min"
+        timerLabel.text = timerValue
         
         addSubview(timerLabel)
         timerLabel.fillSuperview()

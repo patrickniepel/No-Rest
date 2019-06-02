@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MyWorkout: Codable, Equatable, Comparable {
+struct MyWorkout: Codable, Equatable, Comparable {
     
     let id: Int
     var date: Date?

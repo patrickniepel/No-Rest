@@ -134,7 +134,7 @@ extension StatisticsController {
         var totalTimer: Double = 0
         
         for exercise in exercises {
-            totalTimer += Double(exercise.timer)
+            totalTimer += Double(exercise.timer.valueForType)
         }
         return totalTimer
     }

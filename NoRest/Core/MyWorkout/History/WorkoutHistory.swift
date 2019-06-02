@@ -18,6 +18,7 @@ struct WorkoutHistory: Codable {
     
     mutating func addWorkoutToHistory(_ workout: MyWorkout) {
         //Update date before adding
+        var workout = workout
         workout.date = Date()
         workouts.append(workout)
     }
