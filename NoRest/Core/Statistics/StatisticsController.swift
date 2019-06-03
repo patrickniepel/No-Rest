@@ -26,7 +26,7 @@ struct StatisticsController {
     
     static func provideExercisesStats() -> [StatsContainerItem] {
         var stats: [StatsContainerItem] = []
-        let exercises = ExerciseController.allExercises()
+        let exercises = ExerciseController().allExercises()
         
         exercises.forEach {
             let item = StatsContainerItem(title: $0.name, stats: StatisticsController.stats(for: $0))

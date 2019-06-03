@@ -28,7 +28,7 @@ struct ExerciseController {
         return exercises
     }
     
-    static func allExercises() -> [Exercise] {
+    func allExercises() -> [Exercise] {
         return UserData.sharedInstance.exercises
     }
 }

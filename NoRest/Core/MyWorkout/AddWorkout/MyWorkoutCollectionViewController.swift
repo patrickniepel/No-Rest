@@ -10,8 +10,8 @@ import UIKit
 
 class MyWorkoutCollectionViewController: UICollectionViewController {
     
-    private var dataSource: NRItemCollectionViewDataSource<Any>?
-    private var delegate: NRItemCollectionViewDelegate<Any>?
+    private var dataSource: NRItemCollectionViewDataSource<MyWorkout>?
+    private var delegate: NRItemCollectionViewDelegate<MyWorkout>?
     
     private let workoutCtrl = MyWorkoutController()
 
@@ -27,6 +27,7 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         dataSource?.items = workoutCtrl.allWorkouts()
         collectionView.reloadData()
+        checkForEmptyWorkouts()
     }
     
     private func setupCollectionView() {
@@ -64,10 +65,21 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
     }
     
     func deleteWorkout(at indexPath: IndexPath) {
-        if let workout = dataSource?.items[safe: indexPath.item] as? MyWorkout {
+        if let workout = dataSource?.items[safe: indexPath.item] {
             workoutCtrl.deleteWorkout(workout)
             dataSource?.deleteItem(at: indexPath.item)
             collectionView.deleteItems(at: [indexPath])
+            checkForEmptyWorkouts()
+        }
+    }
+    
+    private func checkForEmptyWorkouts() {
+        if workoutCtrl.allWorkouts().count == 0 {
+            collectionView.backgroundView = NREmptyView(text: NRConstants.Texts.emptyWorkouts)
+            collectionView.isUserInteractionEnabled = false
+        } else {
+            collectionView.backgroundView = nil
+            collectionView.isUserInteractionEnabled = true
         }
     }
 }

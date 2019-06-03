@@ -11,8 +11,8 @@ import ReSwift
 
 class ExercisesCollectionViewController: UICollectionViewController {
     
-    private var delegate: NRItemCollectionViewDelegate<Any>?
-    private var dataSource: NRItemCollectionViewDataSource<Any>?
+    private var delegate: NRItemCollectionViewDelegate<Exercise>?
+    private var dataSource: NRItemCollectionViewDataSource<Exercise>?
     private var selectedCategory: Category?
     private let exerciseCtrl = ExerciseController()
 
@@ -30,6 +30,7 @@ class ExercisesCollectionViewController: UICollectionViewController {
         
         dataSource?.items = exerciseCtrl.exercises(for: selectedCategory)
         collectionView.reloadData()
+        checkForEmptyExercises()
     }
     
     private func setupCollectionView() {
@@ -67,10 +68,21 @@ class ExercisesCollectionViewController: UICollectionViewController {
     }
     
     func deleteExercise(at indexPath: IndexPath) {
-        if let exercise = dataSource?.items[safe: indexPath.item] as? Exercise {
+        if let exercise = dataSource?.items[safe: indexPath.item] {
             exerciseCtrl.deleteExercise(exercise)
             dataSource?.deleteItem(at: indexPath.item)
             collectionView.deleteItems(at: [indexPath])
+            checkForEmptyExercises()
+        }
+    }
+    
+    private func checkForEmptyExercises() {
+        if exerciseCtrl.exercisesCount(for: selectedCategory) == 0 {
+            collectionView.backgroundView = NREmptyView(text: NRConstants.Texts.emptyExercises)
+            collectionView.isUserInteractionEnabled = false
+        } else {
+            collectionView.backgroundView = nil
+            collectionView.isUserInteractionEnabled = true
         }
     }
     
