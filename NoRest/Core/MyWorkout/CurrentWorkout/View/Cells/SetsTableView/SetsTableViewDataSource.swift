@@ -24,7 +24,8 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDataSource {
         
         if editingStyle == .delete {
             exercise?.sets.remove(at: indexPath.row)
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            updateExercise()
         }
     }
     

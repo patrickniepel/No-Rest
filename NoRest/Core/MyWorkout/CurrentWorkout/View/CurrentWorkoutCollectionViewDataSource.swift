@@ -8,26 +8,20 @@
 
 import UIKit
 
-class CurrentWorkoutCollectionViewDataSource: NSObject, UICollectionViewDataSource {
-    
-    var exercises: [Exercise]
-    
-    init(exercises: [Exercise]) {
-        self.exercises = exercises
-    }
+extension CurrentWorkoutViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return exercises.count
+        return myWorkout?.exercises.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.currentWorkoutCollectionViewCell, for: indexPath) as? CurrentWorkoutCollectionViewCell
         
-        if let exercise = exercises[safe: indexPath.item] {
+        if let exercise = myWorkout?.exercises[safe: indexPath.item] {
             cell?.setup(exercise: exercise)
         }
         
@@ -35,7 +29,6 @@ class CurrentWorkoutCollectionViewDataSource: NSObject, UICollectionViewDataSour
     }
     
     func updateExercise(at index: Int, exercise: Exercise) {
-        exercises.remove(at: index)
-        exercises.insert(exercise, at: index)
+        myWorkout?.exercises[index] = exercise
     }
 }

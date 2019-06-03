@@ -19,10 +19,9 @@ extension CurrentWorkoutCollectionViewCell: StoreSubscriber {
     }
     
     func newState(state: CurrentWorkoutCellState) {
-        if state.exercise == nil {
-            return
+        if let exercise = state.exercise {
+            self.exercise = exercise
         }
-        updateExercise(exercise: state.exercise)
     }
     
     func unsubscribe() {

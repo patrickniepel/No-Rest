@@ -13,6 +13,7 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let cell = tableView.cellForRow(at: indexPath), cell.isSelected {
             tableView.deselectRow(at: indexPath, animated: true)
+            changeActionButtonMode(to: .add)
             clearTextFields()
             return nil
         }
@@ -21,6 +22,7 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedSet = exercise?.sets[safe: indexPath.row] {
+            changeActionButtonMode(to: .update)
             fillTextFields(with: selectedSet)
         }
     }

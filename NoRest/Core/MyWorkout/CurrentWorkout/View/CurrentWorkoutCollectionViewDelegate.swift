@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrentWorkoutCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
+extension CurrentWorkoutViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
@@ -23,11 +23,10 @@ class CurrentWorkoutCollectionViewDelegate: NSObject, UICollectionViewDelegateFl
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if let vc = scrollView.presentingViewController as? CurrentWorkoutViewController,
-            let cell = vc.collectionView.visibleCells.first,
-            let indexPath = vc.collectionView.indexPath(for: cell) {
+        if let cell = collectionView.visibleCells.first,
+            let indexPath = collectionView.indexPath(for: cell) {
             
-            vc.updatePage(page: indexPath.item)
+            updatePage(page: indexPath.item)
         }
     }
 }

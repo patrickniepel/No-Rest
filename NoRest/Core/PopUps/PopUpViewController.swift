@@ -78,9 +78,10 @@ class PopUpViewController: UIViewController, PopUpDelegate {
     }
     
     deinit {
-        view.removeGestureRecognizer(tapGesture)
         unsubscribe()
         print("Deinit PopUp")
+        guard let tapGesture = tapGesture else { return }
+        view.removeGestureRecognizer(tapGesture)
     }
 }
 

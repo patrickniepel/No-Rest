@@ -37,8 +37,6 @@ class CurrentWorkoutViewController: UIViewController {
     var myWorkout: MyWorkout?
     var currentPage: Int = 0
     private let workoutCtrl = MyWorkoutController()
-    private var dataSource: CurrentWorkoutCollectionViewDataSource?
-    private var delegate: CurrentWorkoutCollectionViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +70,8 @@ class CurrentWorkoutViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        dataSource = CurrentWorkoutCollectionViewDataSource(exercises: myWorkout?.exercises ?? [])
-        delegate = CurrentWorkoutCollectionViewDelegate()
-        
-        collectionView.delegate = delegate
-        collectionView.dataSource = dataSource
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     private func updateView() {
@@ -93,7 +88,6 @@ class CurrentWorkoutViewController: UIViewController {
         let pageIndex = currentPage < workout.exercises.count ? currentPage : workout.exercises.count - 1
         let indexPath = IndexPath(item: pageIndex, section: 0)
         
-        dataSource?.exercises = workout.exercises
         pageControl.numberOfPages = workout.exercises.count
         
         collectionView.reloadData()
@@ -109,8 +103,7 @@ class CurrentWorkoutViewController: UIViewController {
     }
     
     private func saveWorkout(toHistory: Bool = false) {
-        guard var workout = myWorkout, let dataSource = dataSource else { return }
-        workout.exercises = dataSource.exercises
+        guard var workout = myWorkout else { return }
         workout.date = Date()
         workoutCtrl.saveWorkout(workout)
         

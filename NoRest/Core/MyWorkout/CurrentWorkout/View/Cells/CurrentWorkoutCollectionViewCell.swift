@@ -36,14 +36,11 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         case add
         case update
     }
-    
+
     var exercise: Exercise?
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        exercise = nil
-        repsTextField.text = nil
-        weightTextField.text = nil
     }
     
     override func layoutSubviews() {
@@ -53,7 +50,9 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
 
     func setup(exercise: Exercise) {
         subscribe()
+        
         self.exercise = exercise
+            
         setupLayout()
         setupTargets()
         setupTableView()
@@ -89,12 +88,6 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func updateExercise(exercise: Exercise?) {
-        self.exercise = exercise
-        
-        //Update datasource items
-    }
-    
     @objc private func handleButtonTapped(sender: UIButton) {
         switch sender.tag {
         case LayoutContent.ButtonTag.notesButton.rawValue: handleNotesButton()
@@ -121,15 +114,21 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     }
     
     private func handleActionButton() {
+        let set = setFromTextFields()
         if actionButtonState == .add {
-            let reps = Int(repsTextField.text!)!
-            let weight = Double(weightTextField.text!)!
-            let set = Set(reps: reps, weight: weight)
             addSet(set)
         } else if actionButtonState == .update {
-            
+            updateSet(set)
+            changeActionButtonMode(to: .add)
         }
         clearTextFields()
+        updateExercise()
+    }
+    
+    private func setFromTextFields() -> Set {
+        let reps = Int(repsTextField.text ?? "") ?? 0
+        let weight = Double(weightTextField.text ?? "") ?? 0
+        return Set(reps: reps, weight: weight)
     }
     
     func fillTextFields(with set: Set) {
@@ -144,6 +143,20 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     func toggleTableStackViewVisibility(isHidden: Bool) {
         tableViewStackView.isHidden = isHidden
+    }
+    
+    func changeActionButtonMode(to state: ActionButtonState) {
+        actionButtonState = state
+        setupActionButton()
+    }
+
+    func updateExercise() {
+        if let currentWorkoutVC = self.presentingViewController as? CurrentWorkoutViewController,
+            let cellIndex = currentWorkoutVC.collectionView.indexPath(for: self)?.item,
+            let exercise = exercise {
+            
+            currentWorkoutVC.updateExercise(at: cellIndex, exercise: exercise)
+        }
     }
     
     deinit {
