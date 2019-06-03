@@ -29,18 +29,17 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
     
     let padding: CGFloat = NRConstants.Padding.collectionViewItem
     var currentStats: [StatsContainerItem] = []
-    private var swipeGesture: UISwipeGestureRecognizer!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         currentStats = []
+        statsCollectionView.reloadData()
     }
     
     func setup(stats: [StatsContainerItem]) {
         currentStats = stats
         setupDesign()
         setupLayout()
-        setupSwipeGesture()
         statsCollectionView.delegate = self
         statsCollectionView.dataSource = self
     }
@@ -59,40 +58,12 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
         guard let index = currentStats.firstIndex(where: { $0.title.lowercased().contains(searchText.lowercased()) }) else { return }
         
         let indexPath = IndexPath(item: 0, section: index)
-        statsCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
-    }
-    
-    deinit {
-        statsCollectionView.removeGestureRecognizer(swipeGesture)
-    }
-}
-
-extension StatsContainerCollectionViewCell: UIGestureRecognizerDelegate {
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    private func setupSwipeGesture() {
-        swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
-        swipeGesture.delegate = self
-        swipeGesture.direction = .left
-        statsCollectionView.addGestureRecognizer(swipeGesture)
-    }
-    
-    @objc private func handleSwipe(swipe: UISwipeGestureRecognizer) {
-        print("Touch \(statsCollectionView.visibleCells.count)")
         
-        let location = swipe.location(in: contentView)
-        if let statisticsVC = self.presentingViewController as? StatisticsViewController,
-            let topIndexPath = statisticsVC.statisticsCollectionView.indexPath(for: self),
-            topIndexPath.item == 0, //If its the general cell
-            let indexPath = statsCollectionView.indexPathForItem(at: location),
-            let category = Category.allCategories[safe: indexPath.section],
-            category != .none { //Skip general category
+        if let attributes = statsCollectionView.collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: indexPath) {
             
-            print("")
-            statisticsVC.injectExercisesStats(for: category)
+            statsCollectionView.setContentOffset(CGPoint(x: 0, y: attributes.frame.origin.y), animated: true)
+        } else {
+            statsCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
         }
     }
 }

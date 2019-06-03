@@ -24,11 +24,11 @@ struct StatisticsController {
         return stats
     }
     
-    static func provideExercisesStats(for category: Category) -> [StatsContainerItem] {
+    static func provideExercisesStats() -> [StatsContainerItem] {
         var stats: [StatsContainerItem] = []
-        let exercisesForCategory = category.exercises
+        let exercises = ExerciseController.allExercises()
         
-        exercisesForCategory.forEach {
+        exercises.forEach {
             let item = StatsContainerItem(title: $0.name, stats: StatisticsController.stats(for: $0))
             stats.append(item)
         }

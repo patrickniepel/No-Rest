@@ -39,8 +39,3 @@ enum StatsTitle: String, Codable {
         }
     }
 }
-
-enum StatsType: Int {
-    case general = 0
-    case exercisesForCategory = 1
-}

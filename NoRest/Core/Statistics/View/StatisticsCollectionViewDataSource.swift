@@ -20,9 +20,8 @@ extension StatisticsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.statsContainerCollectionViewCell, for: indexPath) as? StatsContainerCollectionViewCell
-        
-        let statsType = StatsType(rawValue: indexPath.item) ?? .general
-        if let statsToLoad = stats[statsType] {
+
+        if let statsToLoad = stats[safe: indexPath.item] {
             cell?.setup(stats: statsToLoad)
         }
         

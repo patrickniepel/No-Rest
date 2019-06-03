@@ -58,7 +58,8 @@ class StatisticsViewController: UIViewController {
     private var swipeGesture: UISwipeGestureRecognizer!
     
     let padding: CGFloat = NRConstants.Padding.collectionViewItem
-    var stats: [StatsType: [StatsContainerItem]] = [:]
+    var stats: [[StatsContainerItem]] = []
+    private var currentPage = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,13 +70,23 @@ class StatisticsViewController: UIViewController {
         setupCollectionView()
         setupLayout()
         setupSearchBar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        stats[StatsType.general] = StatisticsController.provideGeneralStats()
-        stats[StatsType.exercisesForCategory] = []
+        reloadCollectionView()
+    }
+    
+    private func reloadCollectionView() {
+        stats = [StatisticsController.provideGeneralStats(), StatisticsController.provideExercisesStats()]
         pageControl.numberOfPages = stats.count
+        statisticsCollectionView.reloadData()
+        
+        //Scroll to last 'visited' item
+        let indexPath = IndexPath(item: currentPage, section: 0)
+        statisticsCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+        updatePageControl(page: currentPage)
     }
     
     private func setupCollectionView() {
@@ -115,15 +126,8 @@ class StatisticsViewController: UIViewController {
     
     func updatePageControl(page: Int) {
         pageControl.currentPage = page
+        currentPage = page
     }
-    
-    func injectExercisesStats(for category: Category) {
-        stats[StatsType.exercisesForCategory] = StatisticsController.provideExercisesStats(for: category)
-        
-        //Reload exercises item
-        statisticsCollectionView.reloadItems(at: [IndexPath(item: 1, section: 0)])
-    }
-
 }
 
 extension StatisticsViewController: UISearchBarDelegate {

@@ -27,4 +27,8 @@ struct ExerciseController {
         let exercises = UserData.sharedInstance.exercises.filter { $0.category == category }.sorted()
         return exercises
     }
+    
+    static func allExercises() -> [Exercise] {
+        return UserData.sharedInstance.exercises
+    }
 }
