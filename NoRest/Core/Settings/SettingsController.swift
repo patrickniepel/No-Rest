@@ -39,7 +39,6 @@ struct SettingsController {
     static func unitChanged(to index: Int) {
         let newUnit = Unit.allCases[index]
         UserData.sharedInstance.unit = newUnit
-        UnitConverter.convertUnit()
         PersistencyController.storeUserData()
     }
     

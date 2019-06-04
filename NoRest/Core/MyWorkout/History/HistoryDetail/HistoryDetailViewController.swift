@@ -33,6 +33,7 @@ class HistoryDetailViewController: UIViewController {
     }()
     
     private let pageControl = UIPageControl()
+    private var currentPage = 0
     
     var myWorkout: MyWorkout?
 
@@ -46,6 +47,11 @@ class HistoryDetailViewController: UIViewController {
         setupNameLabel()
         setupCollectionView()
         setupPageControl()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateView()
     }
     
     private func setupScreen() {
@@ -64,9 +70,22 @@ class HistoryDetailViewController: UIViewController {
         collectionView.register(HistoryDetailCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.historyDetailCollectionViewCell)
     }
     
+    private func updateView() {
+        //History was deleted
+        if !HistoryController().isHistoryAvailabel(for: myWorkout) {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        
+        updatePageControl(page: currentPage)
+        collectionView.reloadData()
+        
+        let pageIndex = IndexPath(item: currentPage, section: 0)
+        collectionView.scrollToItem(at: pageIndex, at: .centeredHorizontally, animated: true)
+    }
+    
     private func setupPageControl() {
         pageControl.numberOfPages = myWorkout?.exercises.count ?? 0
-        updatePageControl(page: 0)
         pageControl.currentPageIndicatorTintColor = .uiControl
         pageControl.pageIndicatorTintColor = .backgroundColorUIControl
         pageControl.isUserInteractionEnabled = false
@@ -74,6 +93,7 @@ class HistoryDetailViewController: UIViewController {
     
     func updatePageControl(page: Int) {
         pageControl.currentPage = page
+        currentPage = page
     }
     
     deinit {

@@ -32,4 +32,8 @@ class HistoryController {
     func isHistoryAvailable() -> Bool {
         return workoutsByID.count != 0
     }
+    
+    func isHistoryAvailabel(for workout: MyWorkout?) -> Bool {
+        return UserData.sharedInstance.workoutHistory.allWorkouts().contains(where: { $0.id == workout?.id })
+    }
 }

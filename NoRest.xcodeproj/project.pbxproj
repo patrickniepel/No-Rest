@@ -146,7 +146,6 @@
 		A3DE1C5B2228390200EDB6C9 /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE1C5A2228390200EDB6C9 /* HistoryCollectionViewCell.swift */; };
 		A3DE1C5D2228394000EDB6C9 /* HistoryCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE1C5C2228394000EDB6C9 /* HistoryCollectionViewDataSource.swift */; };
 		A3DE1C5F2228394F00EDB6C9 /* HistoryCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE1C5E2228394F00EDB6C9 /* HistoryCollectionViewDelegate.swift */; };
-		A3DFA65F220849DF00E05DF4 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DFA65E220849DF00E05DF4 /* UnitConverter.swift */; };
 		A3DFA66122084CC400E05DF4 /* NRDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */; };
 		A3E073191F90ED320099A7B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E073181F90ED320099A7B8 /* AppDelegate.swift */; };
 		A3E073201F90ED320099A7B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3E0731F1F90ED320099A7B8 /* Assets.xcassets */; };
@@ -308,7 +307,6 @@
 		A3DE1C5A2228390200EDB6C9 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3DE1C5C2228394000EDB6C9 /* HistoryCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		A3DE1C5E2228394F00EDB6C9 /* HistoryCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewDelegate.swift; sourceTree = "<group>"; };
-		A3DFA65E220849DF00E05DF4 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
 		A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		A3E073151F90ED320099A7B8 /* NoRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E073181F90ED320099A7B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -945,7 +943,6 @@
 			isa = PBXGroup;
 			children = (
 				A3D9DEFD2201B00900BCCAF4 /* AudioPlayer.swift */,
-				A3DFA65E220849DF00E05DF4 /* UnitConverter.swift */,
 				A3FDE6F9221317E600D00814 /* UpdateController.swift */,
 				A38413302215CC80003E0C50 /* AlertController.swift */,
 				A336C92122215B510068FCAD /* SyntaxController.swift */,
@@ -1199,7 +1196,6 @@
 				A398763B221868C40019238B /* WorkoutSetupAction.swift in Sources */,
 				A3696F7B22A2D3DE00A37AF7 /* HistoryDetailSetsTableViewDataSource.swift in Sources */,
 				A3802B7622A43D9E00AA04FD /* NREmptyView.swift in Sources */,
-				A3DFA65F220849DF00E05DF4 /* UnitConverter.swift in Sources */,
 				A392B803220C5AF00030FBD4 /* EditExerciseAction.swift in Sources */,
 				A32DD1741F90FC23009D13CE /* UserData.swift in Sources */,
 				A35127D822047536007D024F /* FileController.swift in Sources */,

@@ -10,8 +10,8 @@ import UIKit
 
 class CurrentWorkoutViewController: UIViewController {
     
-    let collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView: CurrentWorkoutCollectionView = {
+        let cv = CurrentWorkoutCollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         cv.backgroundColor = .backgroundColorMain
         cv.isPagingEnabled = true
         cv.isScrollEnabled = true
@@ -102,7 +102,7 @@ class CurrentWorkoutViewController: UIViewController {
         collectionView.reloadData()
         updatePage(page: currentPage)
         
-        collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
     func updatePage(page: Int) {
@@ -148,5 +148,17 @@ extension CurrentWorkoutViewController {
         
         pageControl.anchor(bottom: view.bottomAnchor, centerX: view.centerXAnchor)
         collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: pageControl.topAnchor, trailing: view.trailingAnchor)
+    }
+}
+
+class CurrentWorkoutCollectionView: UICollectionView {
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        //Disable collection view scrolling for enabling table view cell deletion
+        let result = super.hitTest(point, with: event)
+        if let scrollingEnabled = result?.superview?.isKind(of: NRSetsTableViewCell.self) {
+            self.isScrollEnabled = !scrollingEnabled
+        }
+        return result
     }
 }

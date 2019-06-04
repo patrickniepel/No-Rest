@@ -85,7 +85,7 @@ class StatisticsViewController: UIViewController {
         
         //Scroll to last 'visited' item
         let indexPath = IndexPath(item: currentPage, section: 0)
-        statisticsCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+        statisticsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         updatePageControl(page: currentPage)
     }
     

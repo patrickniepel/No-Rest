@@ -11,8 +11,4 @@ import Foundation
 struct Set: Codable {
     var reps: Int
     var weight: Double
-    
-    mutating func convertValue(with factor: Double) {
-        weight *= factor
-    }
 }

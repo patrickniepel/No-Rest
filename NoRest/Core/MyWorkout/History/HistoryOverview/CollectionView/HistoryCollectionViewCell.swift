@@ -17,6 +17,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.textAlignment = .center
+        label.textColor = .black
         return label
     }()
     
@@ -38,6 +39,6 @@ class HistoryCollectionViewCell: UICollectionViewCell {
     
     private func setupLabelLayout() {
         addSubview(dateLabel)
-        dateLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4))
+        dateLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
     }
 }
