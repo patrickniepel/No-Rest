@@ -10,24 +10,115 @@ import UIKit
 
 class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
-    private let notesButton = LayoutContent.notesButton
-    private let timerButton = LayoutContent.timerButton
-    private let actionButton = LayoutContent.actionButton
-    private let repsLabel = LayoutContent.repsLabel
-    private let weightLabel = LayoutContent.weightLabel
-    private let repsTextField = LayoutContent.repsTextField
-    private let timesImageView = LayoutContent.timesImageView
-    private let weightTextField = LayoutContent.weightTextField
-    private let setsLabel = LayoutContent.setsLabel
-    let tableView = LayoutContent.tableView
-    
     private let baseScrollView = UIScrollView()
-    private let baseStackView = LayoutContent.baseStackView
-    private let topButtonsStackView = LayoutContent.topButtonsStackView
-    private let inputStackView = LayoutContent.inputStackView
-    private let inputLabelsStackView = LayoutContent.inputLabelsStackView
-    private let inputTextFieldsStackView = LayoutContent.inputTextFieldsStackView
-    private let tableViewStackView = LayoutContent.tableViewStackView
+    private var baseStackView = UIStackView()
+    private var topButtonsStackView = UIStackView()
+    private var inputStackView = UIStackView()
+    private var inputLabelsStackView = UIStackView()
+    private var inputTextFieldsStackView = UIStackView()
+    private var tableViewStackView = UIStackView()
+    
+    enum ButtonTag: Int {
+        case notesButton = 1
+        case timerButton = 2
+        case actionButton = 3
+    }
+    
+    private let notesButton: UIButton = {
+        let button = UIButton()
+        button.setImage(NRConstants.Images.notes.image?.dye(.uiControl), for: .normal)
+        button.backgroundColor = .backgroundColorUIControl
+        button.tag = ButtonTag.notesButton.rawValue
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        return button
+    }()
+    
+    private let timerButton: UIButton = {
+        let button = UIButton()
+        button.setImage(NRConstants.Images.timer.image?.dye(.uiControl), for: .normal)
+        button.backgroundColor = .backgroundColorUIControl
+        button.tag = ButtonTag.timerButton.rawValue
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        return button
+    }()
+    
+    private let actionButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(NRConstants.ButtonTitles.add, for: .normal)
+        button.backgroundColor = .backgroundColorUIControl
+        button.tag = ButtonTag.actionButton.rawValue
+        button.titleLabel?.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
+        button.setTitleColor(.uiControl, for: .normal)
+        return button
+    }()
+    
+    private let repsLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .textColor
+        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
+        label.textAlignment = .center
+        label.text = NRConstants.Texts.reps
+        return label
+    }()
+    
+    private let weightLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .textColor
+        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
+        label.textAlignment = .center
+        label.text = NRConstants.Texts.weight + " (\(SettingsController.currentUnit.rawValue))"
+        return label
+    }()
+    
+    private let repsTextField: UITextField = {
+        let textField = UITextField()
+        textField.adjustsFontSizeToFitWidth = true
+        textField.borderStyle = .roundedRect
+        textField.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
+        textField.keyboardAppearance = .default
+        textField.keyboardType = .numberPad
+        textField.backgroundColor = .backgroundColorUIControl
+        textField.tintColor = .uiControl
+        textField.textAlignment = .center
+        return textField
+    }()
+    
+    private let weightTextField: UITextField = {
+        let textField = UITextField()
+        textField.adjustsFontSizeToFitWidth = true
+        textField.borderStyle = .roundedRect
+        textField.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
+        textField.keyboardAppearance = .default
+        textField.keyboardType = .decimalPad
+        textField.backgroundColor = .backgroundColorUIControl
+        textField.tintColor = .uiControl
+        textField.textAlignment = .center
+        return textField
+    }()
+    
+    private let timesImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = NRConstants.Images.x.image?.dye(.uiControl).withAlignmentRectInsets(UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
+        return imageView
+    }()
+    
+    private let setsLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .textColor
+        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
+        label.textAlignment = .center
+        label.text = NRConstants.Texts.sets
+        return label
+    }()
+    
+    let tableView: NRSetsTableView = {
+        let tableView = NRSetsTableView(maxHeight: 300)
+        tableView.register(NRSetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell)
+        tableView.backgroundColor = .backgroundColorMain
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
+        return tableView
+    }()
     
     private let labelHeight: CGFloat = 30
     private var actionButtonState: ActionButtonState = .add
@@ -41,6 +132,13 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        repsTextField.text = nil
+        weightTextField.text = nil
+        changeActionButtonMode(to: .add)
+        if let selectedIndex = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndex, animated: false)
+        }
+        toggleTableStackViewVisibility(isHidden: exercise?.sets.count == 0)
     }
     
     override func layoutSubviews() {
@@ -90,9 +188,9 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     @objc private func handleButtonTapped(sender: UIButton) {
         switch sender.tag {
-        case LayoutContent.ButtonTag.notesButton.rawValue: handleNotesButton()
-        case LayoutContent.ButtonTag.timerButton.rawValue: handleTimerButton()
-        case LayoutContent.ButtonTag.actionButton.rawValue: handleActionButton()
+        case ButtonTag.notesButton.rawValue: handleNotesButton()
+        case ButtonTag.timerButton.rawValue: handleTimerButton()
+        case ButtonTag.actionButton.rawValue: handleActionButton()
         default: return
         }
     }
@@ -122,7 +220,6 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
             changeActionButtonMode(to: .add)
         }
         clearTextFields()
-        updateExercise()
     }
     
     private func setFromTextFields() -> Set {
@@ -169,6 +266,8 @@ extension CurrentWorkoutCollectionViewCell {
     private func setupLayout() {
         contentView.addSubview(baseScrollView)
         baseScrollView.fillSuperview()
+        
+        createStackViews()
         baseScrollView.addSubview(baseStackView)
         
         setupBaseStackView()
@@ -178,10 +277,16 @@ extension CurrentWorkoutCollectionViewCell {
         setupTableViewStackView()
     }
     
+    private func createStackViews() {
+        baseStackView = createStackView(distribution: .fill, axis: .vertical, spacing: 48)
+        topButtonsStackView = createStackView(distribution: .equalSpacing, axis: .horizontal)
+        inputStackView = createStackView(distribution: .fill, axis: .vertical)
+        inputLabelsStackView = createStackView(distribution: .fillEqually, axis: .horizontal)
+        inputTextFieldsStackView = createStackView(distribution: .fill, axis: .horizontal)
+        tableViewStackView = createStackView(distribution: .fill, axis: .vertical)
+    }
+    
     private func setupTopButtonsStackView() {
-        topButtonsStackView.alignment = .center
-        topButtonsStackView.distribution = .equalSpacing
-        topButtonsStackView.axis = .horizontal
         topButtonsStackView.addArrangedSubviews(notesButton, timerButton)
         
         topButtonsStackView.anchor(leading: baseStackView.leadingAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 72, bottom: 0, right: 72))
@@ -191,24 +296,16 @@ extension CurrentWorkoutCollectionViewCell {
     }
     
     private func setupInputStackView() {
-        inputStackView.alignment = .center
-        inputStackView.distribution = .fill
-        inputStackView.axis = .vertical
         inputStackView.addArrangedSubviews(inputLabelsStackView, inputTextFieldsStackView)
         
         //Labels
-        inputLabelsStackView.alignment = .center
-        inputLabelsStackView.distribution = .fillEqually
-        inputLabelsStackView.axis = .horizontal
         inputLabelsStackView.addArrangedSubviews(repsLabel, weightLabel)
         
         repsLabel.anchor(size: CGSize(width: 0, height: labelHeight))
         weightLabel.anchor(size: CGSize(width: 0, height: labelHeight))
         
         //TextFields
-        inputTextFieldsStackView.alignment = .center
-        inputTextFieldsStackView.distribution = .fill
-        inputTextFieldsStackView.axis = .horizontal
+        
         inputTextFieldsStackView.addArrangedSubviews(repsTextField, timesImageView, weightTextField)
         
         let textFieldHeight = 50
@@ -227,9 +324,6 @@ extension CurrentWorkoutCollectionViewCell {
     }
     
     private func setupTableViewStackView() {
-        tableViewStackView.alignment = .center
-        tableViewStackView.distribution = .fill
-        tableViewStackView.axis = .vertical
         tableViewStackView.addArrangedSubviews(setsLabel, tableView)
 
         setsLabel.anchor(leading: tableViewStackView.leadingAnchor, trailing: tableViewStackView.trailingAnchor, size: CGSize(width: 0, height: labelHeight))
@@ -238,123 +332,16 @@ extension CurrentWorkoutCollectionViewCell {
     }
     
     private func setupBaseStackView() {
-        baseStackView.axis = .vertical
-        baseStackView.alignment = .center
-        baseStackView.distribution = .fill
-        baseStackView.spacing = 48
         baseStackView.addArrangedSubviews(topButtonsStackView, inputStackView, actionButton, tableViewStackView)
         baseStackView.fillSuperview(padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0))
     }
-}
-
-fileprivate struct LayoutContent {
     
-    static let baseStackView = UIStackView()
-    static let topButtonsStackView = UIStackView()
-    static let inputStackView = UIStackView()
-    static let inputLabelsStackView = UIStackView()
-    static let inputTextFieldsStackView = UIStackView()
-    static let tableViewStackView = UIStackView()
-    
-    enum ButtonTag: Int {
-        case notesButton = 1
-        case timerButton = 2
-        case actionButton = 3
+    private func createStackView(alignment: UIStackView.Alignment = .center, distribution: UIStackView.Distribution, axis: NSLayoutConstraint.Axis, spacing: CGFloat = 0) -> UIStackView {
+        let stackView = UIStackView()
+        stackView.alignment = alignment
+        stackView.distribution = distribution
+        stackView.axis = axis
+        stackView.spacing = spacing
+        return stackView
     }
-    
-    static let notesButton: UIButton = {
-        let button = UIButton()
-        button.setImage(NRConstants.Images.notes.image?.dye(.uiControl), for: .normal)
-        button.backgroundColor = .backgroundColorUIControl
-        button.tag = ButtonTag.notesButton.rawValue
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
-        return button
-    }()
-    
-    static let timerButton: UIButton = {
-        let button = UIButton()
-        button.setImage(NRConstants.Images.timer.image?.dye(.uiControl), for: .normal)
-        button.backgroundColor = .backgroundColorUIControl
-        button.tag = ButtonTag.timerButton.rawValue
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
-        return button
-    }()
-    
-    static let actionButton: UIButton = {
-        let button = UIButton()
-        button.setTitle(NRConstants.ButtonTitles.add, for: .normal)
-        button.backgroundColor = .backgroundColorUIControl
-        button.tag = ButtonTag.actionButton.rawValue
-        button.titleLabel?.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
-        button.setTitleColor(.uiControl, for: .normal)
-        return button
-    }()
-    
-    static let repsLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .textColor
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
-        label.textAlignment = .center
-        label.text = NRConstants.Texts.reps
-        return label
-    }()
-    
-    static let weightLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .textColor
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
-        label.textAlignment = .center
-        label.text = NRConstants.Texts.weight + " (\(SettingsController.currentUnit.rawValue))"
-        return label
-    }()
-    
-    static let repsTextField: UITextField = {
-        let textField = UITextField()
-        textField.adjustsFontSizeToFitWidth = true
-        textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
-        textField.keyboardAppearance = .default
-        textField.keyboardType = .numberPad
-        textField.backgroundColor = .backgroundColorUIControl
-        textField.tintColor = .uiControl
-        textField.textAlignment = .center
-        return textField
-    }()
-    
-    static let weightTextField: UITextField = {
-        let textField = UITextField()
-        textField.adjustsFontSizeToFitWidth = true
-        textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
-        textField.keyboardAppearance = .default
-        textField.keyboardType = .decimalPad
-        textField.backgroundColor = .backgroundColorUIControl
-        textField.tintColor = .uiControl
-        textField.textAlignment = .center
-        return textField
-    }()
-    
-    static let timesImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = NRConstants.Images.x.image?.dye(.uiControl).withAlignmentRectInsets(UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
-        return imageView
-    }()
-    
-    static let setsLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .textColor
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
-        label.textAlignment = .center
-        label.text = NRConstants.Texts.sets
-        return label
-    }()
-    
-    static let tableView: NRSetsTableView = {
-        let tableView = NRSetsTableView(maxHeight: 300)
-        tableView.register(NRSetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell)
-        tableView.backgroundColor = .backgroundColorMain
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
-        return tableView
-    }()
 }

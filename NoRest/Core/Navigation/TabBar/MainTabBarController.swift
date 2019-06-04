@@ -49,10 +49,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
      */
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
-        if let topViewController = viewController.navigationController,
-            tabBarController.selectedViewController == topViewController {
+        //Disable tabs while PopUpViewController is being presented
+        if let navigationController = tabBarController.selectedViewController as? UINavigationController,
+           let _ = navigationController.presentedViewController as? PopUpViewController {
             return false
         }
+        
+        //Check if currently selected navigation controller is the navigation controller to be selected -> tab does not change
+//        navigationController == tabBarController.selectedViewController,
+
         return true
     }
 }

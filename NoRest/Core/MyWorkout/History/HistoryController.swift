@@ -21,8 +21,12 @@ class HistoryController {
         }
     }
     
-    func workoutName(for index: Int) -> String? {
-        return workoutsByID[safe: index]?.first?.name
+    func workoutHistoryHeader(for index: Int) -> String? {
+        let title = workoutsByID[safe: index]?.first?.name ?? ""
+        if let count = workoutsByID[safe: index]?.count {
+            return "\(String(describing: title)) (x\(count))"
+        }
+        return title
     }
     
     func isHistoryAvailable() -> Bool {

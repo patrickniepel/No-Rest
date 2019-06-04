@@ -19,8 +19,11 @@ extension CurrentWorkoutCollectionViewCell: StoreSubscriber {
     }
     
     func newState(state: CurrentWorkoutCellState) {
+        
+        //Back from NotesPopUp
         if let exercise = state.exercise {
             self.exercise = exercise
+            ExerciseController().saveExercise(exercise)
         }
     }
     

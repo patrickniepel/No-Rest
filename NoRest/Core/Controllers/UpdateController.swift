@@ -61,6 +61,7 @@ struct UpdateController {
             }
             updatedWorkouts.append(workout)
         }
+        UserData.sharedInstance.myWorkouts = updatedWorkouts
         PersistencyController.storeUserData()
     }
     

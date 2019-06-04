@@ -24,7 +24,7 @@ class NRSetsTableView: UITableView {
     }
     
     override var intrinsicContentSize: CGSize {
-        let contentHeight = contentSize.height + contentInset.top
+        let contentHeight = contentSize.height + contentInset.top + safeAreaInsets.top + safeAreaInsets.bottom
         let height = min(contentHeight, maxHeight)
         return CGSize(width: contentSize.width, height: height)
     }

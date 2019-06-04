@@ -26,6 +26,6 @@ extension HistoryTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return historyCtrl.workoutName(for: section)
+        return historyCtrl.workoutHistoryHeader(for: section)
     }
 }

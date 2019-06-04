@@ -68,6 +68,8 @@ class PopUpViewController: UIViewController, PopUpDelegate {
             //Invalidate
             let invalidateAction = UpdateCurrentWorkoutCellAction(exercise: nil)
             store.dispatch(invalidateAction)
+        } else if type == .timer {
+            timerView?.stopTimers()
         }
         
         dismiss(animated: true)

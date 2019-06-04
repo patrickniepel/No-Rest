@@ -23,7 +23,7 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            exercise?.sets.remove(at: indexPath.row)
+            deleteSet(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             updateExercise()
         }
@@ -41,13 +41,20 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDataSource {
    
     func addSet(_ set: Set) {
         exercise?.sets.append(set)
+        updateExercise()
         tableView.reloadData()
     }
     
     func updateSet(_ set: Set) {
         if let index = tableView.indexPathForSelectedRow?.row {
             exercise?.sets[index] = set
+            updateExercise()
             tableView.reloadData()
         }
+    }
+    
+    func deleteSet(at index: Int) {
+        exercise?.sets.remove(at: index)
+        updateExercise()
     }
 }

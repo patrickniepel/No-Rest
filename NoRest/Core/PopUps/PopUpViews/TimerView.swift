@@ -77,7 +77,7 @@ class TimerView: UIView {
         animatePulsatingLayer()
     }
     
-    private func stopTimers() {
+    func stopTimers() {
         stopMainTimer()
         stopAnimationTimer()
     }

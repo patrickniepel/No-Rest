@@ -24,6 +24,7 @@ struct AudioPlayer {
             }
             
             audioPlayer?.prepareToPlay()
+            audioPlayer?.numberOfLoops = 0
             audioPlayer?.play()
         }
     }

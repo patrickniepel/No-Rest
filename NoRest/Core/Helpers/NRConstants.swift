@@ -122,6 +122,7 @@ struct NRConstants {
         static let cancelButton = "Cancel"
         static let deleteButton = "Delete"
         static let sortingButton = "Continue"
+        static let undoButton = "Undo"
         static let add = "Add"
         static let update = "Update"
     }
@@ -131,6 +132,7 @@ struct NRConstants {
         static let alertMessage = "Are You Sure?"
         static let savingError = "Couldn't Be Saved"
         static let savingSuccess = "Saved"
+        static let losingData = "All Changes Will Be Lost"
     }
     
     struct Animations {

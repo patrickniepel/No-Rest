@@ -36,19 +36,16 @@ class CurrentWorkoutViewController: UIViewController {
     
     var myWorkout: MyWorkout?
     var currentPage: Int = 0
+    private var saveDataIfClosed = true
     private let workoutCtrl = MyWorkoutController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         subscribe()
-        view.backgroundColor = .backgroundColorMain
-        navigationItem.hidesBackButton = true
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDoneButton))
-        hideKeyboardWhenTapped()
+        setupScreen()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateView()
@@ -56,7 +53,19 @@ class CurrentWorkoutViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        saveWorkout()
+        
+        if saveDataIfClosed {
+            saveWorkout()
+        }
+    }
+    
+    private func setupScreen() {
+        view.backgroundColor = .backgroundColorMain
+        navigationItem.hidesBackButton = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDoneButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .undo, target: self, action: #selector(handleUndoButton))
+        hideKeyboardWhenTapped()
     }
     
     func setup() {
@@ -115,6 +124,16 @@ class CurrentWorkoutViewController: UIViewController {
     @objc private func handleDoneButton() {
         saveWorkout(toHistory: true)
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func handleUndoButton() {
+        
+        let cancelHandler: ((UIAlertAction) -> Void)? = { (action) in }
+        let undoHandler: ((UIAlertAction) -> Void)? = { (action) in
+            self.saveDataIfClosed = false
+            self.navigationController?.popViewController(animated: true)
+        }
+        showAlert(with: NRConstants.Alerts.alertMessage, message: NRConstants.Alerts.losingData, buttonTitles: [NRConstants.ButtonTitles.cancelButton, NRConstants.ButtonTitles.undoButton], buttonStyles: [.cancel, .destructive], buttonHandlers: [cancelHandler, undoHandler])
     }
     
     deinit {

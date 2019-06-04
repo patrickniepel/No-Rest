@@ -29,6 +29,6 @@ struct ExerciseController {
     }
     
     func allExercises() -> [Exercise] {
-        return UserData.sharedInstance.exercises
+        return UserData.sharedInstance.exercises.sorted()
     }
 }
