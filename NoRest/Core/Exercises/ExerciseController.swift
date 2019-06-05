@@ -10,6 +10,10 @@ import Foundation
 
 struct ExerciseController {
     
+    func updateNotes(_ exercise: Exercise) {
+        UpdateController.updateExercise(id: exercise.id, notes: exercise.notes)
+    }
+    
     func deleteExercise(_ exercise: Exercise) {
         UpdateController.deleteExercise(exercise)
     }

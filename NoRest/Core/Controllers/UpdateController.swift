@@ -29,6 +29,13 @@ struct UpdateController {
         UserData.sharedInstance.myWorkouts.removeAll(where: { $0.id == workout.id })
         PersistencyController.storeUserData()
     }
+    
+    static func updateExercise(id: Int, notes: String) {
+        if var exercise = UserData.sharedInstance.exercises.first(where:{ $0.id == id }) {
+            exercise.notes = notes
+            updateExercise(exercise)
+        }
+    }
 
     static func updateExercise(_ exercise: Exercise) {
         //exercises

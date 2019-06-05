@@ -86,7 +86,7 @@ class WorkoutSetupViewController: UIViewController {
     
     @objc private func openSortingScreen() {
         guard var workout = workout else { return }
-        workout.exercises = workoutSetupCtrl.selectedExercises
+        workout.exercises = workoutSetupCtrl.selectedExercises.sorted()
         workout.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
         
         let sortingAction = WorkoutSortingAction(workout: workout)

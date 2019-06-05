@@ -23,7 +23,7 @@ extension CurrentWorkoutCollectionViewCell: StoreSubscriber {
         //Back from NotesPopUp
         if let exercise = state.exercise {
             self.exercise = exercise
-            ExerciseController().saveExercise(exercise)
+            ExerciseController().updateNotes(exercise)
         }
     }
     
