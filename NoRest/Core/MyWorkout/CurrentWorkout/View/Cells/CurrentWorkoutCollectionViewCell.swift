@@ -141,6 +141,10 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
             tableView.deselectRow(at: selectedIndex, animated: false)
         }
         toggleTableStackViewVisibility(isHidden: exercise?.sets.count == 0)
+        
+        tableView.delegate = nil
+        tableView.dataSource = nil
+        tableView.reloadData()
     }
     
     override func layoutSubviews() {
