@@ -10,6 +10,18 @@ import Foundation
 
 struct PersistencyController: Codable {
     
+    enum OnboardingType {
+        case startWorkout
+        case exercises
+        
+        var key: String {
+            switch self {
+            case .startWorkout: return NRConstants.Onboarding.startWorkoutKey
+            case .exercises: return NRConstants.Onboarding.exercises
+            }
+        }
+    }
+    
     static func loadUserData() {
         if let userData = FileController.loadData() {
             UserData.sharedInstance = userData
@@ -43,5 +55,13 @@ struct PersistencyController: Codable {
     
     private static func storeCurrentExerciseID(_ id: Int) {
         UserDefaults.standard.set(id, forKey: NRConstants.DataIdentifiers.currentExerciseID)
+    }
+    
+    static func storeOnboarding(type: OnboardingType) {
+        UserDefaults.standard.set(true, forKey: type.key)
+    }
+    
+    static func didShowOnboarding(type: OnboardingType) -> Bool {
+        return UserDefaults.standard.bool(forKey: type.key)
     }
 }

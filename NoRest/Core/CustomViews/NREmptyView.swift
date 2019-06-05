@@ -19,14 +19,31 @@ class NREmptyView: UIView {
         return label
     }()
     
-    convenience init(text: String) {
+    private let arrowImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = NRConstants.Images.arrow.image?.dye(.uiControl)
+        imageView.contentMode = .scaleToFill
+        return imageView
+    }()
+    
+    convenience init(text: String, addArrow: Bool = false) {
         self.init()
+        clipsToBounds = true
         emptyLabel.text = text
         setupLabel()
+        
+        if addArrow {
+            setupArrow()
+        }
     }
     
     private func setupLabel() {
-        addSubviews(emptyLabel)
-        emptyLabel.centerInSuperview()
+        addSubview(emptyLabel)
+        emptyLabel.anchor(leading: leadingAnchor, trailing: trailingAnchor, centerX: centerXAnchor, centerY: centerYAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+    }
+    
+    private func setupArrow() {
+        addSubview(arrowImageView)
+        arrowImageView.anchor(top: topAnchor, bottom: emptyLabel.topAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 40, left: 0, bottom: 32, right: 0))
     }
 }

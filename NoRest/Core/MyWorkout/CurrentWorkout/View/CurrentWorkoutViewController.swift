@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class CurrentWorkoutViewController: UIViewController {
     
@@ -123,17 +124,23 @@ class CurrentWorkoutViewController: UIViewController {
     
     @objc private func handleDoneButton() {
         saveWorkout(toHistory: true)
+        AlertController.showSuccessAlert(with: NRConstants.Alerts.workoutFinished)
         navigationController?.popViewController(animated: true)
     }
     
     @objc private func handleUndoButton() {
+        let appearance = AlertController.interactiveAlertAppearance()
         
-        let cancelHandler: ((UIAlertAction) -> Void)? = { (action) in }
-        let undoHandler: ((UIAlertAction) -> Void)? = { (action) in
-            self.saveDataIfClosed = false
-            self.navigationController?.popViewController(animated: true)
+        let alertView = SCLAlertView(appearance: appearance)
+        let responder = SCLAlertViewResponder(alertview: alertView)
+        alertView.addButton(NRConstants.ButtonTitles.undo) { [weak self] in
+            self?.saveDataIfClosed = false
+            self?.navigationController?.popViewController(animated: true)
         }
-        showAlert(with: NRConstants.Alerts.alertMessage, message: NRConstants.Alerts.losingData, buttonTitles: [NRConstants.ButtonTitles.cancelButton, NRConstants.ButtonTitles.undoButton], buttonStyles: [.cancel, .destructive], buttonHandlers: [cancelHandler, undoHandler])
+        alertView.addButton(NRConstants.ButtonTitles.cancel) {
+            responder.close()
+        }
+        alertView.showWarning(NRConstants.Alerts.alertMessage, subTitle: NRConstants.Alerts.losingData, animationStyle: .bottomToTop)
     }
     
     deinit {

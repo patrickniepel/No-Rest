@@ -92,7 +92,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     
     private func setupDesign() {
         contentView.backgroundColor = .backgroundColorUIControl
-        contentView.layer.cornerRadius = 25
+        contentView.layer.cornerRadius = contentView.bounds.width / 15
         contentView.clipsToBounds = true
         applyShadow()
     }
@@ -137,14 +137,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func startWorkout() {
-        guard let currentWorkout = workout,
-            currentWorkout.exercises.count != 0
-        else {
-            if let vc = self.presentingViewController as? MyWorkoutCollectionViewController {
-                vc.showAlert(with: NRConstants.Texts.noExercisesSelected)
-            }
-            return
-        }
+        guard let currentWorkout = workout else { return }
         
         let currentWorkoutAction = CurrentWorkoutAction(myWorkout: currentWorkout)
         store.dispatch(currentWorkoutAction)

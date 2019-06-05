@@ -63,7 +63,7 @@ class WorkoutSetupViewController: UIViewController {
     }
     
     private func setupScreen() {
-        let sortingButton = UIBarButtonItem(title: NRConstants.ButtonTitles.sortingButton, style: .plain, target: self, action: #selector(openSortingScreen))
+        let sortingButton = UIBarButtonItem(title: NRConstants.ButtonTitles.sorting, style: .plain, target: self, action: #selector(openSortingScreen))
         navigationItem.rightBarButtonItem = sortingButton
         view.backgroundColor = .backgroundColorUIControl
     }
@@ -85,11 +85,17 @@ class WorkoutSetupViewController: UIViewController {
     }
     
     @objc private func openSortingScreen() {
-        guard var workout = workout else { return }
-        workout.exercises = workoutSetupCtrl.selectedExercises.sorted()
-        workout.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
+        let selectedExercises = workoutSetupCtrl.selectedExercises.sorted()
+        guard var currentWorkout = workout,
+            selectedExercises.count != 0
+            else {
+                AlertController.showErrorAlert(with: NRConstants.Alerts.noExercisesSelected)
+                return
+        }
+        currentWorkout.exercises = selectedExercises
+        currentWorkout.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
         
-        let sortingAction = WorkoutSortingAction(workout: workout)
+        let sortingAction = WorkoutSortingAction(workout: currentWorkout)
         store.dispatch(sortingAction)
         
         let routeAction = RouteAction(screen: .workoutSorting, in: .myWorkout)

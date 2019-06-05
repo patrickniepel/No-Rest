@@ -57,26 +57,29 @@ class InfoViewController: UIViewController {
     https://www.iconfinder.com/icons/4042280/dumbell_gym_healthy_life_take_exercise_training_weight_workout_icon
     https://www.iconfinder.com/Chanut-is
 
-    binIcon:
+    bin icon:
     https://iconmonstr.com/trash-can-6-png/
 
-    playIcon:
+    play icon:
     https://iconmonstr.com/video-14-png/
 
-    editIcon:
+    edit icon:
     https://iconmonstr.com/pencil-10-png/
 
-    dateIcon:
+    date icon:
     https://iconmonstr.com/calendar-6-png/
 
-    timerIcon:
+    timer icon:
     https://iconmonstr.com/time-19-png/
 
-    notesIcon:
+    notes icon:
     https://iconmonstr.com/note-23-svg/
 
-    x-Icon:
+    x icon:
     https://iconmonstr.com/x-mark-1-png/
+
+    arrow icon:
+    https://www.iconfinder.com/icons/183254/arrow_forward_right_icon
     """
     
     let disclaimer = """

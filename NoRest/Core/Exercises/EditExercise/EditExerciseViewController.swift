@@ -132,7 +132,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     
     @objc private func saveExercise() {
         guard var exercise = exercise else {
-            AlertController.showSavingFailureAlert()
+            AlertController.showErrorAlert(with: NRConstants.Alerts.savingError)
             return
         }
         exercise.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
@@ -140,7 +140,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         exercise.notes = SyntaxController.checkNotesInputCorrect(text: notesTextView.text)
         let exerciseCtrl = ExerciseController()
         exerciseCtrl.saveExercise(exercise)
-        AlertController.showSavingSuccessAlert()
+        AlertController.showSuccessAlert(with: NRConstants.Alerts.savingSuccess)
         navigationController?.popViewController(animated: true)
     }
     

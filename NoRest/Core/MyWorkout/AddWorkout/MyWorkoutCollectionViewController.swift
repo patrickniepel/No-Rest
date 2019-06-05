@@ -30,6 +30,15 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
         checkForEmptyWorkouts()
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if workoutCtrl.allWorkouts().count != 0 && !PersistencyController.didShowOnboarding(type: .startWorkout) {
+            AlertController.showOnboardingAlert(with: NRConstants.Alerts.startWorkoutInfo, onboardingType: .startWorkout)
+        }
+    }
+    
     private func setupCollectionView() {
         dataSource = NRItemCollectionViewDataSource(items: workoutCtrl.allWorkouts())
         delegate = NRItemCollectionViewDelegate()
@@ -75,7 +84,7 @@ class MyWorkoutCollectionViewController: UICollectionViewController {
     
     private func checkForEmptyWorkouts() {
         if workoutCtrl.allWorkouts().count == 0 {
-            collectionView.backgroundView = NREmptyView(text: NRConstants.Texts.emptyWorkouts)
+            collectionView.backgroundView = NREmptyView(text: NRConstants.Texts.emptyWorkouts, addArrow: true)
             collectionView.isUserInteractionEnabled = false
         } else {
             collectionView.backgroundView = nil

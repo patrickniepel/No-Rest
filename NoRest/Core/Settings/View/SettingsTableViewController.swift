@@ -36,11 +36,19 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func showAlertForDataReset(_ dataReset: DataReset) {
-        let buttonTitles = [NRConstants.ButtonTitles.cancelButton, NRConstants.ButtonTitles.resetButton]
-        let deleteButtonHandler: ((UIAlertAction) -> Void)? = { action in
+        let appearance = AlertController.interactiveAlertAppearance()
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        let responder = SCLAlertViewResponder(alertview: alertView)
+        let title = dataReset == .statistics ? NRConstants.Alerts.resetStatistics : NRConstants.Alerts.resetHistory
+        
+        alertView.addButton(NRConstants.ButtonTitles.reset) {
             SettingsController.resetData(dataReset)
-            AlertController.showSuccessAlert()
+            AlertController.showSuccessAlert(with: NRConstants.Alerts.successful)
         }
-        showAlert(with: NRConstants.Alerts.alertMessage, message: "", buttonTitles: buttonTitles, buttonStyles: [.cancel, .destructive], buttonHandlers: [nil, deleteButtonHandler])
+        alertView.addButton(NRConstants.ButtonTitles.cancel) {
+            responder.close()
+        }
+        alertView.showWarning(title, subTitle: NRConstants.Alerts.alertMessage, animationStyle: .bottomToTop)
     }
 }

@@ -81,10 +81,9 @@ struct NRConstants {
     }
     
     struct Texts {
-        static let emptyWorkouts = "No Workouts Available"
-        static let emptyExercises = "No Exercises Available"
-        static let emptyHistory = "No History Available"
-        static let noExercisesSelected = "No Exercises Selected"
+        static let emptyWorkouts = "No Workouts Available!\nPress '+' To Add Your First Workout"
+        static let emptyExercises = "No Exercises Available\nPress '+' To Add An Exercise"
+        static let emptyHistory = "No History Available!\nStart Working Out"
         static let reps = "Reps"
         static let weight = "Weight"
         static let sets = "Sets"
@@ -118,13 +117,13 @@ struct NRConstants {
     }
     
     struct ButtonTitles {
-        static let resetButton = "Reset"
-        static let cancelButton = "Cancel"
-        static let deleteButton = "Delete"
-        static let sortingButton = "Continue"
-        static let undoButton = "Undo"
+        static let reset = "Reset"
+        static let cancel = "Cancel"
+        static let sorting = "Continue"
+        static let undo = "Undo"
         static let add = "Add"
         static let update = "Update"
+        static let ok = "OK"
     }
     
     struct Alerts {
@@ -133,6 +132,17 @@ struct NRConstants {
         static let savingError = "Couldn't Be Saved"
         static let savingSuccess = "Saved"
         static let losingData = "All Changes Will Be Lost"
+        static let resetHistory = "Reset History"
+        static let resetStatistics = "Reset Statistics"
+        static let noExercisesSelected = "No Exercises Selected"
+        static let workoutFinished = "Workout Finished"
+        static let startWorkoutInfo = "Swipe Left To Delete\nSwipe Right To Start\nTap To Edit"
+        static let exercisesInfo = "Swipe Left To Delete\nTap To Edit"
+    }
+    
+    struct Onboarding {
+        static let startWorkoutKey = "startWorkout"
+        static let exercises = "exercises"
     }
     
     struct Animations {
@@ -147,6 +157,7 @@ struct NRConstants {
         case timer
         case notes
         case x
+        case arrow
         
         var image: UIImage? {
             return UIImage(named: self.rawValue)

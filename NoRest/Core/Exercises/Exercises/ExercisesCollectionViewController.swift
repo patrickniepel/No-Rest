@@ -33,6 +33,13 @@ class ExercisesCollectionViewController: UICollectionViewController {
         checkForEmptyExercises()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !PersistencyController.didShowOnboarding(type: .exercises) {
+            AlertController.showOnboardingAlert(with: NRConstants.Alerts.exercisesInfo, onboardingType: .exercises)
+        }
+    }
+    
     private func setupCollectionView() {
         collectionView?.register(NRItemCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.itemCollectionViewCell)
         collectionView?.register(NREmptyCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.emptyCollectionViewCell)
@@ -78,7 +85,7 @@ class ExercisesCollectionViewController: UICollectionViewController {
     
     private func checkForEmptyExercises() {
         if exerciseCtrl.exercisesCount(for: selectedCategory) == 0 {
-            collectionView.backgroundView = NREmptyView(text: NRConstants.Texts.emptyExercises)
+            collectionView.backgroundView = NREmptyView(text: NRConstants.Texts.emptyExercises, addArrow: true)
             collectionView.isUserInteractionEnabled = false
         } else {
             collectionView.backgroundView = nil

@@ -11,30 +11,44 @@ import SCLAlertView
 
 struct AlertController {
     
-    static func showSuccessAlert() {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false,
-            hideWhenBackgroundViewIsTapped: true
-        )
+    static func showSuccessAlert(with text: String) {
+        let appearance = standardAlertAppearance()
         let alertView = SCLAlertView(appearance: appearance)
-        alertView.showSuccess(NRConstants.Alerts.successful, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
+        alertView.showSuccess(text, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
     }
     
-    static func showSavingFailureAlert() {
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false,
-            hideWhenBackgroundViewIsTapped: true
-        )
+    static func showErrorAlert(with text: String) {
+        let appearance = standardAlertAppearance()
         let alertView = SCLAlertView(appearance: appearance)
-        alertView.showError(NRConstants.Alerts.savingError, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
+        alertView.showError(text, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
     }
     
-    static func showSavingSuccessAlert() {
-        let appearance = SCLAlertView.SCLAppearance(
+    static func showOnboardingAlert(with text: String, onboardingType: PersistencyController.OnboardingType) {
+        let appearance = interactiveAlertAppearance()
+        let alertView = SCLAlertView(appearance: appearance)
+        let responder = SCLAlertViewResponder(alertview: alertView)
+        alertView.addButton(NRConstants.ButtonTitles.ok) {
+            PersistencyController.storeOnboarding(type: onboardingType)
+            responder.close()
+        }
+        alertView.showInfo(text, subTitle: "", animationStyle: .bottomToTop)
+    }
+
+    private static func standardAlertAppearance() -> SCLAlertView.SCLAppearance {
+        return SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: NRConstants.Font.fontBold, size: 20)!,
+            kTextFont: UIFont(name: NRConstants.Font.font, size: 14)!,
             showCloseButton: false,
             hideWhenBackgroundViewIsTapped: true
         )
-        let alertView = SCLAlertView(appearance: appearance)
-        alertView.showSuccess(NRConstants.Alerts.savingSuccess, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
+    }
+    
+    static func interactiveAlertAppearance() -> SCLAlertView.SCLAppearance {
+        return SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: NRConstants.Font.fontBold, size: 20)!,
+            kTextFont: UIFont(name: NRConstants.Font.font, size: 14)!,
+            kButtonFont: UIFont(name: NRConstants.Font.fontBold, size: 14)!,
+            showCloseButton: false
+        )
     }
 }
