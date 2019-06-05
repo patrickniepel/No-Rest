@@ -23,6 +23,7 @@ extension HistoryDetailSetsView: UITableViewDataSource {
         
         if let set = sets[safe: indexPath.row] {
             cell?.setup(with: set)
+            cell?.disableUserInteraction()
         }
         
         return cell ?? UITableViewCell()

@@ -20,12 +20,13 @@ class HistoryDetailSetsView: UIView {
     }()
     
     private lazy var tableView: NRSetsTableView = {
-        let tableView = NRSetsTableView(maxHeight: self.bounds.height / 2)
+        let tableView = NRSetsTableView()
+        
         tableView.allowsSelection = false
         tableView.register(NRSetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell)
+        tableView.setupDesign()
         return tableView
     }()
-    
     var sets: [Set] = []
 
     convenience init(sets: [Set]) {
@@ -45,10 +46,16 @@ class HistoryDetailSetsView: UIView {
     }
     
     private func checkSets() {
-        if sets.count == 0{
+        if sets.count == 0 {
             setsLabel.text = NRConstants.Texts.noSets
             tableView.removeFromSuperview()
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        tableView.maxHeight = self.bounds.height * 0.9
+        layoutIfNeeded()
     }
 }
 
@@ -56,8 +63,8 @@ private extension HistoryDetailSetsView {
     
     func setupLayout() {
         addSubviews(setsLabel, tableView)
-        
+
         setsLabel.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, size: CGSize(width: 0, height: 30))
-        tableView.anchor(top: setsLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16))
+        tableView.anchor(top: setsLabel.bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 8, bottom: 16, right: 8))
     }
 }

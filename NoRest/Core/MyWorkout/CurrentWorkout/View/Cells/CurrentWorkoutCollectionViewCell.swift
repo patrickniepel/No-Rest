@@ -113,10 +113,12 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     }()
     
     let tableView: NRSetsTableView = {
-        let tableView = NRSetsTableView(maxHeight: 300)
+        let tableView = NRSetsTableView()
+        tableView.maxHeight = 300
         tableView.register(NRSetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell)
         tableView.backgroundColor = .backgroundColorMain
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
+        tableView.setupDesign()
         return tableView
     }()
     
@@ -261,9 +263,9 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension CurrentWorkoutCollectionViewCell {
+private extension CurrentWorkoutCollectionViewCell {
     
-    private func setupLayout() {
+    func setupLayout() {
         contentView.addSubview(baseScrollView)
         baseScrollView.fillSuperview()
         
@@ -277,7 +279,7 @@ extension CurrentWorkoutCollectionViewCell {
         setupTableViewStackView()
     }
     
-    private func createStackViews() {
+    func createStackViews() {
         baseStackView = createStackView(distribution: .fill, axis: .vertical, spacing: 48)
         topButtonsStackView = createStackView(distribution: .equalSpacing, axis: .horizontal)
         inputStackView = createStackView(distribution: .fill, axis: .vertical)
@@ -286,7 +288,7 @@ extension CurrentWorkoutCollectionViewCell {
         tableViewStackView = createStackView(distribution: .fill, axis: .vertical)
     }
     
-    private func setupTopButtonsStackView() {
+    func setupTopButtonsStackView() {
         topButtonsStackView.addArrangedSubviews(notesButton, timerButton)
         
         topButtonsStackView.anchor(leading: baseStackView.leadingAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 72, bottom: 0, right: 72))
@@ -295,7 +297,7 @@ extension CurrentWorkoutCollectionViewCell {
         timerButton.anchor(size: CGSize(width: buttonLength, height: buttonLength))
     }
     
-    private func setupInputStackView() {
+    func setupInputStackView() {
         inputStackView.addArrangedSubviews(inputLabelsStackView, inputTextFieldsStackView)
         
         //Labels
@@ -319,11 +321,11 @@ extension CurrentWorkoutCollectionViewCell {
         inputStackView.anchor(leading: baseStackView.leadingAnchor, trailing: baseStackView.trailingAnchor)
     }
     
-    private func setupActionButtonLayout() {
+    func setupActionButtonLayout() {
         actionButton.anchor(size: CGSize(width: bounds.width / 2, height: 0))
     }
     
-    private func setupTableViewStackView() {
+    func setupTableViewStackView() {
         tableViewStackView.addArrangedSubviews(setsLabel, tableView)
 
         setsLabel.anchor(leading: tableViewStackView.leadingAnchor, trailing: tableViewStackView.trailingAnchor, size: CGSize(width: 0, height: labelHeight))
@@ -331,12 +333,12 @@ extension CurrentWorkoutCollectionViewCell {
         tableViewStackView.anchor(leading: baseStackView.leadingAnchor, trailing: baseStackView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32))
     }
     
-    private func setupBaseStackView() {
+    func setupBaseStackView() {
         baseStackView.addArrangedSubviews(topButtonsStackView, inputStackView, actionButton, tableViewStackView)
         baseStackView.fillSuperview(padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0))
     }
     
-    private func createStackView(alignment: UIStackView.Alignment = .center, distribution: UIStackView.Distribution, axis: NSLayoutConstraint.Axis, spacing: CGFloat = 0) -> UIStackView {
+    func createStackView(alignment: UIStackView.Alignment = .center, distribution: UIStackView.Distribution, axis: NSLayoutConstraint.Axis, spacing: CGFloat = 0) -> UIStackView {
         let stackView = UIStackView()
         stackView.alignment = alignment
         stackView.distribution = distribution

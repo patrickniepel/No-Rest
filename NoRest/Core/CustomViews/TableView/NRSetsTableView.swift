@@ -11,25 +11,19 @@ import UIKit
 class NRSetsTableView: UITableView {
     var maxHeight: CGFloat = NRConstants.TableViews.rowHeight * 2
     
-    convenience init(maxHeight: CGFloat) {
-        self.init()
-        self.maxHeight = maxHeight
-        setupDesign()
-    }
-    
-    override func reloadData() {
-        super.reloadData()
-        self.invalidateIntrinsicContentSize()
-        self.layoutIfNeeded()
+    override var contentSize:CGSize {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
     }
     
     override var intrinsicContentSize: CGSize {
-        let contentHeight = contentSize.height + contentInset.top + safeAreaInsets.top + safeAreaInsets.bottom
-        let height = min(contentHeight, maxHeight)
-        return CGSize(width: contentSize.width, height: height)
+        layoutIfNeeded()
+        let height = min(contentSize.height, maxHeight)
+        return CGSize(width: UIView.noIntrinsicMetric, height: height)
     }
     
-    private func setupDesign() {
+    func setupDesign() {
         separatorColor = .uiControl
         separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         layer.cornerRadius = 15

@@ -15,8 +15,6 @@ class NRSetsTableViewCell: UITableViewCell {
         label.textColor = .textColor
         label.textAlignment = .center
         label.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeMedium)
-        label.minimumScaleFactor = 0.5
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -32,8 +30,6 @@ class NRSetsTableViewCell: UITableViewCell {
         label.textColor = .textColor
         label.textAlignment = .center
         label.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeMedium)
-        label.minimumScaleFactor = 0.5
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -47,8 +43,11 @@ class NRSetsTableViewCell: UITableViewCell {
         backgroundColor = .backgroundColorUIControl
         repsLabel.text = "\(set.reps)"
         weightLabel.text = "\(set.weight) \(SettingsController.currentUnit.rawValue)"
-        
         setupLayout()
+    }
+    
+    func disableUserInteraction() {
+        isUserInteractionEnabled = false
     }
 }
 
