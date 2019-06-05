@@ -21,7 +21,6 @@ class SettingsTimerTableViewCell: UITableViewCell {
     
     private let contentLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Settings.RowTitles.timer)
-        label.makeBold()
         return label
     }()
 

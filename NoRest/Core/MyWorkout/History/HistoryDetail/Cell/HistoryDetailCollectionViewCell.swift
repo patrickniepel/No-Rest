@@ -13,9 +13,6 @@ class HistoryDetailCollectionViewCell: UICollectionViewCell {
     private let nameLabel: NRLabel = {
         let label = NRLabel()
         label.textAlignment = .center
-        label.makeBold()
-        label.minimumScaleFactor = 0.5
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     

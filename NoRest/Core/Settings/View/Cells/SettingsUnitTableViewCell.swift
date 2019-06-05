@@ -27,7 +27,6 @@ class SettingsUnitTableViewCell: UITableViewCell {
     
     private let contentLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Settings.RowTitles.unit)
-        label.makeBold()
         return label
     }()
 

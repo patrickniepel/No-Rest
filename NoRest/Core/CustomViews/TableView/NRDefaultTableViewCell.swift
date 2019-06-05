@@ -8,12 +8,11 @@
 
 import UIKit
 
-/** Cell only with a label and accessory type */
+/** Cell with only a label and accessory type */
 class NRDefaultTableViewCell: UITableViewCell {
     
     private let contentLabel: NRLabel = {
         let label = NRLabel()
-        label.makeBold()
         return label
     }()
 

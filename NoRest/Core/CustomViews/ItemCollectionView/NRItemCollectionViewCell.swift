@@ -12,10 +12,6 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     
     private let nameLabel: NRLabel = {
         let label = NRLabel(size: .fontSizeLarge)
-        label.makeBold()
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
-        label.numberOfLines = 0
         return label
     }()
     
@@ -61,8 +57,6 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        workout = nil
-        exercise = nil
         nameLabel.text = nil
         infoLabel.text = nil
         infoImageView.image = nil
@@ -165,8 +159,8 @@ class NRItemCollectionViewCell: UICollectionViewCell {
 }
 
 //Layout
-extension NRItemCollectionViewCell {
-    private func setupLayout() {
+private extension NRItemCollectionViewCell {
+    func setupLayout() {
         contentView.addSubviews(nameLabel, infoLabel, infoImageView)
         
         let labelHeight = contentView.bounds.height / 2 - 8
@@ -190,8 +184,8 @@ extension NRItemCollectionViewCell {
 }
 
 //Repositioning
-extension NRItemCollectionViewCell {
-    private func repositionContent() {
+private extension NRItemCollectionViewCell {
+    func repositionContent() {
         let p: CGPoint = pan.translation(in: self)
         let width = self.contentView.frame.width
         let height = self.contentView.frame.height
@@ -219,7 +213,7 @@ extension NRItemCollectionViewCell {
         }
     }
     
-    @objc private func handlePan(pan: UIPanGestureRecognizer) {
+    @objc func handlePan(pan: UIPanGestureRecognizer) {
         
         if pan.state == UIGestureRecognizer.State.changed {
             setNeedsLayout()

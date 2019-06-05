@@ -10,6 +10,14 @@ import UIKit
 
 class TimerView: UIView {
     
+    private let timerLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .backgroundColorUIControl
+        label.font = UIFont(name: NRConstants.Font.fontBold, size: 50)
+        return label
+    }()
+    
     weak var delegate: PopUpDelegate?
     
     private var seconds: Int = 0
@@ -24,14 +32,6 @@ class TimerView: UIView {
     private let lineWidth: CGFloat = 20
     private let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
     private let timerBackgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
-    
-    private let timerLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .backgroundColorUIControl
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 50)
-        return label
-    }()
 
     convenience init(seconds: Int) {
         self.init()
@@ -118,37 +118,37 @@ class TimerView: UIView {
     }
 }
 
-extension TimerView {
+private extension TimerView {
     
-    private func setupLayout() {
+    func setupLayout() {
         setupShapeLayer()
         setupTimerLabel()
     }
     
-    private func setupTimerLabel() {
+    func setupTimerLabel() {
         addSubview(timerLabel)
         
         updateTimerLabel()
         timerLabel.centerInSuperview()
     }
     
-    private func setupShapeLayer() {
+    func setupShapeLayer() {
         addPulsatingLayer()
         addTrackLayer()
         addStrokeLayer()
     }
     
-    private func addTrackLayer() {
+    func addTrackLayer() {
         let trackLayer = createLayer(strokeColor: .backgroundColorMain, fillColor: .uiControl)
         layer.addSublayer(trackLayer)
     }
     
-    private func addPulsatingLayer() {
+    func addPulsatingLayer() {
         pulsatingLayer = createLayer(strokeColor: .clear, fillColor: .pulsatingColor)
         layer.addSublayer(pulsatingLayer)
     }
     
-    private func addStrokeLayer() {
+    func addStrokeLayer() {
         shapeLayer = createLayer(strokeColor: .backgroundColorUIControl, fillColor: .clear)
         shapeLayer.lineCap = .round
         shapeLayer.strokeEnd = 0
@@ -158,7 +158,7 @@ extension TimerView {
         layer.addSublayer(shapeLayer)
     }
     
-    private func createLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
+    func createLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
         let layer = CAShapeLayer()
         layer.path = circularPath.cgPath
         layer.strokeColor = strokeColor.cgColor
@@ -168,7 +168,7 @@ extension TimerView {
         return layer
     }
     
-    private func animatePulsatingLayer() {
+    func animatePulsatingLayer() {
         let animation = CABasicAnimation(keyPath: NRConstants.Animations.transformScaleKeyPath)
         animation.toValue = 1.3
         animation.duration = 0.5
@@ -178,7 +178,7 @@ extension TimerView {
         pulsatingLayer.add(animation, forKey: NRConstants.Animations.pulsatingAnimationKey)
     }
     
-    private func animateCircle() {
+    func animateCircle() {
         let percentage = 1 - (CGFloat(animationCounter) / CGFloat(seconds)) * 0.01
         shapeLayer.strokeEnd = percentage
     }

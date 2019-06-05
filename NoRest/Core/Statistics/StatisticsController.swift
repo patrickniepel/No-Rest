@@ -37,7 +37,7 @@ struct StatisticsController {
     }
 }
 
-extension StatisticsController {
+private extension StatisticsController {
     
     static func stats(for exercise: Exercise) -> [Stat] {
         let exercises = allExercisesOfStatistics.filter { $0.id == exercise.id }
@@ -78,12 +78,12 @@ extension StatisticsController {
                 Stat(title: .totalReps, value: totalReps(exercises: allExercisesOfStatistics))]
     }
     
-    private static func maxWeight(exercises: [Exercise]) -> Double {
+    static func maxWeight(exercises: [Exercise]) -> Double {
         let maxWeight = exercises.compactMap { $0.sets.compactMap { $0.weight }.max() }.max() ?? 0
         return maxWeight
     }
     
-    private static func totalVolume(exercises: [Exercise]) -> Double {
+    static func totalVolume(exercises: [Exercise]) -> Double {
         let volume = exercises.reduce(0, { (res, exercise) -> Double in
             res + exercise.sets.reduce(0, { (res, set) -> Double in
                 res + Double(set.reps) * set.weight
@@ -92,7 +92,7 @@ extension StatisticsController {
         return volume
     }
     
-    private static func totalReps(exercises: [Exercise]) -> Double {
+    static func totalReps(exercises: [Exercise]) -> Double {
         let reps = exercises.reduce(0, { (res, exercise) -> Double in
             res + exercise.sets.reduce(0, { (res, set) -> Double in
                 res + Double(set.reps)
@@ -101,14 +101,14 @@ extension StatisticsController {
         return reps
     }
     
-    private static func totalSets(exercises: [Exercise]) -> Double {
+    static func totalSets(exercises: [Exercise]) -> Double {
         let sets = exercises.reduce(0) { (res, exercise) -> Double in
             res + Double(exercise.sets.count)
         }
         return sets
     }
     
-    private static func avgVolumePerSet(exercises: [Exercise]) -> Double {
+    static func avgVolumePerSet(exercises: [Exercise]) -> Double {
         let totalVolume = self.totalVolume(exercises: exercises)
         let totalSets = self.totalSets(exercises: exercises)
         
@@ -119,7 +119,7 @@ extension StatisticsController {
         return totalVolume / totalSets
     }
     
-    private static func avgRepsPerSet(exercises: [Exercise]) -> Double {
+    static func avgRepsPerSet(exercises: [Exercise]) -> Double {
         let totalReps = self.totalReps(exercises: exercises)
         let totalSets = self.totalSets(exercises: exercises)
         
@@ -130,7 +130,7 @@ extension StatisticsController {
         return totalReps / totalSets
     }
     
-    private static func totalRunningTime(exercises: [Exercise]) -> Double {
+    static func totalRunningTime(exercises: [Exercise]) -> Double {
         var totalTimer: Double = 0
         
         for exercise in exercises {
@@ -139,7 +139,7 @@ extension StatisticsController {
         return totalTimer
     }
     
-    private static func percentageOfSets(exercises: [Exercise]) -> Double {
+    static func percentageOfSets(exercises: [Exercise]) -> Double {
         var percentage: Double = 0
         let setsForCategory = self.totalSets(exercises: exercises)
         let totalSets = self.totalSets(exercises: allExercisesOfStatistics)

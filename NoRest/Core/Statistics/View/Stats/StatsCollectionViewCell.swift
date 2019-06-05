@@ -13,9 +13,6 @@ class StatsCollectionViewCell: UICollectionViewCell {
     let statsTitleLabel: NRLabel = {
         let label = NRLabel()
         label.textColor = .textColor
-        label.makeBold()
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -24,8 +21,6 @@ class StatsCollectionViewCell: UICollectionViewCell {
         label.textColor = .black
         label.textAlignment = .center
         label.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
         return label
     }()
     

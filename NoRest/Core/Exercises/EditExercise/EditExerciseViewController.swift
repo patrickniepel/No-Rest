@@ -31,7 +31,6 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     private let nameLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Editing.nameLabel)
         label.textColor = .textColor
-        label.makeBold()
         label.sizeToFit()
         return label
     }()
@@ -39,7 +38,6 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     private let timerLabel: NRLabel = {
         let label = NRLabel()
         label.textColor = .textColor
-        label.makeBold()
         label.sizeToFit()
         return label
     }()
@@ -47,7 +45,6 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     private let notesLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Editing.notesLabel)
         label.textColor = .textColor
-        label.makeBold()
         label.sizeToFit()
         return label
     }()
@@ -181,20 +178,20 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     }
 }
 
-extension EditExerciseViewController {
-    private func setupLayout() {
+private extension EditExerciseViewController {
+    func setupLayout() {
         setupScrollView()
         setupMainView()
         setupLabels()
         setupTextInputs()
     }
     
-    private func setupScrollView() {
+    func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
     }
  
-    private func setupMainView() {
+    func setupMainView() {
         scrollView.addSubview(mainView)
         
         let mainViewHeight = view.frame.height - 2 * .defaultPadding
@@ -204,13 +201,13 @@ extension EditExerciseViewController {
         mainView.addSubviews(nameLabel, timerLabel, notesLabel, nameTextField, timerTextField, notesTextView)
     }
  
-    private func setupLabels() {
+    func setupLabels() {
         nameLabel.anchor(top: mainView.topAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: .defaultPadding, bottom: 0, right: 0))
         timerLabel.anchor(top: nameTextField.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: .defaultPadding, bottom: 0, right: 0))
         notesLabel.anchor(top: timerTextField.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: .defaultPadding, bottom: 0, right: 0))
     }
     
-    private func setupTextInputs() {
+    func setupTextInputs() {
         let topPadding: CGFloat = 8
         
         nameTextField.addTarget(self, action: #selector(updateNavigationTitle), for: .editingChanged)

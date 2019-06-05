@@ -22,11 +22,6 @@ class NREmptyView: UIView {
     convenience init(text: String) {
         self.init()
         emptyLabel.text = text
-        //setupLabel()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
         setupLabel()
     }
     

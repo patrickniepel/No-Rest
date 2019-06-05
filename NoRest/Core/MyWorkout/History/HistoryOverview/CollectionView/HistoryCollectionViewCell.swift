@@ -12,10 +12,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
     
     private let dateLabel: NRLabel = {
         let label = NRLabel()
-        label.makeBold()
         label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
         label.textAlignment = .center
         label.textColor = .black
         return label

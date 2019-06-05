@@ -13,7 +13,6 @@ class HistoryDetailViewController: UIViewController {
     private let nameLabel: NRLabel = {
         let label = NRLabel(size: .fontSizeMedium)
         label.textAlignment = .center
-        label.makeBold()
         return label
     }()
     

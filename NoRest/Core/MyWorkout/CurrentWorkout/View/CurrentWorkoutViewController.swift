@@ -141,9 +141,9 @@ class CurrentWorkoutViewController: UIViewController {
     }
 }
 
-extension CurrentWorkoutViewController {
+private extension CurrentWorkoutViewController {
     
-    private func setupLayout() {
+    func setupLayout() {
         view.addSubviews(pageControl, collectionView)
         
         pageControl.anchor(bottom: view.bottomAnchor, centerX: view.centerXAnchor)
@@ -158,6 +158,8 @@ class CurrentWorkoutCollectionView: UICollectionView {
         let result = super.hitTest(point, with: event)
         if let scrollingEnabled = result?.superview?.isKind(of: NRSetsTableViewCell.self) {
             self.isScrollEnabled = !scrollingEnabled
+        } else {
+            self.isScrollEnabled = true
         }
         return result
     }

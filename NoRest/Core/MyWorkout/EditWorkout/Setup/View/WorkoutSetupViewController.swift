@@ -27,7 +27,6 @@ class WorkoutSetupViewController: UIViewController {
         let label = NRLabel(with: NRConstants.Editing.nameLabel)
         label.textColor = .textColor
         label.sizeToFit()
-        label.makeBold()
         return label
     }()
     
@@ -112,22 +111,22 @@ class WorkoutSetupViewController: UIViewController {
 }
 
 // Layout
-extension WorkoutSetupViewController {
+private extension WorkoutSetupViewController {
     
-    private func setupLayout() {
+    func setupLayout() {
         view.addSubviews(nameLabel, nameTextField, tableView)
         setupNameLayout()
         setupTableViewLayout()
     }
     
-    private func setupNameLayout() {
+    func setupNameLayout() {
         nameLabel.anchor(top: view.layoutGuide().topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: .defaultPadding, left: .defaultPadding, bottom: 0, right: 0))
         
         nameTextField.addTarget(self, action: #selector(updateNavigationTitle), for: .editingChanged)
         nameTextField.anchor(top: nameLabel.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 8, left: .defaultPadding, bottom: 0, right: .defaultPadding))
     }
     
-    private func setupTableViewLayout() {
+    func setupTableViewLayout() {
         let bottomAnchor: NSLayoutYAxisAnchor?
         if #available(iOS 11.0, *) {
             bottomAnchor = view.safeAreaLayoutGuide.bottomAnchor
