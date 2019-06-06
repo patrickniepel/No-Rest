@@ -67,10 +67,10 @@ class StatisticsViewController: UIViewController {
         view.backgroundColor = .backgroundColorMain
         navigationItem.title = NRConstants.ScreenTitles.statistics
         
+        hideKeyboardWhenTapped()
         setupCollectionView()
         setupLayout()
         setupSearchBar()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

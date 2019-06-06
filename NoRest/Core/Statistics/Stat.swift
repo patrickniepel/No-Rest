@@ -16,6 +16,12 @@ struct StatsContainerItem {
 struct Stat {
     let title: StatsTitle
     let value: Double
+    let type: StatType
+    
+    enum StatType {
+        case decimal
+        case nonDecimal
+    }
 }
 
 enum StatsTitle: String, Codable {
@@ -39,3 +45,5 @@ enum StatsTitle: String, Codable {
         }
     }
 }
+
+

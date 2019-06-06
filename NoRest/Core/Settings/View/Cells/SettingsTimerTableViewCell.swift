@@ -23,11 +23,6 @@ class SettingsTimerTableViewCell: UITableViewCell {
         let label = NRLabel(with: NRConstants.Settings.RowTitles.timer)
         return label
     }()
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        contentLabel.text = nil
-    }
     
     func setup() {
         self.selectionStyle = .none

@@ -13,11 +13,13 @@ struct PersistencyController: Codable {
     enum OnboardingType {
         case startWorkout
         case exercises
+        case history
         
         var key: String {
             switch self {
             case .startWorkout: return NRConstants.Onboarding.startWorkoutKey
-            case .exercises: return NRConstants.Onboarding.exercises
+            case .exercises: return NRConstants.Onboarding.exercisesKey
+            case .history: return NRConstants.Onboarding.historyKey
             }
         }
     }
@@ -63,5 +65,11 @@ struct PersistencyController: Codable {
     
     static func didShowOnboarding(type: OnboardingType) -> Bool {
         return UserDefaults.standard.bool(forKey: type.key)
+    }
+    
+    static func resetOnboarding() {
+        UserDefaults.standard.set(false, forKey: OnboardingType.startWorkout.key)
+        UserDefaults.standard.set(false, forKey: OnboardingType.history.key)
+        UserDefaults.standard.set(false, forKey: OnboardingType.exercises.key)
     }
 }

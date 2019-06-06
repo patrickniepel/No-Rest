@@ -108,6 +108,7 @@ struct NRConstants {
             static let timer = "Timer Sound"
             static let workoutHistory = "Reset Workout History"
             static let statistics = "Reset Statistics"
+            static let onboarding = "Show Tutorial Alerts Again"
             static let licences = "Licences"
             static let disclaimer = "Disclaimer"
             static let rating = "Rate This App"
@@ -134,15 +135,18 @@ struct NRConstants {
         static let losingData = "All Changes Will Be Lost"
         static let resetHistory = "Reset History"
         static let resetStatistics = "Reset Statistics"
+        static let onboarding = "Show Tutorial Alerts Again"
         static let noExercisesSelected = "No Exercises Selected"
         static let workoutFinished = "Workout Finished"
         static let startWorkoutInfo = "Swipe Left To Delete\nSwipe Right To Start\nTap To Edit"
         static let exercisesInfo = "Swipe Left To Delete\nTap To Edit"
+        static let historyInfo = "Tap An Item To Inspect The Workout Details"
     }
     
     struct Onboarding {
         static let startWorkoutKey = "startWorkout"
-        static let exercises = "exercises"
+        static let exercisesKey = "exercises"
+        static let historyKey = "history"
     }
     
     struct Animations {

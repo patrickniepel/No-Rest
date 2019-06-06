@@ -43,15 +43,15 @@ private extension StatisticsController {
         let exercises = allExercisesOfStatistics.filter { $0.id == exercise.id }
         
         if exercise.type == .cardio {
-            return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: [exercise]))]
+            return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: [exercise]), type: .nonDecimal)]
         }
         
-        return [Stat(title: .totalSets, value: totalSets(exercises: exercises)),
-                Stat(title: .maxWeight, value: maxWeight(exercises: exercises)),
-                Stat(title: .totalVolume, value: totalVolume(exercises: exercises)),
-                Stat(title: .avgVolumePerSet, value: avgVolumePerSet(exercises: exercises)),
-                Stat(title: .avgRepsPerSet, value: avgRepsPerSet(exercises: exercises)),
-                Stat(title: .totalReps, value: totalReps(exercises: exercises))]
+        return [Stat(title: .totalSets, value: totalSets(exercises: exercises), type: .nonDecimal),
+                Stat(title: .maxWeight, value: maxWeight(exercises: exercises), type: .decimal),
+                Stat(title: .totalVolume, value: totalVolume(exercises: exercises), type: .decimal),
+                Stat(title: .avgVolumePerSet, value: avgVolumePerSet(exercises: exercises), type: .decimal),
+                Stat(title: .avgRepsPerSet, value: avgRepsPerSet(exercises: exercises), type: .nonDecimal),
+                Stat(title: .totalReps, value: totalReps(exercises: exercises), type: .nonDecimal)]
     }
     
     static func stats(for category: Category) -> [Stat] {
@@ -62,20 +62,20 @@ private extension StatisticsController {
         }
         
         if category == .cardio {
-            return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: exercises))]
+            return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: exercises), type: .nonDecimal)]
         }
         
-        return [Stat(title: .totalSets, value: totalSets(exercises: exercises)),
-                Stat(title: .percentageOfSets, value: percentageOfSets(exercises: exercises)),
-                Stat(title: .totalVolume, value: totalVolume(exercises: exercises)),
-                Stat(title: .totalReps, value: totalReps(exercises: exercises))]
+        return [Stat(title: .totalSets, value: totalSets(exercises: exercises), type: .nonDecimal),
+                Stat(title: .percentageOfSets, value: percentageOfSets(exercises: exercises), type: .decimal),
+                Stat(title: .totalVolume, value: totalVolume(exercises: exercises), type: .decimal),
+                Stat(title: .totalReps, value: totalReps(exercises: exercises), type: .nonDecimal)]
     }
     
     static func generalStats() -> [Stat] {
         
-        return [Stat(title: .maxWeight, value: maxWeight(exercises: allExercisesOfStatistics)),
-                Stat(title: .totalVolume, value: totalVolume(exercises: allExercisesOfStatistics)),
-                Stat(title: .totalReps, value: totalReps(exercises: allExercisesOfStatistics))]
+        return [Stat(title: .maxWeight, value: maxWeight(exercises: allExercisesOfStatistics), type: .decimal),
+                Stat(title: .totalVolume, value: totalVolume(exercises: allExercisesOfStatistics), type: .decimal),
+                Stat(title: .totalReps, value: totalReps(exercises: allExercisesOfStatistics), type: .nonDecimal)]
     }
     
     static func maxWeight(exercises: [Exercise]) -> Double {

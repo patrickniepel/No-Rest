@@ -26,6 +26,11 @@ class HistoryTableViewController: UITableViewController {
         checkForEmptyHistory()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkOnboarding()
+    }
+    
     private func setupTitle() {
         navigationItem.title = NRConstants.ScreenTitles.history
     }
@@ -48,6 +53,12 @@ class HistoryTableViewController: UITableViewController {
         } else {
             tableView.backgroundView = nil
             tableView.isUserInteractionEnabled = true
+        }
+    }
+    
+    private func checkOnboarding() {
+        if historyCtrl.isHistoryAvailable() && !PersistencyController.didShowOnboarding(type: .history) {
+            AlertController.showOnboardingAlert(with: NRConstants.Alerts.historyInfo, onboardingType: .history)
         }
     }
 }

@@ -14,6 +14,7 @@ import SCLAlertView
 enum DataReset: Int {
     case workoutHistory = 0
     case statistics = 1
+    case onboarding = 2
     case none = -1
 }
 
@@ -52,6 +53,9 @@ struct SettingsController {
         }
         else if dataReset == .statistics {
             UserData.sharedInstance.statistics.resetStatistics()
+        }
+        else if dataReset == .onboarding {
+            PersistencyController.resetOnboarding()
         }
         
         PersistencyController.storeUserData()

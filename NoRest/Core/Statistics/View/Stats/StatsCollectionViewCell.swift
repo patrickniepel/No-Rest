@@ -31,7 +31,9 @@ class StatsCollectionViewCell: UICollectionViewCell {
     
     func setup(with stat: Stat) {
         statsTitleLabel.text = stat.title.rawValue
-        statsValueLabel.text = "\(stat.value) \(stat.title.unit)"
+        
+        let valueString = stat.type == .nonDecimal ? "\(Int(stat.value))" : String(format: "%.2f", stat.value)
+        statsValueLabel.text = "\(valueString) \(stat.title.unit)"
         
         setupDesign()
         setupLayout()

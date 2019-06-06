@@ -40,7 +40,15 @@ class SettingsTableViewController: UITableViewController {
         
         let alertView = SCLAlertView(appearance: appearance)
         let responder = SCLAlertViewResponder(alertview: alertView)
-        let title = dataReset == .statistics ? NRConstants.Alerts.resetStatistics : NRConstants.Alerts.resetHistory
+        
+        let title: String
+        if dataReset == .statistics {
+            title = NRConstants.Alerts.resetStatistics
+        } else if dataReset == .workoutHistory {
+            title = NRConstants.Alerts.resetHistory
+        } else {
+            title = NRConstants.Alerts.onboarding
+        }
         
         alertView.addButton(NRConstants.ButtonTitles.reset) {
             SettingsController.resetData(dataReset)

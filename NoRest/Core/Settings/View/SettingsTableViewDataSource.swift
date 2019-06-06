@@ -26,7 +26,7 @@ extension SettingsTableViewController {
         if section == Section.general.rawValue {
             return 2
         } else if section == Section.yourData.rawValue {
-            return 2
+            return 3
         } else if section == Section.about.rawValue {
             return 3
         }
@@ -93,6 +93,7 @@ extension SettingsTableViewController {
             switch row {
             case 0: return NRConstants.Settings.RowTitles.workoutHistory
             case 1: return NRConstants.Settings.RowTitles.statistics
+            case 2: return NRConstants.Settings.RowTitles.onboarding
             default: return ""
             }
         }

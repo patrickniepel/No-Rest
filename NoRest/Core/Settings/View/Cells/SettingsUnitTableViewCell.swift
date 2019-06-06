@@ -30,11 +30,6 @@ class SettingsUnitTableViewCell: UITableViewCell {
         return label
     }()
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        contentLabel.text = nil
-    }
-    
     func setup() {
         self.selectionStyle = .none
         
