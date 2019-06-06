@@ -136,7 +136,7 @@
 		A3D9DEF62201A7BB00BCCAF4 /* WorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF52201A7BB00BCCAF4 /* WorkoutHistory.swift */; };
 		A3D9DEF82201A9AD00BCCAF4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF72201A9AD00BCCAF4 /* Category.swift */; };
 		A3D9DEFA2201AABA00BCCAF4 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF92201AABA00BCCAF4 /* Set.swift */; };
-		A3D9DEFE2201B00900BCCAF4 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEFD2201B00900BCCAF4 /* AudioPlayer.swift */; };
+		A3D9DEFE2201B00900BCCAF4 /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEFD2201B00900BCCAF4 /* SoundController.swift */; };
 		A3D9DF002201B24300BCCAF4 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEFF2201B24300BCCAF4 /* Statistics.swift */; };
 		A3D9DF022201B64D00BCCAF4 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DF012201B64D00BCCAF4 /* SettingsTableViewController.swift */; };
 		A3DE1C512228342B00EDB6C9 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DE1C502228342B00EDB6C9 /* HistoryTableViewController.swift */; };
@@ -297,7 +297,7 @@
 		A3D9DEF52201A7BB00BCCAF4 /* WorkoutHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
 		A3D9DEF72201A9AD00BCCAF4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A3D9DEF92201AABA00BCCAF4 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
-		A3D9DEFD2201B00900BCCAF4 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		A3D9DEFD2201B00900BCCAF4 /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 		A3D9DEFF2201B24300BCCAF4 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		A3D9DF012201B64D00BCCAF4 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A3DE1C502228342B00EDB6C9 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
@@ -942,7 +942,7 @@
 		A3D9DEFB2201AF6C00BCCAF4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A3D9DEFD2201B00900BCCAF4 /* AudioPlayer.swift */,
+				A3D9DEFD2201B00900BCCAF4 /* SoundController.swift */,
 				A3FDE6F9221317E600D00814 /* UpdateController.swift */,
 				A38413302215CC80003E0C50 /* AlertController.swift */,
 				A336C92122215B510068FCAD /* SyntaxController.swift */,
@@ -1185,7 +1185,7 @@
 				A3476EA2229A748100031FD9 /* CurrentWorkoutState.swift in Sources */,
 				A392B805220C6CCB0030FBD4 /* ExerciseController.swift in Sources */,
 				A35AA6A722116F3500A6CD10 /* StatsContainerCollectionViewCell.swift in Sources */,
-				A3D9DEFE2201B00900BCCAF4 /* AudioPlayer.swift in Sources */,
+				A3D9DEFE2201B00900BCCAF4 /* SoundController.swift in Sources */,
 				A3480A7222997171000AA3A8 /* PopUpState.swift in Sources */,
 				A31BFC9A21F66865003214C2 /* NavigationState.swift in Sources */,
 				A3476EB3229ACDAD00031FD9 /* CurrentWorkoutCollectionViewCellStoreSubscriber.swift in Sources */,

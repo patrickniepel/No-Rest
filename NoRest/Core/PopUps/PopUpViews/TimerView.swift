@@ -95,7 +95,7 @@ class TimerView: UIView {
     @objc private func handleTimer() {
         if timerCounter == 0 {
             stopMainTimer()
-            AudioPlayer.playTimerSound()
+            SoundController.playTimerSound()
             delegate?.timerDidEnd()
             return
         }

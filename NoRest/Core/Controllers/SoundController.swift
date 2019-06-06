@@ -1,5 +1,5 @@
 //
-//  AudioPlayer.swift
+//  SoundController.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 30.01.19.
@@ -9,13 +9,14 @@
 import Foundation
 import AVKit
 
-struct AudioPlayer {
+struct SoundController {
     
     private static var audioPlayer: AVAudioPlayer?
     
+    
+    
     static func playTimerSound() {
         if SettingsController.isTimerSoundActivated {
-            
             
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "timerSound", ofType: "wav") ?? ""))
@@ -26,6 +27,12 @@ struct AudioPlayer {
             audioPlayer?.prepareToPlay()
             audioPlayer?.numberOfLoops = 0
             audioPlayer?.play()
+            
+//            let generator = UINotificationFeedbackGenerator()
+//            generator.prepare()
+//            generator.notificationOccurred(.success)
+            
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
     }
 }
