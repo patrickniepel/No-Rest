@@ -1,9 +1,9 @@
 PODS:
-  - PNCommons (1.1.1)
-  - ReSwift (4.1.1)
+  - PNCommons (1.1.2)
+  - ReSwift (5.0.0)
   - SCLAlertView (0.8)
-  - SwiftLint (0.31.0)
-  - Willow (5.1.0)
+  - SwiftLint (0.36.0)
+  - Willow (6.0.0)
 
 DEPENDENCIES:
   - PNCommons (~> 1.1.1)
@@ -13,7 +13,7 @@ DEPENDENCIES:
   - Willow
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - ReSwift
     - SCLAlertView
     - SwiftLint
@@ -22,12 +22,12 @@ SPEC REPOS:
     - PNCommons
 
 SPEC CHECKSUMS:
-  PNCommons: 16e86765632351c488905e1a61138cf02e63797d
-  ReSwift: d925be0033558f55bd73d92869961230dfe19d52
+  PNCommons: cd19418e989ac8aef5f406c2d93d35b8240a68f4
+  ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
-  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
-  Willow: ad7f75939db11f7d56a97df2ca04405815e73125
+  SwiftLint: fc9859e4e1752340664851f667bb1898b9c90114
+  Willow: 8efe9bd7bb99b06fe017566848492748b763a0ac
 
-PODFILE CHECKSUM: ac2edc31316a49fbf013f341b1950f652f76c4d8
+PODFILE CHECKSUM: 0d941d4139c77ed18ca995a6ae08f66e5cf6e138
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.8.4

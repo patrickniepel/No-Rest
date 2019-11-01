@@ -127,7 +127,6 @@ open class ConsoleWriter: LogModifierWriter {
 
 /// The OSLogWriter class runs all modifiers in the order they were created and passes the resulting message
 /// off to an OSLog with the specified subsystem and category.
-@available(iOS 10.0, macOS 10.12.0, tvOS 10.0, watchOS 3.0, *)
 open class OSLogWriter: LogModifierWriter {
     public let subsystem: String
     public let category: String
@@ -179,11 +178,16 @@ open class OSLogWriter: LogModifierWriter {
         os_log("%@", log: log, type: type, message)
     }
 
-    private func logType(forLogLevel logLevel: LogLevel) -> OSLogType {
+    /// Returns the `OSLogType` to use for the specified `LogLevel`.
+    ///
+    /// - Parameter logLevel: The level to be map to a `OSLogType`.
+    ///
+    /// - Returns: An `OSLogType` corresponding to the `LogLevel`.
+    open func logType(forLogLevel logLevel: LogLevel) -> OSLogType {
         switch logLevel {
         case LogLevel.debug: return .debug
         case LogLevel.info:  return .info
-        case LogLevel.warn:  return .error
+        case LogLevel.warn:  return .default
         case LogLevel.error: return .error
         default:             return .default
         }
