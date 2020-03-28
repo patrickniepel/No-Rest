@@ -16,7 +16,6 @@ func navigationReducer(action: Action, state: NavigationState?) -> NavigationSta
         newState.screen = nil
         newState.action = .push
         newState.mainStack = []
-        log.reduce("Invalidate Screen")
         return newState
     }
     
@@ -45,8 +44,6 @@ func navigationReducer(action: Action, state: NavigationState?) -> NavigationSta
         newState.mainStack = []
         newState.screen = routeAction.screen
         newState.action = routeAction.navigationAction
-        
-        log.route("[\(routeAction.destination)] \(routeAction.screen)")
         
         let target = RouteDestination.determine(destination: routeAction.destination)
         newState.activeTabBar = target

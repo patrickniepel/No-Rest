@@ -26,12 +26,6 @@ class HistoryTableViewCell: UITableViewCell {
         return cv
     }()
     
-    private let separator: UIView = {
-        let view = UIView()
-        view.backgroundColor = .backgroundColorUIControl
-        return view
-    }()
-    
     var workouts: [MyWorkout] = []
 
     override func prepareForReuse() {
@@ -55,10 +49,8 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     private func setupCollectionViewLayout() {
-        contentView.addSubviews(historyCollectionView, separator)
-        
-        separator.anchor(leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 8, bottom: 12, right: 8), size: CGSize(width: 0, height: 1))
-        historyCollectionView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: separator.topAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        contentView.addSubviews(historyCollectionView)
+        historyCollectionView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
 
 }

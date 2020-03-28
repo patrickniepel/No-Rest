@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Willow
 
 struct EmojiModifier: LogModifier {
     let name: String

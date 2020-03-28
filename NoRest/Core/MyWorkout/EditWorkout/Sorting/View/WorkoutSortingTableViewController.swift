@@ -40,8 +40,11 @@ class WorkoutSortingTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.backgroundColor = .backgroundColorMain
         tableView.rowHeight = NRConstants.TableViews.rowHeight
-        tableView.tableFooterView = UIView() // Remove empty rows
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
         tableView.isEditing = true
+        tableView.tintColor = .textColor
+        tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+        tableView.separatorColor = .backgroundColorUIControl
         tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell)
     }
     

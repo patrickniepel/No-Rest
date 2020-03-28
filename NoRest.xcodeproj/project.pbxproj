@@ -121,13 +121,9 @@
 		A3AC807A21FDF79C000DE1EF /* ExercisesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AC807921FDF79C000DE1EF /* ExercisesState.swift */; };
 		A3AC807C21FDF7D6000DE1EF /* ExercisesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AC807B21FDF7D6000DE1EF /* ExercisesReducer.swift */; };
 		A3AC807E21FDF8A4000DE1EF /* ExercisesSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AC807D21FDF8A4000DE1EF /* ExercisesSubscriber.swift */; };
-		A3AE4A1D21F74CCE007A97AB /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A1C21F74CCE007A97AB /* LoggingMiddleware.swift */; };
 		A3AE4A1F21F74D61007A97AB /* RouteDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */; };
 		A3AE4A2221F74E0C007A97AB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */; };
 		A3AE4A2421F74E2A007A97AB /* TabBarDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */; };
-		A3AE4A2721F74EF3007A97AB /* LoggingProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2621F74EF3007A97AB /* LoggingProxy.swift */; };
-		A3AE4A2921F74F32007A97AB /* LogginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2821F74F32007A97AB /* LogginConfiguration.swift */; };
-		A3AE4A2C21F75004007A97AB /* EmojiModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2B21F75004007A97AB /* EmojiModifier.swift */; };
 		A3C9D59A2207277A00401E08 /* NRLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D5992207277A00401E08 /* NRLabel.swift */; };
 		A3C9D59C22072BEF00401E08 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9D59B22072BEF00401E08 /* CGFloat+Extension.swift */; };
 		A3D9802522118A51006E0B68 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9802422118A51006E0B68 /* Stat.swift */; };
@@ -282,13 +278,9 @@
 		A3AC807921FDF79C000DE1EF /* ExercisesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesState.swift; sourceTree = "<group>"; };
 		A3AC807B21FDF7D6000DE1EF /* ExercisesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesReducer.swift; sourceTree = "<group>"; };
 		A3AC807D21FDF8A4000DE1EF /* ExercisesSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesSubscriber.swift; sourceTree = "<group>"; };
-		A3AE4A1C21F74CCE007A97AB /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDestination.swift; sourceTree = "<group>"; };
 		A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDestination.swift; sourceTree = "<group>"; };
-		A3AE4A2621F74EF3007A97AB /* LoggingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingProxy.swift; sourceTree = "<group>"; };
-		A3AE4A2821F74F32007A97AB /* LogginConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogginConfiguration.swift; sourceTree = "<group>"; };
-		A3AE4A2B21F75004007A97AB /* EmojiModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiModifier.swift; sourceTree = "<group>"; };
 		A3C9D5992207277A00401E08 /* NRLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRLabel.swift; sourceTree = "<group>"; };
 		A3C9D59B22072BEF00401E08 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		A3D9802422118A51006E0B68 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
@@ -910,17 +902,6 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		A3AE4A2521F74E9F007A97AB /* Logging */ = {
-			isa = PBXGroup;
-			children = (
-				A3AE4A2621F74EF3007A97AB /* LoggingProxy.swift */,
-				A3AE4A2821F74F32007A97AB /* LogginConfiguration.swift */,
-				A3AE4A2B21F75004007A97AB /* EmojiModifier.swift */,
-				A3AE4A1C21F74CCE007A97AB /* LoggingMiddleware.swift */,
-			);
-			path = Logging;
-			sourceTree = "<group>";
-		};
 		A3D9802322118909006E0B68 /* StatsContainer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1014,7 +995,6 @@
 			isa = PBXGroup;
 			children = (
 				A391ADDC21FB9422002A7D04 /* Core */,
-				A3AE4A2521F74E9F007A97AB /* Logging */,
 				A34841602299178900FDC90F /* Resources */,
 				A3E073181F90ED320099A7B8 /* AppDelegate.swift */,
 				A3E0731F1F90ED320099A7B8 /* Assets.xcassets */,
@@ -1151,14 +1131,12 @@
 				"${BUILT_PRODUCTS_DIR}/PNCommons/PNCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/Willow/Willow.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PNCommons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Willow.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1209,7 +1187,6 @@
 				A3AC807A21FDF79C000DE1EF /* ExercisesState.swift in Sources */,
 				A3DE1C5D2228394000EDB6C9 /* HistoryCollectionViewDataSource.swift in Sources */,
 				A349E38D229E796500E3C0DB /* SetsTableViewDataSource.swift in Sources */,
-				A3AE4A2C21F75004007A97AB /* EmojiModifier.swift in Sources */,
 				A3480A742299719C000AA3A8 /* PopUpReducer.swift in Sources */,
 				A3C9D59A2207277A00401E08 /* NRLabel.swift in Sources */,
 				A38413392215F24E003E0C50 /* InfoState.swift in Sources */,
@@ -1230,7 +1207,6 @@
 				A3E07FD9221F2F2E00A61A14 /* WorkoutSetupSubsriber.swift in Sources */,
 				A3480A7622997241000AA3A8 /* PopUpSubscriber.swift in Sources */,
 				A3987629221864610019238B /* MyWorkoutCollectionViewController.swift in Sources */,
-				A3AE4A1D21F74CCE007A97AB /* LoggingMiddleware.swift in Sources */,
 				A3A09C1A1F9105FB00CD01AF /* SettingsController.swift in Sources */,
 				A31BFC9C21F66883003214C2 /* RouteAction.swift in Sources */,
 				A3D9DEF82201A9AD00BCCAF4 /* Category.swift in Sources */,
@@ -1287,7 +1263,6 @@
 				A3D9DF002201B24300BCCAF4 /* Statistics.swift in Sources */,
 				A31BFC9421F667F9003214C2 /* AppCoordinatorSubscriber.swift in Sources */,
 				A3696F7622A2CD6A00A37AF7 /* HistoryDetailSetsView.swift in Sources */,
-				A3AE4A2721F74EF3007A97AB /* LoggingProxy.swift in Sources */,
 				A320B9182201B96900FFFA40 /* SettingsTableViewDataSource.swift in Sources */,
 				A3696F7D22A2D40600A37AF7 /* HistoryDetailSetsTableViewDelegate.swift in Sources */,
 				A39C2A191F913B1400AFF8C6 /* DefaultExercises.swift in Sources */,
@@ -1314,7 +1289,6 @@
 				A38413372215F208003E0C50 /* InfoReducer.swift in Sources */,
 				A336C91E2221499D0068FCAD /* WorkoutSortingReducer.swift in Sources */,
 				A31BFCA021F668BE003214C2 /* ViewBuilder.swift in Sources */,
-				A3AE4A2921F74F32007A97AB /* LogginConfiguration.swift in Sources */,
 				A391ADE321FB94C0002A7D04 /* ExercisesCategoryCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1450,10 +1424,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6C2B5VUSRK;
 				INFOPLIST_FILE = "$(SRCROOT)/NoRest/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.patrickniepel.Push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1467,10 +1443,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6C2B5VUSRK;
 				INFOPLIST_FILE = "$(SRCROOT)/NoRest/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.patrickniepel.Push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

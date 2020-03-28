@@ -41,8 +41,9 @@ class HistoryTableViewController: UITableViewController {
         tableView.backgroundColor = .backgroundColorMain
         tableView.allowsSelection = false
         tableView.allowsMultipleSelection = false
-        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
+        tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+        tableView.separatorColor = .backgroundColorUIControl
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
         tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.historyTableViewCell)
     }
     

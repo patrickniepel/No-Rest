@@ -14,7 +14,7 @@ extension HistoryTableViewController {
         if let headerView = view as? UITableViewHeaderFooterView {
             headerView.textLabel?.textColor = .uiControl
             headerView.textLabel?.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
-            headerView.backgroundView?.backgroundColor = .backgroundColorMain
+            headerView.contentView.backgroundColor = .backgroundColorUIControl
         }
     }
     

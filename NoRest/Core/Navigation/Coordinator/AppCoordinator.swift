@@ -90,9 +90,8 @@ class AppCoordinator {
         nc.navigationBar.tintColor = .uiControl
         nc.navigationBar.barTintColor = .backgroundColorUIControl
         nc.view.backgroundColor = .backgroundColorMain
-        nc.navigationBar.prefersLargeTitles = true
         nc.navigationBar.isTranslucent = false
-        nc.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        nc.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColor]
         
         return nc
     }
@@ -117,6 +116,12 @@ class AppCoordinator {
         default:
             return UIViewController()
         }
+    }
+}
+
+extension UINavigationController {
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
     }
 }
 

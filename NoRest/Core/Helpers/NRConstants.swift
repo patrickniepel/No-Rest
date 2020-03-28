@@ -83,7 +83,7 @@ struct NRConstants {
     struct Texts {
         static let emptyWorkouts = "No Workouts Available!\nPress '+' To Add Your First Workout"
         static let emptyExercises = "No Exercises Available\nPress '+' To Add An Exercise"
-        static let emptyHistory = "No History Available!\nStart Working Out"
+        static let emptyHistory = "No History Available!\nStart Working Out!"
         static let reps = "Reps"
         static let weight = "Weight"
         static let sets = "Sets"
@@ -114,7 +114,7 @@ struct NRConstants {
             static let rating = "Rate This App"
         }
         
-        static let copyright = "© 2019 Patrick Niepel - v2.0.0"
+        static let copyright = "© 2020 Patrick Niepel - v2.0.1"
     }
     
     struct ButtonTitles {

@@ -25,8 +25,7 @@ class NRDefaultTableViewCell: UITableViewCell {
         self.accessoryType = accessoryType
         
         contentLabel.text = title
-        contentView.backgroundColor = .backgroundColorUIControl
-        backgroundColor = .backgroundColorUIControl
+        backgroundColor = .backgroundColorMain
         contentView.addSubview(contentLabel)
         contentLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
     }

@@ -15,9 +15,9 @@ class StatisticsViewController: UIViewController {
         searchBar.autocapitalizationType = .none
         searchBar.autocorrectionType = .no
         searchBar.showsCancelButton = true
-        searchBar.barTintColor = .red
         searchBar.showsSearchResultsButton = false
         searchBar.tintColor = .uiControl
+        searchBar.searchTextField.textColor = .textColor
         searchBar.keyboardType = .default
         searchBar.keyboardAppearance = .default
         searchBar.backgroundImage = UIImage()
@@ -97,13 +97,9 @@ class StatisticsViewController: UIViewController {
     private func setupLayout() {
         view.addSubviews(searchBar, separator, statisticsCollectionView, pageControl)
         
-        if #available(iOS 11.0, *) {
-            pageControl.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, centerX: view.centerXAnchor)
-        } else {
-            pageControl.anchor(top: nil, leading: nil, bottom: view.bottomAnchor, trailing: nil, centerX: view.centerXAnchor)
-        }
+        pageControl.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, centerX: view.centerXAnchor)
         
-        searchBar.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
+        searchBar.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 16, left: 8, bottom: 0, right: 8))
         
         separator.anchor(top: searchBar.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: searchBar.trailingAnchor, padding: UIEdgeInsets(top: 16, left: 32, bottom: 16, right: 32), size: CGSize(width: 0, height: 1))
         

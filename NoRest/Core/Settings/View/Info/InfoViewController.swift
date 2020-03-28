@@ -12,8 +12,8 @@ class InfoViewController: UIViewController {
     
     private let infoTextView: UITextView = {
         let tv = UITextView()
-        tv.backgroundColor = .backgroundColorUIControl
-        tv.textColor = .black
+        tv.backgroundColor = .backgroundColorMain
+        tv.textColor = .textColor
         tv.font = UIFont(name: NRConstants.Font.font, size: 12)
         tv.isUserInteractionEnabled = true
         tv.isEditable = false
@@ -30,7 +30,6 @@ class InfoViewController: UIViewController {
     
     private func setupScreen() {
         view.backgroundColor = .backgroundColorUIControl
-        navigationItem.largeTitleDisplayMode = .never
         setupLicensesTextView()
     }
     

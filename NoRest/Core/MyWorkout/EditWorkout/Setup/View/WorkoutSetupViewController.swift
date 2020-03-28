@@ -16,9 +16,11 @@ class WorkoutSetupViewController: UIViewController {
         tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
         tableView.allowsMultipleSelection = false
         tableView.allowsSelection = true
-        tableView.separatorColor = .uiControl
-        tableView.tintColor = .uiControl
+        tableView.separatorColor = .backgroundColorUIControl
+        tableView.tintColor = .backgroundColorUIControl
         tableView.backgroundColor = .backgroundColorMain
+        tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
         tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrDefaultTableViewCell)
         return tableView
     }()
@@ -39,6 +41,9 @@ class WorkoutSetupViewController: UIViewController {
         textField.font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .default
+        textField.textColor = .textColor
+        textField.tintColor = .textColor
+        textField.backgroundColor = .backgroundColorUIControl
         return textField
     }()
     
@@ -65,7 +70,7 @@ class WorkoutSetupViewController: UIViewController {
     private func setupScreen() {
         let sortingButton = UIBarButtonItem(title: NRConstants.ButtonTitles.sorting, style: .plain, target: self, action: #selector(openSortingScreen))
         navigationItem.rightBarButtonItem = sortingButton
-        view.backgroundColor = .backgroundColorUIControl
+        view.backgroundColor = .backgroundColorMain
     }
     
     private func fillLayout() {

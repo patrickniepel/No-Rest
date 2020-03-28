@@ -13,9 +13,12 @@ class SettingsTimerTableViewCell: UITableViewCell {
     private let timerSwitch: UISwitch = {
         let timerSwitch = UISwitch()
         timerSwitch.isOn = SettingsController.isTimerSoundActivated
-        timerSwitch.tintColor = .backgroundColorMain
-        timerSwitch.thumbTintColor = .uiControl
-        timerSwitch.onTintColor = .backgroundColorMain
+        timerSwitch.thumbTintColor = .textColor
+        timerSwitch.onTintColor = .backgroundColorUIControl
+        timerSwitch.backgroundColor = .secondaryTextColor
+        timerSwitch.layer.cornerRadius = 16
+        timerSwitch.layer.borderColor = UIColor.backgroundColorUIControl.cgColor
+        timerSwitch.layer.borderWidth = 1
         return timerSwitch
     }()
     
@@ -29,8 +32,8 @@ class SettingsTimerTableViewCell: UITableViewCell {
         
         contentView.addSubview(contentLabel)
         contentView.addSubview(timerSwitch)
-        contentView.backgroundColor = .backgroundColorUIControl
-        backgroundColor = .backgroundColorUIControl
+        contentView.backgroundColor = .backgroundColorMain
+        backgroundColor = .backgroundColorMain
         
         timerSwitch.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
         

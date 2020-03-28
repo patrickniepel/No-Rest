@@ -34,18 +34,18 @@ extension SettingsTableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.textColor = .white
-            headerView.backgroundView?.backgroundColor = .backgroundColorMain
+            headerView.textLabel?.textColor = .textColor
+            headerView.contentView.backgroundColor = .backgroundColorUIControl
         }
     }
     
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         if let footerView = view as? UITableViewHeaderFooterView {
-            footerView.textLabel?.textColor = .white
-            footerView.backgroundView?.backgroundColor = .backgroundColorMain
+            footerView.textLabel?.textColor = .textColor
+            footerView.contentView.backgroundColor = .backgroundColorUIControl
         }
     }
 }

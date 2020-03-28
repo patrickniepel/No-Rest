@@ -12,14 +12,13 @@ extension WorkoutSetupViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         workoutSetupCtrl.toggleSelectedExercise(section: indexPath.section, row: indexPath.row)
-        tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.textColor = .white
-            headerView.backgroundView?.backgroundColor = .backgroundColorMain
+            headerView.textLabel?.textColor = .textColor
+            headerView.contentView.backgroundColor = .backgroundColorUIControl
         }
     }
 }

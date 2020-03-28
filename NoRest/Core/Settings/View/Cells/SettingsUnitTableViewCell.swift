@@ -13,7 +13,10 @@ class SettingsUnitTableViewCell: UITableViewCell {
     private lazy var unitSegmentedControl: UISegmentedControl = {
         let items: [String] = [Unit.kg.rawValue, Unit.lbs.rawValue]
         let control = UISegmentedControl(items: items)
-        control.tintColor = .uiControl
+        
+        control.backgroundColor = .backgroundColorUIControl
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.backgroundColorUIControl], for: .selected)
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.textColor], for: .normal)
         
         let segmentWidth = self.contentView.frame.width * 0.75 / 2
         for i in 0..<items.count {
@@ -35,7 +38,8 @@ class SettingsUnitTableViewCell: UITableViewCell {
         
         contentView.addSubview(contentLabel)
         contentView.addSubview(unitSegmentedControl)
-        contentView.backgroundColor = .backgroundColorUIControl
+        contentView.backgroundColor = .backgroundColorMain
+        backgroundColor = .backgroundColorMain
         
         unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
         

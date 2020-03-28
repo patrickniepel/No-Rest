@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Willow
 
 var log = Proxy(logger: logger)
 

@@ -29,7 +29,6 @@ extension AppCoordinator: StoreSubscriber {
     func newState(state: NavigationState) {
         // in this case the state is invalidated (e. g. user jumped back using the back button)
         guard let screen = state.screen else {
-            log.perform("Invalidated UI State")
             self.state = state
             return
         }
@@ -71,13 +70,11 @@ extension AppCoordinator: StoreSubscriber {
     private func handleAction(navigationController: UINavigationController?, vc: UIViewController, action: NavigationAction) {
         
         if isScreenPresented(view: vc, navigationController: navigationController) {
-            log.event("\(type(of: vc)) is already presented.")
             return
         }
         
         for viewController in navigationController?.viewControllers ?? [] {
             if viewController === vc {
-                log.error("Can't push viewController \(viewController.debugDescription) because it is already pushed.")
                 return
             }
         }

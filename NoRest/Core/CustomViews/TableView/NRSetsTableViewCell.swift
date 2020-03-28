@@ -21,7 +21,7 @@ class NRSetsTableViewCell: UITableViewCell {
     private let xImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = NRConstants.Images.x.image?.dye(.black)
+        imageView.image = NRConstants.Images.x.image?.dye(.textColor)
         return imageView
     }()
     

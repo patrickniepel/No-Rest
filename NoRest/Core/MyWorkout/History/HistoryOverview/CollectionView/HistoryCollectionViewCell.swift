@@ -14,7 +14,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
         let label = NRLabel()
         label.numberOfLines = 2
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .textColor
         return label
     }()
     

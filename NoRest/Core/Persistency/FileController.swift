@@ -29,9 +29,7 @@ struct FileController {
                 let decodedData = try decoder.decode(UserData.self, from: data)
                 return decodedData
             }
-        } catch(let error) {
-            log.error(error.localizedDescription)
-        }
+        } catch(let error) {}
         
         return nil
     }
@@ -59,9 +57,7 @@ struct FileController {
         do {
             let encodedData = try encoder.encode(dataObject)
             archiveDataObject(dataObject: encodedData)
-        } catch(let error) {
-            log.error(error.localizedDescription)
-        }
+        } catch(let error) {}
     }
     
     private static func archiveDataObject(dataObject: Data) {

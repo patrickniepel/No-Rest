@@ -12,12 +12,13 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     
     private let nameLabel: NRLabel = {
         let label = NRLabel(size: .fontSizeLarge)
+        label.textColor = .secondaryTextColor
         return label
     }()
     
     private let infoLabel: NRLabel = {
         let label = NRLabel()
-        label.textColor = .black
+        label.textColor = .textColor
         return label
     }()
     
@@ -110,14 +111,14 @@ class NRItemCollectionViewCell: UICollectionViewCell {
         guard let workout = workout else { return }
         nameLabel.text = workout.name
         infoLabel.text = myWorkoutCtrl.dateAsString(for: workout.date)
-        infoImageView.image = NRConstants.Images.date.image
+        infoImageView.image = NRConstants.Images.date.image?.dye(.backgroundColorMain)
     }
     
     private func fillExercise() {
         guard let exercise = exercise else { return }
         infoLabel.text = exercise.timer.displayValue
         nameLabel.text = exercise.name
-        infoImageView.image = NRConstants.Images.timer.image?.dye(.black)
+        infoImageView.image = NRConstants.Images.timer.image?.dye(.backgroundColorMain)
     }
     
     private func deleteItem() {

@@ -8,7 +8,6 @@ source 'https://github.com/patrickniepel/PNCommonsSpecs.git'
 target 'NoRest' do
   pod 'ReSwift'
   pod 'SwiftLint'
-  pod 'Willow'
   pod 'SCLAlertView'
   pod 'PNCommons', '~> 1.1.1'
 end

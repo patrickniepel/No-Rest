@@ -79,6 +79,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         textField.keyboardType = .numberPad
         textField.backgroundColor = .backgroundColorUIControl
         textField.tintColor = .uiControl
+        textField.textColor = .textColor
         textField.textAlignment = .center
         return textField
     }()
@@ -92,6 +93,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         textField.keyboardType = .decimalPad
         textField.backgroundColor = .backgroundColorUIControl
         textField.tintColor = .uiControl
+        textField.textColor = .textColor
         textField.textAlignment = .center
         return textField
     }()

@@ -32,7 +32,8 @@ class SettingsTableViewController: UITableViewController {
         tableView.backgroundColor = .backgroundColorMain
         tableView.rowHeight = NRConstants.TableViews.rowHeight
         tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
-        tableView.separatorColor = .uiControl
+        tableView.separatorColor = .backgroundColorUIControl
+        tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
     }
     
     func showAlertForDataReset(_ dataReset: DataReset) {
