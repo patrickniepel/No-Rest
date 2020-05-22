@@ -62,7 +62,7 @@ enum NavigationAction {
 enum Screen {
     case remain
     case initial
-    case myWorkout
+    case workouts
     case workoutSetup
     case workoutSorting
     case statistics

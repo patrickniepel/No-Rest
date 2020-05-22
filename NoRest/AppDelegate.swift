@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        PersistencyController.loadUserData()
+        Database.setup()
         
         setupCoordinator()
         return true
@@ -32,10 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         self.coordinator = coordinator
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        PersistencyController.storeUserData()
     }
 }
 

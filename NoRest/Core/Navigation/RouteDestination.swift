@@ -9,7 +9,7 @@
 import Foundation
 
 enum RouteDestination {
-    case myWorkout
+    case workouts
     case exercises
     case statistics
     case settings
@@ -17,7 +17,7 @@ enum RouteDestination {
     static func destination(for index: Int) -> RouteDestination {
         switch index {
         case 0:
-            return .myWorkout
+            return .workouts
         case 1:
             return .exercises
         case 3:
@@ -25,14 +25,14 @@ enum RouteDestination {
         case 4:
             return .settings
         default:
-            return .myWorkout
+            return .workouts
         }
     }
     
     static func determine(destination: RouteDestination) -> TabBarDestination {
         
         switch destination {
-        case .myWorkout:
+        case .workouts:
             return TabBarDestination.myWorkout
         case .exercises:
             return TabBarDestination.exercises

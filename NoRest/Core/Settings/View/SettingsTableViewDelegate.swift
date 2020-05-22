@@ -37,15 +37,15 @@ extension SettingsTableViewController {
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.textColor = .textColor
-            headerView.contentView.backgroundColor = .backgroundColorUIControl
+            headerView.textLabel?.textColor = NRStyle.primaryTextColor
+            headerView.contentView.backgroundColor = NRStyle.themeColor
         }
     }
     
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         if let footerView = view as? UITableViewHeaderFooterView {
-            footerView.textLabel?.textColor = .textColor
-            footerView.contentView.backgroundColor = .backgroundColorUIControl
+            footerView.textLabel?.textColor = NRStyle.primaryTextColor
+            footerView.contentView.backgroundColor = NRStyle.themeColor
         }
     }
 }

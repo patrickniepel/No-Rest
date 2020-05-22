@@ -23,12 +23,12 @@ struct AlertController {
         alertView.showError(text, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
     }
     
-    static func showOnboardingAlert(with text: String, onboardingType: PersistencyController.OnboardingType) {
+    static func showOnboardingAlert(with text: String, onboardingType: UserDefaultsController.Onboarding) {
         let appearance = interactiveAlertAppearance()
         let alertView = SCLAlertView(appearance: appearance)
         let responder = SCLAlertViewResponder(alertview: alertView)
         alertView.addButton(NRConstants.ButtonTitles.ok) {
-            PersistencyController.storeOnboarding(type: onboardingType)
+            UserDefaultsController.storeOnboarding(type: onboardingType)
             responder.close()
         }
         alertView.showInfo(text, subTitle: "", animationStyle: .bottomToTop)

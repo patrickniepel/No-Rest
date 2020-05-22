@@ -31,7 +31,7 @@ class NRItemCollectionViewDelegate<T>: NSObject, UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let dataSource = collectionView.dataSource as? NRItemCollectionViewDataSource<T>
         if let item = dataSource?.items[safe: indexPath.item] {
-            if let workout = item as? MyWorkout {
+            if let workout = item as? Workout {
                 startEditingWorkout(workout)
             } else if let exercise = item as? Exercise {
                 startEditingExercise(exercise)
@@ -39,16 +39,16 @@ class NRItemCollectionViewDelegate<T>: NSObject, UICollectionViewDelegateFlowLay
         }
     }
     
-    func startEditingWorkout(_ workout: MyWorkout) {
+    func startEditingWorkout(_ workout: Workout) {
         let setupWorkoutAction = WorkoutSetupAction(workout: workout)
         store.dispatch(setupWorkoutAction)
         
-        let routeAction = RouteAction(screen: .workoutSetup, in: .myWorkout, action: .push)
+        let routeAction = RouteAction(screen: .workoutSetup, in: .workouts, action: .push)
         store.dispatch(routeAction)
     }
     
     func startEditingExercise(_ exercise: Exercise) {
-        let editExerciseAction = EditExerciseAction(exercise: exercise, category: nil)
+        let editExerciseAction = EditExerciseAction(exercise: exercise, type: nil)
         store.dispatch(editExerciseAction)
         
         let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)

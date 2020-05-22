@@ -11,21 +11,19 @@ import Foundation
 struct DefaultExercise {
     
     static func allExercises() -> [Exercise] {
-        let categories = Category.allMuscleCategories
+        let types = ExerciseType.allCases
         var exercises: [Exercise] = []
         
-        for category in categories {
-            exercises += DefaultExercise.defaultExercises(for: category)
+        for type in types {
+            exercises += DefaultExercise.defaultExercises(for: type)
         }
         
         return exercises
     }
     
-    static func defaultExercises(for category: Category) -> [Exercise] {
+    static func defaultExercises(for type: ExerciseType) -> [Exercise] {
         var titles: [String] = []
-        switch category {
-        case .none:
-            return []
+        switch type {
         case .chest:
             titles = [
                 "Cable Crossover",
@@ -121,13 +119,13 @@ struct DefaultExercise {
                 "Climbing Machine"
             ]
         }
-        return createExercises(with: titles, for: category)
+        return createExercises(with: titles, for: type)
     }
     
-    private static func createExercises(with titles: [String], for category: Category) -> [Exercise] {
+    private static func createExercises(with titles: [String], for type: ExerciseType) -> [Exercise] {
         var exercises: [Exercise] = []
         for title in titles {
-            let newExercise = Exercise(name: title, category: category)
+            let newExercise = Exercise(name: title, type: type, restTimer: 0)
             exercises.append(newExercise)
         }
         return exercises

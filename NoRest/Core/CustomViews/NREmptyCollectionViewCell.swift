@@ -15,7 +15,7 @@ class NREmptyCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont(name: NRConstants.Font.fontBold, size: 30)
-        label.textColor = .textColor
+        label.textColor = NRStyle.primaryTextColor
         return label
     }()
     

@@ -10,11 +10,11 @@ import ReSwift
 
 func exercisesReducer(action: Action, state: ExercisesState?) -> ExercisesState {
     
-    var newState = state ?? ExercisesState(category: nil)
+    var newState = state ?? ExercisesState(type: nil)
     
-    if let selectedCategoryAction = action as? SelectedCategoryAction {
-        newState.category = selectedCategoryAction.category
-    }
+//    if let selectedCategoryAction = action as? SelectedCategoryAction {
+//        newState.category = selectedCategoryAction.category
+//    }
     
     return newState
 }

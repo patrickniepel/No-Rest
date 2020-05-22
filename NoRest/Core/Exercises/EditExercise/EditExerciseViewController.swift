@@ -22,7 +22,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     
     private let mainView: UIView = {
         let view = UIView()
-        view.backgroundColor = .backgroundColorUIControl
+        view.backgroundColor = NRStyle.themeColor
         view.applyShadow()
         view.layer.cornerRadius = 20
         return view
@@ -30,21 +30,21 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     
     private let nameLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Editing.nameLabel)
-        label.textColor = .textColor
+        label.textColor = NRStyle.primaryTextColor
         label.sizeToFit()
         return label
     }()
     
     private let timerLabel: NRLabel = {
         let label = NRLabel()
-        label.textColor = .textColor
+        label.textColor = NRStyle.primaryTextColor
         label.sizeToFit()
         return label
     }()
     
     private let notesLabel: NRLabel = {
         let label = NRLabel(with: NRConstants.Editing.notesLabel)
-        label.textColor = .textColor
+        label.textColor = NRStyle.primaryTextColor
         label.sizeToFit()
         return label
     }()
@@ -55,10 +55,10 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         textField.autocapitalizationType = .words
         textField.autocorrectionType = .default
         textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
+        textField.font = UIFont(name: NRConstants.Font.font, size: NRStyle.fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .default
-        textField.tintColor = .uiControl
+        textField.tintColor = NRStyle.complementaryColor
         return textField
     }()
     
@@ -66,10 +66,10 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         let textField = UITextField()
         textField.adjustsFontSizeToFitWidth = true
         textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
+        textField.font = UIFont(name: NRConstants.Font.font, size: NRStyle.fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .numberPad
-        textField.tintColor = .uiControl
+        textField.tintColor = NRStyle.complementaryColor
         return textField
     }()
     
@@ -77,11 +77,11 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         let textView = UITextView()
         textView.autocapitalizationType = .sentences
         textView.autocorrectionType = .default
-        textView.font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
+        textView.font = UIFont(name: NRConstants.Font.font, size: NRStyle.fontSizeRegular)
         textView.isEditable = true
         textView.keyboardAppearance = .default
         textView.keyboardType = .default
-        textView.tintColor = .uiControl
+        textView.tintColor = NRStyle.complementaryColor
         textView.layer.cornerRadius = 5
         textView.layer.borderWidth = 0.5
         textView.layer.borderColor = UIColor.lightGray.cgColor
@@ -110,22 +110,22 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveExercise))
         navigationItem.rightBarButtonItem = saveButton
         navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .backgroundColorMain
+        view.backgroundColor = NRStyle.themeColor
     }
     
     private func fillLayout() {
         guard let exercise = exercise else { return }
-        timerLabel.text = exercise.type == .weightLifting ? NRConstants.Editing.restTimerLabel : NRConstants.Editing.runningTimerLabel
+        timerLabel.text = "Todo"
         nameTextField.text = exercise.name
-        timerTextField.text = "\(exercise.timer.valueForType)"
+        timerTextField.text = "\(exercise.restTimer) todo"
         notesTextView.text = exercise.notes
     }
     
-    func setupExercise(_ exercise: Exercise?, for category: Category?) {
+    func setupExercise(_ exercise: Exercise?, for type: ExerciseType?) {
         if let exercise = exercise {
             self.exercise = exercise
-        } else if let category = category {
-            self.exercise = Exercise(name: "", category: category)
+        } else if let type = type {
+            self.exercise = Exercise(name: "", type: type, restTimer: 0)
         }
         navigationItem.title = exercise?.name ?? NRConstants.ScreenTitles.newExercise
     }
@@ -136,10 +136,8 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
             return
         }
         exercise.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
-        exercise.timer.calculateSeconds(value: SyntaxController.checkTimerInputCorrect(text: timerTextField.text))
         exercise.notes = SyntaxController.checkNotesInputCorrect(text: notesTextView.text)
         let exerciseCtrl = ExerciseController()
-        exerciseCtrl.saveExercise(exercise)
         AlertController.showSuccessAlert(with: NRConstants.Alerts.savingSuccess)
         navigationController?.popViewController(animated: true)
     }
@@ -194,26 +192,26 @@ private extension EditExerciseViewController {
     func setupMainView() {
         scrollView.addSubview(mainView)
         
-        let mainViewHeight = view.frame.height - 2 * .defaultPadding
-        let mainViewWidth = view.frame.width - 2 * .defaultPadding
-        mainView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor, padding: UIEdgeInsets(top: .defaultPadding, left: .defaultPadding, bottom: .defaultPadding, right: .defaultPadding), size: CGSize(width: mainViewWidth, height: mainViewHeight))
+        let mainViewHeight = view.frame.height - 2 * 16
+        let mainViewWidth = view.frame.width - 2 * 16
+        mainView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor, padding: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16), size: CGSize(width: mainViewWidth, height: mainViewHeight))
         
         mainView.addSubviews(nameLabel, timerLabel, notesLabel, nameTextField, timerTextField, notesTextView)
     }
  
     func setupLabels() {
-        nameLabel.anchor(top: mainView.topAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: .defaultPadding, bottom: 0, right: 0))
-        timerLabel.anchor(top: nameTextField.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: .defaultPadding, bottom: 0, right: 0))
-        notesLabel.anchor(top: timerTextField.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: .defaultPadding, bottom: 0, right: 0))
+        nameLabel.anchor(top: mainView.topAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 0))
+        timerLabel.anchor(top: nameTextField.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 0))
+        notesLabel.anchor(top: timerTextField.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 0))
     }
     
     func setupTextInputs() {
         let topPadding: CGFloat = 8
         
         nameTextField.addTarget(self, action: #selector(updateNavigationTitle), for: .editingChanged)
-        nameTextField.anchor(top: nameLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: .defaultPadding, bottom: 0, right: .defaultPadding))
-        timerTextField.anchor(top: timerLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: .defaultPadding, bottom: 0, right: .defaultPadding))
+        nameTextField.anchor(top: nameLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: 16, bottom: 0, right: 16))
+        timerTextField.anchor(top: timerLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: 16, bottom: 0, right: 16))
         
-        notesTextView.anchor(top: notesLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: mainView.bottomAnchor, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: .defaultPadding, bottom: .defaultPadding, right: .defaultPadding))
+        notesTextView.anchor(top: notesLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: mainView.bottomAnchor, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: 16, bottom: 16, right: 16))
     }
 }

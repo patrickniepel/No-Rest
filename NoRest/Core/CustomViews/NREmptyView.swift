@@ -15,13 +15,13 @@ class NREmptyView: UIView {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont(name: NRConstants.Font.fontBold, size: 30)
-        label.textColor = .textColor
+        label.textColor = NRStyle.primaryTextColor
         return label
     }()
     
     private let arrowImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = NRConstants.Images.arrow.image?.dye(.uiControl)
+        imageView.image = NRConstants.Images.arrow.image?.dye(NRStyle.complementaryColor)
         imageView.contentMode = .scaleToFill
         return imageView
     }()

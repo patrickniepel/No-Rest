@@ -12,7 +12,7 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
 
     let statsCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .backgroundColorMain
+        cv.backgroundColor = NRStyle.themeColor
         cv.register(StatsCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statsCollectionViewCell)
         cv.register(StatsHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: NRConstants.CellIdentifiers.statsHeaderView)
         cv.isScrollEnabled = true
@@ -45,7 +45,7 @@ class StatsContainerCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupDesign() {
-        contentView.backgroundColor = .backgroundColorMain
+        contentView.backgroundColor = NRStyle.themeColor
     }
     
     private func setupLayout() {

@@ -10,29 +10,16 @@ import Foundation
 
 struct ExerciseController {
     
-    func updateNotes(_ exercise: Exercise) {
-        UpdateController.updateExercise(id: exercise.id, notes: exercise.notes)
+    func exercisesCount(for type: ExerciseType) -> Int {
+        return Array(Exercise.all()).filter { $0.type == type }.count
     }
     
-    func deleteExercise(_ exercise: Exercise) {
-        UpdateController.deleteExercise(exercise)
-    }
-    
-    func saveExercise(_ exercise: Exercise) {
-        UpdateController.updateExercise(exercise)
-    }
-    
-    func exercisesCount(for category: Category?) -> Int {
-        return UserData.sharedInstance.exercises.filter { $0.category == category }.count
-    }
-    
-    func exercises(for category: Category?) -> [Exercise] {
-        guard let category = category else { return [] }
-        let exercises = UserData.sharedInstance.exercises.filter { $0.category == category }.sorted()
-        return exercises
+    func exercises(for type: ExerciseType?) -> [Exercise] {
+        guard let type = type else { return [] }
+        return Array(Exercise.all()).filter { $0.type == type }
     }
     
     func allExercises() -> [Exercise] {
-        return UserData.sharedInstance.exercises.sorted()
+        return Array(Exercise.all())
     }
 }

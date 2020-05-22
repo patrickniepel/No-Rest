@@ -21,11 +21,11 @@ enum DataReset: Int {
 struct SettingsController {
     
     static var isTimerSoundActivated: Bool {
-        return UserData.sharedInstance.isTimerSoundActivated
+        return UserDefaultsController.isTimerSoundEnabled
     }
     
     static var currentUnit: Unit {
-        return UserData.sharedInstance.unit
+        return UserDefaultsController.unit
     }
     
     static var currentUnitAsIndex: Int {
@@ -33,32 +33,16 @@ struct SettingsController {
     }
     
     static func timerSoundStateChanged(to state: Bool) {
-        UserData.sharedInstance.isTimerSoundActivated = state
-        PersistencyController.storeUserData()
+        UserDefaultsController.isTimerSoundEnabled = state
     }
     
     static func unitChanged(to index: Int) {
         let newUnit = Unit.allCases[index]
-        UserData.sharedInstance.unit = newUnit
-        PersistencyController.storeUserData()
+        UserDefaultsController.unit = newUnit
     }
     
     static func resetData(_ dataReset: DataReset) {
-        if dataReset == .none {
-            return
-        }
-        else if dataReset == .workoutHistory {
-            UserData.sharedInstance.workoutHistory.resetWorkoutHistory()
-            
-        }
-        else if dataReset == .statistics {
-            UserData.sharedInstance.statistics.resetStatistics()
-        }
-        else if dataReset == .onboarding {
-            PersistencyController.resetOnboarding()
-        }
         
-        PersistencyController.storeUserData()
     }
     
     static func showRating() {

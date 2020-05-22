@@ -19,7 +19,7 @@ extension EditExerciseViewController: StoreSubscriber {
     }
     
     func newState(state: EditExerciseState) {
-        setupExercise(state.exercise, for: state.category)
+        setupExercise(state.exercise, for: state.type)
     }
     
     func unsubscribe() {

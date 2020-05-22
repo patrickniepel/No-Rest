@@ -10,21 +10,21 @@ import Foundation
 
 struct Statistics: Codable {
     
-    var workouts: [MyWorkout]
-    
-    init() {
-        workouts = []
-    }
-    
-    mutating func addWorkoutToStatistics(_ workout: MyWorkout) {
-        workouts.append(workout)
-    }
-    
-    mutating func resetStatistics() {
-        workouts = []
-    }
-    
-    func allExercises() -> [Exercise] {
-        return workouts.map { $0.exercises }.flatMap { $0 }
-    }
+//    var workouts: [Workout]
+//
+//    init() {
+//        workouts = []
+//    }
+//
+//    mutating func addWorkoutToStatistics(_ workout: Workout) {
+//        workouts.append(workout)
+//    }
+//
+//    mutating func resetStatistics() {
+//        workouts = []
+//    }
+//
+//    func allExercises() -> [Exercise] {
+//        return workouts.map { $0.exercises }.flatMap { $0 }
+//    }
 }

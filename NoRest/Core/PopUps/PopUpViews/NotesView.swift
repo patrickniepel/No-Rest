@@ -14,7 +14,7 @@ class NotesView: UIView {
         let textView = UITextView()
         textView.autocapitalizationType = .sentences
         textView.autocorrectionType = .default
-        textView.font = UIFont(name: NRConstants.Font.font, size: .fontSizeRegular)
+        textView.font = UIFont(name: NRConstants.Font.font, size: NRStyle.fontSizeRegular)
         textView.isEditable = true
         textView.keyboardAppearance = .default
         textView.keyboardType = .default

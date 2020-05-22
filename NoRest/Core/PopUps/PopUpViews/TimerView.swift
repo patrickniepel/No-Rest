@@ -13,7 +13,7 @@ class TimerView: UIView {
     private let timerLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .backgroundColorUIControl
+        label.textColor = NRStyle.primaryTextColor
         label.font = UIFont(name: NRConstants.Font.fontBold, size: 50)
         return label
     }()
@@ -139,17 +139,17 @@ private extension TimerView {
     }
     
     func addTrackLayer() {
-        let trackLayer = createLayer(strokeColor: .backgroundColorMain, fillColor: .uiControl)
+        let trackLayer = createLayer(strokeColor: NRStyle.themeColor, fillColor: NRStyle.complementaryColor)
         layer.addSublayer(trackLayer)
     }
     
     func addPulsatingLayer() {
-        pulsatingLayer = createLayer(strokeColor: .clear, fillColor: .pulsatingColor)
+        pulsatingLayer = createLayer(strokeColor: .clear, fillColor: NRStyle.pulsatingColor)
         layer.addSublayer(pulsatingLayer)
     }
     
     func addStrokeLayer() {
-        shapeLayer = createLayer(strokeColor: .backgroundColorUIControl, fillColor: .clear)
+        shapeLayer = createLayer(strokeColor: NRStyle.themeColor, fillColor: .clear)
         shapeLayer.lineCap = .round
         shapeLayer.strokeEnd = 0
         

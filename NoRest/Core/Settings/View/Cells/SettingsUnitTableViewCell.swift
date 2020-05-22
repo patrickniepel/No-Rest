@@ -14,9 +14,9 @@ class SettingsUnitTableViewCell: UITableViewCell {
         let items: [String] = [Unit.kg.rawValue, Unit.lbs.rawValue]
         let control = UISegmentedControl(items: items)
         
-        control.backgroundColor = .backgroundColorUIControl
-        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.backgroundColorUIControl], for: .selected)
-        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.textColor], for: .normal)
+        control.backgroundColor = NRStyle.themeColor
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor], for: .selected)
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor], for: .normal)
         
         let segmentWidth = self.contentView.frame.width * 0.75 / 2
         for i in 0..<items.count {
@@ -38,12 +38,12 @@ class SettingsUnitTableViewCell: UITableViewCell {
         
         contentView.addSubview(contentLabel)
         contentView.addSubview(unitSegmentedControl)
-        contentView.backgroundColor = .backgroundColorMain
-        backgroundColor = .backgroundColorMain
+        contentView.backgroundColor = NRStyle.themeColor
+        backgroundColor = NRStyle.themeColor
         
-        unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
+        unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16))
         
-        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
+        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
     }
     
     @objc private func unitChanged(sender: UISegmentedControl) {

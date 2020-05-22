@@ -10,5 +10,5 @@ import ReSwift
 
 struct EditExerciseState: StateType, Equatable {
     var exercise: Exercise?
-    var category: Category?
+    var type: ExerciseType?
 }

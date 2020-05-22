@@ -12,15 +12,15 @@ class StatsCollectionViewCell: UICollectionViewCell {
     
     let statsTitleLabel: NRLabel = {
         let label = NRLabel()
-        label.textColor = .secondaryTextColor
+        label.textColor = NRStyle.secondaryTextColor
         return label
     }()
     
     let statsValueLabel: NRLabel = {
         let label = NRLabel()
-        label.textColor = .textColor
+        label.textColor = NRStyle.primaryTextColor
         label.textAlignment = .center
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: .fontSizeLarge)
+        label.font = UIFont(name: NRConstants.Font.fontBold, size: NRStyle.fontSizeLarge)
         return label
     }()
     
@@ -40,7 +40,7 @@ class StatsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupDesign() {
-        contentView.backgroundColor = .backgroundColorUIControl
+        contentView.backgroundColor = NRStyle.themeColor
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 15
         applyShadow()

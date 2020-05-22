@@ -23,7 +23,7 @@ class NRSetsTableViewHeader: UIView {
         label.font = UIFont(name: NRConstants.Font.fontBold, size: 13)
         label.text = NRConstants.Texts.reps
         label.textAlignment = .center
-        label.textColor = .backgroundColorUIControl
+        label.textColor = NRStyle.primaryTextColor
         return label
     }()
     
@@ -32,7 +32,7 @@ class NRSetsTableViewHeader: UIView {
         label.font = UIFont(name: NRConstants.Font.fontBold, size: 13)
         label.text = NRConstants.Texts.weight
         label.textAlignment = .center
-        label.textColor = .backgroundColorUIControl
+        label.textColor = NRStyle.primaryTextColor
         return label
     }()
     
@@ -46,6 +46,6 @@ class NRSetsTableViewHeader: UIView {
         addSubview(stackView)
         stackView.addArrangedSubviews(repsLabel, weightLabel)
         stackView.fillSuperview()
-        backgroundColor = .uiControl
+        backgroundColor = NRStyle.themeColor
     }
 }

@@ -13,11 +13,11 @@ class SettingsTimerTableViewCell: UITableViewCell {
     private let timerSwitch: UISwitch = {
         let timerSwitch = UISwitch()
         timerSwitch.isOn = SettingsController.isTimerSoundActivated
-        timerSwitch.thumbTintColor = .textColor
-        timerSwitch.onTintColor = .backgroundColorUIControl
-        timerSwitch.backgroundColor = .secondaryTextColor
+        timerSwitch.thumbTintColor = NRStyle.primaryTextColor
+        timerSwitch.onTintColor = NRStyle.complementaryColor
+        timerSwitch.backgroundColor = NRStyle.secondaryTextColor
         timerSwitch.layer.cornerRadius = 16
-        timerSwitch.layer.borderColor = UIColor.backgroundColorUIControl.cgColor
+        timerSwitch.layer.borderColor = NRStyle.themeColor.cgColor
         timerSwitch.layer.borderWidth = 1
         return timerSwitch
     }()
@@ -32,12 +32,12 @@ class SettingsTimerTableViewCell: UITableViewCell {
         
         contentView.addSubview(contentLabel)
         contentView.addSubview(timerSwitch)
-        contentView.backgroundColor = .backgroundColorMain
-        backgroundColor = .backgroundColorMain
+        contentView.backgroundColor = NRStyle.themeColor
+        backgroundColor = NRStyle.themeColor
         
-        timerSwitch.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .defaultPadding))
+        timerSwitch.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16))
         
-        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: .leadingPaddingCell, bottom: 0, right: 0))
+        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
         
         timerSwitch.addTarget(self, action: #selector(changedSwitchValue), for: .valueChanged)
     }

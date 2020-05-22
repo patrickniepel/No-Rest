@@ -10,11 +10,11 @@ import Foundation
 
 struct StatisticsController {
     private static var allExercisesOfStatistics: [Exercise] {
-        return UserData.sharedInstance.statistics.allExercises()
+        Array(Exercise.all())
     }
     
     static func provideGeneralStats() -> [StatsContainerItem] {
-        let categories = Category.allCategories
+        let categories = ExerciseType.allCases
         var stats: [StatsContainerItem] = []
         categories.forEach {
             let item = StatsContainerItem(title: $0.rawValue, stats: StatisticsController.stats(for: $0))
@@ -54,16 +54,8 @@ private extension StatisticsController {
                 Stat(title: .totalReps, value: totalReps(exercises: exercises), type: .nonDecimal)]
     }
     
-    static func stats(for category: Category) -> [Stat] {
-        let exercises = allExercisesOfStatistics.filter { $0.category == category }
-        
-        if category == .none {
-            return generalStats()
-        }
-        
-        if category == .cardio {
-            return [Stat(title: .totalRunningTime, value: totalRunningTime(exercises: exercises), type: .nonDecimal)]
-        }
+    static func stats(for type: ExerciseType) -> [Stat] {
+        let exercises = allExercisesOfStatistics.filter { $0.type == type }
         
         return [Stat(title: .totalSets, value: totalSets(exercises: exercises), type: .nonDecimal),
                 Stat(title: .percentageOfSets, value: percentageOfSets(exercises: exercises), type: .decimal),
@@ -134,7 +126,7 @@ private extension StatisticsController {
         var totalTimer: Double = 0
         
         for exercise in exercises {
-            totalTimer += Double(exercise.timer.valueForType)
+            totalTimer += Double(exercise.restTimer)
         }
         return totalTimer
     }

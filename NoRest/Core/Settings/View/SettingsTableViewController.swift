@@ -29,10 +29,10 @@ class SettingsTableViewController: UITableViewController {
     
     private func setupScreen() {
         navigationItem.title = NRConstants.ScreenTitles.settings
-        tableView.backgroundColor = .backgroundColorMain
+        tableView.backgroundColor = NRStyle.themeColor
         tableView.rowHeight = NRConstants.TableViews.rowHeight
         tableView.sectionHeaderHeight = NRConstants.TableViews.sectionHeight
-        tableView.separatorColor = .backgroundColorUIControl
+        tableView.separatorColor = NRStyle.complementaryColor
         tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
     }
     

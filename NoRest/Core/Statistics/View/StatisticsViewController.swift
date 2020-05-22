@@ -16,8 +16,7 @@ class StatisticsViewController: UIViewController {
         searchBar.autocorrectionType = .no
         searchBar.showsCancelButton = true
         searchBar.showsSearchResultsButton = false
-        searchBar.tintColor = .uiControl
-        searchBar.searchTextField.textColor = .textColor
+        searchBar.tintColor = NRStyle.complementaryColor
         searchBar.keyboardType = .default
         searchBar.keyboardAppearance = .default
         searchBar.backgroundImage = UIImage()
@@ -26,13 +25,13 @@ class StatisticsViewController: UIViewController {
     
     private let separator: UIView = {
         let view = UIView()
-        view.backgroundColor = .backgroundColorUIControl
+        view.backgroundColor = NRStyle.complementaryColor
         return view
     }()
     
     let statisticsCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
-        cv.backgroundColor = .backgroundColorMain
+        cv.backgroundColor = NRStyle.themeColor
         cv.register(StatsContainerCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.statsContainerCollectionViewCell)
         cv.isScrollEnabled = true
         cv.isPagingEnabled = true
@@ -49,8 +48,8 @@ class StatisticsViewController: UIViewController {
     private let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
-        pageControl.pageIndicatorTintColor = .backgroundColorUIControl
-        pageControl.currentPageIndicatorTintColor = .uiControl
+        pageControl.pageIndicatorTintColor = NRStyle.themeColor
+        pageControl.currentPageIndicatorTintColor = NRStyle.complementaryColor
         pageControl.isUserInteractionEnabled = false
         return pageControl
     }()
@@ -64,7 +63,7 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .backgroundColorMain
+        view.backgroundColor = NRStyle.themeColor
         navigationItem.title = NRConstants.ScreenTitles.statistics
         
         hideKeyboardWhenTapped()
@@ -108,15 +107,15 @@ class StatisticsViewController: UIViewController {
     
     private func setupSearchBar() {
         searchBar.delegate = self
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): UIColor.uiControl], for: .normal)
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): NRStyle.complementaryColor], for: .normal)
         
         //Dye icon
         if let textField = self.searchBar.value(forKey: "searchField") as? UITextField,
             let iconView = textField.leftView as? UIImageView {
             
-            textField.backgroundColor = .backgroundColorUIControl
+            textField.backgroundColor = NRStyle.themeColor
             iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
-            iconView.tintColor = .uiControl
+            iconView.tintColor = NRStyle.complementaryColor
         }
     }
     

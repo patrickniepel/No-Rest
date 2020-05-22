@@ -13,7 +13,7 @@ class ExercisesCollectionViewController: UICollectionViewController {
     
     private var delegate: NRItemCollectionViewDelegate<Exercise>?
     private var dataSource: NRItemCollectionViewDataSource<Exercise>?
-    private var selectedCategory: Category?
+    private var exerciseType: ExerciseType?
     private let exerciseCtrl = ExerciseController()
 
     override func viewDidLoad() {
@@ -28,14 +28,14 @@ class ExercisesCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        dataSource?.items = exerciseCtrl.exercises(for: selectedCategory)
+        dataSource?.items = exerciseCtrl.exercises(for: exerciseType)
         collectionView.reloadData()
         checkForEmptyExercises()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !PersistencyController.didShowOnboarding(type: .exercises) {
+        if !UserDefaultsController.didShowOnboarding(type: .exercises) {
             AlertController.showOnboardingAlert(with: NRConstants.Alerts.exercisesInfo, onboardingType: .exercises)
         }
     }
@@ -43,17 +43,17 @@ class ExercisesCollectionViewController: UICollectionViewController {
     private func setupCollectionView() {
         collectionView?.register(NRItemCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.itemCollectionViewCell)
         collectionView?.register(NREmptyCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.emptyCollectionViewCell)
-        collectionView.backgroundColor = .backgroundColorMain
+        collectionView.backgroundColor = NRStyle.themeColor
         
         delegate = NRItemCollectionViewDelegate()
-        dataSource = NRItemCollectionViewDataSource(items: exerciseCtrl.exercises(for: selectedCategory))
+        dataSource = NRItemCollectionViewDataSource(items: exerciseCtrl.exercises(for: exerciseType))
         
         collectionView?.delegate = delegate
         collectionView?.dataSource = dataSource
     }
     
     private func setupScreen() {
-        navigationItem.title = selectedCategory?.rawValue
+        navigationItem.title = exerciseType?.rawValue
         navigationItem.largeTitleDisplayMode = .never
     }
     
@@ -62,12 +62,12 @@ class ExercisesCollectionViewController: UICollectionViewController {
         navigationItem.rightBarButtonItem = addBarButton
     }
     
-    func injectCategory(_ category: Category) {
-        selectedCategory = category
+    func injectExerciseType(_ type: ExerciseType) {
+        exerciseType = type
     }
     
     @objc private func addNewExercise() {
-        let editExerciseAction = EditExerciseAction(exercise: nil, category: selectedCategory)
+        let editExerciseAction = EditExerciseAction(exercise: nil, type: exerciseType)
         store.dispatch(editExerciseAction)
         
         let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)
@@ -76,7 +76,6 @@ class ExercisesCollectionViewController: UICollectionViewController {
     
     func deleteExercise(at indexPath: IndexPath) {
         if let exercise = dataSource?.items[safe: indexPath.item] {
-            exerciseCtrl.deleteExercise(exercise)
             dataSource?.deleteItem(at: indexPath.item)
             collectionView.deleteItems(at: [indexPath])
             checkForEmptyExercises()
@@ -84,7 +83,7 @@ class ExercisesCollectionViewController: UICollectionViewController {
     }
     
     private func checkForEmptyExercises() {
-        if exerciseCtrl.exercisesCount(for: selectedCategory) == 0 {
+        if exerciseCtrl.exercisesCount(for: exerciseType!) == 0 {
             collectionView.backgroundView = NREmptyView(text: NRConstants.Texts.emptyExercises, addArrow: true)
             collectionView.isUserInteractionEnabled = false
         } else {

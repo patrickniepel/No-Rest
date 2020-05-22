@@ -11,14 +11,14 @@ import UIKit
 class NRItemCollectionViewCell: UICollectionViewCell {
     
     private let nameLabel: NRLabel = {
-        let label = NRLabel(size: .fontSizeLarge)
-        label.textColor = .secondaryTextColor
+        let label = NRLabel(size: NRStyle.fontSizeLarge)
+        label.textColor = NRStyle.secondaryTextColor
         return label
     }()
     
     private let infoLabel: NRLabel = {
         let label = NRLabel()
-        label.textColor = .textColor
+        label.textColor = NRStyle.primaryTextColor
         return label
     }()
     
@@ -48,8 +48,8 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     
     private var cellType: CellType = .workout
     
-    private var workout: MyWorkout?
-    private lazy var myWorkoutCtrl = MyWorkoutController()
+    private var workout: Workout?
+    private lazy var workoutsCtrl = WorkoutsController()
     
     private var exercise: Exercise?
     private lazy var exerciseCtrl = ExerciseController()
@@ -73,7 +73,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     }
     
     func setup<T>(item: T) {
-        if let workout = item as? MyWorkout {
+        if let workout = item as? Workout {
             self.workout = workout
             cellType = .workout
         }
@@ -92,7 +92,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupDesign() {
-        contentView.backgroundColor = .backgroundColorUIControl
+        contentView.backgroundColor = NRStyle.themeColor
         contentView.layer.cornerRadius = contentView.bounds.width / 15
         contentView.clipsToBounds = true
         applyShadow()
@@ -110,15 +110,15 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     private func fillWorkout() {
         guard let workout = workout else { return }
         nameLabel.text = workout.name
-        infoLabel.text = myWorkoutCtrl.dateAsString(for: workout.date)
-        infoImageView.image = NRConstants.Images.date.image?.dye(.backgroundColorMain)
+        infoLabel.text = workoutsCtrl.dateAsString(for: workout.mostRecent)
+        infoImageView.image = NRConstants.Images.date.image?.dye(NRStyle.complementaryColor)
     }
     
     private func fillExercise() {
         guard let exercise = exercise else { return }
-        infoLabel.text = exercise.timer.displayValue
+        infoLabel.text = "\(exercise.restTimer) - todo"
         nameLabel.text = exercise.name
-        infoImageView.image = NRConstants.Images.timer.image?.dye(.backgroundColorMain)
+        infoImageView.image = NRConstants.Images.timer.image?.dye(NRStyle.complementaryColor)
     }
     
     private func deleteItem() {
@@ -127,7 +127,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
         else { return }
         
         if cellType == .workout {
-            guard let vc = self.presentingViewController as? MyWorkoutCollectionViewController else { return }
+            guard let vc = self.presentingViewController as? WorkoutsCollectionViewController else { return }
             vc.deleteWorkout(at: indexPath)
         }
         else if cellType == .exercise {
@@ -140,10 +140,10 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     private func startWorkout() {
         guard let currentWorkout = workout else { return }
         
-        let currentWorkoutAction = CurrentWorkoutAction(myWorkout: currentWorkout)
+        let currentWorkoutAction = CurrentWorkoutAction(workout: currentWorkout)
         store.dispatch(currentWorkoutAction)
         
-        let routeAction = RouteAction(screen: .currentWorkout, in: .myWorkout)
+        let routeAction = RouteAction(screen: .currentWorkout, in: .workouts)
         store.dispatch(routeAction)
     }
     
@@ -189,11 +189,11 @@ private extension NRItemCollectionViewCell {
             return
         }
         else if p.x > 0 { // Start Workout
-            actionView.backgroundColor = .successColor
+            actionView.backgroundColor = NRStyle.successColor
             image = NRConstants.Images.play.image
         }
         else if p.x < 0 { // Delete Item
-            actionView.backgroundColor = .deleteColor
+            actionView.backgroundColor = NRStyle.warningColor
             image = NRConstants.Images.bin.image
         }
         actionImageView.image = image

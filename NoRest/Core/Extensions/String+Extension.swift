@@ -6,6 +6,8 @@
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
+import Foundation
+
 extension String {
     static func seconds(value: Int) -> String {
         return "\(value) s"
@@ -16,6 +18,17 @@ extension String {
     }
     
     static func unit(value: Double) -> String {
-        return "\(value) \(UserData.sharedInstance.unit.rawValue)"
+        return "Todo"
     }
+}
+
+extension String {
+    private func localized(_ tableName: String? = nil, bundle: Bundle, value: String = "", comment: String = "") -> String {
+        return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: value, comment: comment)
+    }
+
+    var localized: String {
+        return self.localized(bundle: Bundle.main)
+    }
+
 }

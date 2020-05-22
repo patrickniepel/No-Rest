@@ -19,8 +19,8 @@ extension ExercisesCollectionViewController: StoreSubscriber {
     }
     
     func newState(state: ExercisesState) {
-        if let category = state.category {
-            injectCategory(category)
+        if let type = state.type {
+            injectExerciseType(type)
         }
     }
     

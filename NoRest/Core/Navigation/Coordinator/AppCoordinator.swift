@@ -57,16 +57,12 @@ class AppCoordinator {
             return InfoViewController()
         case .editExercise:
             return EditExerciseViewController()
-        case .history:
-            return HistoryTableViewController()
-        case .historyDetail:
-            return HistoryDetailViewController()
         case .workoutSetup:
             return WorkoutSetupViewController()
         case .workoutSorting:
             return WorkoutSortingTableViewController()
-        case .myWorkout:
-            return MyWorkoutCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        case .workouts:
+            return WorkoutsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case .popUp:
             return PopUpViewController()
         case .currentWorkout:
@@ -87,11 +83,11 @@ class AppCoordinator {
     }
     
     private func setupNavigationController(nc: DefaultNavigationController) -> DefaultNavigationController {
-        nc.navigationBar.tintColor = .uiControl
-        nc.navigationBar.barTintColor = .backgroundColorUIControl
-        nc.view.backgroundColor = .backgroundColorMain
+        nc.navigationBar.tintColor = NRStyle.complementaryColor
+        nc.navigationBar.barTintColor = NRStyle.themeColor
+        nc.view.backgroundColor = NRStyle.themeColor
         nc.navigationBar.isTranslucent = false
-        nc.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColor]
+        nc.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor]
         
         return nc
     }
@@ -106,9 +102,9 @@ class AppCoordinator {
     static func instantiateScreen(with title: String) -> UIViewController {
         switch title {
         case NRConstants.TabBarItemTitles.myWorkout:
-            return MyWorkoutCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            return WorkoutsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case NRConstants.TabBarItemTitles.exercises:
-            return ExercisesCategoryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            return UIViewController()
         case NRConstants.TabBarItemTitles.statistics:
             return StatisticsViewController()
         case NRConstants.TabBarItemTitles.settings:

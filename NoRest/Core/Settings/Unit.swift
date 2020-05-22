@@ -8,9 +8,7 @@
 
 import Foundation
 
-enum Unit: String, Codable {
+enum Unit: String, CaseIterable {
     case kg = "KG"
     case lbs = "LBS"
-    
-    static let allCases: [Unit] = [.kg, .lbs]
 }

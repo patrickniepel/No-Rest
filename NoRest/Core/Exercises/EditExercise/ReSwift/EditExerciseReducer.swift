@@ -14,7 +14,7 @@ func editExerciseReducer(action: Action, state: EditExerciseState?) -> EditExerc
     
     if let editExerciseAction = action as? EditExerciseAction {
         newState.exercise = editExerciseAction.exercise
-        newState.category = editExerciseAction.category
+        newState.type = editExerciseAction.type
     }
     
     return newState

@@ -12,7 +12,7 @@ class StatsHeaderView: UICollectionReusableView {
     
     private let titleLabel: NRLabel = {
         let label = NRLabel()
-        label.textColor = .uiControl
+        label.textColor = NRStyle.complementaryColor
         label.font = UIFont(name: NRConstants.Font.fontBold, size: 30)
         return label
     }()
@@ -22,6 +22,6 @@ class StatsHeaderView: UICollectionReusableView {
         addSubview(titleLabel)
         titleLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 16))
         
-        backgroundColor = .backgroundColorMain
+        backgroundColor = NRStyle.themeColor
     }
 }
