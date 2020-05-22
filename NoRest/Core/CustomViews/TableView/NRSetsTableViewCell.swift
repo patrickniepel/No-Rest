@@ -14,7 +14,7 @@ class NRSetsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = NRStyle.primaryTextColor
         label.textAlignment = .center
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: NRStyle.fontSizeMedium)
+        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
         return label
     }()
     
@@ -29,7 +29,7 @@ class NRSetsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = NRStyle.primaryTextColor
         label.textAlignment = .center
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: NRStyle.fontSizeMedium)
+        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
         return label
     }()
     

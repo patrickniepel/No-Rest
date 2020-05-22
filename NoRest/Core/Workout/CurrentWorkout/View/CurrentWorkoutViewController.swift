@@ -118,7 +118,7 @@ class CurrentWorkoutViewController: UIViewController {
     
     @objc private func handleDoneButton() {
         saveWorkout(toHistory: true)
-        AlertController.showSuccessAlert(with: NRConstants.Alerts.workoutFinished)
+        AlertController.showSuccessAlert(with: "alert.message.workoutFinished".localized)
         navigationController?.popViewController(animated: true)
     }
     
@@ -127,14 +127,14 @@ class CurrentWorkoutViewController: UIViewController {
         
         let alertView = SCLAlertView(appearance: appearance)
         let responder = SCLAlertViewResponder(alertview: alertView)
-        alertView.addButton(NRConstants.ButtonTitles.undo) { [weak self] in
+        alertView.addButton("button.title.undo".localized) { [weak self] in
             self?.saveDataIfClosed = false
             self?.navigationController?.popViewController(animated: true)
         }
-        alertView.addButton(NRConstants.ButtonTitles.cancel) {
+        alertView.addButton("button.title.cancel".localized) {
             responder.close()
         }
-        alertView.showWarning(NRConstants.Alerts.alertMessage, subTitle: NRConstants.Alerts.losingData, animationStyle: .bottomToTop)
+        alertView.showWarning("alert.message.sure".localized, subTitle: "alert.message.dataLoss".localized, animationStyle: .bottomToTop)
     }
     
     deinit {

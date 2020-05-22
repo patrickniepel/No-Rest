@@ -14,7 +14,7 @@ class InfoViewController: UIViewController {
         let tv = UITextView()
         tv.backgroundColor = NRStyle.themeColor
         tv.textColor = NRStyle.primaryTextColor
-        tv.font = UIFont(name: NRConstants.Font.font, size: 12)
+        tv.font = UIFont(name: NRStyle.regularFont, size: 12)
         tv.isUserInteractionEnabled = true
         tv.isEditable = false
         tv.isSelectable = false

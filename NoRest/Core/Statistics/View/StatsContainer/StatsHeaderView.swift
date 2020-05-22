@@ -13,7 +13,7 @@ class StatsHeaderView: UICollectionReusableView {
     private let titleLabel: NRLabel = {
         let label = NRLabel()
         label.textColor = NRStyle.complementaryColor
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 30)
+        label.font = UIFont(name: NRStyle.boldFont, size: 30)
         return label
     }()
     

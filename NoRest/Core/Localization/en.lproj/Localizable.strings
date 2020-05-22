@@ -5,3 +5,43 @@
   Created by Patrick Niepel on 22.05.20.
   Copyright © 2020 Patrick Niepel. All rights reserved.
 */
+
+// Screens
+"workouts.title" = "Workouts";
+"exercises.title" = "Exercises";
+"statistics.title" = "Statistics";
+"settings.title" = "Settings";
+
+// Settings
+"settings.unit" = "Unit";
+"settings.timerSound" = "Timer Sound";
+"settings.resetHistory" = "Reset Workout History";
+"settings.resetOnboarding" = "Reset Onboarding";
+"settings.showRating" = "Rate No Rest";
+"settings.licenses" = "Licenses";
+"settings.disclaimer" = "Disclaimer";
+
+// Buttons
+"button.title.reset" = "Reset";
+"button.title.cancel" = "Cancel";
+"button.title.continue" = "Continue";
+"button.title.undo" = "Undo";
+"button.title.add" = "Add";
+"button.title.update" = "Update";
+"button.title.ok" = "OK";
+
+// Alerts
+"alert.message.successful" = "Successful";
+"alert.message.sure" = "Are You Sure?";
+"alert.message.failedSaving" = "Couldn't Be Saved";
+"alert.message.succeededSaving" = "Saved";
+"alert.message.dataLoss" = "All Changes Will Be Lost";
+"alert.message.resetHistory" = "Workout History Will Be Reset";
+"alert.message.resetOnboarding" = "Onboarding Will Be Reset";
+"alert.message.noExercisesSelected" = "No Exercises Selected";
+"alert.message.workoutFinished" = "Workout Finished";
+
+// Onboarding
+"onboarding.startWorkout" = "Swipe Left To Delete\nSwipe Right To Start\nTap To Edit";
+"onboarding.exercises" = "Swipe Left To Delete\nTap To Edit";
+"onboarding.history" = "Tap An Item To Inspect The Workout Details";

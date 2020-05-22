@@ -12,7 +12,7 @@ class NRLabel: UILabel {
     
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
-        font = UIFont(name: NRConstants.Font.fontBold, size: NRStyle.fontSizeRegular)
+        font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
         setup()
     }
     
@@ -23,7 +23,7 @@ class NRLabel: UILabel {
     convenience init(with title: String = "", size: CGFloat = NRStyle.fontSizeRegular) {
         self.init()
         text = title
-        font = UIFont(name: NRConstants.Font.fontBold, size: size)
+        font = UIFont(name: NRStyle.boldFont, size: size)
         setup()
     }
     

@@ -10,18 +10,13 @@ import UIKit
 
 struct NRConstants {
     
-    struct Font {
-        static let font = "CaviarDreams"
-        static let fontBold = "CaviarDreams-Bold"
-    }
-    
     struct TableViews {
         static let rowHeight: CGFloat = 65
         static let sectionHeight: CGFloat = TableViews.rowHeight * 0.75
     }
 
     struct TabBarItemTitles {
-        static let myWorkout = "My Workout"
+        static let workouts = "Workouts"
         static let exercises = "Exercises"
         static let statistics = "Statistics"
         static let settings = "Settings"
@@ -95,53 +90,7 @@ struct NRConstants {
         static let defaultFormat = "EEEE, MMMM dd yyyy"
     }
     
-    struct Settings {
-        
-        struct SectionTitles {
-            static let general = "General"
-            static let yourData = "Your Data"
-            static let about = "About"
-        }
-        
-        struct RowTitles {
-            static let unit = "Unit"
-            static let timer = "Timer Sound"
-            static let workoutHistory = "Reset Workout History"
-            static let statistics = "Reset Statistics"
-            static let onboarding = "Show Tutorial Alerts Again"
-            static let licences = "Licences"
-            static let disclaimer = "Disclaimer"
-            static let rating = "Rate This App"
-        }
-        
-        static let copyright = "© 2020 Patrick Niepel - v2.0.1"
-    }
-    
-    struct ButtonTitles {
-        static let reset = "Reset"
-        static let cancel = "Cancel"
-        static let sorting = "Continue"
-        static let undo = "Undo"
-        static let add = "Add"
-        static let update = "Update"
-        static let ok = "OK"
-    }
-    
-    struct Alerts {
-        static let successful = "Successful"
-        static let alertMessage = "Are You Sure?"
-        static let savingError = "Couldn't Be Saved"
-        static let savingSuccess = "Saved"
-        static let losingData = "All Changes Will Be Lost"
-        static let resetHistory = "Reset History"
-        static let resetStatistics = "Reset Statistics"
-        static let onboarding = "Show Tutorial Alerts Again"
-        static let noExercisesSelected = "No Exercises Selected"
-        static let workoutFinished = "Workout Finished"
-        static let startWorkoutInfo = "Swipe Left To Delete\nSwipe Right To Start\nTap To Edit"
-        static let exercisesInfo = "Swipe Left To Delete\nTap To Edit"
-        static let historyInfo = "Tap An Item To Inspect The Workout Details"
-    }
+    static let copyright = "© 2020 Patrick Niepel - v2.0.1"
     
     struct Onboarding {
         static let startWorkoutKey = "startWorkout"

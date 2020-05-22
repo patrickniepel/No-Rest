@@ -101,14 +101,14 @@ class AppCoordinator {
      */
     static func instantiateScreen(with title: String) -> UIViewController {
         switch title {
-        case NRConstants.TabBarItemTitles.myWorkout:
+        case NRConstants.TabBarItemTitles.workouts:
             return WorkoutsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case NRConstants.TabBarItemTitles.exercises:
             return UIViewController()
         case NRConstants.TabBarItemTitles.statistics:
             return StatisticsViewController()
         case NRConstants.TabBarItemTitles.settings:
-            return SettingsTableViewController()
+            return SettingsViewController()
         default:
             return UIViewController()
         }

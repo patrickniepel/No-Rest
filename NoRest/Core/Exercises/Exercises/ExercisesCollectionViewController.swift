@@ -36,7 +36,7 @@ class ExercisesCollectionViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !UserDefaultsController.didShowOnboarding(type: .exercises) {
-            AlertController.showOnboardingAlert(with: NRConstants.Alerts.exercisesInfo, onboardingType: .exercises)
+            AlertController.showOnboardingAlert(with: "onboarding.exercises".localized, onboardingType: .exercises)
         }
     }
     

@@ -14,7 +14,7 @@ class TimerView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = NRStyle.primaryTextColor
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 50)
+        label.font = UIFont(name: NRStyle.boldFont, size: 50)
         return label
     }()
     

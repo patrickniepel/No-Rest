@@ -14,7 +14,7 @@ class NREmptyView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 30)
+        label.font = UIFont(name: NRStyle.boldFont, size: 30)
         label.textColor = NRStyle.primaryTextColor
         return label
     }()

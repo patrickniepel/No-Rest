@@ -20,7 +20,7 @@ class StatsCollectionViewCell: UICollectionViewCell {
         let label = NRLabel()
         label.textColor = NRStyle.primaryTextColor
         label.textAlignment = .center
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: NRStyle.fontSizeLarge)
+        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeLarge)
         return label
     }()
     

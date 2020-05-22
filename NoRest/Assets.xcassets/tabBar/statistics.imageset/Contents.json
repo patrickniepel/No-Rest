@@ -1,11 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "graph.png",
       "idiom" : "universal",
-      "filename" : "326699-24.png",
       "scale" : "1x"
     },
     {
+      "filename" : "graph-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -15,7 +16,7 @@
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

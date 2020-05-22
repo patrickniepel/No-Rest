@@ -44,10 +44,10 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     private let actionButton: UIButton = {
         let button = UIButton()
-        button.setTitle(NRConstants.ButtonTitles.add, for: .normal)
+        button.setTitle("button.title.add".localized, for: .normal)
         button.backgroundColor = NRStyle.themeColor
         button.tag = ButtonTag.actionButton.rawValue
-        button.titleLabel?.font = UIFont(name: NRConstants.Font.fontBold, size: NRStyle.fontSizeLarge)
+        button.titleLabel?.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeLarge)
         button.setTitleColor(NRStyle.complementaryColor, for: .normal)
         return button
     }()
@@ -55,7 +55,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     private let repsLabel: UILabel = {
         let label = UILabel()
         label.textColor = NRStyle.primaryTextColor
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
+        label.font = UIFont(name: NRStyle.boldFont, size: 15)
         label.textAlignment = .center
         label.text = NRConstants.Texts.reps
         return label
@@ -64,7 +64,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     private let weightLabel: UILabel = {
         let label = UILabel()
         label.textColor = NRStyle.primaryTextColor
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
+        label.font = UIFont(name: NRStyle.boldFont, size: 15)
         label.textAlignment = .center
         label.text = NRConstants.Texts.weight + " (\(SettingsController.currentUnit.rawValue))"
         return label
@@ -74,7 +74,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         let textField = UITextField()
         textField.adjustsFontSizeToFitWidth = true
         textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.fontBold, size: NRStyle.fontSizeLarge)
+        textField.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeLarge)
         textField.keyboardAppearance = .default
         textField.keyboardType = .numberPad
         textField.backgroundColor = NRStyle.themeColor
@@ -88,7 +88,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         let textField = UITextField()
         textField.adjustsFontSizeToFitWidth = true
         textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.fontBold, size: NRStyle.fontSizeLarge)
+        textField.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeLarge)
         textField.keyboardAppearance = .default
         textField.keyboardType = .decimalPad
         textField.backgroundColor = NRStyle.themeColor
@@ -108,7 +108,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     private let setsLabel: UILabel = {
         let label = UILabel()
         label.textColor = NRStyle.primaryTextColor
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 15)
+        label.font = UIFont(name: NRStyle.boldFont, size: 15)
         label.textAlignment = .center
         label.text = NRConstants.Texts.sets
         return label
@@ -188,9 +188,9 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     private func setupActionButton() {
         if actionButtonState == .add {
-            actionButton.setTitle(NRConstants.ButtonTitles.add, for: .normal)
+            actionButton.setTitle("button.title.add".localized, for: .normal)
         } else if actionButtonState == .update {
-            actionButton.setTitle(NRConstants.ButtonTitles.update, for: .normal)
+            actionButton.setTitle("button.title.update".localized, for: .normal)
         }
     }
     

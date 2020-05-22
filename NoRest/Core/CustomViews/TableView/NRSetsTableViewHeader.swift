@@ -20,7 +20,7 @@ class NRSetsTableViewHeader: UIView {
     
     private let repsLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 13)
+        label.font = UIFont(name: NRStyle.boldFont, size: 13)
         label.text = NRConstants.Texts.reps
         label.textAlignment = .center
         label.textColor = NRStyle.primaryTextColor
@@ -29,7 +29,7 @@ class NRSetsTableViewHeader: UIView {
     
     private let weightLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NRConstants.Font.fontBold, size: 13)
+        label.font = UIFont(name: NRStyle.boldFont, size: 13)
         label.text = NRConstants.Texts.weight
         label.textAlignment = .center
         label.textColor = NRStyle.primaryTextColor

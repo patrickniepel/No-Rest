@@ -9,13 +9,14 @@
 import UIKit
 
 class SettingsUnitTableViewCell: UITableViewCell {
+    private let settingsCtrl = SettingsController()
     
     private lazy var unitSegmentedControl: UISegmentedControl = {
         let items: [String] = [Unit.kg.rawValue, Unit.lbs.rawValue]
         let control = UISegmentedControl(items: items)
-        
+
         control.backgroundColor = NRStyle.themeColor
-        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor], for: .selected)
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.black], for: .selected)
         control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor], for: .normal)
         
         let segmentWidth = self.contentView.frame.width * 0.75 / 2
@@ -28,9 +29,8 @@ class SettingsUnitTableViewCell: UITableViewCell {
         return control
     }()
     
-    private let contentLabel: NRLabel = {
-        let label = NRLabel(with: NRConstants.Settings.RowTitles.unit)
-        return label
+    private lazy var contentLabel: NRLabel = {
+        NRLabel(with: "settings.unit".localized)
     }()
 
     func setup() {
@@ -41,12 +41,12 @@ class SettingsUnitTableViewCell: UITableViewCell {
         contentView.backgroundColor = NRStyle.themeColor
         backgroundColor = NRStyle.themeColor
         
-        unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16))
+        unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: NRStyle.horizontalPadding))
         
-        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
+        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: 0))
     }
     
     @objc private func unitChanged(sender: UISegmentedControl) {
-        SettingsController.unitChanged(to: sender.selectedSegmentIndex)
+        settingsCtrl.unitChanged(to: sender.selectedSegmentIndex)
     }
 }

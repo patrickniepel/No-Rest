@@ -55,7 +55,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         textField.autocapitalizationType = .words
         textField.autocorrectionType = .default
         textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.font, size: NRStyle.fontSizeRegular)
+        textField.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .default
         textField.tintColor = NRStyle.complementaryColor
@@ -66,7 +66,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         let textField = UITextField()
         textField.adjustsFontSizeToFitWidth = true
         textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.font, size: NRStyle.fontSizeRegular)
+        textField.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .numberPad
         textField.tintColor = NRStyle.complementaryColor
@@ -77,7 +77,7 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
         let textView = UITextView()
         textView.autocapitalizationType = .sentences
         textView.autocorrectionType = .default
-        textView.font = UIFont(name: NRConstants.Font.font, size: NRStyle.fontSizeRegular)
+        textView.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
         textView.isEditable = true
         textView.keyboardAppearance = .default
         textView.keyboardType = .default
@@ -132,13 +132,13 @@ class EditExerciseViewController: UIViewController, UITextViewDelegate {
     
     @objc private func saveExercise() {
         guard var exercise = exercise else {
-            AlertController.showErrorAlert(with: NRConstants.Alerts.savingError)
+            AlertController.showErrorAlert(with: "alert.message.failedSaving".localized)
             return
         }
         exercise.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
         exercise.notes = SyntaxController.checkNotesInputCorrect(text: notesTextView.text)
         let exerciseCtrl = ExerciseController()
-        AlertController.showSuccessAlert(with: NRConstants.Alerts.savingSuccess)
+        AlertController.showSuccessAlert(with: "alert.message.succeededSaving".localized)
         navigationController?.popViewController(animated: true)
     }
     

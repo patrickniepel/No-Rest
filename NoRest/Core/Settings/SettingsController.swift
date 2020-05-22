@@ -11,14 +11,18 @@ import AVKit
 import StoreKit
 import SCLAlertView
 
-enum DataReset: Int {
-    case workoutHistory = 0
-    case statistics = 1
-    case onboarding = 2
-    case none = -1
-}
-
-struct SettingsController {
+class SettingsController {    
+    enum SettingsItemsType {
+        case unit
+        case timer
+        case reset(String, ResetType)
+        case action(String, () -> Void)
+    }
+    
+    enum ResetType {
+        case history
+        case onboarding
+    }
     
     static var isTimerSoundActivated: Bool {
         return UserDefaultsController.isTimerSoundEnabled
@@ -29,25 +33,53 @@ struct SettingsController {
     }
     
     static var currentUnitAsIndex: Int {
-        return Unit.allCases.firstIndex(of: SettingsController.currentUnit) ?? 0
+        return Unit.allCases.firstIndex(of: currentUnit) ?? 0
     }
     
-    static func timerSoundStateChanged(to state: Bool) {
+    var settingsItems: [SettingsItemsType] = []
+    
+    init() {
+        self.settingsItems = [
+            .unit,
+            .timer,
+            .reset("settings.resetHistory".localized, .history),
+            .reset("settings.resetOnboarding".localized, .onboarding),
+            .action("settings.showRating".localized, { self.showRating() }),
+            .action("settings.licenses".localized, { self.showViewController(.licenses) }),
+            .action("settings.disclaimer".localized, { self.showViewController(.disclaimer) }),
+        ]
+    }
+    
+    func timerSoundStateChanged(to state: Bool) {
         UserDefaultsController.isTimerSoundEnabled = state
     }
     
-    static func unitChanged(to index: Int) {
+    func unitChanged(to index: Int) {
         let newUnit = Unit.allCases[index]
         UserDefaultsController.unit = newUnit
     }
     
-    static func resetData(_ dataReset: DataReset) {
-        
+    func reset(_ resetType: ResetType) {
+        switch resetType {
+        case .history:
+            WorkoutHistory.resetHistory()
+            
+        case .onboarding:
+            UserDefaultsController.resetOnboarding()
+        }
     }
     
-    static func showRating() {
+    func showRating() {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         }
+    }
+    
+    func showViewController(_ info: Info) {
+        let infoAction = InfoAction(info: info)
+        store.dispatch(infoAction)
+        
+        let routeAction = RouteAction(screen: .info, in: .settings, action: .present)
+        store.dispatch(routeAction)
     }
 }

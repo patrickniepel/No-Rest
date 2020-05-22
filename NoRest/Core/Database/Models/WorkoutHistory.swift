@@ -51,4 +51,11 @@ class WorkoutHistory: Object {
             Database.delete(object: workoutHistory)
         }
     }
+    
+    static func resetHistory() {
+        if let workoutHistory = get() {
+            workoutHistory.workouts = []
+            delete()
+        }
+    }
 }

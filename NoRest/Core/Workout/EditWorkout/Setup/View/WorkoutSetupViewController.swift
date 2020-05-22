@@ -38,7 +38,7 @@ class WorkoutSetupViewController: UIViewController {
         textField.autocapitalizationType = .words
         textField.autocorrectionType = .default
         textField.borderStyle = .roundedRect
-        textField.font = UIFont(name: NRConstants.Font.font, size: NRStyle.fontSizeRegular)
+        textField.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
         textField.keyboardAppearance = .default
         textField.keyboardType = .default
         textField.textColor = NRStyle.primaryTextColor
@@ -68,7 +68,7 @@ class WorkoutSetupViewController: UIViewController {
     }
     
     private func setupScreen() {
-        let sortingButton = UIBarButtonItem(title: NRConstants.ButtonTitles.sorting, style: .plain, target: self, action: #selector(openSortingScreen))
+        let sortingButton = UIBarButtonItem(title: "button.title.continue".localized, style: .plain, target: self, action: #selector(openSortingScreen))
         navigationItem.rightBarButtonItem = sortingButton
         view.backgroundColor = NRStyle.themeColor
     }
@@ -94,7 +94,7 @@ class WorkoutSetupViewController: UIViewController {
         guard var currentWorkout = workout,
             selectedExercises.count != 0
             else {
-                AlertController.showErrorAlert(with: NRConstants.Alerts.noExercisesSelected)
+                AlertController.showErrorAlert(with: "alert.message.noExercisesSelected".localized)
                 return
         }
         currentWorkout.exercises = selectedExercises

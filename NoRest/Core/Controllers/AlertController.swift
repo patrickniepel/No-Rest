@@ -27,7 +27,7 @@ struct AlertController {
         let appearance = interactiveAlertAppearance()
         let alertView = SCLAlertView(appearance: appearance)
         let responder = SCLAlertViewResponder(alertview: alertView)
-        alertView.addButton(NRConstants.ButtonTitles.ok) {
+        alertView.addButton("button.title.ok".localized) {
             UserDefaultsController.storeOnboarding(type: onboardingType)
             responder.close()
         }
@@ -36,8 +36,8 @@ struct AlertController {
 
     private static func standardAlertAppearance() -> SCLAlertView.SCLAppearance {
         return SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: NRConstants.Font.fontBold, size: 20)!,
-            kTextFont: UIFont(name: NRConstants.Font.font, size: 14)!,
+            kTitleFont: UIFont(name: NRStyle.boldFont, size: 20)!,
+            kTextFont: UIFont(name: NRStyle.regularFont, size: 14)!,
             showCloseButton: false,
             hideWhenBackgroundViewIsTapped: true
         )
@@ -45,9 +45,9 @@ struct AlertController {
     
     static func interactiveAlertAppearance() -> SCLAlertView.SCLAppearance {
         return SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: NRConstants.Font.fontBold, size: 20)!,
-            kTextFont: UIFont(name: NRConstants.Font.font, size: 14)!,
-            kButtonFont: UIFont(name: NRConstants.Font.fontBold, size: 14)!,
+            kTitleFont: UIFont(name: NRStyle.boldFont, size: 20)!,
+            kTextFont: UIFont(name: NRStyle.regularFont, size: 14)!,
+            kButtonFont: UIFont(name: NRStyle.boldFont, size: 14)!,
             showCloseButton: false
         )
     }

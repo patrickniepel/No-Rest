@@ -35,7 +35,7 @@ class WorkoutsCollectionViewController: UICollectionViewController {
         super.viewDidAppear(animated)
         
         if workoutsCtrl.allWorkouts().count != 0 && !UserDefaultsController.didShowOnboarding(type: .startWorkout) {
-            AlertController.showOnboardingAlert(with: NRConstants.Alerts.startWorkoutInfo, onboardingType: .startWorkout)
+            AlertController.showOnboardingAlert(with: "onboarding.startWorkout".localized, onboardingType: .startWorkout)
         }
     }
     

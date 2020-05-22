@@ -55,13 +55,13 @@ class WorkoutSortingTableViewController: UITableViewController {
     
     @objc private func saveWorkout() {
         guard var workout = workout else {
-            AlertController.showErrorAlert(with: NRConstants.Alerts.savingError)
+            AlertController.showErrorAlert(with: "alert.message.failedSaving".localized)
             return
         }
         
         workout.exercises = workoutSortingCtrl.exercisesToSort
         
-        AlertController.showSuccessAlert(with: NRConstants.Alerts.savingSuccess)
+        AlertController.showSuccessAlert(with: "alert.message.succeededSaving".localized)
         
         let routeAction = RouteAction(screen: .workouts, in: .workouts, action: .popToRoot)
         store.dispatch(routeAction)

@@ -9,7 +9,6 @@
 import UIKit
 
 class NRTableView: UITableView {
-    
     override init(frame: CGRect = CGRect(), style: UITableView.Style = .plain) {
         super.init(frame: frame, style: style)
         setup()
@@ -22,7 +21,7 @@ class NRTableView: UITableView {
     private func setup() {
         separatorInset = UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding)
         separatorColor = NRStyle.complementaryColor
-        tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
+        backgroundColor = NRStyle.themeColor
     }
 }
 
