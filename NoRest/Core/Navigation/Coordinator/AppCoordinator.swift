@@ -27,7 +27,6 @@ class AppCoordinator {
         
         let myWorkout = ViewBuilder.buildMyWorkoutScreen()
         let myWorkoutNavigationController = buildNavigationController(for: myWorkout)
-        myWorkoutNavigationController.navigationBar.prefersLargeTitles = false
         self.myWorkoutNavigationController = myWorkoutNavigationController
         
         
@@ -46,13 +45,13 @@ class AppCoordinator {
         self.tabBarController = tabBarController
         
         self.tabBarController?.viewControllers = [myWorkoutNavigationController, exercisesNavigationController, statisticsNavigationController, settingsNavigationController]
-        self.tabBarController?.selectedIndex = TabBarDestination.myWorkout.rawValue
+        self.tabBarController?.selectedIndex = TabBarDestination.workouts.rawValue
     }
     
     func build(screen: Screen, state: NavigationState? = nil) -> UIViewController {
         switch screen {
-        case .exercisesForCategory:
-            return ExercisesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        case .exercises:
+            return ExercisesViewController()
         case .info:
             return InfoViewController()
         case .editExercise:
@@ -67,6 +66,8 @@ class AppCoordinator {
             return PopUpViewController()
         case .currentWorkout:
             return CurrentWorkoutViewController()
+        case .vc(let vc):
+            return vc
         default:
             assertionFailure("Attempt to build invalid screen \(screen)")
             return UIViewController()
@@ -78,18 +79,7 @@ class AppCoordinator {
     }
     
     private func buildNavigationController(for vc: UIViewController) -> UINavigationController {
-        let navigationController = DefaultNavigationController(rootViewController: vc)
-        return setupNavigationController(nc: navigationController)
-    }
-    
-    private func setupNavigationController(nc: DefaultNavigationController) -> DefaultNavigationController {
-        nc.navigationBar.tintColor = NRStyle.complementaryColor
-        nc.navigationBar.barTintColor = NRStyle.themeColor
-        nc.view.backgroundColor = NRStyle.themeColor
-        nc.navigationBar.isTranslucent = false
-        nc.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor]
-        
-        return nc
+        return NRNavigationController(rootViewController: vc)
     }
     
     /**
@@ -104,7 +94,7 @@ class AppCoordinator {
         case NRConstants.TabBarItemTitles.workouts:
             return WorkoutsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case NRConstants.TabBarItemTitles.exercises:
-            return UIViewController()
+            return ExercisesViewController()
         case NRConstants.TabBarItemTitles.statistics:
             return StatisticsViewController()
         case NRConstants.TabBarItemTitles.settings:

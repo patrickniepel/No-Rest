@@ -52,7 +52,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     private lazy var workoutsCtrl = WorkoutsController()
     
     private var exercise: Exercise?
-    private lazy var exerciseCtrl = ExerciseController()
+    private lazy var exerciseCtrl = ExercisesController()
     
     private var pan: UIPanGestureRecognizer!
     
@@ -116,7 +116,7 @@ class NRItemCollectionViewCell: UICollectionViewCell {
     
     private func fillExercise() {
         guard let exercise = exercise else { return }
-        infoLabel.text = "\(exercise.restTimer) - todo"
+        infoLabel.text = "\(exercise.timer) - todo"
         nameLabel.text = exercise.name
         infoImageView.image = NRConstants.Images.timer.image?.dye(NRStyle.complementaryColor)
     }
@@ -130,11 +130,6 @@ class NRItemCollectionViewCell: UICollectionViewCell {
             guard let vc = self.presentingViewController as? WorkoutsCollectionViewController else { return }
             vc.deleteWorkout(at: indexPath)
         }
-        else if cellType == .exercise {
-            guard let vc = self.presentingViewController as? ExercisesCollectionViewController else { return }
-            vc.deleteExercise(at: indexPath)
-        }
-        
     }
     
     private func startWorkout() {

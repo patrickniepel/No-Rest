@@ -10,7 +10,6 @@ import ReSwift
 
 struct AppState: StateType, Equatable {
     let navigationState: NavigationState
-    let exercisesState: ExercisesState
     let editExerciseState: EditExerciseState
     let infoState: InfoState
     let workoutSetupState: WorkoutSetupState

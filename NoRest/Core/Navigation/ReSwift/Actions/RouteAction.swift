@@ -7,6 +7,7 @@
 //
 
 import ReSwift
+import UIKit
 
 struct RouteAction: Action {
     var destination: RouteDestination
@@ -55,11 +56,12 @@ struct StackedRouteAction: Action {
 enum NavigationAction {
     case push
     case popToRoot
+    case presentInNav
     case present
     case modally
 }
 
-enum Screen {
+enum Screen: Equatable {
     case remain
     case initial
     case workouts
@@ -67,13 +69,14 @@ enum Screen {
     case workoutSorting
     case statistics
     case settings
-    case exercisesForCategory
+    case exercises
     case editExercise
     case info
     case history
     case historyDetail
     case popUp
     case currentWorkout
+    case vc(UIViewController)
 }
 
 

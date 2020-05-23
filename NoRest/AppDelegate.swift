@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Database.setup()
         
         setupCoordinator()
+        
+        checkForFistAppStart()
         return true
     }
     
@@ -32,6 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         self.coordinator = coordinator
+    }
+    
+    private func checkForFistAppStart() {
+        if UserDefaultsController.isFirstAppInstall {
+            Exercise.add(exercises: DefaultExercise.allExercises())
+            UserDefaultsController.isFirstAppInstall = true
+        }
     }
 }
 

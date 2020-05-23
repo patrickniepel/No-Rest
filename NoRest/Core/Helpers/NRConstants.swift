@@ -90,13 +90,8 @@ struct NRConstants {
         static let defaultFormat = "EEEE, MMMM dd yyyy"
     }
     
-    static let copyright = "© 2020 Patrick Niepel - v2.0.1"
-    
-    struct Onboarding {
-        static let startWorkoutKey = "startWorkout"
-        static let exercisesKey = "exercises"
-        static let historyKey = "history"
-    }
+    static let copyright = "© 2020 Patrick Niepel - v3.0.0"
+    static let mail = "patrickniepel@web.de"
     
     struct Animations {
         static let pulsatingAnimationKey = "pulsatingAnimationKey"

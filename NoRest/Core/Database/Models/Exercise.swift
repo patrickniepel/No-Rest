@@ -15,10 +15,14 @@ class Exercise: Object, Comparable {
     enum Fields: String {
         case id
         case _type
-        case restTimer
+        case timer
         case notes
         case _image
         case _sets
+    }
+    
+    override class func primaryKey() -> String? {
+        return Fields.id.rawValue
     }
     
     dynamic var id: String = ""
@@ -36,7 +40,7 @@ class Exercise: Object, Comparable {
         }
     }
 
-    dynamic var restTimer: Int = 0
+    dynamic var timer: Int = 0
     dynamic var notes: String = ""
     
     dynamic private(set) var _image: Data?
@@ -63,30 +67,55 @@ class Exercise: Object, Comparable {
         }
     }
     
-    convenience init(name: String, type: ExerciseType, restTimer: Int, notes: String = "", image: UIImage? = nil, sets: [Set] = []) {
+    var descriptiveRestTimer: String {
+        guard let type = self.type else { return "\(timer)" }
+        return type == .cardio ? "\(timer / 60) min" : "\(timer) s"
+    }
+    
+    convenience init(name: String, type: ExerciseType, timer: Int, notes: String = "", image: UIImage? = nil, sets: [Set] = []) {
         self.init()
         
         self.name = name
         self.type = type
-        self.restTimer = restTimer
+        self.timer = timer
         self.notes = notes
         self.image = image
         self.sets = sets
         
         let setsId = sets.map { $0.id }.joined(separator: "-")
-        self.id = "\(name)_\(type)_\(restTimer)_\(notes)_\(setsId)"
+        self.id = "\(name)_\(type)_\(timer)_\(notes)_\(setsId)"
     }
     
     static func < (lhs: Exercise, rhs: Exercise) -> Bool {
         return lhs.name < rhs.name
     }
     
-    static func all() -> Results<Exercise> {
+    static func all() -> [Exercise] {
         guard let realm = Database.getRealm() else {
             fatalError()
         }
 
-        return realm.objects(Exercise.self)
+        let exercises = Array(realm.objects(Exercise.self)).sorted()
+        return exercises
+    }
+    
+    static func asDictionary() -> [String: [Exercise]] {
+        var dictionary: [String: [Exercise]] = [:]
+        
+        ExerciseType.allCases.forEach {
+            dictionary[$0.rawValue] = Array(exercises(for: $0).sorted())
+        }
+        
+        return dictionary
+    }
+    
+    static func exercises(for type: ExerciseType) -> [Exercise] {
+        guard let realm = Database.getRealm() else {
+            fatalError()
+        }
+        
+        let exercises = Array(realm.objects(Exercise.self).filter(NSPredicate(format: "%K = %@", Fields._type.rawValue, type.rawValue))).sorted()
+        return exercises
     }
     
     static func get(id: String) -> Exercise? {
@@ -97,8 +126,12 @@ class Exercise: Object, Comparable {
         return realm.objects(Exercise.self).filter(NSPredicate(format: "%K = %@", Fields.id.rawValue, id)).first
     }
 
-    static func add(workout: Exercise) {
-        Database.add(object: workout, update: true)
+    static func add(exercise: Exercise) {
+        Database.add(object: exercise, update: true)
+    }
+    
+    static func add(exercises: [Exercise]) {
+        Database.add(objects: exercises, update: true)
     }
 
     static func delete(with id: String) {

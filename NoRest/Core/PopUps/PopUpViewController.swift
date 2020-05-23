@@ -35,7 +35,7 @@ class PopUpViewController: UIViewController, PopUpDelegate {
     
     func setupTimer() {
         guard let exercise = exercise else { return }
-        timerView = TimerView(seconds: exercise.restTimer)
+        timerView = TimerView(seconds: exercise.timer)
         timerView?.delegate = self
         setupView(subView: timerView)
     }

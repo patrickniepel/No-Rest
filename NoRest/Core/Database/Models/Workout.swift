@@ -52,12 +52,12 @@ class Workout: Object {
         self.createdAt = Date()
     }
     
-    static func all() -> Results<Workout> {
+    static func all() -> [Workout]{
         guard let realm = Database.getRealm() else {
             fatalError()
         }
 
-        return realm.objects(Workout.self)
+        return Array(realm.objects(Workout.self))
     }
     
     static func get(id: String) -> Workout? {

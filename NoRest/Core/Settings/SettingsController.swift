@@ -8,20 +8,18 @@
 
 import UIKit
 import AVKit
+import MessageUI
 import StoreKit
-import SCLAlertView
 
 class SettingsController {    
     enum SettingsItemsType {
         case unit
         case timer
-        case reset(String, ResetType)
         case action(String, () -> Void)
     }
     
     enum ResetType {
         case history
-        case onboarding
     }
     
     static var isTimerSoundActivated: Bool {
@@ -38,15 +36,19 @@ class SettingsController {
     
     var settingsItems: [SettingsItemsType] = []
     
+    private lazy var mailCtrl = MailController()
+    
     init() {
         self.settingsItems = [
             .unit,
             .timer,
-            .reset("settings.resetHistory".localized, .history),
-            .reset("settings.resetOnboarding".localized, .onboarding),
+            .action("settings.resetHistory".localized,
+                    { AlertController.showAlertForDataReset(.history, resetHandler: { self.reset(.history) }) }),
+            .action("settings.share".localized, { self.showSharingOption() }),
             .action("settings.showRating".localized, { self.showRating() }),
-            .action("settings.licenses".localized, { self.showViewController(.licenses) }),
-            .action("settings.disclaimer".localized, { self.showViewController(.disclaimer) }),
+            .action("settings.contact".localized, { self.showContact() }),
+            .action("settings.licenses".localized, { self.showInfoViewController(.licenses) }),
+            .action("settings.disclaimer".localized, { self.showInfoViewController(.disclaimer) }),
         ]
     }
     
@@ -63,23 +65,43 @@ class SettingsController {
         switch resetType {
         case .history:
             WorkoutHistory.resetHistory()
-            
-        case .onboarding:
-            UserDefaultsController.resetOnboarding()
         }
     }
     
-    func showRating() {
+    private func showSharingOption() {
+        let mailSubject = "settings.share.mailSubject".localized
+        let customTitle = "settings.share.title".localized
+
+        let shareObject = ShareObject(shareData: "", mailSubject: mailSubject, customTitle: customTitle)
+        let activityCtrl = UIActivityViewController(activityItems: [shareObject], applicationActivities: nil)
+        
+        let routeAction = RouteAction(screen: .vc(activityCtrl), in: .settings, action: .present)
+        store.dispatch(routeAction)
+    }
+    
+    private func showRating() {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         }
     }
     
-    func showViewController(_ info: Info) {
+    private func showContact() {
+        guard let mail = mailCtrl.createMailController(to: NRConstants.mail, subject: "settings.contact.subject".localized, body: "") else {
+            AlertController.showMailAlert(title: "alert.message.noMail.title".localized,
+                            message: "alert.message.noMail.description".localized,
+                            actionText: "button.title.close".localized)
+            return
+        }
+        
+        let routeAction = RouteAction(screen: .vc(mail), in: .settings, action: .present)
+        store.dispatch(routeAction)
+    }
+    
+    private func showInfoViewController(_ info: Info) {
         let infoAction = InfoAction(info: info)
         store.dispatch(infoAction)
         
-        let routeAction = RouteAction(screen: .info, in: .settings, action: .present)
+        let routeAction = RouteAction(screen: .info, in: .settings, action: .presentInNav)
         store.dispatch(routeAction)
     }
 }

@@ -2,53 +2,68 @@
 //  AlertController.swift
 //  NoRest
 //
-//  Created by Patrick Niepel on 14.02.19.
-//  Copyright © 2019 Patrick Niepel. All rights reserved.
+//  Created by Patrick Niepel on 23.05.20.
+//  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
-import Foundation
-import SCLAlertView
+import UIKit
 
 struct AlertController {
-    
-    static func showSuccessAlert(with text: String) {
-        let appearance = standardAlertAppearance()
-        let alertView = SCLAlertView(appearance: appearance)
-        alertView.showSuccess(text, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
-    }
-    
-    static func showErrorAlert(with text: String) {
-        let appearance = standardAlertAppearance()
-        let alertView = SCLAlertView(appearance: appearance)
-        alertView.showError(text, subTitle: "", timeout: SCLAlertView.SCLTimeoutConfiguration(timeoutValue: 1, timeoutAction: {}), animationStyle: .bottomToTop)
-    }
-    
-    static func showOnboardingAlert(with text: String, onboardingType: UserDefaultsController.Onboarding) {
-        let appearance = interactiveAlertAppearance()
-        let alertView = SCLAlertView(appearance: appearance)
-        let responder = SCLAlertViewResponder(alertview: alertView)
-        alertView.addButton("button.title.ok".localized) {
-            UserDefaultsController.storeOnboarding(type: onboardingType)
-            responder.close()
-        }
-        alertView.showInfo(text, subTitle: "", animationStyle: .bottomToTop)
-    }
+    static func showDefaultAlert(title: String, message: String = "", in tab: RouteDestination) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-    private static func standardAlertAppearance() -> SCLAlertView.SCLAppearance {
-        return SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: NRStyle.boldFont, size: 20)!,
-            kTextFont: UIFont(name: NRStyle.regularFont, size: 14)!,
-            showCloseButton: false,
-            hideWhenBackgroundViewIsTapped: true
-        )
+        controller.addAction(UIAlertAction(title: "button.title.ok".localized, style: .default, handler: { _ in
+            controller.dismiss(animated: true, completion: nil)
+        }))
+
+        let routeAction = RouteAction(screen: .vc(controller), in: tab, action: .present)
+        store.dispatch(routeAction)
     }
     
-    static func interactiveAlertAppearance() -> SCLAlertView.SCLAppearance {
-        return SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: NRStyle.boldFont, size: 20)!,
-            kTextFont: UIFont(name: NRStyle.regularFont, size: 14)!,
-            kButtonFont: UIFont(name: NRStyle.boldFont, size: 14)!,
-            showCloseButton: false
-        )
+    static func showMailAlert(title: String, message: String, actionText: String) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        controller.addAction(UIAlertAction(title: actionText, style: .default, handler: { _ in
+            controller.dismiss(animated: true, completion: nil)
+        }))
+
+        let routeAction = RouteAction(screen: .vc(controller), in: .settings, action: .present)
+        store.dispatch(routeAction)
+    }
+    
+    static func showAlertForDataReset(_ resetType: SettingsController.ResetType, resetHandler: (() -> Void)?) {
+        let message: String
+        switch resetType {
+        case .history:
+            message = "alert.message.resetHistory".localized
+        }
+        
+        let controller = UIAlertController(title: "alert.message.sure".localized, message: message, preferredStyle: .alert)
+
+        controller.addAction(UIAlertAction(title: "button.title.cancel".localized, style: .cancel, handler: { _ in
+            controller.dismiss(animated: true, completion: nil)
+        }))
+        
+        controller.addAction(UIAlertAction(title: "button.title.reset".localized, style: .destructive, handler: { _ in
+            resetHandler?()
+        }))
+
+        let routeAction = RouteAction(screen: .vc(controller), in: .settings, action: .present)
+        store.dispatch(routeAction)
+    }
+    
+    static func showDataLossAlert(dataLossHandler: (() -> Void)?) {
+        let controller = UIAlertController(title: "alert.message.sure".localized, message: "alert.message.dataLoss".localized, preferredStyle: .alert)
+
+        controller.addAction(UIAlertAction(title: "button.title.cancel".localized, style: .cancel, handler: { _ in
+            controller.dismiss(animated: true, completion: nil)
+        }))
+        
+        controller.addAction(UIAlertAction(title: "button.title.undo".localized, style: .destructive, handler: { _ in
+            dataLossHandler?()
+        }))
+
+        let routeAction = RouteAction(screen: .vc(controller), in: .workouts, action: .present)
+        store.dispatch(routeAction)
     }
 }

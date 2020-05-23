@@ -48,7 +48,7 @@ class NRItemCollectionViewDelegate<T>: NSObject, UICollectionViewDelegateFlowLay
     }
     
     func startEditingExercise(_ exercise: Exercise) {
-        let editExerciseAction = EditExerciseAction(exercise: exercise, type: nil)
+        let editExerciseAction = EditExerciseAction(exercise: exercise)
         store.dispatch(editExerciseAction)
         
         let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)

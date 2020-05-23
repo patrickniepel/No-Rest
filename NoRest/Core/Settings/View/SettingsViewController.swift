@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SCLAlertView
 
 class SettingsViewController: NRViewController {
     private lazy var tableView: NRTableView = .init()
@@ -41,34 +40,6 @@ class SettingsViewController: NRViewController {
         view.addSubview(tableView)
         tableView.fillSuperview()
     }
-    
-    func showAlertForDataReset(_ resetType: SettingsController.ResetType) {
-        let appearance = AlertController.interactiveAlertAppearance()
-
-        let alertView = SCLAlertView(appearance: appearance)
-        let responder = SCLAlertViewResponder(alertview: alertView)
-
-        let title: String
-        
-        switch resetType {
-        case .history:
-            title = "alert.message.resetHistory".localized
-        
-        case .onboarding:
-            title = "alert.message.resetOnboarding".localized
-        }
-
-        alertView.addButton("button.title.reset".localized) { [weak self] in
-            self?.settingsCtrl.reset(resetType)
-            AlertController.showSuccessAlert(with: "alert.message.successful".localized)
-        }
-        
-        alertView.addButton("button.title.cancel".localized) {
-            responder.close()
-        }
-        
-        alertView.showWarning(title, subTitle: "alert.message.sure".localized, animationStyle: .bottomToTop)
-    }
 }
 
 extension SettingsViewController: UITableViewDataSource {
@@ -92,7 +63,7 @@ extension SettingsViewController: UITableViewDataSource {
             cell.setup()
             return cell
         
-        case .action(let title, _), .reset(let title, _):
+        case .action(let title, _):
             let cell = tableView.dequeueReusableCell(withIdentifier: NRDefaultTableViewCell.reuseIdentifier, for: indexPath) as! NRDefaultTableViewCell
             cell.setup(title: title, accessoryType: .disclosureIndicator)
             return cell
@@ -107,11 +78,6 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch settingsCtrl.settingsItems[indexPath.row] {
-        case .reset(_ , let resetType):
-            if let vc = tableView.presentingViewController as? SettingsViewController {
-                vc.showAlertForDataReset(resetType)
-            }
-            
         case .action(_ , let action):
             action()
             

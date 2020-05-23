@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SCLAlertView
 
 class WorkoutSortingTableViewController: UITableViewController {
     
@@ -55,13 +54,13 @@ class WorkoutSortingTableViewController: UITableViewController {
     
     @objc private func saveWorkout() {
         guard var workout = workout else {
-            AlertController.showErrorAlert(with: "alert.message.failedSaving".localized)
+            AlertController.showDefaultAlert(title: "alert.message.failedSaving".localized, in: .workouts)
             return
         }
         
         workout.exercises = workoutSortingCtrl.exercisesToSort
         
-        AlertController.showSuccessAlert(with: "alert.message.succeededSaving".localized)
+        AlertController.showDefaultAlert(title: "alert.message.succeededSaving".localized, in: .workouts)
         
         let routeAction = RouteAction(screen: .workouts, in: .workouts, action: .popToRoot)
         store.dispatch(routeAction)

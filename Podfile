@@ -7,7 +7,6 @@ source 'https://github.com/patrickniepel/PNCommonsSpecs.git'
 
 target 'NoRest' do
   pod 'ReSwift'
-  pod 'SCLAlertView'
   pod 'PNCommons', '~> 1.1.1'
   pod 'RealmSwift'
 end

@@ -94,7 +94,7 @@ class WorkoutSetupViewController: UIViewController {
         guard var currentWorkout = workout,
             selectedExercises.count != 0
             else {
-                AlertController.showErrorAlert(with: "alert.message.noExercisesSelected".localized)
+                AlertController.showDefaultAlert(title: "alert.message.noExercisesSelected".localized, in: .workouts)
                 return
         }
         currentWorkout.exercises = selectedExercises

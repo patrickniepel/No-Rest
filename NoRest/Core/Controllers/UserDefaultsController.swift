@@ -10,6 +10,12 @@ import Foundation
 
 struct UserDefaultsController: Codable {
     
+    private static let firstAppInstallKey = "firstAppInstallKey"
+    static var isFirstAppInstall: Bool {
+        get { !UserDefaults.standard.bool(forKey: firstAppInstallKey) }
+        set { UserDefaults.standard.set(!newValue, forKey: firstAppInstallKey) }
+    }
+    
     private static let timerSoundKey = "timerSoundKey"
     static var isTimerSoundEnabled: Bool {
         get { UserDefaults.standard.bool(forKey: timerSoundKey) }
@@ -24,26 +30,6 @@ struct UserDefaultsController: Codable {
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: unitKey)
-        }
-    }
-    
-    enum Onboarding: String {
-        case startWorkout
-        case exercises
-        case history
-    }
-    
-    static func storeOnboarding(type: Onboarding) {
-        UserDefaults.standard.set(true, forKey: type.rawValue)
-    }
-    
-    static func didShowOnboarding(type: Onboarding) -> Bool {
-        return UserDefaults.standard.bool(forKey: type.rawValue)
-    }
-    
-    static func resetOnboarding() {
-        [Onboarding.startWorkout.rawValue, Onboarding.exercises.rawValue, Onboarding.history.rawValue].forEach {
-            UserDefaults.standard.set(false, forKey: $0)
         }
     }
 }

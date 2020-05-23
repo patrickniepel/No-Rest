@@ -15,14 +15,14 @@ struct NRStyle {
     static let primaryTextColor: UIColor = .white
     static let secondaryTextColor = UIColor.rgb(red: 200, green: 200, blue: 200, alpha: 1)
     
-    static let black: UIColor = .black
-    
     static let pulsatingColor = UIColor.rgb(red: 275, green: 108, blue: 31, alpha: 1)
     static let warningColor = UIColor.rgb(red: 254, green: 95, blue: 85, alpha: 1) // #FE5F55
     static let successColor = UIColor.rgb(red: 199, green: 239, blue: 207, alpha: 1) // #C7EFCF
     
     // Padding
     static let horizontalPadding: CGFloat = 20
+    static let verticalPadding: CGFloat = 16
+    static let cornerRadius: CGFloat = 15
     
     // Fonts
     static let regularFont = "CaviarDreams"
@@ -42,6 +42,8 @@ struct NRStyle {
     static let statisticsIcon = buildImage(for: "statistics")
     static let settingsIcon = buildImage(for: "settings")
     static let disclosureIcon = buildImage(for: "next")
+    static let timerIcon = buildImage(for: "timer")
+    static let binIcon = buildImage(for: "bin")
     
     private static func buildImage(for name: String) -> UIImage? {
         return UIImage(named: name)

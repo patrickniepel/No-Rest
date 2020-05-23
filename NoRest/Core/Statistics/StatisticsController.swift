@@ -10,7 +10,7 @@ import Foundation
 
 struct StatisticsController {
     private static var allExercisesOfStatistics: [Exercise] {
-        Array(Exercise.all())
+        Exercise.all()
     }
     
     static func provideGeneralStats() -> [StatsContainerItem] {
@@ -26,7 +26,7 @@ struct StatisticsController {
     
     static func provideExercisesStats() -> [StatsContainerItem] {
         var stats: [StatsContainerItem] = []
-        let exercises = ExerciseController().allExercises()
+        let exercises: [Exercise] = []
         
         exercises.forEach {
             let item = StatsContainerItem(title: $0.name, stats: StatisticsController.stats(for: $0))
@@ -126,7 +126,7 @@ private extension StatisticsController {
         var totalTimer: Double = 0
         
         for exercise in exercises {
-            totalTimer += Double(exercise.restTimer)
+            totalTimer += Double(exercise.timer)
         }
         return totalTimer
     }

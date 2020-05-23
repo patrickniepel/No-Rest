@@ -41,7 +41,7 @@ extension AppCoordinator: StoreSubscriber {
         }
         
         // The `screen` value will be completely ignored since the mainStack will be used to build the views.
-        if state.activeTabBar == .myWorkout && state.mainStack.count > 0 {
+        if state.activeTabBar == .workouts && state.mainStack.count > 0 {
             present(viewStack: state.mainStack)
             return
         }
@@ -86,6 +86,10 @@ extension AppCoordinator: StoreSubscriber {
         case .push:
             navigationController?.pushViewController(vc, animated: true)
         
+        case .presentInNav:
+            let navToPresent = NRNavigationController(rootViewController: vc)
+            navigationController?.present(navToPresent, animated: true, completion: nil)
+        
         case .present:
             navigationController?.present(vc, animated: true, completion: nil)
             
@@ -107,7 +111,7 @@ extension AppCoordinator: StoreSubscriber {
      */
     private func determineNavigationController(destination: TabBarDestination) -> UINavigationController? {
         switch destination {
-        case .myWorkout:
+        case .workouts:
             return myWorkoutNavigationController
         case .exercises:
             return exercisesNavigationController
@@ -150,7 +154,7 @@ extension AppCoordinator: StoreSubscriber {
         let viewController = build(screen: screen, state: state)
         
         switch state.activeTabBar {
-        case .myWorkout:
+        case .workouts:
             handleAction(navigationController: myWorkoutNavigationController, vc: viewController, action: state.action)
         case .exercises:
             handleAction(navigationController: exercisesNavigationController, vc: viewController, action: state.action)

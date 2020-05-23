@@ -9,7 +9,6 @@
 import UIKit
 
 class NRLabel: UILabel {
-    
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
         font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)

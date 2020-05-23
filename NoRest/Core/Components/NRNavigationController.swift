@@ -1,5 +1,5 @@
 //
-//  DefaultNavigationController.swift
+//  NRNavigationController.swift
 //  NoRest
 //
 //  Created by Patrick Niepel on 21.01.19.
@@ -9,9 +9,24 @@
 import ReSwift
 import UIKit
 
-class DefaultNavigationController: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
+class NRNavigationController: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
+    
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+        
+        navigationBar.tintColor = NRStyle.complementaryColor
+        navigationBar.barTintColor = NRStyle.themeColor
+        view.backgroundColor = NRStyle.themeColor
+        navigationBar.isTranslucent = false
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor]
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self
         delegate = self
     }

@@ -16,7 +16,7 @@ class SettingsUnitTableViewCell: UITableViewCell {
         let control = UISegmentedControl(items: items)
 
         control.backgroundColor = NRStyle.themeColor
-        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.black], for: .selected)
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.themeColor], for: .selected)
         control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor], for: .normal)
         
         let segmentWidth = self.contentView.frame.width * 0.75 / 2

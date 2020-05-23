@@ -33,7 +33,7 @@ enum RouteDestination {
         
         switch destination {
         case .workouts:
-            return TabBarDestination.myWorkout
+            return TabBarDestination.workouts
         case .exercises:
             return TabBarDestination.exercises
         case .statistics:

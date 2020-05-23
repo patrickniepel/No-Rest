@@ -10,5 +10,4 @@ import ReSwift
 
 struct EditExerciseAction: Action {
     let exercise: Exercise?
-    let type: ExerciseType?
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SCLAlertView
 
 class CurrentWorkoutViewController: UIViewController {
     
@@ -118,23 +117,15 @@ class CurrentWorkoutViewController: UIViewController {
     
     @objc private func handleDoneButton() {
         saveWorkout(toHistory: true)
-        AlertController.showSuccessAlert(with: "alert.message.workoutFinished".localized)
+        AlertController.showDefaultAlert(title: "alert.message.workoutFinished".localized, in: .workouts)
         navigationController?.popViewController(animated: true)
     }
     
     @objc private func handleUndoButton() {
-        let appearance = AlertController.interactiveAlertAppearance()
-        
-        let alertView = SCLAlertView(appearance: appearance)
-        let responder = SCLAlertViewResponder(alertview: alertView)
-        alertView.addButton("button.title.undo".localized) { [weak self] in
+        AlertController.showDataLossAlert { [weak self] in
             self?.saveDataIfClosed = false
             self?.navigationController?.popViewController(animated: true)
         }
-        alertView.addButton("button.title.cancel".localized) {
-            responder.close()
-        }
-        alertView.showWarning("alert.message.sure".localized, subTitle: "alert.message.dataLoss".localized, animationStyle: .bottomToTop)
     }
     
     deinit {

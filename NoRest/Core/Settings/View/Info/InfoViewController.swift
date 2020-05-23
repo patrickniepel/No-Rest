@@ -8,13 +8,12 @@
 
 import UIKit
 
-class InfoViewController: UIViewController {
-    
-    private let infoTextView: UITextView = {
+class InfoViewController: NRModalViewController {
+    private lazy var infoTextView: UITextView = {
         let tv = UITextView()
         tv.backgroundColor = NRStyle.themeColor
         tv.textColor = NRStyle.primaryTextColor
-        tv.font = UIFont(name: NRStyle.regularFont, size: 12)
+        tv.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeSmall)
         tv.isUserInteractionEnabled = true
         tv.isEditable = false
         tv.isSelectable = false
@@ -30,17 +29,17 @@ class InfoViewController: UIViewController {
     
     private func setupScreen() {
         view.backgroundColor = NRStyle.themeColor
-        setupLicensesTextView()
-    }
-    
-    private func setupLicensesTextView() {
         view.addSubview(infoTextView)
-        infoTextView.fillSuperview()
+        infoTextView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding))
     }
     
     func setupInfo(info: Info) {
         infoTextView.text = info == .licenses ? licenses : disclaimer
-        navigationItem.title = info == .licenses ? NRConstants.ScreenTitles.licenses : NRConstants.ScreenTitles.disclaimer
+        titleLabel.text = info == .licenses ? "settings.licenses".localized : "settings.disclaimer".localized
+    }
+    
+    override func closeButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     deinit {

@@ -14,7 +14,7 @@ struct WorkoutsController {
     }
     
     func allWorkouts() -> [Workout] {
-        return Array(Workout.all())
+        return Workout.all()
     }
     
     func dateAsString(for date: Date?) -> String {

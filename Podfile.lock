@@ -6,20 +6,17 @@ PODS:
   - RealmSwift (4.4.0):
     - Realm (= 4.4.0)
   - ReSwift (5.0.0)
-  - SCLAlertView (0.8)
 
 DEPENDENCIES:
   - PNCommons (~> 1.1.1)
   - RealmSwift
   - ReSwift
-  - SCLAlertView
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Realm
     - RealmSwift
     - ReSwift
-    - SCLAlertView
   https://github.com/patrickniepel/PNCommonsSpecs:
     - PNCommons
 
@@ -28,8 +25,7 @@ SPEC CHECKSUMS:
   Realm: e125f464884cda953ebefe70c671b75b03b81b9b
   RealmSwift: 33656a42bd300959a081fc13347376bc478071af
   ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
-  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
 
-PODFILE CHECKSUM: 5e1bff6ebfd18af2263e2214ef77848761994244
+PODFILE CHECKSUM: e44d72fc6e2c27301dbf45d155029449d6768fae
 
 COCOAPODS: 1.9.1
