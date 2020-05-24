@@ -10,18 +10,14 @@ import Foundation
 
 struct DefaultExercise {
     
-    static func allExercises() -> [Exercise] {
+    static func createDefaultExercises() {
         let types = ExerciseType.allCases
-        var exercises: [Exercise] = []
-        
-        for type in types {
-            exercises += DefaultExercise.defaultExercises(for: type)
+        types.forEach {
+            defaultExercises(for: $0)
         }
-        
-        return exercises
     }
     
-    static func defaultExercises(for type: ExerciseType) -> [Exercise] {
+    private static func defaultExercises(for type: ExerciseType) {
         var titles: [String] = []
         switch type {
         case .chest:
@@ -119,16 +115,15 @@ struct DefaultExercise {
                 "exercises.climbingMachine".localized
             ]
         }
-        return createExercises(with: titles, for: type)
+        
+        createExercises(with: titles, for: type)
     }
     
-    private static func createExercises(with titles: [String], for type: ExerciseType) -> [Exercise] {
-        var exercises: [Exercise] = []
-        for title in titles {
+    private static func createExercises(with titles: [String], for type: ExerciseType) {
+        titles.forEach {
             let timer = type == .cardio ? 600 : 90
-            let newExercise = Exercise(name: title, type: type, timer: timer, image: NRStyle.exercisesIcon)
-            exercises.append(newExercise)
+            let newExercise = Exercise(name: $0, type: type, timer: timer, image: NRStyle.exercisesIcon)
+            Exercise.add(exercise: newExercise)
         }
-        return exercises
     }
 }

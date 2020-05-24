@@ -44,6 +44,9 @@ struct NRStyle {
     static let disclosureIcon = buildImage(for: "next")
     static let timerIcon = buildImage(for: "timer")
     static let binIcon = buildImage(for: "bin")
+    static let selectionIcon = buildImage(for: "selection")
+    static let questionMarkIcon = buildImage(for: "question_mark")
+    static let calendarIcon = buildImage(for: "calendar")
     
     private static func buildImage(for name: String) -> UIImage? {
         return UIImage(named: name)

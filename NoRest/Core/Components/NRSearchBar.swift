@@ -26,9 +26,8 @@ class NRSearchBar: UISearchBar {
         showsSearchResultsButton = false
         tintColor = NRStyle.themeColor
         keyboardType = .default
-        keyboardAppearance = .default
+        keyboardAppearance = .dark
         backgroundImage = UIImage()
-        placeholder = "search.exercise".localized
         
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): NRStyle.complementaryColor], for: .normal)
         

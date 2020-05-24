@@ -10,10 +10,20 @@ import Foundation
 
 struct UserDefaultsController: Codable {
     
+    private static let workoutIDKey = "workoutIDKey"
+    static var currentWorkoutId: Int {
+        get { UserDefaults.standard.integer(forKey: workoutIDKey) }
+    }
+    
+    private static let exerciseIDKey = "exerciseIDKey"
+    static var currentExerciseId: Int {
+        get { UserDefaults.standard.integer(forKey: exerciseIDKey) }
+    }
+    
     private static let firstAppInstallKey = "firstAppInstallKey"
     static var isFirstAppInstall: Bool {
         get { !UserDefaults.standard.bool(forKey: firstAppInstallKey) }
-        set { UserDefaults.standard.set(!newValue, forKey: firstAppInstallKey) }
+        set { UserDefaults.standard.set(newValue, forKey: firstAppInstallKey) }
     }
     
     private static let timerSoundKey = "timerSoundKey"
@@ -31,5 +41,13 @@ struct UserDefaultsController: Codable {
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: unitKey)
         }
+    }
+    
+    static func increaseWorkoutId() {
+        UserDefaults.standard.set(currentWorkoutId + 1, forKey: workoutIDKey)
+    }
+    
+    static func increaseExerciseId() {
+        UserDefaults.standard.set(currentExerciseId + 1, forKey: exerciseIDKey)
     }
 }

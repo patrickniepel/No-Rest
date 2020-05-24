@@ -9,7 +9,12 @@
 import UIKit
 
 class ExercisesViewController: NRViewController {
-    private lazy var searchBar: NRSearchBar = .init()
+    private lazy var searchBar: NRSearchBar = {
+        let searchBar = NRSearchBar()
+        searchBar.placeholder = "exercise.search".localized
+        return searchBar
+    }()
+    
     private lazy var tableView: NRTableView = .init()
     
     private let exercisesCtrl: ExercisesController
@@ -30,6 +35,17 @@ class ExercisesViewController: NRViewController {
         setupAddButton()
         setupView()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        titleLabel.isHidden = false
+        reloadTableViewContent()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        titleLabel.isHidden = true
     }
     
     private func setupAddButton() {
@@ -54,9 +70,14 @@ class ExercisesViewController: NRViewController {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
     }
     
+    private func reloadTableViewContent() {
+        exercisesCtrl.updateExercises()
+        tableView.reloadData()
+    }
+    
     @objc
     private func addNewExercise() {
-        let editExerciseAction = EditExerciseAction(exercise: nil)
+        let editExerciseAction = EditExerciseAction(exercise: exercisesCtrl.generateNewExercise())
         store.dispatch(editExerciseAction)
         
         let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)
@@ -109,6 +130,20 @@ extension ExercisesViewController: UITableViewDelegate {
         let sectionTitle = ExerciseType.allCases[section].rawValue
         let headerView = NRTableViewSectionHeaderView(title: sectionTitle)
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, success: (Bool) -> Void) in
+            self?.exercisesCtrl.deleteExercise(for: indexPath)
+            self?.exercisesCtrl.updateExercises()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            success(true)
+        }
+
+        deleteAction.image = NRStyle.binIcon?.dye(.white)
+        deleteAction.backgroundColor = NRStyle.warningColor
+
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
 

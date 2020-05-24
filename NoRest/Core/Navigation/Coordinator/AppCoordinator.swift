@@ -64,6 +64,8 @@ class AppCoordinator {
             return WorkoutsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         case .popUp:
             return PopUpViewController()
+        case .iconSelection:
+            return IconSelectionViewController()
         case .currentWorkout:
             return CurrentWorkoutViewController()
         case .vc(let vc):

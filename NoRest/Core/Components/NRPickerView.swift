@@ -1,14 +1,14 @@
 //
-//  NRTextField.swift
+//  NRPickerView.swift
 //  NoRest
 //
-//  Created by Patrick Niepel on 23.05.20.
+//  Created by Patrick Niepel on 24.05.20.
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
 import UIKit
 
-class NRTextField: UITextField {
+class NRPickerView: UIPickerView {
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
         setup()
@@ -19,10 +19,7 @@ class NRTextField: UITextField {
     }
     
     private func setup() {
-        backgroundColor = NRStyle.primaryTextColor
-        textColor = NRStyle.themeColor
-        tintColor = NRStyle.themeColor
-        borderStyle = .roundedRect
-        keyboardAppearance = .dark
+        backgroundColor = NRStyle.themeColor
+        tintColor = NRStyle.primaryTextColor
     }
 }

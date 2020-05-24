@@ -10,4 +10,5 @@ import ReSwift
 
 struct EditExerciseState: StateType, Equatable {
     var exercise: Exercise?
+    var icon: UIImage?
 }

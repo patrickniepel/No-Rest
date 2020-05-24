@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func checkForFistAppStart() {
         if UserDefaultsController.isFirstAppInstall {
-            Exercise.add(exercises: DefaultExercise.allExercises())
+            DefaultExercise.createDefaultExercises()
             UserDefaultsController.isFirstAppInstall = true
         }
     }

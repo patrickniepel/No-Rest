@@ -16,5 +16,9 @@ func editExerciseReducer(action: Action, state: EditExerciseState?) -> EditExerc
         newState.exercise = editExerciseAction.exercise
     }
     
+    if let iconSelectionAction = action as? IconSelectionAction {
+        newState.icon = iconSelectionAction.icon
+    }
+    
     return newState
 }

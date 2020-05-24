@@ -75,6 +75,7 @@ enum Screen: Equatable {
     case history
     case historyDetail
     case popUp
+    case iconSelection
     case currentWorkout
     case vc(UIViewController)
 }

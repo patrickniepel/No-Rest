@@ -9,7 +9,6 @@
 import ReSwift
 
 extension EditExerciseViewController: StoreSubscriber {
-    
     func subscribe() {
         store.subscribe(self) {
             $0.select {
@@ -19,7 +18,13 @@ extension EditExerciseViewController: StoreSubscriber {
     }
     
     func newState(state: EditExerciseState) {
-//        setupExercise(state.exercise)
+        if let exercise = state.exercise {
+            setupExercise(exercise)
+        }
+        
+        if let icon = state.icon {
+            selectIcon(icon)
+        }
     }
     
     func unsubscribe() {

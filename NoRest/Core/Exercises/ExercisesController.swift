@@ -8,22 +8,27 @@
 
 import Foundation
 
-struct ExercisesController {
+class ExercisesController {
+    private var exercises: [String: [Exercise]] = [:]
+    
+    init() {
+        updateExercises()
+    }
+    
+    func updateExercises() {
+        exercises = Exercise.asDictionary()
+    }
     
     func numberOfSections() -> Int {
-        return exercises().keys.count
+        return exercises.keys.count
     }
     
     func numberOfRows(in section: Int) -> Int {
-        return exercises()[ExerciseType.allCases[section].rawValue]?.count ?? 0
+        return exercises[ExerciseType.allCases[section].rawValue]?.count ?? 0
     }
     
     func exercise(for indexPath: IndexPath) -> Exercise? {
-        return exercises()[ExerciseType.allCases[indexPath.section].rawValue]?[indexPath.row]
-    }
-    
-    func exercises() -> [String: [Exercise]] {
-        return Exercise.asDictionary()
+        return exercises[ExerciseType.allCases[indexPath.section].rawValue]?[indexPath.row]
     }
     
     func searchResult(for query: String) -> IndexPath? {
@@ -36,5 +41,22 @@ struct ExercisesController {
         
         let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
         return indexPath
+    }
+    
+    func generateNewExercise() -> Exercise {
+        let count = Exercise.all().count + 1
+        let name = "exercise.new".localized + " \(count)"
+        return Exercise(name: name, type: .chest, timer: 90, notes: "", image: NRStyle.questionMarkIcon)
+    }
+    
+    func deleteExercise(for indexPath: IndexPath) {
+        let type = ExerciseType.allCases[indexPath.section].rawValue
+        guard let exercisesForType = exercises[type] else { return }
+        let exerciseToDelete = exercisesForType[indexPath.row]
+        Exercise.delete(with: exerciseToDelete.id)
+    }
+    
+    static func addExercise(_ exercise: Exercise) {
+        Exercise.add(exercise: exercise)
     }
 }

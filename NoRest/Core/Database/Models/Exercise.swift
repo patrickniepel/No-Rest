@@ -25,11 +25,11 @@ class Exercise: Object, Comparable {
         return Fields.id.rawValue
     }
     
-    dynamic var id: String = ""
+    dynamic var id: Int = 0
     dynamic var name: String = ""
     
     dynamic private(set) var _type: String?
-    private(set) var type: ExerciseType? {
+    var type: ExerciseType? {
         get {
             guard let type = _type else { return nil }
             return ExerciseType(rawValue: type)
@@ -82,8 +82,7 @@ class Exercise: Object, Comparable {
         self.image = image
         self.sets = sets
         
-        let setsId = sets.map { $0.id }.joined(separator: "-")
-        self.id = "\(name)_\(type)_\(timer)_\(notes)_\(setsId)"
+        self.id = UserDefaultsController.currentExerciseId
     }
     
     static func < (lhs: Exercise, rhs: Exercise) -> Bool {
@@ -118,23 +117,20 @@ class Exercise: Object, Comparable {
         return exercises
     }
     
-    static func get(id: String) -> Exercise? {
+    static func get(id: Int) -> Exercise? {
         guard let realm = Database.getRealm() else {
             fatalError()
         }
 
-        return realm.objects(Exercise.self).filter(NSPredicate(format: "%K = %@", Fields.id.rawValue, id)).first
+        return realm.objects(Exercise.self).filter("\(Fields.id.rawValue) = \(id)").first
     }
 
     static func add(exercise: Exercise) {
         Database.add(object: exercise, update: true)
+        UserDefaultsController.increaseExerciseId()
     }
     
-    static func add(exercises: [Exercise]) {
-        Database.add(objects: exercises, update: true)
-    }
-
-    static func delete(with id: String) {
+    static func delete(with id: Int) {
         if let exercise = get(id: id) {
             Database.delete(object: exercise)
         }

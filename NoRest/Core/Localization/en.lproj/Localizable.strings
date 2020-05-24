@@ -13,7 +13,14 @@
 "settings.title" = "Settings";
 
 // Exercises
-"search.exercise" = "Search exercise";
+"exercise.search" = "Search exercise";
+"exercise.name" = "Name";
+"exercise.name.placeholder" = "Exercise name";
+"exercise.type" = "Type";
+"exercise.timer.seconds" = "Timer (s)";
+"exercise.timer.minutes" = "Timer (min)";
+"exercise.notes" = "Notes";
+"exercise.new" = "New Exercise";
 
 // Settings
 "settings.unit" = "Unit";

@@ -24,42 +24,59 @@ class EditExerciseViewController: NRViewController {
         return view
     }()
     
-    private lazy var exerciseImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
+    private lazy var exerciseImageView: NRExerciseImageView = .init()
+    private lazy var selectionImageView: NRImageView = {
+        let imageView = NRImageView()
+        imageView.image = NRStyle.selectionIcon
         return imageView
     }()
     
-    private lazy var nameLabel: NRLabel = {
-        let label = NRLabel(with: "test")
-        return label
+    private lazy var separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = NRStyle.complementaryColor
+        return view
     }()
     
-    private lazy var nameTextfield: NRTextField = .init()
-    
-    private lazy var typeLabel: NRLabel = {
-        let label = NRLabel(with: "testType")
-        return label
+    private lazy var nameLabel: NRLabel = NRLabel(with: "exercise.name".localized)
+    private lazy var nameTextfield: NRTextField = {
+       let textField = NRTextField()
+        textField.addTarget(self, action: #selector(handleNameChange), for: .editingChanged)
+        textField.placeholder = "exercise.name.placeholder".localized
+        return textField
     }()
     
-    // Picker
+    private lazy var typeLabel: NRLabel = NRLabel(with: "exercise.type".localized)
+    private lazy var typeTextfield: NRTextField = {
+        let textField = NRTextField()
+        textField.addTarget(self, action: #selector(handleTypeChange), for: .editingDidBegin)
+        return textField
+    }()
+    private lazy var typePicker: NRPickerView = .init()
     
-    private lazy var timerLabel: NRLabel = {
-        let label = NRLabel(with: "testTimer")
-        return label
+    private lazy var timerLabel: NRLabel = NRLabel()
+    private lazy var timerTextfield: NRTextField = {
+        let textField = NRTextField()
+        textField.keyboardType = .numberPad
+        return textField
     }()
     
-    private lazy var timerTextfield: NRTextField = .init()
-    
+    private lazy var notesLabel: NRLabel = NRLabel(with: "exercise.notes".localized)
     private lazy var notesTextView: NRTextView = .init()
     
+    private var exercise: Exercise?
+    private var tapGestureRecognizer: UITapGestureRecognizer?
+
     override func viewDidLoad() {
-        viewControllerTitle = " cc"
         super.viewDidLoad()
         
+        subscribe()
+        
         setupSaveButton()
-        setupView()
+        setupLayout()
+        setupImageSelection()
+        setupTypeSelection()
+        
+        hideKeyboardWhenTapped()
     }
     
     private func setupSaveButton() {
@@ -67,226 +84,126 @@ class EditExerciseViewController: NRViewController {
         navigationItem.rightBarButtonItem = saveButton
     }
     
+    func setupExercise(_ exercise: Exercise) {
+        self.exercise = exercise
+    
+        navigationItem.title = exercise.name
+        exerciseImageView.image = exercise.image
+        nameTextfield.text = exercise.name
+        typeTextfield.text = exercise.type?.rawValue
+        timerLabel.text = exercise.type == .cardio ? "exercise.timer.minutes".localized : "exercise.timer.seconds".localized
+        timerTextfield.text = exercise.type == .cardio ? "\(exercise.timer / 60)" : "\(exercise.timer)"
+        notesTextView.text = exercise.notes
+    }
+    
+    func selectIcon(_ icon: UIImage) {
+        
+    }
+    
+    @objc
+    private func handleImageSelection() {
+        let routeAction = RouteAction(screen: .iconSelection, in: .exercises, action: .modally)
+        store.dispatch(routeAction)
+    }
+    
+    @objc
+    private func handleNameChange() {
+        navigationItem.title = nameTextfield.text
+    }
+    
+    @objc
+    private func handleTypeChange() {
+        let row = ExerciseType.allCases.firstIndex(where: { $0.rawValue == typeTextfield.text }) ?? 0
+        typePicker.selectRow(row, inComponent: 0, animated: false)
+    }
+    
     @objc
     private func saveExerciseTapped() {
+        guard let name = nameTextfield.text, !name.isBlank,
+            let typeText = typeTextfield.text, let type = ExerciseType(rawValue: typeText),
+            let timerText = timerTextfield.text, let timer = Int(timerText) else { return }
         
+        Database.update {
+            exercise?.name = name
+            exercise?.type = type
+            exercise?.timer = type == .cardio ? timer * 60 : timer
+            exercise?.notes = notesTextView.text
+        }
+            
+        guard let exercise = exercise else { return }
+        
+        ExercisesController.addExercise(exercise)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    deinit {
+        unsubscribe()
+        
+        guard let tapGestureRecognizer = tapGestureRecognizer else { return }
+        exerciseImageView.removeGestureRecognizer(tapGestureRecognizer)
     }
 }
 
 private extension EditExerciseViewController {
-    func setupView() {
+    func setupLayout() {
         view.addSubview(scrollView)
         scrollView.fillSuperview()
         
         scrollView.addSubview(contentView)
         contentView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor, size: .init(width: view.bounds.width, height: view.bounds.height))
         
-        [].forEach(contentView.addSubview)
+        [exerciseImageView, selectionImageView, separator, nameLabel, nameTextfield, typeLabel, typeTextfield, timerLabel, timerTextfield, notesLabel, notesTextView].forEach(contentView.addSubview)
+        
+        let horizontalPadding = NRStyle.horizontalPadding
+        let verticalPadding = NRStyle.verticalPadding
+        
+        exerciseImageView.anchor(top: contentView.topAnchor, centerX: contentView.centerXAnchor, padding: .init(top: verticalPadding, left: 0, bottom: 0, right: 0), size: .init(width: 100, height: 100))
+        
+        selectionImageView.anchor(bottom: exerciseImageView.bottomAnchor, trailing: exerciseImageView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 2, right: 2), size: .init(width: 20, height: 20))
+        
+        separator.anchor(top: exerciseImageView.bottomAnchor, centerX: contentView.centerXAnchor, padding: .init(top: verticalPadding, left: 0, bottom: 0, right: 0), size: .init(width: UIScreen.main.bounds.width * 0.75, height: 1))
+        
+        nameLabel.anchor(top: separator.bottomAnchor, leading: contentView.leadingAnchor, padding: .init(top: verticalPadding, left: NRStyle.horizontalPadding, bottom: 0, right: 0))
+        nameTextfield.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, trailing: contentView.trailingAnchor, padding: .init(top: verticalPadding / 2, left: 0, bottom: 0, right: horizontalPadding))
+        
+        typeLabel.anchor(top: nameTextfield.bottomAnchor, leading: nameTextfield.leadingAnchor, trailing: contentView.centerXAnchor, padding: .init(top: verticalPadding * 2, left: 0, bottom: 0, right: horizontalPadding / 2))
+        typeTextfield.anchor(top: typeLabel.bottomAnchor, leading: typeLabel.leadingAnchor, trailing: contentView.centerXAnchor, padding: .init(top: verticalPadding / 2, left: 0, bottom: 0, right: horizontalPadding / 2))
+        
+        timerLabel.anchor(top: typeLabel.topAnchor, leading: contentView.centerXAnchor, padding: .init(top: 0, left: horizontalPadding / 2, bottom: 0, right: horizontalPadding))
+        timerTextfield.anchor(top: timerLabel.bottomAnchor, leading: contentView.centerXAnchor, trailing: contentView.trailingAnchor, padding: .init(top: verticalPadding / 2, left: horizontalPadding / 2, bottom: 0, right: horizontalPadding))
+        
+        notesLabel.anchor(top: typeTextfield.bottomAnchor, leading: typeTextfield.leadingAnchor, padding: .init(top: verticalPadding * 2, left: 0, bottom: 0, right: 0))
+        notesTextView.anchor(top: notesLabel.bottomAnchor, leading: notesLabel.leadingAnchor, trailing: contentView.trailingAnchor, padding: .init(top: verticalPadding / 2, left: 0, bottom: 0, right: horizontalPadding), size: .init(width: 0, height: 250))
+    }
+    
+    func setupTypeSelection() {
+        typeTextfield.inputView = typePicker
+        typePicker.delegate = self
+    }
+    
+    func setupImageSelection() {
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleImageSelection))
+        exerciseImageView.addGestureRecognizer(tapGestureRecognizer!)
     }
 }
 
-//class EditExerciseViewController: UIViewController, UITextViewDelegate {
-//
-//    private let scrollView: UIScrollView = {
-//        let scrollView = UIScrollView()
-//        scrollView.bounces = true
-//        scrollView.showsVerticalScrollIndicator = false
-//        scrollView.showsHorizontalScrollIndicator = false
-//        return scrollView
-//    }()
-//
-//    private let mainView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = NRStyle.themeColor
-//        view.applyShadow()
-//        view.layer.cornerRadius = 20
-//        return view
-//    }()
-//
-//    private let nameLabel: NRLabel = {
-//        let label = NRLabel(with: NRConstants.Editing.nameLabel)
-//        label.textColor = NRStyle.primaryTextColor
-//        label.sizeToFit()
-//        return label
-//    }()
-//
-//    private let timerLabel: NRLabel = {
-//        let label = NRLabel()
-//        label.textColor = NRStyle.primaryTextColor
-//        label.sizeToFit()
-//        return label
-//    }()
-//
-//    private let notesLabel: NRLabel = {
-//        let label = NRLabel(with: NRConstants.Editing.notesLabel)
-//        label.textColor = NRStyle.primaryTextColor
-//        label.sizeToFit()
-//        return label
-//    }()
-//
-//    private let nameTextField: UITextField = {
-//        let textField = UITextField()
-//        textField.adjustsFontSizeToFitWidth = true
-//        textField.autocapitalizationType = .words
-//        textField.autocorrectionType = .default
-//        textField.borderStyle = .roundedRect
-//        textField.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
-//        textField.keyboardAppearance = .default
-//        textField.keyboardType = .default
-//        textField.tintColor = NRStyle.complementaryColor
-//        return textField
-//    }()
-//
-//    private let timerTextField: UITextField = {
-//        let textField = UITextField()
-//        textField.adjustsFontSizeToFitWidth = true
-//        textField.borderStyle = .roundedRect
-//        textField.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
-//        textField.keyboardAppearance = .default
-//        textField.keyboardType = .numberPad
-//        textField.tintColor = NRStyle.complementaryColor
-//        return textField
-//    }()
-//
-//    private let notesTextView: UITextView = {
-//        let textView = UITextView()
-//        textView.autocapitalizationType = .sentences
-//        textView.autocorrectionType = .default
-//        textView.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
-//        textView.isEditable = true
-//        textView.keyboardAppearance = .default
-//        textView.keyboardType = .default
-//        textView.tintColor = NRStyle.complementaryColor
-//        textView.layer.cornerRadius = 5
-//        textView.layer.borderWidth = 0.5
-//        textView.layer.borderColor = UIColor.lightGray.cgColor
-//        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-//        return textView
-//    }()
-//
-//    var exercise: Exercise?
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        subscribe()
-//        notesTextView.delegate = self
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-//
-//        setupScreen()
-//        hideKeyboardWhenTapped()
-//        setupLayout()
-//        fillLayout()
-//    }
-//
-//    private func setupScreen() {
-//        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveExercise))
-//        navigationItem.rightBarButtonItem = saveButton
-//        navigationItem.largeTitleDisplayMode = .never
-//        view.backgroundColor = NRStyle.themeColor
-//    }
-//
-//    private func fillLayout() {
-//        guard let exercise = exercise else { return }
-//        timerLabel.text = "Todo"
-//        nameTextField.text = exercise.name
-//        timerTextField.text = "\(exercise.restTimer) todo"
-//        notesTextView.text = exercise.notes
-//    }
-//
-//    func setupExercise(_ exercise: Exercise?) {
-//        if let exercise = exercise {
-//            self.exercise = exercise
-//        } //else if let type = type {
-////            self.exercise = Exercise(name: "", type: type, restTimer: 0)
-////        }
-//        navigationItem.title = exercise?.name ?? NRConstants.ScreenTitles.newExercise
-//    }
-//
-//    @objc private func saveExercise() {
-//        guard var exercise = exercise else {
-//            AlertController.showDefaultAlert(title: "alert.message.failedSaving".localized, in: .exercises)
-//            return
-//        }
-//        exercise.name = SyntaxController.checkNameInputCorrect(text: nameTextField.text)
-//        exercise.notes = SyntaxController.checkNotesInputCorrect(text: notesTextView.text)
-//        let exerciseCtrl = ExercisesController()
-//        AlertController.showDefaultAlert(title: "alert.message.succeededSaving".localized, in: .exercises)
-//        navigationController?.popViewController(animated: true)
-//    }
-//
-//    @objc private func keyboardWillShow(notification: NSNotification) {
-//        if !notesTextView.isFirstResponder {
-//            return
-//        }
-//
-//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.scrollView.frame.origin.y == 0 {
-//                self.scrollView.frame.origin.y -= keyboardSize.height
-//            }
-//        }
-//    }
-//
-//    @objc private func keyboardWillHide(notification: NSNotification) {
-//        if self.scrollView.frame.origin.y != 0 {
-//           self.scrollView.frame.origin.y = 0
-//        }
-//    }
-//
-//    @objc private func updateNavigationTitle() {
-//        let textFieldText = nameTextField.text ?? ""
-//        if textFieldText.isBlank {
-//            navigationItem.title = NRConstants.ScreenTitles.newExercise
-//        } else {
-//            navigationItem.title = textFieldText
-//        }
-//    }
-//
-//    deinit {
-//        unsubscribe()
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-//}
-//
-//private extension EditExerciseViewController {
-//    func setupLayout() {
-//        setupScrollView()
-//        setupMainView()
-//        setupLabels()
-//        setupTextInputs()
-//    }
-//
-//    func setupScrollView() {
-//        view.addSubview(scrollView)
-//        scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
-//    }
-//
-//    func setupMainView() {
-//        scrollView.addSubview(mainView)
-//
-//        let mainViewHeight = view.frame.height - 2 * 16
-//        let mainViewWidth = view.frame.width - 2 * 16
-//        mainView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor, padding: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16), size: CGSize(width: mainViewWidth, height: mainViewHeight))
-//
-//        mainView.addSubviews(nameLabel, timerLabel, notesLabel, nameTextField, timerTextField, notesTextView)
-//    }
-//
-//    func setupLabels() {
-//        nameLabel.anchor(top: mainView.topAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 0))
-//        timerLabel.anchor(top: nameTextField.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 0))
-//        notesLabel.anchor(top: timerTextField.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 32, left: 16, bottom: 0, right: 0))
-//    }
-//
-//    func setupTextInputs() {
-//        let topPadding: CGFloat = 8
-//
-//        nameTextField.addTarget(self, action: #selector(updateNavigationTitle), for: .editingChanged)
-//        nameTextField.anchor(top: nameLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: 16, bottom: 0, right: 16))
-//        timerTextField.anchor(top: timerLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: nil, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: 16, bottom: 0, right: 16))
-//
-//        notesTextView.anchor(top: notesLabel.bottomAnchor, leading: mainView.leadingAnchor, bottom: mainView.bottomAnchor, trailing: mainView.trailingAnchor, padding: UIEdgeInsets(top: topPadding, left: 16, bottom: 16, right: 16))
-//    }
-//}
+extension EditExerciseViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return ExerciseType.allCases.count
+    }
+}
+
+extension EditExerciseViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return ExerciseType.allCases[row].rawValue
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedType = ExerciseType.allCases[row]
+        typeTextfield.text = selectedType.rawValue
+    }
+}

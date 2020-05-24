@@ -9,12 +9,7 @@
 import UIKit
 
 class NRTagView: UIView {
-    private lazy var iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        return imageView
-    }()
+    private lazy var iconImageView: NRImageView = .init()
     
     private lazy var textLabel: NRLabel = {
         let label = NRLabel(with: "", size: NRStyle.fontSizeSmall)

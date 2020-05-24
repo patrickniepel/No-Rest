@@ -23,7 +23,7 @@ class Workout: Object {
         return Fields.id.rawValue
     }
     
-    dynamic private(set) var id: String = ""
+    dynamic private(set) var id: Int = 0
     
     dynamic private(set) var createdAt: Date?
     dynamic var mostRecent: Date?
@@ -44,8 +44,7 @@ class Workout: Object {
     convenience init(name: String, exercises: [Exercise]) {
         self.init()
         
-        let exercisesId = exercises.map { $0.id }.joined(separator: "-")
-        self.id = "\(name)_\(exercisesId)"
+        self.id = UserDefaultsController.currentWorkoutId
         self.name = name
         self.exercises = exercises
         
@@ -60,19 +59,20 @@ class Workout: Object {
         return Array(realm.objects(Workout.self))
     }
     
-    static func get(id: String) -> Workout? {
+    static func get(id: Int) -> Workout? {
         guard let realm = Database.getRealm() else {
             fatalError()
         }
 
-        return realm.objects(Workout.self).filter(NSPredicate(format: "%K = %@", Fields.id.rawValue, id)).first
+        return realm.objects(Workout.self).filter("\(Fields.id.rawValue) = \(id)").first
     }
 
     static func add(workout: Workout) {
         Database.add(object: workout, update: true)
+        UserDefaultsController.increaseWorkoutId()
     }
 
-    static func delete(with id: String) {
+    static func delete(with id: Int) {
         if let workout = get(id: id) {
             Database.delete(object: workout)
         }
