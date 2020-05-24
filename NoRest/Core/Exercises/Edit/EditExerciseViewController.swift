@@ -97,11 +97,14 @@ class EditExerciseViewController: NRViewController {
     }
     
     func selectIcon(_ icon: UIImage) {
-        
+        exerciseImageView.image = icon
     }
     
     @objc
     private func handleImageSelection() {
+        let currentSelectionIconAction = CurrentIconSelectionAction(icon: exercise?.image)
+        store.dispatch(currentSelectionIconAction)
+        
         let routeAction = RouteAction(screen: .iconSelection, in: .exercises, action: .modally)
         store.dispatch(routeAction)
     }
@@ -124,6 +127,7 @@ class EditExerciseViewController: NRViewController {
             let timerText = timerTextfield.text, let timer = Int(timerText) else { return }
         
         Database.update {
+            exercise?.image = exerciseImageView.image
             exercise?.name = name
             exercise?.type = type
             exercise?.timer = type == .cardio ? timer * 60 : timer

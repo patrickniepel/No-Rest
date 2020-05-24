@@ -18,5 +18,6 @@ struct AppState: StateType, Equatable {
     let currentWorkoutState: CurrentWorkoutState
     let currentWorkoutCellState: CurrentWorkoutCellState
     let historyDetailState: HistoryDetailState
+    let currentIconSelectionState: CurrentIconSelectionState
 }
 
