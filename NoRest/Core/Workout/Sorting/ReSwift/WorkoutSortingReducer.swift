@@ -9,7 +9,6 @@
 import ReSwift
 
 func workoutSortingReducer(action: Action, state: WorkoutSortingState?) -> WorkoutSortingState {
-    
     var newState = state ?? WorkoutSortingState()
     
     if let workoutSortingAction = action as? WorkoutSortingAction {

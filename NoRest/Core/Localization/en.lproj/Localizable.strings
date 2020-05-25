@@ -15,6 +15,7 @@
 // Workouts
 "workout.new" = "New Workout";
 "workout.name" = "Name";
+"workout.name.placeholder" = "Workout name";
 "workout.empty" = "No Workouts Available!\nPress '+' To Add Your First Workout";
 "workout.start" = "GO!";
 
@@ -53,6 +54,9 @@
 "button.title.ok" = "OK";
 
 // Alerts
+"alert.message.invalidInput" = "Invalid Input";
+"alert.message.workout.input" = "Please enter a name and select at least one exercise";
+"alert.message.exercise.input" = "Please enter a name and select a type";
 "alert.message.successful" = "Successful";
 "alert.message.sure" = "Are You Sure?";
 "alert.message.failedSaving" = "Couldn't Be Saved";
@@ -60,7 +64,6 @@
 "alert.message.dataLoss" = "All Changes Will Be Lost";
 "alert.message.resetHistory" = "Workout History Will Be Reset";
 "alert.message.resetOnboarding" = "Onboarding Will Be Reset";
-"alert.message.noExercisesSelected" = "No Exercises Selected";
 "alert.message.workoutFinished" = "Workout Finished";
 "alert.message.noMail.title" = "No Mail Account";
 "alert.message.noMail.description" = "Please set up a mail account first";

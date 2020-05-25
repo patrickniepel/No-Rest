@@ -9,18 +9,16 @@
 import UIKit
 
 class NREmptyView: UIView {
-
-    private let emptyLabel: UILabel = {
-        let label = UILabel()
+    private lazy var emptyLabel: NRLabel = {
+        let label = NRLabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont(name: NRStyle.boldFont, size: 30)
-        label.textColor = NRStyle.primaryTextColor
+        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeVeryLarge)
         return label
     }()
     
-    private let arrowImageView: UIImageView = {
-        let imageView = UIImageView()
+    private lazy var arrowImageView: NRImageView = {
+        let imageView = NRImageView()
         imageView.image = NRConstants.Images.arrow.image?.dye(NRStyle.complementaryColor)
         imageView.contentMode = .scaleToFill
         return imageView
@@ -28,8 +26,10 @@ class NREmptyView: UIView {
     
     convenience init(text: String, addArrow: Bool = false) {
         self.init()
+        
         clipsToBounds = true
         emptyLabel.text = text
+        
         setupLabel()
         
         if addArrow {
@@ -39,11 +39,11 @@ class NREmptyView: UIView {
     
     private func setupLabel() {
         addSubview(emptyLabel)
-        emptyLabel.anchor(leading: leadingAnchor, trailing: trailingAnchor, centerX: centerXAnchor, centerY: centerYAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+        emptyLabel.anchor(leading: leadingAnchor, trailing: trailingAnchor, centerY: centerYAnchor, padding: UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding))
     }
     
     private func setupArrow() {
         addSubview(arrowImageView)
-        arrowImageView.anchor(top: topAnchor, bottom: emptyLabel.topAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 40, left: 0, bottom: 32, right: 0))
+        arrowImageView.anchor(top: topAnchor, bottom: emptyLabel.topAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: NRStyle.verticalPadding * 2, left: 0, bottom: NRStyle.verticalPadding * 2, right: 0))
     }
 }

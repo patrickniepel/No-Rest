@@ -123,8 +123,14 @@ class EditExerciseViewController: NRViewController {
     @objc
     private func saveExerciseTapped() {
         guard let name = nameTextfield.text, !name.isBlank,
-            let typeText = typeTextfield.text, let type = ExerciseType(rawValue: typeText),
-            let timerText = timerTextfield.text, let timer = Int(timerText) else { return }
+            let typeText = typeTextfield.text, let type = ExerciseType(rawValue: typeText)
+        else {
+            AlertController.showDefaultAlert(title: "alert.message.invalidInput".localized, message: "alert.message.exercise.input".localized, in: .exercises)
+            return
+        }
+        
+        let timerText = timerTextfield.text ?? "0"
+        let timer = Int(timerText) ?? 0
         
         Database.update {
             exercise?.image = exerciseImageView.image

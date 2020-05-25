@@ -35,6 +35,7 @@ struct NRStyle {
     static let fontSizeRegular: CGFloat = 18
     static let fontSizeMedium: CGFloat = 20
     static let fontSizeLarge: CGFloat = 24
+    static let fontSizeVeryLarge: CGFloat = 30
     
     // Images
     static let workoutsIcon = buildImage(for: "workouts")

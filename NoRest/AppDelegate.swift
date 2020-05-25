@@ -13,15 +13,11 @@ var store = Store<AppState>(reducer: appReducer, state: nil, middleware: [])
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     var coordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         Database.setup()
-        
-        Workout.add(workout: Workout(name: "Test", exercises: [Exercise(name: "asd", type: .chest, timer: 0)]))
         
         setupCoordinator()
         

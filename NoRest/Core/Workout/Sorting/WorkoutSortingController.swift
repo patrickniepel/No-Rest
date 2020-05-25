@@ -9,7 +9,6 @@
 import Foundation
 
 class WorkoutSortingController {
-    
     var exercisesToSort: [Exercise] = []
     
     func moveExercise(from source: Int, to destination: Int) {

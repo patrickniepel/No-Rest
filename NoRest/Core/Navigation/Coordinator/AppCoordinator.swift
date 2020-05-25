@@ -59,7 +59,7 @@ class AppCoordinator {
         case .workoutSetup:
             return WorkoutSetupViewController()
         case .workoutSorting:
-            return WorkoutSortingTableViewController()
+            return WorkoutSortingViewController()
         case .workouts:
             return WorkoutsViewController()
         case .popUp:

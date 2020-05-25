@@ -8,7 +8,7 @@
 
 import ReSwift
 
-extension WorkoutSortingTableViewController: StoreSubscriber {
+extension WorkoutSortingViewController: StoreSubscriber {
     
     func subscribe() {
         store.subscribe(self) {
