@@ -209,5 +209,6 @@ extension EditExerciseViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedType = ExerciseType.allCases[row]
         typeTextfield.text = selectedType.rawValue
+        timerLabel.text = selectedType == .cardio ? "exercise.timer.minutes".localized : "exercise.timer.seconds".localized
     }
 }

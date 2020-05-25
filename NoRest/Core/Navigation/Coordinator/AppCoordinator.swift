@@ -61,7 +61,7 @@ class AppCoordinator {
         case .workoutSorting:
             return WorkoutSortingTableViewController()
         case .workouts:
-            return WorkoutsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            return WorkoutsViewController()
         case .popUp:
             return PopUpViewController()
         case .iconSelection:
@@ -94,7 +94,7 @@ class AppCoordinator {
     static func instantiateScreen(with title: String) -> UIViewController {
         switch title {
         case NRConstants.TabBarItemTitles.workouts:
-            return WorkoutsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            return WorkoutsViewController()
         case NRConstants.TabBarItemTitles.exercises:
             return ExercisesViewController()
         case NRConstants.TabBarItemTitles.statistics:

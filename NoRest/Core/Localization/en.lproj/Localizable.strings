@@ -12,6 +12,12 @@
 "statistics.title" = "Statistics";
 "settings.title" = "Settings";
 
+// Workouts
+"workout.new" = "New Workout";
+"workout.name" = "Name";
+"workout.empty" = "No Workouts Available!\nPress '+' To Add Your First Workout";
+"workout.start" = "GO!";
+
 // Exercises
 "exercise.search" = "Search exercise";
 "exercise.name" = "Name";
@@ -70,6 +76,8 @@
 "exercises.inclineDumbbellBenchPress" = "Incline Dumbbell Bench Press";
 "exercises.inclineDumbbellFly" = "Incline Dumbbell Fly";
 "exercises.pushUp" = "Push Up";
+"exercises.machineFly" = "Machine Fly";
+
 "exercises.barbellRow" = "Barbell Row";
 "exercises.barbellShrug" = "Barbell Shrug";
 "exercises.chinUp" = "Chin Up";
@@ -80,7 +88,9 @@
 "exercises.pullUp" = "Pull Up";
 "exercises.seatedCableRow" = "Seated Cable Row";
 "exercises.tBarRow" = "T-Bar Row";
+
 "exercises.arnoldDumbbellPress" = "Arnold Dumbbell Press";
+"exercises.dumbbellPress" = "Dumbbell Press";
 "exercises.behindTheNeckBarbellPress" = "Behind The Neck Barbell Press";
 "exercises.cableFacePull" = "Cable Face Pull";
 "exercises.frontDumbbellRaise" = "Front Dumbbell Raise";
@@ -90,6 +100,7 @@
 "exercises.rearDeltDumbbellRaise" = "Rear Delt Dumbbell Raise";
 "exercises.seatedLateralDumbbellRaise" = "Seated Lateral Dumbbell Raise";
 "exercises.standingLateralDumbbellRaise" = "Standing Lateral Dumbbell Raise";
+
 "exercises.barbellCurl" = "Barbell Curl";
 "exercises.cableCurl" = "Cable Curl";
 "exercises.dumbbellConcentrationCurl" = "Dumbbell Concentration Curl";
@@ -100,12 +111,14 @@
 "exercises.ironCrossCurl" = "Iron Cross Curl";
 "exercises.dumbbellScottCurl" = "Dumbbell Scott Curl";
 "exercises.seatedMachineCurl" = "Seated Machine Curl";
+
 "exercises.cableOverheadTricepsExtension" = "Cable Overhead Triceps Extension";
 "exercises.closeGripBarbellBenchPress" = "Close Grip Barbell Bench Press";
 "exercises.dumbbellOverheadTricepsExtension" = "Dumbbell Overhead Triceps Extension";
 "exercises.ezBarFrenchPress" = "EZ-Bar French Press";
 "exercises.tricepsDip" = "Triceps Dip";
 "exercises.pushDown" = "Push Down";
+
 "exercises.crunch" = "Crunch";
 "exercises.crunchMachine" = "Crunch Machine";
 "exercises.hangingKneeRaise" = "Hanging Knee Raise";
@@ -115,6 +128,7 @@
 "exercises.sidePlank" = "Side Plank";
 "exercises.situp" = "Situp";
 "exercises.toesToBar" = "Toes To Bar";
+
 "exercises.barbellCalfRaise" = "Barbell Calf Raise";
 "exercises.barbellFrontSquat" = "Barbell Front Squat";
 "exercises.barbellGluteBridge" = "Barbell Glute Bridge";
@@ -126,7 +140,9 @@
 "exercises.lyingLegCurlMachine" = "Lying Leg Curl Machine";
 "exercises.seatedCalfRaiseMachine" = "Seated Calf Raise Machine";
 "exercises.standingCalfRaiseMachine" = "Standing Calf Raise Machine";
+
 "exercises.crossTrainer" = "Cross Trainer";
 "exercises.treadmill" = "Treadmill";
 "exercises.indoorCycling" = "Indoor Cycling";
 "exercises.climbingMachine" = "Climbing Machine";
+"exercises.ropeSkipping" = "Rope Skipping";

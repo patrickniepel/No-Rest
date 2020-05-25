@@ -77,7 +77,11 @@ class ExercisesViewController: NRViewController {
     
     @objc
     private func addNewExercise() {
-        let editExerciseAction = EditExerciseAction(exercise: exercisesCtrl.generateNewExercise())
+        openEditScreen(with: exercisesCtrl.generateNewExercise())
+    }
+    
+    private func openEditScreen(with exercise: Exercise) {
+        let editExerciseAction = EditExerciseAction(exercise: exercise)
         store.dispatch(editExerciseAction)
         
         let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)
@@ -109,11 +113,7 @@ extension ExercisesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let exercise = exercisesCtrl.exercise(for: indexPath) else { return }
         
-        let editExerciseAction = EditExerciseAction(exercise: exercise)
-        store.dispatch(editExerciseAction)
-        
-        let routeAction = RouteAction(screen: .editExercise, in: .exercises, action: .push)
-        store.dispatch(routeAction)
+        openEditScreen(with: exercise)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }

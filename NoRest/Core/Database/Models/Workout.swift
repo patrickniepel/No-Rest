@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 @objcMembers
-class Workout: Object {
+class Workout: Object, Comparable {
     private enum Fields: String {
         case id
         case createdAt
@@ -41,7 +41,7 @@ class Workout: Object {
         }
     }
     
-    convenience init(name: String, exercises: [Exercise]) {
+    convenience init(name: String, exercises: [Exercise] = []) {
         self.init()
         
         self.id = UserDefaultsController.currentWorkoutId
@@ -56,7 +56,7 @@ class Workout: Object {
             fatalError()
         }
 
-        return Array(realm.objects(Workout.self))
+        return Array(realm.objects(Workout.self)).sorted()
     }
     
     static func get(id: Int) -> Workout? {
@@ -76,5 +76,9 @@ class Workout: Object {
         if let workout = get(id: id) {
             Database.delete(object: workout)
         }
+    }
+    
+    static func < (lhs: Workout, rhs: Workout) -> Bool {
+        return lhs.name < rhs.name
     }
 }

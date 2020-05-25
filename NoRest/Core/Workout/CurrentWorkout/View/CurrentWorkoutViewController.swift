@@ -85,7 +85,7 @@ class CurrentWorkoutViewController: UIViewController {
     
     private func updateView() {
         //Reload workout from user data
-        workout = workoutsCtrl.loadWorkout(with: -1)
+        workout = nil
         guard let workout = workout else { return }
         
         //If there are no exercises left, pop view controller

@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Database.setup()
         
+        Workout.add(workout: Workout(name: "Test", exercises: [Exercise(name: "asd", type: .chest, timer: 0)]))
+        
         setupCoordinator()
         
         checkForFistAppStart()

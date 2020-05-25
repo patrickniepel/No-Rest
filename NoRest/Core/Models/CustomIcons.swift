@@ -11,16 +11,17 @@ import UIKit
 struct CustomIcons {
     static func allIcons() -> [UIImage?] {
         return [
-            NRStyle.questionMarkIcon,
-            NRStyle.binIcon,
-            NRStyle.exercisesIcon,
-            NRStyle.workoutsIcon,
-            NRStyle.settingsIcon,
-            NRStyle.statisticsIcon,
-            NRStyle.selectionIcon,
-            NRStyle.timerIcon,
-            NRStyle.calendarIcon,
-            NRStyle.disclosureIcon
+            NRStyle.chestIcon,
+            NRStyle.backIcon,
+            NRStyle.armIcon,
+            NRStyle.legIcon,
+            NRStyle.absIcon,
+            NRStyle.bodyIcon,
+            NRStyle.cardioIcon,
+            NRStyle.yogaIcon,
+            NRStyle.fatIcon,
+            NRStyle.dumbbellIcon,
+            NRStyle.smartwatchIcon
         ]
     }
 }

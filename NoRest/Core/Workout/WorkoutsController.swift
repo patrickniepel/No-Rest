@@ -8,23 +8,37 @@
 
 import Foundation
 
-struct WorkoutsController {
-    func workoutCount() -> Int {
-        return Workout.all().count
+class WorkoutsController {
+    private var workouts: [Workout] = []
+    
+    init() {
+        updateWorkouts()
     }
     
-    func allWorkouts() -> [Workout] {
-        return Workout.all()
+    func updateWorkouts() {
+        workouts = Workout.all()
     }
     
-    func dateAsString(for date: Date?) -> String {
-        if let date = date {
-            return Date.withFormat(date: date, format: NRConstants.Date.defaultFormat)
-        }
-        return NRConstants.Date.workoutNotStarted
+    func numberOfRows() -> Int {
+        return workouts.count
     }
     
-    func loadWorkout(with id: Int?) -> Workout? {
-        return nil
+    func workout(for row: Int) -> Workout? {
+        return workouts[row]
+    }
+    
+    func generateNewWorkout() -> Workout {
+        let count = Workout.all().count + 1
+        let name = "workout.new".localized + " \(count)"
+        return Workout(name: name)
+    }
+    
+    func deleteWorkout(in row: Int) {
+        let workoutToDelete = workouts[row]
+        Workout.delete(with: workoutToDelete.id)
+    }
+    
+    static func addWorkout(_ workout: Workout) {
+        Workout.add(workout: workout)
     }
 }
