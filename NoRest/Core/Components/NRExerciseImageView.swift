@@ -31,7 +31,7 @@ class NRExerciseImageView: UIView {
     
     private func setup() {
         layer.cornerRadius = 5
-        backgroundColor = .white
+        backgroundColor = NRStyle.offWhiteColor
         
         addSubview(exerciseImageView)
         let padding = NRStyle.verticalPadding / 2

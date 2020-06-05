@@ -18,7 +18,7 @@ class NRNavigationController: UINavigationController, UIGestureRecognizerDelegat
         navigationBar.barTintColor = NRStyle.themeColor
         view.backgroundColor = NRStyle.themeColor
         navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor]
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor, NSAttributedString.Key.font: UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)]
     }
     
     required init?(coder aDecoder: NSCoder) {

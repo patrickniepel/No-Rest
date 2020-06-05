@@ -37,8 +37,11 @@ class NRSearchBar: UISearchBar {
             
             textField.backgroundColor = NRStyle.primaryTextColor
             textField.textColor = NRStyle.themeColor
+            textField.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
             iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
             iconView.tintColor = NRStyle.themeColor
         }
+        
+        applyShadow()
     }
 }

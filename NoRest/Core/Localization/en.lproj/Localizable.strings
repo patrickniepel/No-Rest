@@ -14,19 +14,19 @@
 
 // Workouts
 "workout.new" = "New Workout";
-"workout.name" = "Name";
+"workout.name" = "NAME";
 "workout.name.placeholder" = "Workout name";
 "workout.empty" = "No Workouts Available!\nPress '+' To Add Your First Workout";
 "workout.start" = "GO!";
 
 // Exercises
 "exercise.search" = "Search exercise";
-"exercise.name" = "Name";
+"exercise.name" = "NAME";
 "exercise.name.placeholder" = "Exercise name";
-"exercise.type" = "Type";
-"exercise.timer.seconds" = "Timer (s)";
-"exercise.timer.minutes" = "Timer (min)";
-"exercise.notes" = "Notes";
+"exercise.type" = "TYPE";
+"exercise.timer.seconds" = "TIMER (S)";
+"exercise.timer.minutes" = "TIMER (MIN)";
+"exercise.notes" = "NOTES";
 "exercise.new" = "New Exercise";
 
 // Settings

@@ -37,7 +37,7 @@ class ExerciseTableViewCell: NRTableViewCell {
         exerciseImageView.anchor(leading: contentView.leadingAnchor, centerY: contentView.centerYAnchor, padding: .init(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: 0), size: .init(width: size, height: size))
         
         let padding = NRStyle.verticalPadding / 2
-        nameLabel.anchor(top: exerciseImageView.topAnchor, leading: exerciseImageView.trailingAnchor, bottom: exerciseImageView.centerYAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 0, left: padding, bottom: padding / 2, right: NRStyle.horizontalPadding))
+        nameLabel.anchor(top: exerciseImageView.topAnchor, leading: exerciseImageView.trailingAnchor, bottom: exerciseImageView.centerYAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 0, left: padding, bottom: padding / 2, right: NRStyle.horizontalPadding * 2))
         
         timerTagView.anchor(top: contentView.centerYAnchor, leading: nameLabel.leadingAnchor, bottom: contentView.bottomAnchor, padding: .init(top: padding / 2, left: 0, bottom: padding, right: 0))
     }

@@ -23,7 +23,7 @@ class IconSelectionCollectionViewCell: UICollectionViewCell {
         iconImageView.fillSuperview()
 
         contentView.layer.cornerRadius = 10
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = NRStyle.offWhiteColor
         
         if isSelected {
             contentView.layer.borderWidth = 2

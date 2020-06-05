@@ -9,7 +9,7 @@
 import UIKit
 
 class WorkoutSetupViewController: NRViewController {
-    private lazy var nameLabel: NRLabel = .init(with: "workout.name".localized)
+    private lazy var nameLabel: NRLabel = .init(with: "workout.name".localized, size: NRStyle.fontSizeVerySmall)
     private lazy var nameTextField: NRTextField = {
         let textField = NRTextField()
         textField.placeholder = "workout.name.placeholder".localized

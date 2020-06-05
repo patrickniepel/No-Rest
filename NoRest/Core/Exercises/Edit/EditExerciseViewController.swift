@@ -37,7 +37,7 @@ class EditExerciseViewController: NRViewController {
         return view
     }()
     
-    private lazy var nameLabel: NRLabel = NRLabel(with: "exercise.name".localized)
+    private lazy var nameLabel: NRLabel = NRLabel(with: "exercise.name".localized, size: NRStyle.fontSizeVerySmall)
     private lazy var nameTextfield: NRTextField = {
        let textField = NRTextField()
         textField.addTarget(self, action: #selector(handleNameChange), for: .editingChanged)
@@ -45,7 +45,7 @@ class EditExerciseViewController: NRViewController {
         return textField
     }()
     
-    private lazy var typeLabel: NRLabel = NRLabel(with: "exercise.type".localized)
+    private lazy var typeLabel: NRLabel = NRLabel(with: "exercise.type".localized, size: NRStyle.fontSizeVerySmall)
     private lazy var typeTextfield: NRTextField = {
         let textField = NRTextField()
         textField.addTarget(self, action: #selector(handleTypeChange), for: .editingDidBegin)
@@ -53,14 +53,14 @@ class EditExerciseViewController: NRViewController {
     }()
     private lazy var typePicker: NRPickerView = .init()
     
-    private lazy var timerLabel: NRLabel = NRLabel()
+    private lazy var timerLabel: NRLabel = NRLabel(with: "", size: NRStyle.fontSizeVerySmall)
     private lazy var timerTextfield: NRTextField = {
         let textField = NRTextField()
         textField.keyboardType = .numberPad
         return textField
     }()
     
-    private lazy var notesLabel: NRLabel = NRLabel(with: "exercise.notes".localized)
+    private lazy var notesLabel: NRLabel = NRLabel(with: "exercise.notes".localized, size: NRStyle.fontSizeVerySmall)
     private lazy var notesTextView: NRTextView = .init()
     
     private var exercise: Exercise?
@@ -171,9 +171,9 @@ private extension EditExerciseViewController {
         
         selectionImageView.anchor(bottom: exerciseImageView.bottomAnchor, trailing: exerciseImageView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 2, right: 2), size: .init(width: 20, height: 20))
         
-        separator.anchor(top: exerciseImageView.bottomAnchor, centerX: contentView.centerXAnchor, padding: .init(top: verticalPadding, left: 0, bottom: 0, right: 0), size: .init(width: UIScreen.main.bounds.width * 0.75, height: 1))
+        separator.anchor(top: exerciseImageView.bottomAnchor, centerX: contentView.centerXAnchor, padding: .init(top: verticalPadding * 2, left: 0, bottom: 0, right: 0), size: .init(width: UIScreen.main.bounds.width * 0.75, height: 1))
         
-        nameLabel.anchor(top: separator.bottomAnchor, leading: contentView.leadingAnchor, padding: .init(top: verticalPadding, left: NRStyle.horizontalPadding, bottom: 0, right: 0))
+        nameLabel.anchor(top: separator.bottomAnchor, leading: contentView.leadingAnchor, padding: .init(top: verticalPadding * 2, left: NRStyle.horizontalPadding, bottom: 0, right: 0))
         nameTextfield.anchor(top: nameLabel.bottomAnchor, leading: nameLabel.leadingAnchor, trailing: contentView.trailingAnchor, padding: .init(top: verticalPadding / 2, left: 0, bottom: 0, right: horizontalPadding))
         
         typeLabel.anchor(top: nameTextfield.bottomAnchor, leading: nameTextfield.leadingAnchor, trailing: contentView.centerXAnchor, padding: .init(top: verticalPadding * 2, left: 0, bottom: 0, right: horizontalPadding / 2))
@@ -184,6 +184,8 @@ private extension EditExerciseViewController {
         
         notesLabel.anchor(top: typeTextfield.bottomAnchor, leading: typeTextfield.leadingAnchor, padding: .init(top: verticalPadding * 2, left: 0, bottom: 0, right: 0))
         notesTextView.anchor(top: notesLabel.bottomAnchor, leading: notesLabel.leadingAnchor, trailing: contentView.trailingAnchor, padding: .init(top: verticalPadding / 2, left: 0, bottom: 0, right: horizontalPadding), size: .init(width: 0, height: 250))
+        
+        exerciseImageView.addDefaultShadow()
     }
     
     func setupTypeSelection() {

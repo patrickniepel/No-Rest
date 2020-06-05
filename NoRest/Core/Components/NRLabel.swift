@@ -29,7 +29,5 @@ class NRLabel: UILabel {
     private func setup() {
         textColor = NRStyle.primaryTextColor
         textAlignment = .left
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.5
     }
 }

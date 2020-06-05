@@ -1,32 +1,25 @@
 //
-//  SettingsViewController.swift
+//  SettingsView.swift
 //  NoRest
 //
-//  Created by Patrick Niepel on 30.01.19.
-//  Copyright © 2019 Patrick Niepel. All rights reserved.
+//  Created by Patrick Niepel on 05.06.20.
+//  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
 import UIKit
 
-class SettingsViewController: NRViewController {
+class SettingsView: UIView {
     private lazy var tableView: NRTableView = .init()
     let settingsCtrl: SettingsController
     
-    init() {
+    override init(frame: CGRect = CGRect()) {
         settingsCtrl = SettingsController()
-        super.init(nibName: nil, bundle: nil)
+        super.init(frame: frame)
+        setupTableView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        viewControllerTitle = "settings.title".localized
-        
-        super.viewDidLoad()
-        
-        setupTableView()
     }
     
     private func setupTableView() {
@@ -37,12 +30,12 @@ class SettingsViewController: NRViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        view.addSubview(tableView)
+        addSubview(tableView)
         tableView.fillSuperview()
     }
 }
 
-extension SettingsViewController: UITableViewDataSource {
+extension SettingsView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -75,7 +68,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
 }
 
-extension SettingsViewController: UITableViewDelegate {
+extension SettingsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch settingsCtrl.settingsItems[indexPath.row] {
         case .action(_ , let action):

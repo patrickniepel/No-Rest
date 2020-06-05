@@ -14,7 +14,7 @@ class SettingsTimerTableViewCell: UITableViewCell {
     private lazy var timerSwitch: UISwitch = {
         let timerSwitch = UISwitch()
         timerSwitch.isOn = SettingsController.isTimerSoundActivated
-        timerSwitch.thumbTintColor = NRStyle.primaryTextColor
+        timerSwitch.thumbTintColor = NRStyle.offWhiteColor
         timerSwitch.onTintColor = NRStyle.complementaryColor
         timerSwitch.backgroundColor = NRStyle.secondaryTextColor
         timerSwitch.layer.cornerRadius = 16

@@ -24,5 +24,7 @@ class NRTextField: UITextField {
         tintColor = NRStyle.themeColor
         borderStyle = .roundedRect
         keyboardAppearance = .dark
+        font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
+        applyShadow()
     }
 }

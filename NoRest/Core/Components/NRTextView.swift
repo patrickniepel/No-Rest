@@ -19,10 +19,12 @@ class NRTextView: UITextView {
     }
     
     private func setup() {
+        backgroundColor = NRStyle.offWhiteColor
         tintColor = NRStyle.themeColor
         textColor = NRStyle.themeColor
         layer.cornerRadius = 7
         font = UIFont.systemFont(ofSize: NRStyle.fontSizeSmall)
         keyboardAppearance = .dark
+        applyShadow()
     }
 }
