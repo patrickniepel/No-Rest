@@ -18,6 +18,7 @@
 "workout.name.placeholder" = "Workout name";
 "workout.empty" = "No workouts available!\nPress + to add your first workout.";
 "workout.start" = "GO!";
+"workout.sorting.empty" = "No exercises selected.";
 
 // Exercises
 "exercise.search" = "Search exercise";
@@ -55,8 +56,8 @@
 
 // Alerts
 "alert.message.invalidInput" = "Invalid Input";
-"alert.message.workout.input" = "Please enter a name and select at least one exercise";
-"alert.message.exercise.input" = "Please enter a name and select a type";
+"alert.message.workout.input" = "Please enter a valid name for this workout";
+"alert.message.exercise.input" = "Please enter a valid name for this exercise and select its type";
 "alert.message.successful" = "Successful";
 "alert.message.sure" = "Are You Sure?";
 "alert.message.failedSaving" = "Couldn't Be Saved";

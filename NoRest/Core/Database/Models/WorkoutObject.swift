@@ -36,7 +36,7 @@ class WorkoutObject: Object, Comparable {
         }
         
         set {
-            _exercises.wipeAll()
+            _exercises.removeAll()
             _exercises.append(objectsIn: newValue)
         }
     }
@@ -51,9 +51,11 @@ class WorkoutObject: Object, Comparable {
     }
     
     func update(with workout: Workout) {
+        let exercises = ExerciseObject.exerciseObjects(for: workout.exercises)
+        
         Database.update {
             self.name = workout.name
-            self.exercises =  workout.exercises.map { ExerciseObject(from: $0) }
+            self.exercises = exercises
         }
     }
     

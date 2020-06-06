@@ -112,6 +112,10 @@ class ExerciseObject: Object, Comparable {
         return exercises
     }
     
+    static func exerciseObjects(for exercises: [Exercise]) -> [ExerciseObject] {
+        return exercises.compactMap { get(id: $0.id) ?? nil }
+    }
+    
     static func get(id: Int) -> ExerciseObject? {
         guard let realm = Database.getRealm() else {
             fatalError()

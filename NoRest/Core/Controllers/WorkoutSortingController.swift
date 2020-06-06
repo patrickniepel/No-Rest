@@ -16,4 +16,11 @@ class WorkoutSortingController {
         exercisesToSort.remove(at: source)
         exercisesToSort.insert(movedExercise, at: destination)
     }
+    
+    func updateExercises() -> [Exercise] {
+        exercisesToSort = exercisesToSort.filter{ exercise in
+            ExerciseObject.all().contains(where: { exercise.id == $0.id })
+        }
+        return exercisesToSort
+    }
 }

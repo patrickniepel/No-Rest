@@ -19,4 +19,10 @@ class WorkoutSetupController {
             selectedExercises.removeAll(where: { $0.id == exercise.id })
         }
     }
+    
+    func updateSelectedExercises() {
+        selectedExercises = selectedExercises.filter{ exercise in
+            ExerciseObject.all().contains(where: { exercise.id == $0.id })
+        }
+    }
 }

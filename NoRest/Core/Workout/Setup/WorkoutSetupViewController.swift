@@ -46,6 +46,13 @@ class WorkoutSetupViewController: NRViewController {
         hideKeyboardWhenTapped()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        exercisesCtrl.updateExercises()
+        workoutSetupCtrl.updateSelectedExercises()
+        tableView.reloadData()
+    }
+    
     private func setupContinueButton() {
         let continueButton = UIBarButtonItem(title: "button.title.continue".localized, style: .plain, target: self, action: #selector(handleContinueTapped))
         navigationItem.rightBarButtonItem = continueButton
@@ -89,8 +96,7 @@ class WorkoutSetupViewController: NRViewController {
     @objc
     private func handleContinueTapped() {
         let selectedExercises = workoutSetupCtrl.selectedExercises
-        guard let name = nameTextField.text, !name.isBlank,
-            selectedExercises.count != 0
+        guard let name = nameTextField.text, !name.isBlank
         else {
             AlertController.showDefaultAlert(title: "alert.message.invalidInput".localized, message: "alert.message.workout.input".localized, in: .workouts)
             return

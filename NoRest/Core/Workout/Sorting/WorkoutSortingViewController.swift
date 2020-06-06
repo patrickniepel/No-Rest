@@ -20,6 +20,11 @@ class WorkoutSortingViewController: NRViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        workoutSortingView.reloadExercises()
+    }
+    
     private func setupSaveButton() {
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: workoutSortingView, action: #selector(workoutSortingView.saveExerciseTapped))
         navigationItem.rightBarButtonItem = saveButton

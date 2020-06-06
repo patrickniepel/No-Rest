@@ -38,11 +38,27 @@ class WorkoutSortingView: UIView {
         tableView.register(WorkoutSetupTableViewCell.self, forCellReuseIdentifier: WorkoutSetupTableViewCell.reuseIdentifier)
     }
     
+    private func checkForEmptyExercises() {
+        if exercisesToSort.isEmpty {
+            tableView.backgroundView = NREmptyView(text: "workout.sorting.empty".localized, addArrow: false)
+            tableView.isUserInteractionEnabled = false
+        } else {
+            tableView.backgroundView = nil
+            tableView.isUserInteractionEnabled = true
+        }
+    }
+    
     func setupExerciseSorting(for workout: Workout?) {
         self.workout = workout
         exercisesToSort = workout?.exercises ?? []
         
         workoutSortingCtrl.exercisesToSort = exercisesToSort
+    }
+    
+    func reloadExercises() {
+        exercisesToSort = workoutSortingCtrl.updateExercises()
+        checkForEmptyExercises()
+        tableView.reloadData()
     }
     
     @objc
