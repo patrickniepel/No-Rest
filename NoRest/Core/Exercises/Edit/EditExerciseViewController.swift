@@ -88,7 +88,7 @@ class EditExerciseViewController: NRViewController {
         self.exercise = exercise
     
         navigationItem.title = exercise.name
-        exerciseImageView.image = exercise.image
+        exerciseImageView.image = exercise.icon
         nameTextfield.text = exercise.name
         typeTextfield.text = exercise.type?.rawValue
         timerLabel.text = exercise.type == .cardio ? "exercise.timer.minutes".localized : "exercise.timer.seconds".localized
@@ -102,7 +102,7 @@ class EditExerciseViewController: NRViewController {
     
     @objc
     private func handleImageSelection() {
-        let currentSelectionIconAction = CurrentIconSelectionAction(icon: exercise?.image)
+        let currentSelectionIconAction = CurrentIconSelectionAction(icon: exercise?.icon)
         store.dispatch(currentSelectionIconAction)
         
         let routeAction = RouteAction(screen: .iconSelection, in: .exercises, action: .modally)
@@ -132,13 +132,11 @@ class EditExerciseViewController: NRViewController {
         let timerText = timerTextfield.text ?? "0"
         let timer = Int(timerText) ?? 0
         
-        Database.update {
-            exercise?.image = exerciseImageView.image
-            exercise?.name = name
-            exercise?.type = type
-            exercise?.timer = type == .cardio ? timer * 60 : timer
-            exercise?.notes = notesTextView.text
-        }
+        exercise?.icon = exerciseImageView.image
+        exercise?.name = name
+        exercise?.type = type
+        exercise?.timer = type == .cardio ? timer * 60 : timer
+        exercise?.notes = notesTextView.text
             
         guard let exercise = exercise else { return }
         

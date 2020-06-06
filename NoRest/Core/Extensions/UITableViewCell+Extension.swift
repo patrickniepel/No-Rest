@@ -19,7 +19,7 @@ extension UITableViewCell {
         self.accessoryType = .none
         
         let imageView = UIImageView()
-        imageView.image = NRStyle.disclosureIcon?.dye(NRStyle.complementaryColor)
+        imageView.image = NRStyle.disclosureIcon?.dye(NRStyle.secondaryTextColor)
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         

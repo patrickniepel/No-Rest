@@ -10,7 +10,7 @@ import Foundation
 
 struct StatisticsController {
     private static var allExercisesOfStatistics: [Exercise] {
-        Exercise.all()
+        return []
     }
     
     static func provideGeneralStats() -> [StatsContainerItem] {

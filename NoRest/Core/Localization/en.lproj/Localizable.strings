@@ -16,7 +16,7 @@
 "workout.new" = "New Workout";
 "workout.name" = "NAME";
 "workout.name.placeholder" = "Workout name";
-"workout.empty" = "No Workouts Available!\nPress '+' To Add Your First Workout";
+"workout.empty" = "No workouts available!\nPress + to add your first workout.";
 "workout.start" = "GO!";
 
 // Exercises

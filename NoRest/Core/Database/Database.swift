@@ -60,7 +60,7 @@ class Database: DatabaseDelegate {
                 let oneHundredMB = 100 * 1024 * 1024
                 return (totalBytes > oneHundredMB) && (Double(usedBytes) / Double(totalBytes)) < 0.5
         },
-            objectTypes: [Workout.self, Exercise.self, Set.self, WorkoutHistory.self]
+            objectTypes: [WorkoutObject.self, ExerciseObject.self, Set.self, WorkoutHistory.self]
         )
     }
 

@@ -18,7 +18,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.isTranslucent = false
         tabBar.barTintColor = NRStyle.themeColor
         tabBar.unselectedItemTintColor = NRStyle.primaryTextColor
-        tabBar.tintColor = NRStyle.complementaryColor
+        tabBar.tintColor = NRStyle.interactionColor
     }
     
     /**

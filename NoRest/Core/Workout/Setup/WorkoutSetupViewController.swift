@@ -62,7 +62,7 @@ class WorkoutSetupViewController: NRViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tintColor = NRStyle.complementaryColor
+        tableView.tintColor = NRStyle.interactionColor
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
         tableView.register(WorkoutSetupTableViewCell.self, forCellReuseIdentifier: WorkoutSetupTableViewCell.reuseIdentifier)
     }
@@ -88,7 +88,7 @@ class WorkoutSetupViewController: NRViewController {
     
     @objc
     private func handleContinueTapped() {
-        let selectedExercises = workoutSetupCtrl.selectedExercises.sorted()
+        let selectedExercises = workoutSetupCtrl.selectedExercises
         guard let name = nameTextField.text, !name.isBlank,
             selectedExercises.count != 0
         else {
@@ -96,10 +96,8 @@ class WorkoutSetupViewController: NRViewController {
             return
         }
         
-        Database.update {
-            workout?.name = name
-            workout?.exercises = selectedExercises
-        }
+        workout?.name = name
+        workout?.exercises = selectedExercises
         
         guard let workout = workout else { return }
         

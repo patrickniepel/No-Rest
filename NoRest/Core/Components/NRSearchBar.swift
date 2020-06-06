@@ -29,7 +29,7 @@ class NRSearchBar: UISearchBar {
         keyboardAppearance = .dark
         backgroundImage = UIImage()
         
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): NRStyle.complementaryColor], for: .normal)
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): NRStyle.interactionColor], for: .normal)
         
         //Dye icon
         if let textField = value(forKey: "searchField") as? UITextField,

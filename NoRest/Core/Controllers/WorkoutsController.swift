@@ -16,7 +16,7 @@ class WorkoutsController {
     }
     
     func updateWorkouts() {
-        workouts = Workout.all()
+        workouts = WorkoutObject.all().map { Workout(from: $0) }
     }
     
     func numberOfRows() -> Int {
@@ -28,17 +28,18 @@ class WorkoutsController {
     }
     
     func generateNewWorkout() -> Workout {
-        let count = Workout.all().count + 1
-        let name = "workout.new".localized + " \(count)"
-        return Workout(name: name)
+        let name = "workout.new".localized
+        let id = UserDefaultsController.currentWorkoutId
+        UserDefaultsController.increaseWorkoutId()
+        return Workout(id: id, createdAt: Date(), name: name)
     }
     
     func deleteWorkout(in row: Int) {
         let workoutToDelete = workouts[row]
-        Workout.delete(with: workoutToDelete.id)
+        WorkoutObject.delete(with: workoutToDelete.id)
     }
     
     static func addWorkout(_ workout: Workout) {
-        Workout.add(workout: workout)
+        WorkoutObject.add(workout: workout)
     }
 }

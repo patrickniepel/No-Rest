@@ -22,8 +22,8 @@ class WorkoutHistory: Object {
     
     dynamic private(set) var id: String = "workoutHistory"
     
-    dynamic private(set) var _workouts: List<Workout> = .init()
-    var workouts: [Workout] {
+    dynamic private(set) var _workouts: List<WorkoutObject> = .init()
+    var workouts: [WorkoutObject] {
         get {
             _workouts.map { $0 }
         }

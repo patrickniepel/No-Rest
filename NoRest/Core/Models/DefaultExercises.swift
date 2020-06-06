@@ -125,8 +125,10 @@ struct DefaultExercise {
     private static func createExercises(with content: [(title: String, icon: UIImage?)], for type: ExerciseType) {
         content.forEach {
             let timer = type == .cardio ? 600 : 90
-            let newExercise = Exercise(name: $0.title, type: type, timer: timer, image: $0.icon ?? NRStyle.exercisesIcon)
-            Exercise.add(exercise: newExercise)
+            let id = UserDefaultsController.currentExerciseId
+            UserDefaultsController.increaseExerciseId()
+            let newExercise = Exercise(id: id, name: $0.title, type: type, timer: timer, icon: $0.icon ?? NRStyle.exercisesIcon)
+            ExerciseObject.add(exercise: newExercise)
         }
     }
 }

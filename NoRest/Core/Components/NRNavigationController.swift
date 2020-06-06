@@ -14,7 +14,7 @@ class NRNavigationController: UINavigationController, UIGestureRecognizerDelegat
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
         
-        navigationBar.tintColor = NRStyle.complementaryColor
+        navigationBar.tintColor = NRStyle.interactionColor
         navigationBar.barTintColor = NRStyle.themeColor
         view.backgroundColor = NRStyle.themeColor
         navigationBar.isTranslucent = false

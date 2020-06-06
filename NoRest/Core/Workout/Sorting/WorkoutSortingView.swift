@@ -47,9 +47,7 @@ class WorkoutSortingView: UIView {
     
     @objc
     func saveExerciseTapped() {
-        Database.update {
-            workout?.exercises = workoutSortingCtrl.exercisesToSort
-        }
+        workout?.exercises = workoutSortingCtrl.exercisesToSort
         
         guard let workout = workout else { return }
         
@@ -93,7 +91,7 @@ extension WorkoutSortingView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let subView = cell.subviews.first(where: { $0.classForCoder.description() == "UITableViewCellReorderControl" })
         let reorderControlerImageView = subView?.subviews.first(where: { $0 is UIImageView }) as? UIImageView
-        reorderControlerImageView?.image = reorderControlerImageView?.image?.dye(NRStyle.complementaryColor)
+        reorderControlerImageView?.image = reorderControlerImageView?.image?.dye(NRStyle.interactionColor)
     }
 }
 

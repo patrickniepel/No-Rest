@@ -20,7 +20,7 @@ class NRTableView: UITableView {
     
     private func setup() {
         separatorInset = UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding)
-        separatorColor = NRStyle.complementaryColor
+        separatorColor = NRStyle.secondaryTextColor
         backgroundColor = NRStyle.themeColor
     }
 }

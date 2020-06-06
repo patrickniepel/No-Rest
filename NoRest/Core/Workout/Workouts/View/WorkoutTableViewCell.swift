@@ -19,7 +19,7 @@ class WorkoutTableViewCell: NRTableViewCell {
         button.setTitleColor(NRStyle.themeColor, for: .normal)
         button.titleLabel?.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
         button.layer.cornerRadius = 10
-        button.backgroundColor = NRStyle.complementaryColor
+        button.backgroundColor = NRStyle.interactionColor
         return button
     }()
     

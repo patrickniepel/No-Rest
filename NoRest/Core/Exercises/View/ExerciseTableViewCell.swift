@@ -21,7 +21,7 @@ class ExerciseTableViewCell: NRTableViewCell {
     }
     
     func setup(with exercise: Exercise) {
-        exerciseImageView.image = exercise.image
+        exerciseImageView.image = exercise.icon
         nameLabel.text = exercise.name
         timerTagView.injectContent(icon: NRStyle.timerIcon, text: exercise.descriptiveRestTimer)
         

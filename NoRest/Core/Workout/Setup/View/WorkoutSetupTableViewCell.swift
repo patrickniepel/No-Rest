@@ -20,7 +20,7 @@ class WorkoutSetupTableViewCell: NRTableViewCell {
     
     func setup(with exercise: Exercise, accessoryType: AccessoryType) {
         self.accessoryType = accessoryType
-        exerciseImageView.image = exercise.image
+        exerciseImageView.image = exercise.icon
         nameLabel.text = exercise.name
         
         setupView()
