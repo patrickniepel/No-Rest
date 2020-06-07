@@ -26,7 +26,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     private let notesButton: UIButton = {
         let button = UIButton()
-        button.setImage(NRConstants.Images.notes.image?.dye(NRStyle.complementaryColor), for: .normal)
+        button.setImage(NRStyle.notesIcon?.dye(NRStyle.complementaryColor), for: .normal)
         button.backgroundColor = NRStyle.themeColor
         button.tag = ButtonTag.notesButton.rawValue
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
@@ -35,7 +35,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     private let timerButton: UIButton = {
         let button = UIButton()
-        button.setImage(NRConstants.Images.timer.image?.dye(NRStyle.complementaryColor), for: .normal)
+        button.setImage(NRStyle.timerIcon?.dye(NRStyle.complementaryColor), for: .normal)
         button.backgroundColor = NRStyle.themeColor
         button.tag = ButtonTag.timerButton.rawValue
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
@@ -57,7 +57,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         label.textColor = NRStyle.primaryTextColor
         label.font = UIFont(name: NRStyle.boldFont, size: 15)
         label.textAlignment = .center
-        label.text = NRConstants.Texts.reps
+        label.text = "NRConstants.Texts.reps"
         return label
     }()
     
@@ -66,7 +66,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         label.textColor = NRStyle.primaryTextColor
         label.font = UIFont(name: NRStyle.boldFont, size: 15)
         label.textAlignment = .center
-        label.text = NRConstants.Texts.weight + " (\(SettingsController.currentUnit.rawValue))"
+        label.text = "NRConstants.Texts.weight +  (\(SettingsController.currentUnit.rawValue))"
         return label
     }()
     
@@ -101,7 +101,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     private let timesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = NRConstants.Images.x.image?.dye(NRStyle.complementaryColor).withAlignmentRectInsets(UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
+        imageView.image = nil // NRConstants.Images.x.image?.dye(NRStyle.complementaryColor).withAlignmentRectInsets(UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
         return imageView
     }()
     
@@ -110,14 +110,14 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         label.textColor = NRStyle.primaryTextColor
         label.font = UIFont(name: NRStyle.boldFont, size: 15)
         label.textAlignment = .center
-        label.text = NRConstants.Texts.sets
+        label.text = "NRConstants.Texts.sets"
         return label
     }()
     
     let tableView: NRSetsTableView = {
         let tableView = NRSetsTableView()
         tableView.maxHeight = 300
-        tableView.register(NRSetsTableViewCell.self, forCellReuseIdentifier: NRConstants.CellIdentifiers.nrSetsTableViewCell)
+        tableView.register(NRSetsTableViewCell.self, forCellReuseIdentifier: "NRConstants.CellIdentifiers.nrSetsTableViewCell")
         tableView.backgroundColor = NRStyle.themeColor
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 1))
         tableView.setupDesign()

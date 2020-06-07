@@ -25,7 +25,7 @@ class NREmptyView: UIView {
     
     private lazy var arrowImageView: NRImageView = {
         let imageView = NRImageView()
-        imageView.image = NRConstants.Images.arrow.image?.dye(NRStyle.primaryTextColor)
+        imageView.image = NRStyle.arrowIcon?.dye(NRStyle.primaryTextColor)
         imageView.contentMode = .scaleToFill
         return imageView
     }()

@@ -19,7 +19,7 @@ extension CurrentWorkoutViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NRConstants.CellIdentifiers.currentWorkoutCollectionViewCell, for: indexPath) as? CurrentWorkoutCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NRConstants.CellIdentifiers.currentWorkoutCollectionViewCell", for: indexPath) as? CurrentWorkoutCollectionViewCell
         
         if let exercise = workout?.exercises[safe: indexPath.item] {
             cell?.setup(exercise: exercise)

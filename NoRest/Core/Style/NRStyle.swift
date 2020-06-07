@@ -51,6 +51,8 @@ struct NRStyle {
     static let selectionIcon = buildImage(for: "selection")
     static let questionMarkIcon = buildImage(for: "question_mark")
     static let calendarIcon = buildImage(for: "calendar")
+    static let arrowIcon = buildImage(for: "arrow")
+    static let notesIcon = buildImage(for: "notes")
     
     // Custom Icons
     static let absIcon = buildImage(for: "abs")

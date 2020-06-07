@@ -66,8 +66,8 @@ class AppCoordinator {
             return PopUpViewController()
         case .iconSelection:
             return IconSelectionViewController()
-        case .currentWorkout:
-            return CurrentWorkoutViewController()
+        case .workoutSession:
+            return WorkoutSessionViewController()
         case .vc(let vc):
             return vc
         default:
@@ -84,25 +84,16 @@ class AppCoordinator {
         return NRNavigationController(rootViewController: vc)
     }
     
-    /**
-     Instantiates a new view controller
-     
-     - parameter identifier: The storyboard view identifier to instantiate
-     - parameter storyboard: The storyboard name containing the desired view-controller
-     - returns: The instantiated view-controller
-     */
-    static func instantiateScreen(with title: String) -> UIViewController {
-        switch title {
-        case NRConstants.TabBarItemTitles.workouts:
+    static func instantiateScreen(in tab: RouteDestination) -> UIViewController {
+        switch tab {
+        case .workouts:
             return WorkoutsViewController()
-        case NRConstants.TabBarItemTitles.exercises:
+        case .exercises:
             return ExercisesViewController()
-        case NRConstants.TabBarItemTitles.statistics:
+        case .statistics:
             return StatisticsViewController()
-        case NRConstants.TabBarItemTitles.settings:
+        case .settings:
             return SettingsViewController()
-        default:
-            return UIViewController()
         }
     }
 }

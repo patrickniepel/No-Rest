@@ -23,15 +23,26 @@ class WorkoutTableViewCell: NRTableViewCell {
         return button
     }()
     
+    private var workout: Workout?
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLabel.text = nil
     }
     
     func setup(with workout: Workout) {
+        self.workout = workout
         nameLabel.text = workout.name
         
-        let mostRecentDateString = "\(workout.mostRecent)"
+        let mostRecentDateString: String
+        if let mostRecentDate = workout.mostRecent {
+            let template = "EyMMMMd"
+            let dateFormat = DateFormatter.dateFormat(fromTemplate: template, options: 0, locale: .current)!
+            mostRecentDateString = Date.withFormat(date: mostRecentDate, format: dateFormat)
+        } else {
+            mostRecentDateString = "workout.most.recent.never".localized
+        }
+        
         dateTagView.injectContent(icon: NRStyle.calendarIcon, text: mostRecentDateString)
         
         let numberOfExercises = "\(workout.exercises.count) " + "exercises.title".localized
@@ -51,12 +62,17 @@ class WorkoutTableViewCell: NRTableViewCell {
         
         numberOfExercisesTagView.anchor(top: dateTagView.topAnchor, leading: dateTagView.trailingAnchor, bottom: dateTagView.bottomAnchor, padding: .init(top: 0, left: padding, bottom: 0, right: 0))
         
-        startButton.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: padding, left: 0, bottom: padding, right: NRStyle.horizontalPadding * 3))
+        startButton.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: padding, left: 0, bottom: padding, right: NRStyle.horizontalPadding * 2))
         startButton.widthAnchor.constraint(equalTo: startButton.heightAnchor).isActive = true
     }
     
     @objc
     private func handleStartWorkout() {
+        guard let workout = workout else { return }
+        let workoutSessionAction = WorkoutSessionAction(workout: workout)
+        store.dispatch(workoutSessionAction)
         
+        let routeAction = RouteAction(screen: .workoutSession, in: .workouts)
+        store.dispatch(routeAction)
     }
 }

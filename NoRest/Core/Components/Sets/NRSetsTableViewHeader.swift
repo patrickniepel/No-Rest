@@ -9,7 +9,6 @@
 import UIKit
 
 class NRSetsTableViewHeader: UIView {
-    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .center
@@ -21,7 +20,7 @@ class NRSetsTableViewHeader: UIView {
     private let repsLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: NRStyle.boldFont, size: 13)
-        label.text = NRConstants.Texts.reps
+        label.text = ""
         label.textAlignment = .center
         label.textColor = NRStyle.primaryTextColor
         return label
@@ -30,7 +29,7 @@ class NRSetsTableViewHeader: UIView {
     private let weightLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: NRStyle.boldFont, size: 13)
-        label.text = NRConstants.Texts.weight
+        label.text = ""
         label.textAlignment = .center
         label.textColor = NRStyle.primaryTextColor
         return label

@@ -21,6 +21,7 @@
 "workout.start" = "GO!";
 "workout.sorting.empty" = "No exercises selected.";
 "workout.exercise.selection" = "Select exercises";
+"workout.most.recent.never" = "Never";
 
 // Workout Session
 "workout.session.finish.message" = "";

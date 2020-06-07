@@ -11,11 +11,7 @@ import ReSwift
 extension CurrentWorkoutViewController: StoreSubscriber {
     
     func subscribe() {
-        store.subscribe(self) {
-            $0.select {
-                $0.currentWorkoutState
-            }
-        }
+        
     }
     
     func newState(state: CurrentWorkoutState) {

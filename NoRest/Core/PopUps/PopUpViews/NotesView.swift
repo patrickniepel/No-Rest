@@ -41,6 +41,6 @@ class NotesView: UIView {
     }
     
     func currentNotes() -> String {
-        return SyntaxController.checkNotesInputCorrect(text: notesTextView.text)
+        return notesTextView.text
     }
 }

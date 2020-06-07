@@ -17,7 +17,7 @@ class CurrentWorkoutViewController: UIViewController {
         cv.isScrollEnabled = true
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
-        cv.register(CurrentWorkoutCollectionViewCell.self, forCellWithReuseIdentifier: NRConstants.CellIdentifiers.currentWorkoutCollectionViewCell)
+        cv.register(CurrentWorkoutCollectionViewCell.self, forCellWithReuseIdentifier: "NRConstants.CellIdentifiers.currentWorkoutCollectionViewCell")
         
         if let layout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
@@ -108,7 +108,7 @@ class CurrentWorkoutViewController: UIViewController {
     func updatePage(page: Int) {
         pageControl.currentPage = page
         currentPage = page
-        navigationItem.title = workout?.exercises[safe: page]?.name ?? NRConstants.ScreenTitles.currentWorkout
+        navigationItem.title = workout?.exercises[safe: page]?.name ?? "NRConstants.ScreenTitles.currentWorkout"
     }
     
     private func saveWorkout(toHistory: Bool = false) {

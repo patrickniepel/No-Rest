@@ -9,7 +9,7 @@
 import UIKit
 
 class NRSetsTableView: UITableView {
-    var maxHeight: CGFloat = NRConstants.TableViews.rowHeight * 2
+    var maxHeight: CGFloat = 10
     
     override var contentSize:CGSize {
         didSet {

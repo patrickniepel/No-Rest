@@ -37,7 +37,6 @@
 		A32DD1691F90F0D2009D13CE /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A32DD1651F90F0D1009D13CE /* CaviarDreams.ttf */; };
 		A32DD16A1F90F0D2009D13CE /* CaviarDreams-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A32DD1661F90F0D1009D13CE /* CaviarDreams-Bold.ttf */; };
 		A32DD16B1F90F0D2009D13CE /* CaviarDreams-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A32DD1671F90F0D2009D13CE /* CaviarDreams-Italic.ttf */; };
-		A336C92222215B510068FCAD /* SyntaxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336C92122215B510068FCAD /* SyntaxController.swift */; };
 		A33DAF1B2479AEE70079486C /* NRTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33DAF1A2479AEE70079486C /* NRTextField.swift */; };
 		A33DAF1D2479AF8B0079486C /* NRTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33DAF1C2479AF8B0079486C /* NRTextView.swift */; };
 		A33F855A220324D900E971E7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33F8559220324D900E971E7 /* InfoViewController.swift */; };
@@ -60,21 +59,13 @@
 		A3480A7222997171000AA3A8 /* PopUpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A7122997171000AA3A8 /* PopUpState.swift */; };
 		A3480A742299719C000AA3A8 /* PopUpReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A732299719C000AA3A8 /* PopUpReducer.swift */; };
 		A3480A7622997241000AA3A8 /* PopUpSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3480A7522997241000AA3A8 /* PopUpSubscriber.swift */; };
-		A349C3762297CD85002555B1 /* StatsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349C3752297CD85002555B1 /* StatsHeaderView.swift */; };
 		A349E38D229E796500E3C0DB /* SetsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349E38C229E796500E3C0DB /* SetsTableViewDataSource.swift */; };
 		A349E38F229E797700E3C0DB /* SetsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349E38E229E797700E3C0DB /* SetsTableViewDelegate.swift */; };
 		A349E393229E90AA00E3C0DB /* NRSetsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349E392229E90AA00E3C0DB /* NRSetsTableView.swift */; };
 		A34AEF8A247C155A00B7732C /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34AEF89247C155A00B7732C /* WorkoutsViewController.swift */; };
 		A34AEF8C247C16F600B7732C /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34AEF8B247C16F600B7732C /* WorkoutTableViewCell.swift */; };
 		A34B8DF21FA2175D00E62356 /* timerSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A34B8DF11FA2175D00E62356 /* timerSound.wav */; };
-		A357389E22929FB600FBC896 /* NREmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A357389D22929FB600FBC896 /* NREmptyCollectionViewCell.swift */; };
 		A35AA6A122116CB100A6CD10 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35AA6A022116CB100A6CD10 /* StatisticsViewController.swift */; };
-		A35AA6A322116DEC00A6CD10 /* StatisticsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35AA6A222116DEC00A6CD10 /* StatisticsCollectionViewDataSource.swift */; };
-		A35AA6A522116E0200A6CD10 /* StatisticsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35AA6A422116E0200A6CD10 /* StatisticsCollectionViewDelegate.swift */; };
-		A35AA6A722116F3500A6CD10 /* StatsContainerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35AA6A622116F3500A6CD10 /* StatsContainerCollectionViewCell.swift */; };
-		A35AA6AB2211857900A6CD10 /* StatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35AA6AA2211857900A6CD10 /* StatsCollectionViewCell.swift */; };
-		A35AA6AD2211877E00A6CD10 /* StatsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35AA6AC2211877E00A6CD10 /* StatsCollectionViewDataSource.swift */; };
-		A35AA6AF221187A900A6CD10 /* StatsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35AA6AE221187A900A6CD10 /* StatsCollectionViewDelegate.swift */; };
 		A35AA6B1221187D500A6CD10 /* StatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35AA6B0221187D500A6CD10 /* StatisticsController.swift */; };
 		A35CB27F24782C5900BA0BA2 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35CB27E24782C5900BA0BA2 /* UITableViewCell+Extension.swift */; };
 		A3696F7922A2D1E500A37AF7 /* NRSetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3696F7822A2D1E500A37AF7 /* NRSetsTableViewCell.swift */; };
@@ -108,6 +99,10 @@
 		A396501D247ACAA500049B57 /* IconSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A396501C247ACAA500049B57 /* IconSelectionViewController.swift */; };
 		A398764122186A3C0019238B /* WorkoutsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A398764022186A3C0019238B /* WorkoutsController.swift */; };
 		A39BA7BF22A2FA9A00F6A5CD /* NRSetsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39BA7BE22A2FA9A00F6A5CD /* NRSetsTableViewHeader.swift */; };
+		A39BFDC3248D36AA00984FFC /* WorkoutSessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39BFDC2248D36AA00984FFC /* WorkoutSessionCollectionViewCell.swift */; };
+		A39BFDC5248D36ED00984FFC /* NRCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39BFDC4248D36ED00984FFC /* NRCollectionViewCell.swift */; };
+		A39BFDC7248D374000984FFC /* NRCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39BFDC6248D374000984FFC /* NRCollectionView.swift */; };
+		A39BFDC9248D38E500984FFC /* NRPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39BFDC8248D38E500984FFC /* NRPageControl.swift */; };
 		A39C2A191F913B1400AFF8C6 /* DefaultExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C2A181F913B1400AFF8C6 /* DefaultExercises.swift */; };
 		A3A09C141F91002C00CD01AF /* WorkoutObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A09C131F91002C00CD01AF /* WorkoutObject.swift */; };
 		A3A09C161F91003400CD01AF /* ExerciseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A09C151F91003400CD01AF /* ExerciseObject.swift */; };
@@ -146,7 +141,6 @@
 		A3D9DEF42201A25F00BCCAF4 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF32201A25F00BCCAF4 /* Unit.swift */; };
 		A3D9DEFA2201AABA00BCCAF4 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF92201AABA00BCCAF4 /* Set.swift */; };
 		A3D9DEFE2201B00900BCCAF4 /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEFD2201B00900BCCAF4 /* SoundController.swift */; };
-		A3D9DF002201B24300BCCAF4 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEFF2201B24300BCCAF4 /* Statistics.swift */; };
 		A3D9DF022201B64D00BCCAF4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DF012201B64D00BCCAF4 /* SettingsViewController.swift */; };
 		A3DFA66122084CC400E05DF4 /* NRDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */; };
 		A3E073191F90ED320099A7B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E073181F90ED320099A7B8 /* AppDelegate.swift */; };
@@ -199,7 +193,6 @@
 		A32DD1651F90F0D1009D13CE /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 		A32DD1661F90F0D1009D13CE /* CaviarDreams-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CaviarDreams-Bold.ttf"; sourceTree = "<group>"; };
 		A32DD1671F90F0D2009D13CE /* CaviarDreams-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CaviarDreams-Italic.ttf"; sourceTree = "<group>"; };
-		A336C92122215B510068FCAD /* SyntaxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxController.swift; sourceTree = "<group>"; };
 		A33DAF1A2479AEE70079486C /* NRTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRTextField.swift; sourceTree = "<group>"; };
 		A33DAF1C2479AF8B0079486C /* NRTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRTextView.swift; sourceTree = "<group>"; };
 		A33F8559220324D900E971E7 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -222,21 +215,13 @@
 		A3480A7122997171000AA3A8 /* PopUpState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpState.swift; sourceTree = "<group>"; };
 		A3480A732299719C000AA3A8 /* PopUpReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpReducer.swift; sourceTree = "<group>"; };
 		A3480A7522997241000AA3A8 /* PopUpSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpSubscriber.swift; sourceTree = "<group>"; };
-		A349C3752297CD85002555B1 /* StatsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsHeaderView.swift; sourceTree = "<group>"; };
 		A349E38C229E796500E3C0DB /* SetsTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewDataSource.swift; sourceTree = "<group>"; };
 		A349E38E229E797700E3C0DB /* SetsTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsTableViewDelegate.swift; sourceTree = "<group>"; };
 		A349E392229E90AA00E3C0DB /* NRSetsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRSetsTableView.swift; sourceTree = "<group>"; };
 		A34AEF89247C155A00B7732C /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
 		A34AEF8B247C16F600B7732C /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		A34B8DF11FA2175D00E62356 /* timerSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = timerSound.wav; sourceTree = "<group>"; };
-		A357389D22929FB600FBC896 /* NREmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NREmptyCollectionViewCell.swift; sourceTree = "<group>"; };
 		A35AA6A022116CB100A6CD10 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
-		A35AA6A222116DEC00A6CD10 /* StatisticsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		A35AA6A422116E0200A6CD10 /* StatisticsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewDelegate.swift; sourceTree = "<group>"; };
-		A35AA6A622116F3500A6CD10 /* StatsContainerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsContainerCollectionViewCell.swift; sourceTree = "<group>"; };
-		A35AA6AA2211857900A6CD10 /* StatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCollectionViewCell.swift; sourceTree = "<group>"; };
-		A35AA6AC2211877E00A6CD10 /* StatsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		A35AA6AE221187A900A6CD10 /* StatsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		A35AA6B0221187D500A6CD10 /* StatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsController.swift; sourceTree = "<group>"; };
 		A35CB27E24782C5900BA0BA2 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		A3696F7822A2D1E500A37AF7 /* NRSetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRSetsTableViewCell.swift; sourceTree = "<group>"; };
@@ -270,6 +255,10 @@
 		A396501C247ACAA500049B57 /* IconSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelectionViewController.swift; sourceTree = "<group>"; };
 		A398764022186A3C0019238B /* WorkoutsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsController.swift; sourceTree = "<group>"; };
 		A39BA7BE22A2FA9A00F6A5CD /* NRSetsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRSetsTableViewHeader.swift; sourceTree = "<group>"; };
+		A39BFDC2248D36AA00984FFC /* WorkoutSessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionCollectionViewCell.swift; sourceTree = "<group>"; };
+		A39BFDC4248D36ED00984FFC /* NRCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRCollectionViewCell.swift; sourceTree = "<group>"; };
+		A39BFDC6248D374000984FFC /* NRCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRCollectionView.swift; sourceTree = "<group>"; };
+		A39BFDC8248D38E500984FFC /* NRPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRPageControl.swift; sourceTree = "<group>"; };
 		A39C2A181F913B1400AFF8C6 /* DefaultExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultExercises.swift; sourceTree = "<group>"; };
 		A3A09C131F91002C00CD01AF /* WorkoutObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutObject.swift; sourceTree = "<group>"; };
 		A3A09C151F91003400CD01AF /* ExerciseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseObject.swift; sourceTree = "<group>"; };
@@ -308,7 +297,6 @@
 		A3D9DEF32201A25F00BCCAF4 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		A3D9DEF92201AABA00BCCAF4 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		A3D9DEFD2201B00900BCCAF4 /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
-		A3D9DEFF2201B24300BCCAF4 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		A3D9DF012201B64D00BCCAF4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		A3E073151F90ED320099A7B8 /* NoRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -375,12 +363,16 @@
 		A31B05D72477D27500C24599 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A3AB10CF248D326D00FA2CAF /* Sets */,
+				A39BFDC6248D374000984FFC /* NRCollectionView.swift */,
+				A39BFDC4248D36ED00984FFC /* NRCollectionViewCell.swift */,
 				A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */,
 				A3802B7522A43D9E00AA04FD /* NREmptyView.swift */,
 				A32AFC59247A798B0027092F /* NRExerciseImageView.swift */,
 				A3C9D5992207277A00401E08 /* NRLabel.swift */,
 				A38084A12479100B00C86F00 /* NRModalViewController.swift */,
 				A31BFCA221F66C53003214C2 /* NRNavigationController.swift */,
+				A39BFDC8248D38E500984FFC /* NRPageControl.swift */,
 				A32AFC55247A67600027092F /* NRPickerView.swift */,
 				A38084AB247930A800C86F00 /* NRSearchBar.swift */,
 				A317A976243096E50052542B /* NRTableView.swift */,
@@ -501,6 +493,7 @@
 				A348030A229FF933002C2EE4 /* ReSwift */,
 				A3AB10C3248CEE9E00FA2CAF /* WorkoutSessionViewController.swift */,
 				A3AB10C5248CEEB600FA2CAF /* WorkoutSessionView.swift */,
+				A39BFDC2248D36AA00984FFC /* WorkoutSessionCollectionViewCell.swift */,
 			);
 			path = WorkoutSession;
 			sourceTree = "<group>";
@@ -548,10 +541,6 @@
 			isa = PBXGroup;
 			children = (
 				A35AA6A022116CB100A6CD10 /* StatisticsViewController.swift */,
-				A35AA6A222116DEC00A6CD10 /* StatisticsCollectionViewDataSource.swift */,
-				A35AA6A422116E0200A6CD10 /* StatisticsCollectionViewDelegate.swift */,
-				A3D9802322118909006E0B68 /* StatsContainer */,
-				A35AA69E22116C8000A6CD10 /* Stats */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -691,14 +680,6 @@
 			path = SetsTableView;
 			sourceTree = "<group>";
 		};
-		A35AA69E22116C8000A6CD10 /* Stats */ = {
-			isa = PBXGroup;
-			children = (
-				A35AA6AA2211857900A6CD10 /* StatsCollectionViewCell.swift */,
-			);
-			path = Stats;
-			sourceTree = "<group>";
-		};
 		A38084B52479801C00C86F00 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,7 +705,6 @@
 				A31B05D72477D27500C24599 /* Components */,
 				A31B05D42477D08000C24599 /* Style */,
 				A34802FC229FF5A9002C2EE4 /* PopUps */,
-				A391ADEC21FBA930002A7D04 /* CustomViews */,
 				A391ADDE21FB944D002A7D04 /* Workout */,
 				A391ADDD21FB9441002A7D04 /* Exercises */,
 				A391ADE021FB945D002A7D04 /* Statistics */,
@@ -776,19 +756,9 @@
 			children = (
 				A34802FF229FF616002C2EE4 /* View */,
 				A35AA6B0221187D500A6CD10 /* StatisticsController.swift */,
-				A3D9DEFF2201B24300BCCAF4 /* Statistics.swift */,
 				A3D9802422118A51006E0B68 /* Stat.swift */,
 			);
 			path = Statistics;
-			sourceTree = "<group>";
-		};
-		A391ADEC21FBA930002A7D04 /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				A39BA7BD22A2FA7E00F6A5CD /* TableView */,
-				A357389D22929FB600FBC896 /* NREmptyCollectionViewCell.swift */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		A395136E248A41350033EF08 /* View */ = {
@@ -821,16 +791,6 @@
 				A3FDBF2A247AFEFD00CB8C30 /* IconSelectionSubscriber.swift */,
 			);
 			path = ReSwift;
-			sourceTree = "<group>";
-		};
-		A39BA7BD22A2FA7E00F6A5CD /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				A39BA7BE22A2FA9A00F6A5CD /* NRSetsTableViewHeader.swift */,
-				A3696F7822A2D1E500A37AF7 /* NRSetsTableViewCell.swift */,
-				A349E392229E90AA00E3C0DB /* NRSetsTableView.swift */,
-			);
-			path = TableView;
 			sourceTree = "<group>";
 		};
 		A3AB109F248CD2B200FA2CAF /* Workout */ = {
@@ -884,6 +844,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A3AB10CF248D326D00FA2CAF /* Sets */ = {
+			isa = PBXGroup;
+			children = (
+				A39BA7BE22A2FA9A00F6A5CD /* NRSetsTableViewHeader.swift */,
+				A3696F7822A2D1E500A37AF7 /* NRSetsTableViewCell.swift */,
+				A349E392229E90AA00E3C0DB /* NRSetsTableView.swift */,
+			);
+			path = Sets;
+			sourceTree = "<group>";
+		};
 		A3AE4A2021F74DF5007A97AB /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,17 +861,6 @@
 				A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */,
 			);
 			path = TabBar;
-			sourceTree = "<group>";
-		};
-		A3D9802322118909006E0B68 /* StatsContainer */ = {
-			isa = PBXGroup;
-			children = (
-				A35AA6A622116F3500A6CD10 /* StatsContainerCollectionViewCell.swift */,
-				A35AA6AC2211877E00A6CD10 /* StatsCollectionViewDataSource.swift */,
-				A35AA6AE221187A900A6CD10 /* StatsCollectionViewDelegate.swift */,
-				A349C3752297CD85002555B1 /* StatsHeaderView.swift */,
-			);
-			path = StatsContainer;
 			sourceTree = "<group>";
 		};
 		A3D9DEF022019BBC00BCCAF4 /* Models */ = {
@@ -927,7 +886,6 @@
 				A38084A524791D4800C86F00 /* MailController.swift */,
 				A3A09C191F9105FB00CD01AF /* SettingsController.swift */,
 				A3D9DEFD2201B00900BCCAF4 /* SoundController.swift */,
-				A336C92122215B510068FCAD /* SyntaxController.swift */,
 				A3D9DEF122019D6600BCCAF4 /* UserDefaultsController.swift */,
 				A398764022186A3C0019238B /* WorkoutsController.swift */,
 				A3AB10A4248CD2E600FA2CAF /* WorkoutController.swift */,
@@ -1095,17 +1053,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3476EAF229ABE3600031FD9 /* TimerView.swift in Sources */,
-				A35AA6AF221187A900A6CD10 /* StatsCollectionViewDelegate.swift in Sources */,
 				A3476EA6229A74D900031FD9 /* CurrentWorkoutReducer.swift in Sources */,
 				A3AB10A8248CD3B300FA2CAF /* WorkoutSubscriber.swift in Sources */,
 				A31B05D62477D0A300C24599 /* NRStyle.swift in Sources */,
 				A32AFC56247A67600027092F /* NRPickerView.swift in Sources */,
 				A3FDBF2F247AFF0C00CB8C30 /* IconSelectionState.swift in Sources */,
 				A392B7FD220C599B0030FBD4 /* EditExerciseSubscriber.swift in Sources */,
-				A35AA6AD2211877E00A6CD10 /* StatsCollectionViewDataSource.swift in Sources */,
 				A3476EA2229A748100031FD9 /* CurrentWorkoutState.swift in Sources */,
 				A392B805220C6CCB0030FBD4 /* ExercisesController.swift in Sources */,
-				A35AA6A722116F3500A6CD10 /* StatsContainerCollectionViewCell.swift in Sources */,
 				A3FDBF29247AF6DF00CB8C30 /* UICollectionViewCell+Extension.swift in Sources */,
 				A3D9DEFE2201B00900BCCAF4 /* SoundController.swift in Sources */,
 				A3480A7222997171000AA3A8 /* PopUpState.swift in Sources */,
@@ -1122,18 +1077,18 @@
 				A32AFC58247A690A0027092F /* NRImageView.swift in Sources */,
 				A3802B7622A43D9E00AA04FD /* NREmptyView.swift in Sources */,
 				A392B803220C5AF00030FBD4 /* EditExerciseAction.swift in Sources */,
-				A349C3762297CD85002555B1 /* StatsHeaderView.swift in Sources */,
 				A3A09C141F91002C00CD01AF /* WorkoutObject.swift in Sources */,
 				A38413352215F1D0003E0C50 /* InfoAction.swift in Sources */,
-				A35AA6A522116E0200A6CD10 /* StatisticsCollectionViewDelegate.swift in Sources */,
 				A3AB10C2248CD9C500FA2CAF /* ExerciseSelectionTableViewCell.swift in Sources */,
 				A31BFC9621F66831003214C2 /* InvalidateRoutingAction.swift in Sources */,
 				A31B05E42477D75700C24599 /* DatabaseMigration.swift in Sources */,
 				A3FDBF27247AF3BF00CB8C30 /* IconSelectionCollectionViewCell.swift in Sources */,
 				A35CB27F24782C5900BA0BA2 /* UITableViewCell+Extension.swift in Sources */,
+				A39BFDC9248D38E500984FFC /* NRPageControl.swift in Sources */,
 				A3780DBB247AF29D00EA4179 /* CustomIcons.swift in Sources */,
 				A349E38D229E796500E3C0DB /* SetsTableViewDataSource.swift in Sources */,
 				A3480A742299719C000AA3A8 /* PopUpReducer.swift in Sources */,
+				A39BFDC7248D374000984FFC /* NRCollectionView.swift in Sources */,
 				A3C9D59A2207277A00401E08 /* NRLabel.swift in Sources */,
 				A38413392215F24E003E0C50 /* InfoState.swift in Sources */,
 				A3696F7922A2D1E500A37AF7 /* NRSetsTableViewCell.swift in Sources */,
@@ -1159,6 +1114,7 @@
 				A34AEF8A247C155A00B7732C /* WorkoutsViewController.swift in Sources */,
 				A38084AA24792FDA00C86F00 /* ExercisesViewController.swift in Sources */,
 				A3AB10CC248CEF0400FA2CAF /* WorkoutSessionState.swift in Sources */,
+				A39BFDC5248D36ED00984FFC /* NRCollectionViewCell.swift in Sources */,
 				A31BFC9821F6684D003214C2 /* NavigationReducer.swift in Sources */,
 				A317A97B243098FD0052542B /* NRTableViewSection.swift in Sources */,
 				A3780DB9247AF28100EA4179 /* IconSelectionView.swift in Sources */,
@@ -1175,7 +1131,6 @@
 				A3AE4A1F21F74D61007A97AB /* RouteDestination.swift in Sources */,
 				A3AB10C4248CEE9E00FA2CAF /* WorkoutSessionViewController.swift in Sources */,
 				A3AB10B3248CD4EB00FA2CAF /* WorkoutViewController.swift in Sources */,
-				A336C92222215B510068FCAD /* SyntaxController.swift in Sources */,
 				A3AB10BD248CD6DD00FA2CAF /* ExerciseSelectionReducer.swift in Sources */,
 				A3AB10B7248CD66A00FA2CAF /* WorkoutExercisesAction.swift in Sources */,
 				A3AB10CA248CEEFB00FA2CAF /* WorkoutSessionReducer.swift in Sources */,
@@ -1200,8 +1155,7 @@
 				A3D9DEF222019D6600BCCAF4 /* UserDefaultsController.swift in Sources */,
 				A38084AE2479324E00C86F00 /* ExerciseTableViewCell.swift in Sources */,
 				A3E073191F90ED320099A7B8 /* AppDelegate.swift in Sources */,
-				A35AA6A322116DEC00A6CD10 /* StatisticsCollectionViewDataSource.swift in Sources */,
-				A357389E22929FB600FBC896 /* NREmptyCollectionViewCell.swift in Sources */,
+				A39BFDC3248D36AA00984FFC /* WorkoutSessionCollectionViewCell.swift in Sources */,
 				A38084B4247978EC00C86F00 /* NRTableViewSectionHeaderView.swift in Sources */,
 				A31D5E54248A4AEB00ACBAF7 /* Exercise.swift in Sources */,
 				A3AB10AE248CD3DF00FA2CAF /* WorkoutAction.swift in Sources */,
@@ -1209,7 +1163,6 @@
 				A3476EB6229ACE3500031FD9 /* CurrentWorkoutCellState.swift in Sources */,
 				A320B9202201CC4D00FFFA40 /* SettingsTimerTableViewCell.swift in Sources */,
 				A3AB10C0248CD9BC00FA2CAF /* ExerciseSelectionView.swift in Sources */,
-				A3D9DF002201B24300BCCAF4 /* Statistics.swift in Sources */,
 				A3AB10A5248CD2E600FA2CAF /* WorkoutController.swift in Sources */,
 				A31BFC9421F667F9003214C2 /* AppCoordinatorSubscriber.swift in Sources */,
 				A39C2A191F913B1400AFF8C6 /* DefaultExercises.swift in Sources */,
@@ -1226,7 +1179,6 @@
 				A38084AC247930A800C86F00 /* NRSearchBar.swift in Sources */,
 				A3AB10AA248CD3C900FA2CAF /* WorkoutReducer.swift in Sources */,
 				A392B801220C5A510030FBD4 /* EditExerciseReducer.swift in Sources */,
-				A35AA6AB2211857900A6CD10 /* StatsCollectionViewCell.swift in Sources */,
 				A3FDE6FC221346F200D00814 /* String+Extension.swift in Sources */,
 				A392B7FF220C59F50030FBD4 /* EditExerciseState.swift in Sources */,
 				A3476EA8229A845C00031FD9 /* CurrentWorkoutCollectionViewDataSource.swift in Sources */,

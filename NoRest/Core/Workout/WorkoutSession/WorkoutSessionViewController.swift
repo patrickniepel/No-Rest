@@ -13,15 +13,18 @@ class WorkoutSessionViewController: NRViewController {
         super.viewDidLoad()
         
         subscribe()
-        setupBarButtons()
+        setupNavigationBar()
     }
     
-    private func setupBarButtons() {
+    private func setupNavigationBar() {
         let abortButton = UIBarButtonItem(title: "button.title.abort".localized, style: .plain, target: self, action: #selector(handleAbortTapped))
         navigationItem.leftBarButtonItem = abortButton
         
         let finishButton = UIBarButtonItem(title: "button.title.finish".localized, style: .plain, target: self, action: #selector(handleFinishTapped))
         navigationItem.rightBarButtonItem = finishButton
+        
+        navigationItem.hidesBackButton = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     @objc

@@ -13,28 +13,28 @@ struct ViewBuilder {
         let title = "workouts.title".localized
         let myWorkoutTabBarItem = UITabBarItem(title: title, image: NRStyle.workoutsIcon, selectedImage: nil)
         
-        return triggerInstantiation(with: title, for: myWorkoutTabBarItem)
+        return triggerInstantiation(for: .workouts, for: myWorkoutTabBarItem)
     }
 
     static func buildExercisesScreen() -> UIViewController {
         let title = "exercises.title".localized
         let exercisesTabBarItem = UITabBarItem(title: title, image: NRStyle.exercisesIcon, selectedImage: nil)
         
-        return triggerInstantiation(with: title, for: exercisesTabBarItem)
+        return triggerInstantiation(for: .exercises, for: exercisesTabBarItem)
     }
 
     static func buildStatisticsScreen() -> UIViewController {
         let title = "statistics.title".localized
         let statisticsTabBarItem = UITabBarItem(title: title, image: NRStyle.statisticsIcon, selectedImage: nil)
         
-        return triggerInstantiation(with: title, for: statisticsTabBarItem)
+        return triggerInstantiation(for: .statistics, for: statisticsTabBarItem)
     }
     
     static func buildSettingsScreen() -> UIViewController {
         let title = "settings.title".localized
         let settingsTabBarItem = UITabBarItem(title: title, image: NRStyle.settingsIcon, selectedImage: nil)
         
-        return triggerInstantiation(with: title, for: settingsTabBarItem)
+        return triggerInstantiation(for: .settings, for: settingsTabBarItem)
     }
     
     /**
@@ -43,8 +43,8 @@ struct ViewBuilder {
      - parameter tabBarItem: The tabBarItem object that belongs to the given screen
      - returns: The instantiated view-controller.
      */
-    private static func triggerInstantiation(with title: String, for tabBarItem: UITabBarItem) -> UIViewController {
-        let viewController = AppCoordinator.instantiateScreen(with: title)
+    private static func triggerInstantiation(for tab: RouteDestination, for tabBarItem: UITabBarItem) -> UIViewController {
+        let viewController = AppCoordinator.instantiateScreen(in: tab)
         viewController.tabBarItem = tabBarItem
         return viewController
     }
