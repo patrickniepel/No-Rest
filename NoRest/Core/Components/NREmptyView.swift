@@ -9,6 +9,12 @@
 import UIKit
 
 class NREmptyView: UIView {
+    enum ArrowDirection {
+        case none
+        case topRight
+        case bottomRight
+    }
+    
     private lazy var emptyLabel: NRLabel = {
         let label = NRLabel()
         label.numberOfLines = 0
@@ -24,7 +30,7 @@ class NREmptyView: UIView {
         return imageView
     }()
     
-    convenience init(text: String, addArrow: Bool = false) {
+    convenience init(text: String, arrowDirection: ArrowDirection = .none) {
         self.init()
         
         clipsToBounds = true
@@ -32,8 +38,10 @@ class NREmptyView: UIView {
         
         setupLabel()
         
-        if addArrow {
-            setupArrow()
+        if arrowDirection == .topRight {
+            setupArrowTopRight()
+        } else if arrowDirection == .bottomRight {
+            setupArrowBottomRight()
         }
     }
     
@@ -42,8 +50,14 @@ class NREmptyView: UIView {
         emptyLabel.anchor(leading: leadingAnchor, trailing: trailingAnchor, centerY: centerYAnchor, padding: UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding))
     }
     
-    private func setupArrow() {
+    private func setupArrowTopRight() {
         addSubview(arrowImageView)
         arrowImageView.anchor(top: topAnchor, bottom: emptyLabel.topAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: NRStyle.verticalPadding * 2, left: 0, bottom: NRStyle.verticalPadding * 2, right: 0))
+    }
+    
+    private func setupArrowBottomRight() {
+        addSubview(arrowImageView)
+        arrowImageView.anchor(top: emptyLabel.bottomAnchor, leading: leadingAnchor,bottom: bottomAnchor, padding: UIEdgeInsets(top: NRStyle.verticalPadding * 2, left: 0, bottom: 0, right: 0))
+        arrowImageView.transform = arrowImageView.transform.rotated(by: .pi * 0.8)
     }
 }

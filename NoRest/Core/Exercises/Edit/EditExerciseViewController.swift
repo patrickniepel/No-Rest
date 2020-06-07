@@ -80,7 +80,7 @@ class EditExerciseViewController: NRViewController {
     }
     
     private func setupSaveButton() {
-        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveExerciseTapped))
+        let saveButton = UIBarButtonItem(title: "button.title.save".localized, style: .plain, target: self, action: #selector(saveExerciseTapped))
         navigationItem.rightBarButtonItem = saveButton
     }
     

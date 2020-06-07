@@ -70,6 +70,8 @@ extension SettingsView: UITableViewDataSource {
 
 extension SettingsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         switch settingsCtrl.settingsItems[indexPath.row] {
         case .action(_ , let action):
             action()
@@ -77,8 +79,6 @@ extension SettingsView: UITableViewDelegate {
         default:
             break
         }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

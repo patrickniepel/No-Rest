@@ -12,9 +12,10 @@ func appReducer(action: Action, state: AppState?) -> AppState {
     return AppState(navigationState: navigationReducer(action: action, state: state?.navigationState),
                     editExerciseState: editExerciseReducer(action: action, state: state?.editExerciseState),
                     infoState: infoReducer(action: action, state: state?.infoState),
-                    workoutSetupState: workoutSetupReducer(action: action, state: state?.workoutSetupState),
-                    workoutSortingState: workoutSortingReducer(action: action, state: state?.workoutSortingState),
+                    workoutState: workoutReducer(action: action, state: state?.workoutState),
+                    exerciseSelectionState: exerciseSelectionReducer(action: action, state: state?.exerciseSelectionState),
                     popUpState: popUpReducer(action: action, state: state?.popUpState),
+                    workoutSessionState: workoutSessionReducer(action: action, state: state?.workoutSessionState),
                     currentWorkoutState: currentWorkoutReducer(action: action, state: state?.currentWorkoutState),
                     currentWorkoutCellState: currentWorkoutCellReducer(action: action, state: state?.currentWorkoutCellState),
                     currentIconSelectionState: currentIconSelectionReducer(action: action, state: state?.currentIconSelectionState))

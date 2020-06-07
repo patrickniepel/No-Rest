@@ -11,6 +11,7 @@
 "exercises.title" = "Exercises";
 "statistics.title" = "Statistics";
 "settings.title" = "Settings";
+"exercise.selection.title" = "Exercise Selection";
 
 // Workouts
 "workout.new" = "New Workout";
@@ -19,6 +20,11 @@
 "workout.empty" = "No workouts available!\nPress + to add your first workout.";
 "workout.start" = "GO!";
 "workout.sorting.empty" = "No exercises selected.";
+"workout.exercise.selection" = "Select exercises";
+
+// Workout Session
+"workout.session.finish.message" = "";
+"workout.session.abort.message" = "";
 
 // Exercises
 "exercise.search" = "Search exercise";
@@ -53,6 +59,9 @@
 "button.title.add" = "Add";
 "button.title.update" = "Update";
 "button.title.ok" = "OK";
+"button.title.save" = "Save";
+"button.title.abort" = "Abort";
+"button.title.finish" = "Finish";
 
 // Alerts
 "alert.message.invalidInput" = "Invalid Input";

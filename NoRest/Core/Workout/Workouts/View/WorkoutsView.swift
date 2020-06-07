@@ -34,7 +34,7 @@ class WorkoutsView: UIView {
     
     private func checkForEmptyWorkouts() {
         if workoutsCtrl.numberOfRows() == 0 {
-            tableView.backgroundView = NREmptyView(text: "workout.empty".localized, addArrow: true)
+            tableView.backgroundView = NREmptyView(text: "workout.empty".localized, arrowDirection: .topRight)
             tableView.isUserInteractionEnabled = false
         } else {
             tableView.backgroundView = nil
@@ -43,10 +43,10 @@ class WorkoutsView: UIView {
     }
     
     private func openSetupScreen(with workout: Workout) {
-        let workoutSetupAction = WorkoutSetupAction(workout: workout)
-        store.dispatch(workoutSetupAction)
+        let workoutAction = WorkoutAction(workout: workout)
+        store.dispatch(workoutAction)
         
-        let routeAction = RouteAction(screen: .workoutSetup, in: .workouts, action: .push)
+        let routeAction = RouteAction(screen: .workout, in: .workouts, action: .push)
         store.dispatch(routeAction)
     }
     
@@ -84,11 +84,11 @@ extension WorkoutsView: UITableViewDataSource {
 
 extension WorkoutsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         guard let workout = workoutsCtrl.workout(for: indexPath.row) else { return }
         
         openSetupScreen(with: workout)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

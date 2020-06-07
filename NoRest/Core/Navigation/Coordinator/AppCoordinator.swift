@@ -56,10 +56,10 @@ class AppCoordinator {
             return InfoViewController()
         case .editExercise:
             return EditExerciseViewController()
-        case .workoutSetup:
-            return WorkoutSetupViewController()
-        case .workoutSorting:
-            return WorkoutSortingViewController()
+        case .workout:
+            return WorkoutViewController()
+        case .exerciseSelection:
+            return ExerciseSelectionViewController()
         case .workouts:
             return WorkoutsViewController()
         case .popUp:

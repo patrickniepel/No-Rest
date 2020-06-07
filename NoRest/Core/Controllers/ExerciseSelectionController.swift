@@ -1,14 +1,14 @@
 //
-//  WorkoutSetupController.swift
+//  ExerciseSelectionController.swift
 //  NoRest
 //
-//  Created by Patrick Niepel on 21.02.19.
-//  Copyright © 2019 Patrick Niepel. All rights reserved.
+//  Created by Patrick Niepel on 07.06.20.
+//  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
 import Foundation
 
-class WorkoutSetupController {
+class ExerciseSelectionController {
     var selectedExercises: [Exercise] = []
 
     func toggleSelectedExercise(_ exercise: Exercise) {

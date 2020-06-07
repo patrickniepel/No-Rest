@@ -12,7 +12,7 @@ struct NRStyle {
     // Colors
     static let themeColor = UIColor.rgb(red: 51, green: 55, blue: 69, alpha: 1) // #333745
     static let complementaryColor = UIColor.rgb(red: 0, green: 253, blue: 255, alpha: 1) // #00FDFF
-    static let interactionColor = UIColor.rgb(red: 255, green: 122, blue: 0, alpha: 1) // #FF7A00
+    static let interactionColor = UIColor.rgb(red: 255, green: 128, blue: 0, alpha: 1) // #FF8000
     static let primaryTextColor = offWhiteColor
     static let secondaryTextColor = UIColor.rgb(red: 200, green: 200, blue: 200, alpha: 1)
     static let offWhiteColor = UIColor.rgb(red: 252, green: 251, blue: 248, alpha: 1) // #FCFBF8 (252,251,248)

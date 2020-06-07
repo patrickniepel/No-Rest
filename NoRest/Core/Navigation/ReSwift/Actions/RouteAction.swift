@@ -65,8 +65,8 @@ enum Screen: Equatable {
     case remain
     case initial
     case workouts
-    case workoutSetup
-    case workoutSorting
+    case workout
+    case exerciseSelection
     case statistics
     case settings
     case exercises
@@ -77,6 +77,7 @@ enum Screen: Equatable {
     case popUp
     case iconSelection
     case currentWorkout
+    case workoutSession
     case vc(UIViewController)
 }
 

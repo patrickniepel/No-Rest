@@ -12,9 +12,10 @@ struct AppState: StateType, Equatable {
     let navigationState: NavigationState
     let editExerciseState: EditExerciseState
     let infoState: InfoState
-    let workoutSetupState: WorkoutSetupState
-    let workoutSortingState: WorkoutSortingState
+    let workoutState: WorkoutState
+    let exerciseSelectionState: ExerciseSelectionState
     let popUpState: PopUpState
+    let workoutSessionState: WorkoutSessionState
     let currentWorkoutState: CurrentWorkoutState
     let currentWorkoutCellState: CurrentWorkoutCellState
     let currentIconSelectionState: CurrentIconSelectionState
