@@ -13,6 +13,16 @@
 "settings.title" = "Settings";
 "exercise.selection.title" = "Exercise Selection";
 
+// Exercise Types
+"chest.title" = "Chest";
+"back.title" = "Back";
+"shoulders.title" = "Shoulders";
+"triceps.title" = "Triceps";
+"biceps.title" = "Biceps";
+"legs.title" = "Legs";
+"abs.title" = "Abs";
+"cardio.title" = "Cardio";
+
 // Workouts
 "workout.new" = "New Workout";
 "workout.name" = "NAME";

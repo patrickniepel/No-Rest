@@ -17,7 +17,7 @@ struct StatisticsController {
         let categories = ExerciseType.allCases
         var stats: [StatsContainerItem] = []
         categories.forEach {
-            let item = StatsContainerItem(title: $0.rawValue, stats: StatisticsController.stats(for: $0))
+            let item = StatsContainerItem(title: $0.displayName, stats: StatisticsController.stats(for: $0))
             stats.append(item)
         }
 

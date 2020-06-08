@@ -108,7 +108,7 @@ extension ExercisesView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionTitle = ExerciseType.allCases[section].rawValue
+        let sectionTitle = ExerciseType.allCases[section].displayName
         let headerView = NRTableViewSectionHeaderView(title: sectionTitle)
         return headerView
     }

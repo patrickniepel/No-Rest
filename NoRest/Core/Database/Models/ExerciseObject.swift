@@ -32,11 +32,11 @@ class ExerciseObject: Object, Comparable {
     var type: ExerciseType? {
         get {
             guard let type = _type else { return nil }
-            return ExerciseType(rawValue: type)
+            return ExerciseType.type(for: type)
         }
         
         set {
-            _type = newValue?.rawValue
+            _type = newValue?.displayName
         }
     }
 
@@ -108,7 +108,7 @@ class ExerciseObject: Object, Comparable {
             fatalError()
         }
         
-        let exercises = Array(realm.objects(ExerciseObject.self).filter(NSPredicate(format: "%K = %@", Fields._type.rawValue, type.rawValue))).sorted()
+        let exercises = Array(realm.objects(ExerciseObject.self).filter(NSPredicate(format: "%K = %@", Fields._type.rawValue, type.displayName))).sorted()
         return exercises
     }
     

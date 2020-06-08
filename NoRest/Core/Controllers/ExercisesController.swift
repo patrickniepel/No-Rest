@@ -24,11 +24,11 @@ class ExercisesController {
     }
     
     func numberOfRows(in section: Int) -> Int {
-        return exercises[ExerciseType.allCases[section].rawValue]?.count ?? 0
+        return exercises[ExerciseType.allCases[section].displayName]?.count ?? 0
     }
     
     func exercise(for indexPath: IndexPath) -> Exercise? {
-        return exercises[ExerciseType.allCases[indexPath.section].rawValue]?[indexPath.row]
+        return exercises[ExerciseType.allCases[indexPath.section].displayName]?[indexPath.row]
     }
     
     func searchResult(for query: String) -> IndexPath? {
@@ -37,7 +37,7 @@ class ExercisesController {
             let exercise = exercises.first(where: { $0.name.lowercased().contains(query.lowercased()) }),
             let type = exercise.type,
             let sectionIndex = ExerciseType.allCases.firstIndex(where: { $0 == type }),
-            let rowIndex = self.exercises[type.rawValue]?.firstIndex(where: { $0.id == exercise.id }) else { return nil }
+            let rowIndex = self.exercises[type.displayName]?.firstIndex(where: { $0.id == exercise.id }) else { return nil }
         
         let indexPath = IndexPath(row: rowIndex, section: sectionIndex)
         return indexPath
@@ -51,7 +51,7 @@ class ExercisesController {
     }
     
     func deleteExercise(for indexPath: IndexPath) {
-        let type = ExerciseType.allCases[indexPath.section].rawValue
+        let type = ExerciseType.allCases[indexPath.section].displayName
         guard let exercisesForType = exercises[type] else { return }
         let exerciseToDelete = exercisesForType[indexPath.row]
         ExerciseObject.delete(with: exerciseToDelete.id)
@@ -65,7 +65,7 @@ class ExercisesController {
         var dictionary: [String: [Exercise]] = [:]
         
         ExerciseType.allCases.forEach {
-            dictionary[$0.rawValue] = ExerciseObject.exercises(for: $0).sorted().map{ Exercise(from: $0) }
+            dictionary[$0.displayName] = ExerciseObject.exercises(for: $0).sorted().map{ Exercise(from: $0) }
         }
         
         return dictionary

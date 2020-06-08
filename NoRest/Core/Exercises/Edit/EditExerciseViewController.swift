@@ -90,7 +90,7 @@ class EditExerciseViewController: NRViewController {
         navigationItem.title = exercise.name
         exerciseImageView.image = exercise.icon
         nameTextfield.text = exercise.name
-        typeTextfield.text = exercise.type?.rawValue
+        typeTextfield.text = exercise.type?.displayName
         timerLabel.text = exercise.type == .cardio ? "exercise.timer.minutes".localized : "exercise.timer.seconds".localized
         timerTextfield.text = exercise.type == .cardio ? "\(exercise.timer / 60)" : "\(exercise.timer)"
         notesTextView.text = exercise.notes
@@ -116,19 +116,19 @@ class EditExerciseViewController: NRViewController {
     
     @objc
     private func handleTypeChange() {
-        let row = ExerciseType.allCases.firstIndex(where: { $0.rawValue == typeTextfield.text }) ?? 0
+        let row = ExerciseType.allCases.firstIndex(where: { $0.displayName == typeTextfield.text }) ?? 0
         typePicker.selectRow(row, inComponent: 0, animated: false)
     }
     
     @objc
     private func saveExerciseTapped() {
-        guard let name = nameTextfield.text, !name.isBlank,
-            let typeText = typeTextfield.text, let type = ExerciseType(rawValue: typeText)
+        guard let name = nameTextfield.text, !name.isBlank, let typeText = typeTextfield.text
         else {
             AlertController.showDefaultAlert(title: "alert.message.invalidInput".localized, message: "alert.message.exercise.input".localized, in: .exercises)
             return
         }
         
+        let type = ExerciseType.type(for: typeText)
         let timerText = timerTextfield.text ?? "0"
         let timer = Int(timerText) ?? 0
         
@@ -209,12 +209,12 @@ extension EditExerciseViewController: UIPickerViewDataSource {
 
 extension EditExerciseViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return ExerciseType.allCases[row].rawValue
+        return ExerciseType.allCases[row].displayName
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedType = ExerciseType.allCases[row]
-        typeTextfield.text = selectedType.rawValue
+        typeTextfield.text = selectedType.displayName
         timerLabel.text = selectedType == .cardio ? "exercise.timer.minutes".localized : "exercise.timer.seconds".localized
     }
 }

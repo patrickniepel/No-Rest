@@ -48,7 +48,6 @@ class WorkoutSessionView: UIView {
         collectionView.register(WorkoutSessionCollectionViewCell.self, forCellWithReuseIdentifier: WorkoutSessionCollectionViewCell.reuseIdentifier)
     }
     
-    
     private func updatePage(page: Int) {
         pageControl.currentPage = page
         currentPage = page
