@@ -17,9 +17,10 @@ class WorkoutTableViewCell: NRTableViewCell {
         button.addTarget(self, action: #selector(handleStartWorkout), for: .touchUpInside)
         button.setTitle("workout.start".localized, for: .normal)
         button.setTitleColor(NRStyle.primaryTextColor, for: .normal)
-        button.titleLabel?.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
+        button.titleLabel?.font = UIFont(name: NRStyle.boldFont, size: 16)
         button.layer.cornerRadius = 10
         button.backgroundColor = NRStyle.interactionColor
+        button.applyShadow()
         return button
     }()
     
@@ -62,7 +63,7 @@ class WorkoutTableViewCell: NRTableViewCell {
         
         numberOfExercisesTagView.anchor(top: dateTagView.topAnchor, leading: dateTagView.trailingAnchor, bottom: dateTagView.bottomAnchor, padding: .init(top: 0, left: padding, bottom: 0, right: 0))
         
-        startButton.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: padding, left: 0, bottom: padding, right: NRStyle.horizontalPadding * 2))
+        startButton.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: padding * 1.5, left: 0, bottom: padding * 1.5, right: NRStyle.horizontalPadding * 2))
         startButton.widthAnchor.constraint(equalTo: startButton.heightAnchor).isActive = true
     }
     

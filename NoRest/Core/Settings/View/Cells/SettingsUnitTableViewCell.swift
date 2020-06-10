@@ -26,6 +26,7 @@ class SettingsUnitTableViewCell: UITableViewCell {
         
         control.selectedSegmentIndex = SettingsController.currentUnitAsIndex
         control.addTarget(self, action: #selector(unitChanged), for: .valueChanged)
+        control.applyShadow()
         return control
     }()
     

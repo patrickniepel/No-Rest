@@ -16,10 +16,11 @@ class SettingsTimerTableViewCell: UITableViewCell {
         timerSwitch.isOn = SettingsController.isTimerSoundActivated
         timerSwitch.thumbTintColor = NRStyle.offWhiteColor
         timerSwitch.onTintColor = NRStyle.interactionColor
-        timerSwitch.backgroundColor = NRStyle.secondaryTextColor
+        timerSwitch.backgroundColor = NRStyle.themeColor
         timerSwitch.layer.cornerRadius = 16
         timerSwitch.layer.borderColor = NRStyle.themeColor.cgColor
         timerSwitch.layer.borderWidth = 1
+        timerSwitch.applyShadow()
         return timerSwitch
     }()
     
