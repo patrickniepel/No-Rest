@@ -19,7 +19,7 @@ class SettingsUnitTableViewCell: UITableViewCell {
         control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.themeColor], for: .selected)
         control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor], for: .normal)
         
-        let segmentWidth = self.contentView.frame.width * 0.75 / 2
+        let segmentWidth = self.contentView.frame.width * 0.6 / 2
         for i in 0..<items.count {
             control.setWidth(segmentWidth, forSegmentAt: i)
         }
@@ -42,9 +42,9 @@ class SettingsUnitTableViewCell: UITableViewCell {
         contentView.backgroundColor = NRStyle.themeColor
         backgroundColor = NRStyle.themeColor
         
+        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: 0))
         unitSegmentedControl.anchor(top: nil, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, centerY: contentView.centerYAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: NRStyle.horizontalPadding))
         
-        contentLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: 0))
     }
     
     @objc private func unitChanged(sender: UISegmentedControl) {

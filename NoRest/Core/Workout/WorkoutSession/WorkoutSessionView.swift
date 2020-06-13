@@ -17,6 +17,26 @@ class WorkoutSessionView: UIView {
         return pageControl
     }()
     
+    private lazy var notesButton: UIButton = {
+        let button = UIButton()
+        button.setImage(NRStyle.notesIcon?.dye(NRStyle.offWhiteColor), for: .normal)
+        button.backgroundColor = NRStyle.interactionColor
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        button.applyShadow()
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    private lazy var timerButton: UIButton = {
+        let button = UIButton()
+        button.setImage(NRStyle.timerIcon?.dye(NRStyle.offWhiteColor), for: .normal)
+        button.backgroundColor = NRStyle.interactionColor
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        button.applyShadow()
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     private let workout: Workout
     private var currentPage = 0
     
@@ -36,10 +56,14 @@ class WorkoutSessionView: UIView {
     }
     
     private func setupView() {
-        [collectionView, pageControl].forEach(addSubview)
+        [collectionView, pageControl, notesButton, timerButton].forEach(addSubview)
         
         collectionView.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor)
-        pageControl.anchor(top: collectionView.bottomAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, centerX: centerXAnchor, padding: .init(top: NRStyle.verticalPadding, left: 0, bottom: NRStyle.verticalPadding, right: 0))
+        pageControl.anchor(bottom: safeAreaLayoutGuide.bottomAnchor, centerX: centerXAnchor, padding: .init(top: 0, left: 0, bottom: NRStyle.verticalPadding, right: 0))
+        
+        let buttonSize = UIScreen.main.bounds.width / 6
+        notesButton.anchor(top: collectionView.bottomAnchor, leading: leadingAnchor, bottom: pageControl.centerYAnchor, padding: .init(top: NRStyle.verticalPadding / 2, left: NRStyle.horizontalPadding * 2, bottom: NRStyle.verticalPadding / 2, right: 0), size: .init(width: buttonSize, height: buttonSize))
+        timerButton.anchor(top: notesButton.topAnchor, bottom: pageControl.centerYAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: NRStyle.verticalPadding / 2, right: NRStyle.horizontalPadding * 2), size: .init(width: buttonSize, height: buttonSize))
     }
     
     private func setupCollectionView() {
@@ -70,6 +94,13 @@ extension WorkoutSessionView: UICollectionViewDataSource {
         }
         
         return cell
+    }
+    
+    func currentExercise() -> Exercise? {
+        guard let indexPath = collectionView.indexPathsForVisibleItems.first,
+            let exercise = workout.exercises[safe: indexPath.item] else { return nil }
+        
+        return exercise
     }
 }
 

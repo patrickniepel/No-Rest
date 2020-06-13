@@ -41,30 +41,41 @@ class EditExerciseViewController: NRViewController {
     private lazy var nameTextfield: NRTextField = {
        let textField = NRTextField()
         textField.addTarget(self, action: #selector(handleNameChange), for: .editingChanged)
+        textField.delegate = self
         textField.placeholder = "exercise.name.placeholder".localized
         return textField
     }()
     
+    private lazy var typePicker: NRPickerView = .init()
     private lazy var typeLabel: NRLabel = NRLabel(with: "exercise.type".localized, size: NRStyle.fontSizeVerySmall)
     private lazy var typeTextfield: NRTextField = {
         let textField = NRTextField()
         textField.addTarget(self, action: #selector(handleTypeChange), for: .editingDidBegin)
         return textField
     }()
-    private lazy var typePicker: NRPickerView = .init()
     
     private lazy var timerLabel: NRLabel = NRLabel(with: "", size: NRStyle.fontSizeVerySmall)
     private lazy var timerTextfield: NRTextField = {
         let textField = NRTextField()
+        textField.delegate = self
         textField.keyboardType = .numberPad
         return textField
     }()
     
     private lazy var notesLabel: NRLabel = NRLabel(with: "exercise.notes".localized, size: NRStyle.fontSizeVerySmall)
-    private lazy var notesTextView: NRTextView = .init()
+    private lazy var notesTextView: NRTextView = {
+        let textView = NRTextView()
+        textView.delegate = self
+        return textView
+    }()
     
     private var exercise: Exercise?
     private var tapGestureRecognizer: UITapGestureRecognizer?
+    private var currentResponder: UIView? {
+        didSet {
+            scrollToResponder()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +88,10 @@ class EditExerciseViewController: NRViewController {
         setupTypeSelection()
         
         hideKeyboardWhenTapped()
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func setupSaveButton() {
@@ -100,6 +115,14 @@ class EditExerciseViewController: NRViewController {
         exerciseImageView.image = icon
     }
     
+    private func scrollToResponder() {
+        guard let currentResponder = currentResponder else { return }
+        
+        let scrollViewInsets =  scrollView.contentInset.bottom / 2 - NRStyle.verticalPadding
+        let visibleRect = CGRect(x: 0, y: currentResponder.frame.origin.y, width: 1, height: currentResponder.frame.height + scrollViewInsets)
+        scrollView.scrollRectToVisible(visibleRect, animated: true)
+    }
+    
     @objc
     private func handleImageSelection() {
         let currentSelectionIconAction = CurrentIconSelectionAction(icon: exercise?.icon)
@@ -118,6 +141,25 @@ class EditExerciseViewController: NRViewController {
     private func handleTypeChange() {
         let row = ExerciseType.allCases.firstIndex(where: { $0.displayName == typeTextfield.text }) ?? 0
         typePicker.selectRow(row, inComponent: 0, animated: false)
+    }
+    
+    @objc
+    private func keyboardWillShow(notification: Notification) {
+        guard let userInfo = notification.userInfo, let keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        let convertedFrame = view.convert(keyboardFrame, from: nil)
+
+        var contentInset = scrollView.contentInset
+        contentInset.bottom = convertedFrame.size.height + 20
+        scrollView.contentInset = contentInset
+        
+        scrollToResponder()
+    }
+    
+    @objc
+    private func keyboardWillHide(notification: Notification) {
+        let contentInset = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
     
     @objc
@@ -147,6 +189,8 @@ class EditExerciseViewController: NRViewController {
     deinit {
         unsubscribe()
         
+        NotificationCenter.default.removeObserver(self)
+        
         guard let tapGestureRecognizer = tapGestureRecognizer else { return }
         exerciseImageView.removeGestureRecognizer(tapGestureRecognizer)
     }
@@ -155,10 +199,11 @@ class EditExerciseViewController: NRViewController {
 private extension EditExerciseViewController {
     func setupLayout() {
         view.addSubview(scrollView)
-        scrollView.fillSuperview()
+        scrollView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: NRStyle.verticalPadding, right: 0))
         
         scrollView.addSubview(contentView)
-        contentView.anchor(top: scrollView.topAnchor, leading: scrollView.leadingAnchor, bottom: scrollView.bottomAnchor, trailing: scrollView.trailingAnchor, size: .init(width: view.bounds.width, height: view.bounds.height))
+        contentView.fillSuperview()
+        contentView.anchor(size: .init(width: view.bounds.width, height: 0))
         
         [exerciseImageView, selectionImageView, separator, nameLabel, nameTextfield, typeLabel, typeTextfield, timerLabel, timerTextfield, notesLabel, notesTextView].forEach(contentView.addSubview)
         
@@ -181,7 +226,7 @@ private extension EditExerciseViewController {
         timerTextfield.anchor(top: timerLabel.bottomAnchor, leading: contentView.centerXAnchor, trailing: contentView.trailingAnchor, padding: .init(top: verticalPadding / 2, left: horizontalPadding / 2, bottom: 0, right: horizontalPadding))
         
         notesLabel.anchor(top: typeTextfield.bottomAnchor, leading: typeTextfield.leadingAnchor, padding: .init(top: verticalPadding * 2, left: 0, bottom: 0, right: 0))
-        notesTextView.anchor(top: notesLabel.bottomAnchor, leading: notesLabel.leadingAnchor, trailing: contentView.trailingAnchor, padding: .init(top: verticalPadding / 2, left: 0, bottom: 0, right: horizontalPadding), size: .init(width: 0, height: 250))
+        notesTextView.anchor(top: notesLabel.bottomAnchor, leading: notesLabel.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: verticalPadding / 2, left: 0, bottom: 0, right: horizontalPadding), size: .init(width: 0, height: 250))
         
         exerciseImageView.addDefaultShadow()
     }
@@ -216,5 +261,15 @@ extension EditExerciseViewController: UIPickerViewDelegate {
         let selectedType = ExerciseType.allCases[row]
         typeTextfield.text = selectedType.displayName
         timerLabel.text = selectedType == .cardio ? "exercise.timer.minutes".localized : "exercise.timer.seconds".localized
+    }
+}
+
+extension EditExerciseViewController: UITextViewDelegate, UITextFieldDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        currentResponder = notesLabel
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        currentResponder = textField
     }
 }

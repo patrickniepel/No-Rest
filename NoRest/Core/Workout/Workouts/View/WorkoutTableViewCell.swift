@@ -46,7 +46,7 @@ class WorkoutTableViewCell: NRTableViewCell {
         
         dateTagView.injectContent(icon: NRStyle.calendarIcon, text: mostRecentDateString)
         
-        let numberOfExercises = "\(workout.exercises.count) " + "exercises.title".localized
+        let numberOfExercises = "\(workout.exercises.count)"
         numberOfExercisesTagView.injectContent(icon: NRStyle.exercisesIcon, text: numberOfExercises)
         addCustomDisclosureIndicator()
         
@@ -63,7 +63,7 @@ class WorkoutTableViewCell: NRTableViewCell {
         
         numberOfExercisesTagView.anchor(top: dateTagView.topAnchor, leading: dateTagView.trailingAnchor, bottom: dateTagView.bottomAnchor, padding: .init(top: 0, left: padding, bottom: 0, right: 0))
         
-        startButton.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: padding * 1.5, left: 0, bottom: padding * 1.5, right: NRStyle.horizontalPadding * 2))
+        startButton.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: .init(top: padding * 1.5, left: 0, bottom: padding * 1.5, right: NRStyle.horizontalPadding * 3))
         startButton.widthAnchor.constraint(equalTo: startButton.heightAnchor).isActive = true
     }
     

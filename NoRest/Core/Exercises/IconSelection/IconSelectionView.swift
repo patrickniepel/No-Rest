@@ -80,7 +80,7 @@ extension IconSelectionView: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = collectionView.bounds.width / 3 - NRStyle.verticalPadding / 4
+        let size = collectionView.bounds.width / 4 - NRStyle.verticalPadding / 4
         return .init(width: size, height: size)
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ExerciseType: CaseIterable {
+enum ExerciseType: String, CaseIterable {
     case chest
     case back
     case shoulders

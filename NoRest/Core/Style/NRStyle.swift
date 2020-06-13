@@ -31,7 +31,7 @@ struct NRStyle {
     static let boldFont = "CaviarDreams-Bold"
 
     // Font sizes
-    static let fontSizeViewControllerTitle: CGFloat = 35
+    static let fontSizeViewControllerTitle: CGFloat = 30
     static let fontSizeTiny: CGFloat = 10
     static let fontSizeVerySmall: CGFloat = 12
     static let fontSizeSmall: CGFloat = 14

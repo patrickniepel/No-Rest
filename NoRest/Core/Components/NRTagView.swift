@@ -12,7 +12,7 @@ class NRTagView: UIView {
     private lazy var iconImageView: NRImageView = .init()
     
     private lazy var textLabel: NRLabel = {
-        let label = NRLabel(with: "", size: NRStyle.fontSizeSmall)
+        let label = NRLabel(with: "", size: NRStyle.fontSizeVerySmall)
         label.textColor = NRStyle.themeColor
         return label
     }()

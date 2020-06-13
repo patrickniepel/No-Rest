@@ -5,3 +5,168 @@
   Created by Patrick Niepel on 22.05.20.
   Copyright © 2020 Patrick Niepel. All rights reserved.
 */
+
+// Screens
+"workouts.title" = "Workouts";
+"exercises.title" = "Übungen";
+"statistics.title" = "Statistiken";
+"settings.title" = "Einstellungen";
+"exercise.selection.title" = "Übungs-Auswahl";
+
+// Exercise Types
+"chest.title" = "Brust";
+"back.title" = "Rücken";
+"shoulders.title" = "Schulter";
+"triceps.title" = "Trizeps";
+"biceps.title" = "Bizeps";
+"legs.title" = "Beine";
+"abs.title" = "Bauch";
+"cardio.title" = "Cardio";
+
+// Workouts
+"workout.new" = "Neues Workout";
+"workout.name" = "NAME";
+"workout.name.placeholder" = "Name des Workouts";
+"workout.empty" = "Keine Workouts verfügbar!\nTippe auf +, um dein erstes Workout anzulegen.";
+"workout.start" = "LOS!";
+"workout.sorting.empty" = "Keine Übungen ausgewählt.";
+"workout.exercise.selection" = "Übungen auswählen";
+"workout.most.recent.never" = "Nie";
+
+// Workout Session
+"workout.session.finish.message" = "";
+"workout.session.abort.message" = "";
+
+// Exercises
+"exercise.search" = "Suche Übung";
+"exercise.name" = "NAME";
+"exercise.name.placeholder" = "Name der Übung";
+"exercise.type" = "TYP";
+"exercise.timer.seconds" = "TIMER (S)";
+"exercise.timer.minutes" = "TIMER (MIN)";
+"exercise.notes" = "NOTIZEN";
+"exercise.new" = "Neue Übung";
+
+// Settings
+"settings.unit" = "Einheit";
+"settings.timerSound" = "Timer Sound";
+"settings.resetHistory" = "Workout Historie zurücksetzen";
+"settings.resetOnboarding" = "Onboarding zurücksetzen";
+"settings.share" = "Teile No Rest";
+"settings.share.mailSubject" = "Diese App 'No Rest' ist der Wahnsinn. Probiere sie mal aus!";
+"settings.share.title" = "No Rest - No Limits";
+"settings.showRating" = "Bewerte No Rest";
+"settings.contact" = "Kontakt";
+"settings.contact.subject" = "NoRest - Support Anfrage";
+"settings.licenses" = "Lizenzen";
+"settings.disclaimer" = "Haftungsausschluss";
+
+// Buttons
+"button.title.reset" = "Zurücksetzen";
+"button.title.close" = "Schließen";
+"button.title.cancel" = "Abbrechen";
+"button.title.continue" = "Weiter";
+"button.title.undo" = "Undo";
+"button.title.add" = "Hinzufügen";
+"button.title.update" = "Updaten";
+"button.title.ok" = "OK";
+"button.title.save" = "Speichern";
+"button.title.abort" = "Abbrechen";
+"button.title.finish" = "Fertig";
+
+// Alerts
+"alert.message.invalidInput" = "Falsche Eingabe";
+"alert.message.workout.input" = "Bitte trage einen korrekten Namen für dieses Workout ein";
+"alert.message.exercise.input" = "Bitte trage einen korrekten Namen für diese Übung ein und wähle ihren Typ aus";
+"alert.message.successful" = "Erfolgreich";
+"alert.message.sure" = "Bist du sicher?";
+"alert.message.failedSaving" = "Speichern fehlgeschlagen";
+"alert.message.succeededSaving" = "Gespeichert";
+"alert.message.dataLoss" = "Alle Änderungen werden nicht gespeichert";
+"alert.message.resetHistory" = "Workout Historie wird zurückgesetzt";
+"alert.message.resetOnboarding" = "Onboarding wird zurückgesetzt";
+"alert.message.workoutFinished" = "Workout beendet";
+"alert.message.noMail.title" = "Kein Mail Account";
+"alert.message.noMail.description" = "Bitte erstelle zuerst einen Mail Account";
+
+// Exercises
+"exercises.cableCrossover" = "Cable Crossover";
+"exercises.declineBarbellBenchPress" = "Negativ-Bankdrücken";
+"exercises.flatBarbellBenchPress" = "Langhantel-Bankdrücken";
+"exercises.flatDumbbellBenchPress" = "Kurzhantel-Bankdrücken";
+"exercises.flatDumbbellFly" = "Kurzhantel-Butterflies";
+"exercises.hammerStrengthBenchPress" = "Bankdrücken - Maschine";
+"exercises.inclineBarbellBenchPress" = "Langhantel-Schrägbankdrücken";
+"exercises.inclineDumbbellBenchPress" = "Kurzhantel-Schrägbankdrücken";
+"exercises.inclineDumbbellFly" = "Kurzhalten-Schrägbank-Butterflies";
+"exercises.pushUp" = "Liegestütz";
+"exercises.machineFly" = "Butterflies - Maschine";
+
+"exercises.barbellRow" = "Langhantel-Rudern";
+"exercises.barbellShrug" = "Langhantel-Nackenheben";
+"exercises.chinUp" = "Klimmzug - eng";
+"exercises.deadlift" = "Kreuzheben";
+"exercises.dumbbellRow" = "Kurzhantel-Rudern";
+"exercises.hammerStrengthRow" = "Rudern - Maschine";
+"exercises.latPulldown" = "Lat-Ziehen";
+"exercises.pullUp" = "Klimmzug - breit";
+"exercises.seatedCableRow" = "Rudern im Sitzen";
+"exercises.tBarRow" = "T-Hantel-Rudern";
+
+"exercises.arnoldDumbbellPress" = "Arnold Kurzhantel-Schulterdrücken";
+"exercises.dumbbellPress" = "Kurzhantel-Schulterdrücken";
+"exercises.behindTheNeckBarbellPress" = "Langhantel-Schulterdrücken - hinter dem Kopf";
+"exercises.cableFacePull" = "Kabel Face Pull";
+"exercises.frontDumbbellRaise" = "Kurzhantel-Frontheben";
+"exercises.hammerStrengthShoulderPress" = "Schulterdrücken - Maschine";
+"exercises.lateralMachineRaise" = "Seitheben - Maschine";
+"exercises.militaryPress" = "Langhantel-Schulterdrücken";
+"exercises.rearDeltDumbbellRaise" = "Vorgebeugtes Kurzhantel-Seitheben";
+"exercises.seatedLateralDumbbellRaise" = "Kurzhantel-Seitheben - sitzend";
+"exercises.standingLateralDumbbellRaise" = "Kurzhantel-Seitheben - stehend";
+
+"exercises.barbellCurl" = "Langhantel-Curl";
+"exercises.cableCurl" = "Kabel-Curl";
+"exercises.dumbbellConcentrationCurl" = "Dumbbell Concentration Curl";
+"exercises.dumbbellCurl" = "Kurzhantel-Curl";
+"exercises.dumbbellHammerCurl" = "Hammer-Curl";
+"exercises.ezBarCurl" = "SZ-Stangen-Curl";
+"exercises.ezBarPreacherCurl" = "SZ-Stangen Preacher Curl";
+"exercises.ironCrossCurl" = "Iron-Cross-Curl";
+"exercises.dumbbellScottCurl" = "Kurzhantel-Scott-Curl";
+"exercises.seatedMachineCurl" = "Curl - Maschine";
+
+"exercises.cableOverheadTricepsExtension" = "Trizeps-Strecken - Kabel - überkopf";
+"exercises.closeGripBarbellBenchPress" = "Enges Langhantel-Bankdrücken";
+"exercises.dumbbellOverheadTricepsExtension" = "Trizeps-Strecken - Kurzhantel - überkopf";
+"exercises.ezBarFrenchPress" = "French Press - SZ-Stange";
+"exercises.tricepsDip" = "Dip";
+"exercises.pushDown" = "Trizepsdrücken";
+
+"exercises.crunch" = "Crunch";
+"exercises.crunchMachine" = "Crunch - Maschine";
+"exercises.hangingKneeRaise" = "Knieheben";
+"exercises.HangingLegRaise" = "Beinheben";
+"exercises.plank" = "Planke";
+"exercises.russianTwist" = "Russian Twist";
+"exercises.sidePlank" = "Seitliche Planke";
+"exercises.situp" = "Situp";
+"exercises.toesToBar" = "Toes To Bar";
+
+"exercises.barbellCalfRaise" = "Langhantel-Wadenheben";
+"exercises.barbellFrontSquat" = "Langhantel-Front-Squat";
+"exercises.barbellGluteBridge" = "Barbell Glute Bridge";
+"exercises.barbellSquat" = "Langhantel-Squat";
+"exercises.donkeyCalfRaise" = "Donkey Calf Raise";
+"exercises.gluteHamRaise" = "Glute-Ham Raise";
+"exercises.legExtensionMachine" = "Bein-Strecker";
+"exercises.legPress" = "Beinpresse";
+"exercises.lyingLegCurlMachine" = "Bein-Beuger";
+"exercises.seatedCalfRaiseMachine" = "Wadenheben - sitzend";
+"exercises.standingCalfRaiseMachine" = "Wadenheben - stehend";
+
+"exercises.crossTrainer" = "Cross Trainer";
+"exercises.treadmill" = "Laufband";
+"exercises.indoorCycling" = "Fahrrad";
+"exercises.climbingMachine" = "Climbing Machine";
+"exercises.ropeSkipping" = "Seilhüpfen";
