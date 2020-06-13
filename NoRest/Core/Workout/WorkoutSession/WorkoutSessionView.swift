@@ -21,7 +21,7 @@ class WorkoutSessionView: UIView {
         let button = UIButton()
         button.setImage(NRStyle.notesIcon?.dye(NRStyle.offWhiteColor), for: .normal)
         button.backgroundColor = NRStyle.interactionColor
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
         button.applyShadow()
         button.layer.cornerRadius = 10
         return button

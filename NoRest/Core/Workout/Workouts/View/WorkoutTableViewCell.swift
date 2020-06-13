@@ -15,8 +15,8 @@ class WorkoutTableViewCell: NRTableViewCell {
     private lazy var startButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(handleStartWorkout), for: .touchUpInside)
-        button.setTitle("workout.start".localized, for: .normal)
-        button.setTitleColor(NRStyle.primaryTextColor, for: .normal)
+        button.setImage(NRStyle.startIcon?.dye(NRStyle.offWhiteColor), for: .normal)
+        button.imageEdgeInsets = .init(top: 0, left: 3, bottom: 0, right: 0)
         button.titleLabel?.font = UIFont(name: NRStyle.boldFont, size: 16)
         button.layer.cornerRadius = 10
         button.backgroundColor = NRStyle.interactionColor

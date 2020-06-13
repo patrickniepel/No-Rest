@@ -34,7 +34,7 @@ struct Exercise: Equatable {
     
     init(from exerciseObject: ExerciseObject) {
         self.id = exerciseObject.id
-        self.name = exerciseObject.name
+        self.name = exerciseObject.name.localized
         self.type = exerciseObject.type
         self.timer = exerciseObject.timer
         self.notes = exerciseObject.notes

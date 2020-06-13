@@ -38,7 +38,7 @@
 "workout.session.abort.message" = "";
 
 // Exercises
-"exercise.search" = "Search exercise";
+"exercise.search" = "Search";
 "exercise.name" = "NAME";
 "exercise.name.placeholder" = "Exercise name";
 "exercise.type" = "TYPE";

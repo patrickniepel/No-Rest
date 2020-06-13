@@ -27,19 +27,32 @@ class NRTagView: UIView {
     }
     
     private func setup() {
-        [iconImageView, textLabel].forEach(addSubview)
-        
         layer.cornerRadius = 5
         backgroundColor = NRStyle.complementaryColor
-        
-        let padding = NRStyle.verticalPadding / 4
-        iconImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, padding: .init(top: padding, left: padding, bottom: padding, right: 0))
-        iconImageView.widthAnchor.constraint(equalTo: iconImageView.heightAnchor).isActive = true
-        textLabel.anchor(leading: iconImageView.trailingAnchor, trailing: trailingAnchor, centerY: iconImageView.centerYAnchor, padding: .init(top: 0, left: padding, bottom: 0, right: padding))
     }
     
-    func injectContent(icon: UIImage?, text: String) {
+    
+    func injectContent(icon: UIImage?, text: String = "") {
+        iconImageView.removeFromSuperview()
+        textLabel.removeFromSuperview()
+        
         iconImageView.image = icon?.dye(NRStyle.themeColor)
         textLabel.text = text
+        
+        let padding = NRStyle.verticalPadding / 4
+        
+        if icon != nil && text.isEmpty {
+            addSubview(iconImageView)
+            iconImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: padding, left: padding, bottom: padding, right: padding))
+            iconImageView.widthAnchor.constraint(equalTo: iconImageView.heightAnchor).isActive = true
+        } else if icon == nil && !text.isEmpty {
+            addSubview(textLabel)
+            textLabel.anchor(leading: leadingAnchor, trailing: trailingAnchor, centerY: centerYAnchor, padding: .init(top: 0, left: padding, bottom: 0, right: padding))
+        } else {
+            [iconImageView, textLabel].forEach(addSubview)
+            iconImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, padding: .init(top: padding, left: padding, bottom: padding, right: 0))
+            iconImageView.widthAnchor.constraint(equalTo: iconImageView.heightAnchor).isActive = true
+            textLabel.anchor(leading: iconImageView.trailingAnchor, trailing: trailingAnchor, centerY: iconImageView.centerYAnchor, padding: .init(top: 0, left: padding, bottom: 0, right: padding))
+        }
     }
 }

@@ -14,6 +14,7 @@ class ExercisesView: UIView {
     private lazy var searchBar: NRSearchBar = {
         let searchBar = NRSearchBar()
         searchBar.placeholder = "exercise.search".localized
+        searchBar.delegate = self
         return searchBar
     }()
     
@@ -37,11 +38,9 @@ class ExercisesView: UIView {
     private func setupView() {
         [searchBar, tableView].forEach(addSubview)
         
-        searchBar.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: .init(top: NRStyle.verticalPadding, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding))
+        searchBar.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: NRStyle.horizontalPadding / 2, bottom: 0, right: NRStyle.horizontalPadding / 2))
         
-        tableView.anchor(top: searchBar.bottomAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: NRStyle.verticalPadding, left: 0, bottom: 0, right: 0))
-        
-        searchBar.delegate = self
+        tableView.anchor(top: searchBar.bottomAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
     }
     
     private func setupTableView() {

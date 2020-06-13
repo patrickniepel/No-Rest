@@ -13,6 +13,7 @@ class ExerciseTableViewCell: NRTableViewCell {
     
     private lazy var nameLabel: NRLabel = .init()
     private lazy var timerTagView: NRTagView = .init()
+    private lazy var notesAvailableTagView: NRTagView = .init()
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -23,7 +24,14 @@ class ExerciseTableViewCell: NRTableViewCell {
     func setup(with exercise: Exercise) {
         exerciseImageView.image = exercise.icon
         nameLabel.text = exercise.name
+        
         timerTagView.injectContent(icon: NRStyle.timerIcon, text: exercise.descriptiveRestTimer)
+        
+        if !exercise.notes.isBlank {
+            notesAvailableTagView.injectContent(icon: NRStyle.notesIcon)
+        }
+        
+        notesAvailableTagView.isHidden = exercise.notes.isBlank
         
         addCustomDisclosureIndicator()
         
@@ -31,7 +39,7 @@ class ExerciseTableViewCell: NRTableViewCell {
     }
     
     private func setupView() {
-        [exerciseImageView, timerTagView, nameLabel].forEach(contentView.addSubview)
+        [exerciseImageView, timerTagView, notesAvailableTagView, nameLabel].forEach(contentView.addSubview)
         
         let size = contentView.bounds.height - NRStyle.verticalPadding
         exerciseImageView.anchor(leading: contentView.leadingAnchor, centerY: contentView.centerYAnchor, padding: .init(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: 0), size: .init(width: size, height: size))
@@ -40,5 +48,7 @@ class ExerciseTableViewCell: NRTableViewCell {
         nameLabel.anchor(top: exerciseImageView.topAnchor, leading: exerciseImageView.trailingAnchor, bottom: exerciseImageView.centerYAnchor, trailing: contentView.trailingAnchor, padding: .init(top: 0, left: padding, bottom: padding / 2, right: NRStyle.horizontalPadding * 2))
         
         timerTagView.anchor(top: contentView.centerYAnchor, leading: nameLabel.leadingAnchor, bottom: contentView.bottomAnchor, padding: .init(top: padding / 2, left: 0, bottom: padding, right: 0))
+        
+        notesAvailableTagView.anchor(top: contentView.centerYAnchor, leading: timerTagView.trailingAnchor, bottom: contentView.bottomAnchor, padding: .init(top: padding / 2, left: padding, bottom: padding, right: 0))
     }
 }

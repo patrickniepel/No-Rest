@@ -38,7 +38,7 @@
 "workout.session.abort.message" = "";
 
 // Exercises
-"exercise.search" = "Suche Übung";
+"exercise.search" = "Suchen";
 "exercise.name" = "NAME";
 "exercise.name.placeholder" = "Name der Übung";
 "exercise.type" = "TYP";
@@ -52,10 +52,10 @@
 "settings.timerSound" = "Timer Sound";
 "settings.resetHistory" = "Workout Historie zurücksetzen";
 "settings.resetOnboarding" = "Onboarding zurücksetzen";
-"settings.share" = "Teile No Rest";
+"settings.share" = "No Rest teilen";
 "settings.share.mailSubject" = "Diese App 'No Rest' ist der Wahnsinn. Probiere sie mal aus!";
 "settings.share.title" = "No Rest - No Limits";
-"settings.showRating" = "Bewerte No Rest";
+"settings.showRating" = "No Rest bewerten";
 "settings.contact" = "Kontakt";
 "settings.contact.subject" = "NoRest - Support Anfrage";
 "settings.licenses" = "Lizenzen";

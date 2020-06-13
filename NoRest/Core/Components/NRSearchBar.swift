@@ -22,7 +22,7 @@ class NRSearchBar: UISearchBar {
     private func setup() {
         autocapitalizationType = .none
         autocorrectionType = .no
-        showsCancelButton = true
+        showsCancelButton = false
         showsSearchResultsButton = false
         tintColor = NRStyle.themeColor
         keyboardType = .default

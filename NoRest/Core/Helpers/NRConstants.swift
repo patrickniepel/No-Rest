@@ -18,7 +18,14 @@ struct NRConstants {
         static let defaultTemplate = "EyMMMMd"
     }
     
-    static let copyright = "© 2020 Patrick Niepel - v3.0.0"
+    static var copyright: String {
+        let name = "© 2020 Patrick Niepel"
+        guard let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
+            return name
+        }
+        return "\(name) - v\(appVersion)"
+    }
+    
     static let mail = "patrickniepel@web.de"
     
     struct Animations {

@@ -17,6 +17,7 @@ class ExercisesViewController: NRViewController {
         
         setupAddButton()
         setupView()
+        hideKeyboardWhenTapped()
     }
     
     override func viewWillAppear(_ animated: Bool) {

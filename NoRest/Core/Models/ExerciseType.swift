@@ -46,8 +46,8 @@ enum ExerciseType: String, CaseIterable {
         }
     }
     
-    static func type(for stringValue: String) -> ExerciseType {
-        switch stringValue {
+    static func type(for localizedValue: String) -> ExerciseType {
+        switch localizedValue {
         case "chest.title".localized:
             return .chest
             
