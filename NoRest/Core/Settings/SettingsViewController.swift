@@ -13,10 +13,18 @@ class SettingsViewController: NRViewController {
     
     override func viewDidLoad() {
         viewControllerTitle = "settings.title".localized
-        
         super.viewDidLoad()
-        
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        titleLabel.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        titleLabel.isHidden = true
     }
     
     private func setupView() {

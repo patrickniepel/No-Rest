@@ -14,6 +14,7 @@ class ExerciseSelectionViewController: NRViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        hideKeyboardWhenTapped()
     }
     
     override func viewWillAppear(_ animated: Bool) {

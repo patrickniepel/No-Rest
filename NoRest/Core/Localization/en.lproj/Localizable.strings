@@ -13,6 +13,19 @@
 "settings.title" = "Settings";
 "exercise.selection.title" = "Exercise Selection";
 
+// Tutorial
+"tutorial.finish" = "Finish Tutorial";
+"tutorial.page1.title" = "Workouts";
+"tutorial.page2.title" = "Your Workout";
+"tutorial.page3.title" = "Workout Session";
+"tutorial.page4.title" = "Exercises";
+"tutorial.page5.title" = "Statistics";
+"tutorial.page1.text" = "tes";
+"tutorial.page2.text" = "asdf";
+"tutorial.page3.text" = "asdf";
+"tutorial.page4.text" = "asdf";
+"tutorial.page5.text" = "asdf";
+
 // Exercise Types
 "chest.title" = "Chest";
 "back.title" = "Back";
@@ -60,6 +73,7 @@
 "settings.contact.subject" = "NoRest - Support Request";
 "settings.licenses" = "Licenses";
 "settings.disclaimer" = "Disclaimer";
+"settings.tutorial" = "Tutorial";
 
 // Buttons
 "button.title.reset" = "Reset";
@@ -73,6 +87,7 @@
 "button.title.save" = "Save";
 "button.title.abort" = "Abort";
 "button.title.finish" = "Finish";
+"button.title.skip" = "Skip";
 
 // Alerts
 "alert.message.invalidInput" = "Invalid Input";

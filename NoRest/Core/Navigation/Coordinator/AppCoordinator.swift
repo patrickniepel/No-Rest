@@ -9,6 +9,8 @@
 import UIKit
 
 class AppCoordinator {
+    
+    var appNavigationController: UINavigationController?
     var tabBarController: MainTabBarController?
     var myWorkoutNavigationController: UINavigationController?
     var exercisesNavigationController: UINavigationController?
@@ -28,7 +30,6 @@ class AppCoordinator {
         let myWorkout = ViewBuilder.buildMyWorkoutScreen()
         let myWorkoutNavigationController = buildNavigationController(for: myWorkout)
         self.myWorkoutNavigationController = myWorkoutNavigationController
-        
         
         let exercises = ViewBuilder.buildExercisesScreen()
         let exercisesNavigationController = buildNavigationController(for: exercises)
@@ -68,6 +69,8 @@ class AppCoordinator {
             return IconSelectionViewController()
         case .workoutSession:
             return WorkoutSessionViewController()
+        case .tutorial:
+            return TutorialViewController()
         case .vc(let vc):
             return vc
         default:
@@ -77,7 +80,16 @@ class AppCoordinator {
     }
     
     func provideInitialView() -> UIViewController {
-        return tabBarController ?? UIViewController()
+        appNavigationController = NRNavigationController()
+        
+        if UserDefaultsController.didFinishTutorial {
+            appNavigationController?.setNavigationBarHidden(true, animated: false)
+            appNavigationController?.setViewControllers([tabBarController!], animated: false)
+        } else {
+            appNavigationController?.setViewControllers([TutorialViewController(showSkipButton: true)], animated: false)
+        }
+        
+        return appNavigationController!
     }
     
     private func buildNavigationController(for vc: UIViewController) -> UINavigationController {

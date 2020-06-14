@@ -13,6 +13,20 @@
 "settings.title" = "Einstellungen";
 "exercise.selection.title" = "Übungs-Auswahl";
 
+// Tutorial
+"tutorial.finish" = "Tutorial abschließen";
+"tutorial.finish" = "Finish Tutorial";
+"tutorial.page1.title" = "Workouts";
+"tutorial.page2.title" = "Dein Workout";
+"tutorial.page3.title" = "Workout Session";
+"tutorial.page4.title" = "Übungen";
+"tutorial.page5.title" = "Statistiken";
+"tutorial.page1.text" = "tes";
+"tutorial.page2.text" = "asdf";
+"tutorial.page3.text" = "asdf";
+"tutorial.page4.text" = "asdf";
+"tutorial.page5.text" = "asdf";
+
 // Exercise Types
 "chest.title" = "Brust";
 "back.title" = "Rücken";
@@ -60,6 +74,7 @@
 "settings.contact.subject" = "NoRest - Support Anfrage";
 "settings.licenses" = "Lizenzen";
 "settings.disclaimer" = "Haftungsausschluss";
+"settings.tutorial" = "Tutorial";
 
 // Buttons
 "button.title.reset" = "Zurücksetzen";
@@ -73,6 +88,7 @@
 "button.title.save" = "Speichern";
 "button.title.abort" = "Abbrechen";
 "button.title.finish" = "Fertig";
+"button.title.skip" = "Überspringen";
 
 // Alerts
 "alert.message.invalidInput" = "Falsche Eingabe";

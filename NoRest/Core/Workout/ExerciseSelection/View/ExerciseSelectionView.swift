@@ -8,39 +8,26 @@
 
 import UIKit
 
-class ExerciseSelectionView: UIView {
-    private lazy var tableView: NRTableView = .init()
-    
-    private let exercisesCtrl: ExercisesController
+class ExerciseSelectionView: NRExercisesView {
     private let exerciseSelectionCtrl: ExerciseSelectionController
     
     override init(frame: CGRect = CGRect()) {
-        exercisesCtrl = ExercisesController()
         exerciseSelectionCtrl = ExerciseSelectionController()
         super.init(frame: frame)
-        setup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
+    override func setup() {
         subscribe()
-        setupView()
-        setupTableView()
+        super.setup()
     }
     
-    private func setupView() {
-        addSubview(tableView)
-        tableView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-    }
-    
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+    override func setupTableView() {
+        super.setupTableView()
         tableView.tintColor = NRStyle.interactionColor
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
         tableView.register(ExerciseSelectionTableViewCell.self, forCellReuseIdentifier: ExerciseSelectionTableViewCell.reuseIdentifier)
     }
     
@@ -64,16 +51,9 @@ class ExerciseSelectionView: UIView {
     }
 }
 
-extension ExerciseSelectionView: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return exercisesCtrl.numberOfSections()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exercisesCtrl.numberOfRows(in: section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+// MARK: - UITableViewDataSource
+extension ExerciseSelectionView {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseSelectionTableViewCell.reuseIdentifier, for: indexPath) as! ExerciseSelectionTableViewCell
         
         if let exercise = exercisesCtrl.exercise(for: indexPath) {
@@ -88,23 +68,10 @@ extension ExerciseSelectionView: UITableViewDataSource {
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionTitle = ExerciseType.allCases[section].displayName
-        let headerView = NRTableViewSectionHeaderView(title: sectionTitle)
-        return headerView
-    }
 }
 
-extension ExerciseSelectionView: UITableViewDelegate {
+// MARK: - UITableViewDelegate
+extension ExerciseSelectionView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let selectedExercise = exercisesCtrl.exercise(for: indexPath) else { return }
         exerciseSelectionCtrl.toggleSelectedExercise(selectedExercise)

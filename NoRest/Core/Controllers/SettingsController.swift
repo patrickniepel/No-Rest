@@ -44,6 +44,7 @@ class SettingsController {
             .timer,
             .action("settings.resetHistory".localized,
                     { AlertController.showAlertForDataReset(.history, resetHandler: { self.reset(.history) }) }),
+            .action("settings.tutorial".localized, { self.showTutorial() }),
             .action("settings.share".localized, { self.showSharingOption() }),
             .action("settings.showRating".localized, { self.showRating() }),
             .action("settings.contact".localized, { self.showContact() }),
@@ -66,6 +67,11 @@ class SettingsController {
         case .history:
             WorkoutHistory.resetHistory()
         }
+    }
+    
+    private func showTutorial() {
+        let routeAction = RouteAction(screen: .tutorial, in: .settings)
+        store.dispatch(routeAction)
     }
     
     private func showSharingOption() {

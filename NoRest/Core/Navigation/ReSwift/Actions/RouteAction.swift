@@ -63,6 +63,7 @@ enum NavigationAction {
 
 enum Screen: Equatable {
     case remain
+    case tabBar
     case initial
     case workouts
     case workout
@@ -77,6 +78,7 @@ enum Screen: Equatable {
     case popUp
     case iconSelection
     case workoutSession
+    case tutorial
     case vc(UIViewController)
 }
 

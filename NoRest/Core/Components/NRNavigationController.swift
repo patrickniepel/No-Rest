@@ -11,14 +11,12 @@ import UIKit
 
 class NRNavigationController: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
-        
-        navigationBar.tintColor = NRStyle.interactionColor
-        navigationBar.barTintColor = NRStyle.themeColor
-        view.backgroundColor = NRStyle.themeColor
-        navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor, NSAttributedString.Key.font: UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)]
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,8 +25,17 @@ class NRNavigationController: UINavigationController, UIGestureRecognizerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    private func setup() {
         interactivePopGestureRecognizer?.delegate = self
         delegate = self
+        navigationBar.tintColor = NRStyle.interactionColor
+        navigationBar.barTintColor = NRStyle.themeColor
+        view.backgroundColor = NRStyle.themeColor
+        navigationBar.isTranslucent = false
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor, NSAttributedString.Key.font: UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)]
     }
     
     /**

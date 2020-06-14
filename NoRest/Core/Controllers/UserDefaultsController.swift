@@ -9,7 +9,6 @@
 import Foundation
 
 struct UserDefaultsController: Codable {
-    
     private static let workoutIDKey = "workoutIDKey"
     static var currentWorkoutId: Int {
         get { UserDefaults.standard.integer(forKey: workoutIDKey) }
@@ -41,6 +40,12 @@ struct UserDefaultsController: Codable {
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: unitKey)
         }
+    }
+    
+    private static let tutorialKey = "tutorialKey"
+    static var didFinishTutorial: Bool {
+        get { UserDefaults.standard.bool(forKey: tutorialKey) }
+        set { UserDefaults.standard.set(newValue, forKey: tutorialKey) }
     }
     
     static func increaseWorkoutId() {

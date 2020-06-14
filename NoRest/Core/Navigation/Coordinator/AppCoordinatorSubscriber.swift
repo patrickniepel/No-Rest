@@ -33,6 +33,14 @@ extension AppCoordinator: StoreSubscriber {
             return
         }
         
+        // switch from tutorial to main tab bar
+        if screen == .tabBar {
+            appNavigationController?.setNavigationBarHidden(true, animated: false)
+            appNavigationController?.setViewControllers([tabBarController!], animated: true)
+            UserDefaultsController.didFinishTutorial = true
+            return
+        }
+        
         // a user action (e. g. user switches the tab-bar position) occured.
         // this just tells reSwift that the current state changed so no further actions are required.
         if state.userAction {

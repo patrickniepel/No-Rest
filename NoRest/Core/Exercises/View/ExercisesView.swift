@@ -8,20 +8,8 @@
 
 import UIKit
 
-class ExercisesView: UIView {
-    lazy var tableView: NRTableView = .init()
-    
-    private lazy var searchBar: NRSearchBar = {
-        let searchBar = NRSearchBar()
-        searchBar.placeholder = "exercise.search".localized
-        searchBar.delegate = self
-        return searchBar
-    }()
-    
-    private let exercisesCtrl: ExercisesController
-    
+class ExercisesView: NRExercisesView {
     override init(frame: CGRect = CGRect()) {
-        exercisesCtrl = ExercisesController()
         super.init(frame: frame)
         setup()
     }
@@ -29,25 +17,10 @@ class ExercisesView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private func setup() {
-        setupView()
-        setupTableView()
-    }
     
-    private func setupView() {
-        [searchBar, tableView].forEach(addSubview)
-        
-        searchBar.anchor(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: NRStyle.horizontalPadding / 2, bottom: 0, right: NRStyle.horizontalPadding / 2))
-        
-        tableView.anchor(top: searchBar.bottomAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
-    }
-    
-    private func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
+    override func setupTableView() {
+        super.setupTableView()
         tableView.register(ExerciseTableViewCell.self, forCellReuseIdentifier: ExerciseTableViewCell.reuseIdentifier)
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 1))
     }
     
     private func openEditScreen(with exercise: Exercise) {
@@ -69,16 +42,9 @@ class ExercisesView: UIView {
     }
 }
 
-extension ExercisesView: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return exercisesCtrl.numberOfSections()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exercisesCtrl.numberOfRows(in: section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+// MARK: - UITableViewDataSource
+extension ExercisesView {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseTableViewCell.reuseIdentifier, for: indexPath) as! ExerciseTableViewCell
         
         if let exercise = exercisesCtrl.exercise(for: indexPath) {
@@ -89,27 +55,14 @@ extension ExercisesView: UITableViewDataSource {
     }
 }
 
-extension ExercisesView: UITableViewDelegate {
+// MARK: - UITableViewDelegate
+extension ExercisesView {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let exercise = exercisesCtrl.exercise(for: indexPath) else { return }
         
         openEditScreen(with: exercise)
         
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionTitle = ExerciseType.allCases[section].displayName
-        let headerView = NRTableViewSectionHeaderView(title: sectionTitle)
-        return headerView
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -124,25 +77,5 @@ extension ExercisesView: UITableViewDelegate {
         deleteAction.backgroundColor = NRStyle.warningColor
 
         return UISwipeActionsConfiguration(actions: [deleteAction])
-    }
-}
-
-extension ExercisesView: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = nil
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        search(with: searchText)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        search(with: searchBar.text ?? "")
-    }
-    
-    private func search(with searchText: String) {
-        guard !searchText.isBlank, let indexPath = exercisesCtrl.searchResult(for: searchText) else { return }
-        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
 }
