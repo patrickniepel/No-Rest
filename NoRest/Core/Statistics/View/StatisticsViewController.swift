@@ -8,7 +8,4 @@
 
 import UIKit
 
-class StatisticsViewController: UIViewController {
-    
-}
-
+class StatisticsViewController: UIViewController {}

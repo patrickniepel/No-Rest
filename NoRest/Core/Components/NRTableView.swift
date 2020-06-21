@@ -13,15 +13,14 @@ class NRTableView: UITableView {
         super.init(frame: frame, style: style)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setup() {
         separatorInset = UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding)
         separatorColor = NRStyle.secondaryTextColor
         backgroundColor = NRStyle.themeColor
     }
 }
-

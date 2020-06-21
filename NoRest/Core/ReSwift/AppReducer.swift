@@ -18,5 +18,3 @@ func appReducer(action: Action, state: AppState?) -> AppState {
                     workoutSessionState: workoutSessionReducer(action: action, state: state?.workoutSessionState),
                     currentIconSelectionState: currentIconSelectionReducer(action: action, state: state?.currentIconSelectionState))
 }
-
-

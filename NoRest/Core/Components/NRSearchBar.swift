@@ -9,16 +9,16 @@
 import UIKit
 
 class NRSearchBar: UISearchBar {
-    
+
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setup() {
         autocapitalizationType = .none
         autocorrectionType = .no
@@ -28,20 +28,23 @@ class NRSearchBar: UISearchBar {
         keyboardType = .default
         keyboardAppearance = .dark
         backgroundImage = UIImage()
-        
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): NRStyle.interactionColor], for: .normal)
-        
+
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:
+            [UISearchBar.self]).setTitleTextAttributes([
+                NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): NRStyle.interactionColor
+            ], for: .normal)
+
         //Dye icon
         if let textField = value(forKey: "searchField") as? UITextField,
             let iconView = textField.leftView as? UIImageView {
-            
+
             textField.backgroundColor = NRStyle.primaryTextColor
             textField.textColor = NRStyle.themeColor
             textField.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
             iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
             iconView.tintColor = NRStyle.themeColor
         }
-        
+
         applyShadow()
     }
 }

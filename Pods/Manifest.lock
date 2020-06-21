@@ -1,19 +1,22 @@
 PODS:
+  - Gestalt (2.0.1)
   - PNCommons (1.1.2)
-  - Realm (4.4.0):
-    - Realm/Headers (= 4.4.0)
-  - Realm/Headers (4.4.0)
-  - RealmSwift (4.4.0):
-    - Realm (= 4.4.0)
+  - Realm (5.0.3):
+    - Realm/Headers (= 5.0.3)
+  - Realm/Headers (5.0.3)
+  - RealmSwift (5.0.3):
+    - Realm (= 5.0.3)
   - ReSwift (5.0.0)
 
 DEPENDENCIES:
+  - Gestalt (~> 2.0.0)
   - PNCommons (~> 1.1.1)
   - RealmSwift
   - ReSwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Gestalt
     - Realm
     - RealmSwift
     - ReSwift
@@ -21,11 +24,12 @@ SPEC REPOS:
     - PNCommons
 
 SPEC CHECKSUMS:
+  Gestalt: dd2112f16576ee691a0ca381b0223464d5f123a3
   PNCommons: cd19418e989ac8aef5f406c2d93d35b8240a68f4
-  Realm: e125f464884cda953ebefe70c671b75b03b81b9b
-  RealmSwift: 33656a42bd300959a081fc13347376bc478071af
+  Realm: bfca1699b61b0b17c3a69ae0e648314eae91fbdb
+  RealmSwift: 493c9f089cd3893b3959007973c0e4f640906ba0
   ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
 
-PODFILE CHECKSUM: e44d72fc6e2c27301dbf45d155029449d6768fae
+PODFILE CHECKSUM: 13a28779d88b5d013b8253cdea681716a30c4623
 
 COCOAPODS: 1.9.1

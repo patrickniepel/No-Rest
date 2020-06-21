@@ -10,7 +10,7 @@ import Foundation
 
 struct TutorialController {
     let tutorialPages: [TutorialPage]
-    
+
     init() {
         tutorialPages = [
             TutorialPage(title: "tutorial.page1.title".localized, image: NRStyle.exercisesIcon, text: "tutorial.page1.text".localized),
@@ -20,10 +20,11 @@ struct TutorialController {
             TutorialPage(title: "tutorial.page5.title".localized, image: NRStyle.exercisesIcon, text: "tutorial.page5.text".localized)
         ]
     }
+
     func numberOfTutorialPages() -> Int {
         tutorialPages.count
     }
-    
+
     func tutorialPage(for index: Int) -> TutorialPage {
         tutorialPages[index]
     }

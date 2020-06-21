@@ -10,11 +10,10 @@ import ReSwift
 
 func popUpReducer(action: Action, state: PopUpState?) -> PopUpState {
     var newState = state ?? PopUpState()
-    
+
     if let popUpAction = action as? PopUpAction {
         newState.type = popUpAction.type
         newState.exercise = popUpAction.exercise
     }
-    
     return newState
 }

@@ -16,16 +16,16 @@ struct NRStyle {
     static let primaryTextColor = offWhiteColor
     static let secondaryTextColor = UIColor.rgb(red: 200, green: 200, blue: 200, alpha: 1)
     static let offWhiteColor = UIColor.rgb(red: 252, green: 251, blue: 248, alpha: 1) // #FCFBF8 (252,251,248)
-    
+
     static let pulsatingColor = UIColor.rgb(red: 275, green: 108, blue: 31, alpha: 1)
     static let warningColor = UIColor.rgb(red: 254, green: 95, blue: 85, alpha: 1) // #FE5F55
     static let successColor = UIColor.rgb(red: 199, green: 239, blue: 207, alpha: 1) // #C7EFCF
-    
+
     // Padding
     static let horizontalPadding: CGFloat = 20
     static let verticalPadding: CGFloat = 16
     static let cornerRadius: CGFloat = 15
-    
+
     // Fonts
     static let regularFont = "CaviarDreams"
     static let boldFont = "CaviarDreams-Bold"
@@ -39,7 +39,7 @@ struct NRStyle {
     static let fontSizeMedium: CGFloat = 20
     static let fontSizeLarge: CGFloat = 24
     static let fontSizeVeryLarge: CGFloat = 30
-    
+
     // Images
     static let workoutsIcon = buildImage(for: "workouts")
     static let exercisesIcon = buildImage(for: "exercises")
@@ -54,7 +54,7 @@ struct NRStyle {
     static let arrowIcon = buildImage(for: "arrow")
     static let notesIcon = buildImage(for: "notes")
     static let startIcon = buildImage(for: "play")
-    
+
     // Custom Icons
     static let absIcon = buildImage(for: "abs")
     static let legIcon = buildImage(for: "leg")
@@ -67,7 +67,7 @@ struct NRStyle {
     static let fatIcon = buildImage(for: "fat")
     static let dumbbellIcon = buildImage(for: "dumbbell")
     static let bodyIcon = buildImage(for: "body")
-    
+
     // Exercises
     // Chest
     static let cableCrossoverIcon = buildImage(for: "cableCrossover")
@@ -76,47 +76,47 @@ struct NRStyle {
     static let inclineBarbellBenchPress = buildImage(for: "inclineBarbellBenchPress")
     static let pushUpIcon = buildImage(for: "pushUp")
     static let machineFlyIcon = buildImage(for: "machineFly")
-    
+
     // Back
     static let deadliftIcon = buildImage(for: "deadlift")
     static let dumbbellRowIcon = buildImage(for: "dumbbellRow")
     static let hammerStrengthRowIcon = buildImage(for: "hammerStrengthRow")
     static let latPulldownIcon = buildImage(for: "latPulldown")
     static let seatedCableRowIcon = buildImage(for: "seatedCableRow")
-    
+
     // Shoulders
     static let dumbbellPressIcon = buildImage(for: "dumbbellPress")
     static let hammerStrengthShoulderPressIcon = buildImage(for: "hammerStrengthShoulderPress")
     static let militaryPressIcon = buildImage(for: "militaryPress")
     static let standingLateralDumbbellRaiseIcon = buildImage(for: "standingLateralDumbbellRaise")
-    
+
     // Biceps
     static let barbellCurlIcon = buildImage(for: "barbellCurl")
     static let dumbbellConcentrationCurl = buildImage(for: "dumbbellConcentrationCurl")
     static let dumbbellCurlIcon = buildImage(for: "dumbbellCurl")
     static let seatedMachineCurlIcon = buildImage(for: "seatedMachineCurl")
     static let chinUpIcon = buildImage(for: "chinUp")
-    
+
     // Triceps
     static let closeGripBarbellBenchPressIcon = buildImage(for: "closeGripBarbellBenchPress")
     static let tricepsDipIcon = buildImage(for: "tricepsDip")
-    
+
     // Abs
     static let crunchIcon = buildImage(for: "crunch")
     static let plankIcon = buildImage(for: "plank")
     static let situpIcon = buildImage(for: "situp")
-    
+
     // Legs
     static let barbellFrontSquatIcon = buildImage(for: "barbellFrontSquat")
     static let barbellSquatIcon = buildImage(for: "barbellSquat")
     static let legPressIcon = buildImage(for: "legPress")
-    
+
     // Cardio
     static let crossTrainerIcon = buildImage(for: "crossTrainer")
     static let treadmillIcon = buildImage(for: "treadmill")
     static let indoorCyclingIcon = buildImage(for: "indoorCycling")
     static let ropeSkippingIcon = buildImage(for: "ropeSkipping")
-    
+
     private static func buildImage(for name: String) -> UIImage? {
         return UIImage(named: name)
     }

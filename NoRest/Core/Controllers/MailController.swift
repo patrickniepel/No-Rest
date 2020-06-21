@@ -33,4 +33,3 @@ class MailController: NSObject, MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true)
     }
 }
-

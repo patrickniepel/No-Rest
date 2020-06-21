@@ -9,4 +9,5 @@ target 'NoRest' do
   pod 'ReSwift'
   pod 'PNCommons', '~> 1.1.1'
   pod 'RealmSwift'
+  pod 'Gestalt', '~> 2.0.0'
 end

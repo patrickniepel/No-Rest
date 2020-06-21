@@ -9,12 +9,10 @@
 import ReSwift
 
 func exerciseSelectionReducer(action: Action, state: ExerciseSelectionState?) -> ExerciseSelectionState {
-    
     var newState = state ?? ExerciseSelectionState()
-    
+
     if let exerciseSelectionAction = action as? ExerciseSelectionAction {
         newState.selectedExercises = exerciseSelectionAction.selectedExercises
     }
-    
     return newState
 }

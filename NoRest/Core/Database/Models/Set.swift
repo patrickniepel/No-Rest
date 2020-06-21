@@ -16,15 +16,15 @@ class Set: Object {
         case reps
         case weight
     }
-    
+
     dynamic private(set) var id: String = ""
     dynamic private(set) var reps: Int = 0
     dynamic private(set) var weight: Double = 0
-    
+
     override class func primaryKey() -> String? {
         return Fields.id.rawValue
     }
-    
+
     convenience init(reps: Int, weight: Double) {
         self.init()
 

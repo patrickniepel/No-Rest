@@ -16,7 +16,7 @@ extension WorkoutViewController: StoreSubscriber {
             }
         }
     }
-    
+
     func newState(state: WorkoutState) {
         if let workout = state.workout {
             setupWorkout(workout)
@@ -24,7 +24,7 @@ extension WorkoutViewController: StoreSubscriber {
             addExercises(exercises)
         }
     }
-    
+
     func unsubscribe() {
         store.unsubscribe(self)
     }

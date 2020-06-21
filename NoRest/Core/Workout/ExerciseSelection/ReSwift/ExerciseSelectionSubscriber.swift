@@ -16,11 +16,11 @@ extension ExerciseSelectionView: StoreSubscriber {
             }
         }
     }
-    
+
     func newState(state: ExerciseSelectionState) {
         preSelectExercises(state.selectedExercises)
     }
-    
+
     func unsubscribe() {
         store.unsubscribe(self)
     }

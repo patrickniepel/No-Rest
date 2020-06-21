@@ -17,7 +17,7 @@ struct Stat {
     let title: StatsTitle
     let value: Double
     let type: StatType
-    
+
     enum StatType {
         case decimal
         case nonDecimal
@@ -33,17 +33,22 @@ enum StatsTitle: String, Codable {
     case totalRunningTime = "Total Running Time"
     case avgVolumePerSet = "Avg. Volume Per Set"
     case avgRepsPerSet = "Avg. Reps Per Set"
-    
+
     var unit: String {
         switch self {
         case .maxWeight,
              .totalVolume,
-             .avgVolumePerSet: return SettingsController.currentUnit.rawValue
-        case .percentageOfSets: return "%"
-        case .totalRunningTime: return "min"
-        default: return ""
+             .avgVolumePerSet:
+            return SettingsController.currentUnit.rawValue
+
+        case .percentageOfSets:
+            return "%"
+
+        case .totalRunningTime:
+            return "min"
+
+        default:
+            return ""
         }
     }
 }
-
-

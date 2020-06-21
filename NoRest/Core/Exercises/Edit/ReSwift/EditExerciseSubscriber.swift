@@ -16,17 +16,17 @@ extension EditExerciseViewController: StoreSubscriber {
             }
         }
     }
-    
+
     func newState(state: EditExerciseState) {
         if let exercise = state.exercise {
             setupExercise(exercise)
         }
-        
+
         if let icon = state.icon {
             selectIcon(icon)
         }
     }
-    
+
     func unsubscribe() {
         store.unsubscribe(self)
     }

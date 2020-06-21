@@ -9,14 +9,14 @@
 import UIKit
 
 struct DefaultExercise {
-    
     static func createDefaultExercises() {
         let types = ExerciseType.allCases
         types.forEach {
             defaultExercises(for: $0)
         }
     }
-    
+
+    // swiftlint:disable function_body_length
     private static func defaultExercises(for type: ExerciseType) {
         var content: [(String, UIImage?)] = []
         switch type {
@@ -34,6 +34,7 @@ struct DefaultExercise {
                 ("exercises.pushUp", NRStyle.pushUpIcon),
                 ("exercises.machineFly", NRStyle.machineFlyIcon)
             ]
+
         case .back:
             content = [
                 ("exercises.barbellRow", nil),
@@ -46,6 +47,7 @@ struct DefaultExercise {
                 ("exercises.seatedCableRow", NRStyle.seatedCableRowIcon),
                 ("exercises.tBarRow", nil)
             ]
+
         case .shoulders:
             content = [
                 ("exercises.arnoldDumbbellPress", nil),
@@ -60,6 +62,7 @@ struct DefaultExercise {
                 ("exercises.seatedLateralDumbbellRaise", nil),
                 ("exercises.standingLateralDumbbellRaise", NRStyle.standingLateralDumbbellRaiseIcon)
             ]
+
         case .biceps:
             content = [
                 ("exercises.barbellCurl", NRStyle.barbellCurlIcon),
@@ -74,6 +77,7 @@ struct DefaultExercise {
                 ("exercises.dumbbellScottCurl", nil),
                 ("exercises.seatedMachineCurl", NRStyle.seatedMachineCurlIcon)
             ]
+
         case .triceps:
             content = [
                 ("exercises.cableOverheadTricepsExtension", nil),
@@ -83,6 +87,7 @@ struct DefaultExercise {
                 ("exercises.tricepsDip", NRStyle.tricepsDipIcon),
                 ("exercises.pushDown", nil)
             ]
+
         case .abs:
             content = [
                 ("exercises.crunch", NRStyle.crunchIcon),
@@ -95,6 +100,7 @@ struct DefaultExercise {
                 ("exercises.situp", NRStyle.situpIcon),
                 ("exercises.toesToBar", nil)
             ]
+
         case .legs:
             content = [
                 ("exercises.barbellCalfRaise", nil),
@@ -109,6 +115,7 @@ struct DefaultExercise {
                 ("exercises.seatedCalfRaiseMachine", nil),
                 ("exercises.standingCalfRaiseMachine", nil)
             ]
+
         case .cardio:
             content = [
                 ("exercises.crossTrainer", NRStyle.crossTrainerIcon),
@@ -118,10 +125,10 @@ struct DefaultExercise {
                 ("exercises.ropeSkipping", NRStyle.ropeSkippingIcon)
             ]
         }
-        
+
         createExercises(with: content, for: type)
     }
-    
+
     private static func createExercises(with content: [(title: String, icon: UIImage?)], for type: ExerciseType) {
         content.forEach {
             let timer = type == .cardio ? 600 : 90

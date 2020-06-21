@@ -9,7 +9,6 @@
 import UIKit
 
 extension CurrentWorkoutCollectionViewCell: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let cell = tableView.cellForRow(at: indexPath), cell.isSelected {
             tableView.deselectRow(at: indexPath, animated: true)
@@ -19,14 +18,14 @@ extension CurrentWorkoutCollectionViewCell: UITableViewDelegate {
         }
         return indexPath
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedSet = exercise?.sets[safe: indexPath.row] {
             changeActionButtonMode(to: .update)
             fillTextFields(with: selectedSet)
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 10
     }

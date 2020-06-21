@@ -8,6 +8,7 @@
 
 import Foundation
 
+// swiftlint:disable trailing_whitespace
 struct StatisticsController {
     private static var allExercisesOfStatistics: [Exercise] {
         return []
@@ -76,8 +77,8 @@ private extension StatisticsController {
     }
     
     static func totalVolume(exercises: [Exercise]) -> Double {
-        let volume = exercises.reduce(0, { (res, exercise) -> Double in
-            res + exercise.sets.reduce(0, { (res, set) -> Double in
+        let volume = exercises.reduce(0, { res, exercise -> Double in
+            res + exercise.sets.reduce(0, { res, set -> Double in
                 res + Double(set.reps) * set.weight
             })
         })
@@ -85,8 +86,8 @@ private extension StatisticsController {
     }
     
     static func totalReps(exercises: [Exercise]) -> Double {
-        let reps = exercises.reduce(0, { (res, exercise) -> Double in
-            res + exercise.sets.reduce(0, { (res, set) -> Double in
+        let reps = exercises.reduce(0, { res, exercise -> Double in
+            res + exercise.sets.reduce(0, { res, set -> Double in
                 res + Double(set.reps)
             })
         })
@@ -94,7 +95,7 @@ private extension StatisticsController {
     }
     
     static func totalSets(exercises: [Exercise]) -> Double {
-        let sets = exercises.reduce(0) { (res, exercise) -> Double in
+        let sets = exercises.reduce(0) { res, exercise -> Double in
             res + Double(exercise.sets.count)
         }
         return sets
@@ -145,5 +146,3 @@ private extension StatisticsController {
         return percentage
     }
 }
-
-

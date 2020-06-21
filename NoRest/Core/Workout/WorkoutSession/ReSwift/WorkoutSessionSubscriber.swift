@@ -16,13 +16,13 @@ extension WorkoutSessionViewController: StoreSubscriber {
             }
         }
     }
-    
+
     func newState(state: WorkoutSessionState) {
         if let workout = state.workout {
             setupWorkoutSession(workout)
         }
     }
-    
+
     func unsubscribe() {
         store.unsubscribe(self)
     }

@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-protocol DatabaseDelegate {
+protocol DatabaseDelegate: class {
     func add(object: Object, update: Bool)
     func add<S>(objects: S, update: Bool) where S: Sequence, S.Iterator.Element: RealmSwift.Object
     func update(block: () -> Void)

@@ -19,15 +19,15 @@ class NRDefaultTableViewCell: NRTableViewCell {
         super.prepareForReuse()
         contentLabel.text = nil
     }
-    
+
     func setup(title: String, accessoryType: AccessoryType = .none) {
         self.accessoryType = accessoryType
-        
+
         contentLabel.text = title
         backgroundColor = NRStyle.themeColor
         contentView.addSubview(contentLabel)
         contentLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
-        
+
         // Use custom disclosureIndicator
         if accessoryType == .disclosureIndicator {
             addCustomDisclosureIndicator()

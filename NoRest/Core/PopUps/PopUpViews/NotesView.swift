@@ -9,7 +9,6 @@
 import UIKit
 
 class NotesView: UIView {
-    
     private let notesTextView: UITextView = {
         let textView = UITextView()
         textView.autocapitalizationType = .sentences
@@ -24,7 +23,7 @@ class NotesView: UIView {
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return textView
     }()
-    
+
     var notes: String = ""
 
     convenience init(notes: String) {
@@ -32,14 +31,14 @@ class NotesView: UIView {
         self.notes = notes
         setup()
     }
- 
+
     private func setup() {
         addSubview(notesTextView)
         notesTextView.fillSuperview()
-        
+
         notesTextView.text = notes
     }
-    
+
     func currentNotes() -> String {
         return notesTextView.text
     }

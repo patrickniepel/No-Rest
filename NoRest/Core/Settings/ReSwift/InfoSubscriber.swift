@@ -9,7 +9,7 @@
 import ReSwift
 
 extension InfoViewController: StoreSubscriber {
-    
+
     func subscribe() {
         store.subscribe(self) {
             $0.select {
@@ -17,11 +17,11 @@ extension InfoViewController: StoreSubscriber {
             }
         }
     }
-    
+
     func newState(state: InfoState) {
         setupInfo(info: state.info)
     }
-    
+
     func unsubscribe() {
         store.unsubscribe(self)
     }

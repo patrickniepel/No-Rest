@@ -16,11 +16,11 @@ extension IconSelectionView: StoreSubscriber {
             }
         }
     }
-    
+
     func newState(state: CurrentIconSelectionState) {
         currentSelectionIcon = state.icon
     }
-    
+
     func unsubscribe() {
         store.unsubscribe(self)
     }

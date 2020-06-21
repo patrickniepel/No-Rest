@@ -75,6 +75,10 @@
 "settings.licenses" = "Lizenzen";
 "settings.disclaimer" = "Haftungsausschluss";
 "settings.tutorial" = "Tutorial";
+"settings.theme" = "Erscheinungsbild";
+"settings.theme.light" = "Hell";
+"settings.theme.dark" = "Dunkel";
+"settings.theme.automatic" = "Automatisch";
 
 // Buttons
 "button.title.reset" = "Zurücksetzen";

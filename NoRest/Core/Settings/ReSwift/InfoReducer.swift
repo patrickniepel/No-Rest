@@ -9,9 +9,9 @@
 import ReSwift
 
 func infoReducer(action: Action, state: InfoState?) -> InfoState {
-    
+
     var newState = state ?? InfoState(info: .none)
-    
+
     if let infoAction = action as? InfoAction {
         newState.info = infoAction.info
     }

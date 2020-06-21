@@ -9,12 +9,10 @@
 import ReSwift
 
 func currentIconSelectionReducer(action: Action, state: CurrentIconSelectionState?) -> CurrentIconSelectionState {
-    
     var newState = state ?? CurrentIconSelectionState()
-    
+
     if let currentIconSelectionAction = action as? CurrentIconSelectionAction {
         newState.icon = currentIconSelectionAction.icon
     }
-    
     return newState
 }

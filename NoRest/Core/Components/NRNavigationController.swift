@@ -10,24 +10,23 @@ import ReSwift
 import UIKit
 
 class NRNavigationController: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
-    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
-    
+
     private func setup() {
         interactivePopGestureRecognizer?.delegate = self
         delegate = self
@@ -35,17 +34,19 @@ class NRNavigationController: UINavigationController, UIGestureRecognizerDelegat
         navigationBar.barTintColor = NRStyle.themeColor
         view.backgroundColor = NRStyle.themeColor
         navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor, NSAttributedString.Key.font: UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)]
+        navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor,
+            NSAttributedString.Key.font: UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular) as Any]
     }
-    
+
     /**
      Enables swipe-back gesture for all sub-ViewControllers.
-     
-     - parameter gestureRecognizer: An instance of a subclass of the abstract base class UIGestureRecognizer. This gesture-recognizer object is about to begin processing touches to determine if its gesture is occurring.
+
+     - parameter gestureRecognizer: An instance of a subclass of the abstract base class UIGestureRecognizer.
+     This gesture-recognizer object is about to begin processing touches to determine if its gesture is occurring.
      - returns: true (the default) to tell the gesture recognizer to proceed with interpreting touches, false to prevent it from attempting to recognize its gesture
      */
     func gestureRecognizerShouldBegin(_: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
     }
 }
-

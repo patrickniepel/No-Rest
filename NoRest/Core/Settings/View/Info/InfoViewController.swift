@@ -8,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable line_length
 class InfoViewController: NRModalViewController {
     private lazy var infoTextView: UITextView = {
         let tv = UITextView()
@@ -22,30 +23,34 @@ class InfoViewController: NRModalViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         subscribe()
         setupScreen()
     }
-    
+
     private func setupScreen() {
         view.backgroundColor = NRStyle.themeColor
         view.addSubview(infoTextView)
-        infoTextView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding))
+        infoTextView.anchor(top: view.topAnchor,
+                            leading: view.leadingAnchor,
+                            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                            trailing: view.trailingAnchor,
+                            padding: .init(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding))
     }
-    
+
     func setupInfo(info: Info) {
         infoTextView.text = info == .licenses ? licenses : disclaimer
         titleLabel.text = info == .licenses ? "settings.licenses".localized : "settings.disclaimer".localized
     }
-    
+
     override func closeButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     deinit {
         unsubscribe()
     }
-    
+
     let licenses = """
     tabbaritem dumbbell:
     https://www.iconfinder.com/icons/310338/dumbbell_sport_icon
@@ -79,7 +84,7 @@ class InfoViewController: NRModalViewController {
     arrow icon:
     https://www.iconfinder.com/icons/183254/arrow_forward_right_icon
     """
-    
+
     let disclaimer = """
     Health and fitness information disclaimer
     1. Credit

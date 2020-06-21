@@ -135,6 +135,13 @@
 		A3AB10CA248CEEFB00FA2CAF /* WorkoutSessionReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB10C9248CEEFB00FA2CAF /* WorkoutSessionReducer.swift */; };
 		A3AB10CC248CEF0400FA2CAF /* WorkoutSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB10CB248CEF0400FA2CAF /* WorkoutSessionState.swift */; };
 		A3AB10CE248CEF2600FA2CAF /* WorkoutSessionSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB10CD248CEF2600FA2CAF /* WorkoutSessionSubscriber.swift */; };
+		A3ABBC09249F614900EBF790 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC08249F614900EBF790 /* Theme.swift */; };
+		A3ABBC0B249F615700EBF790 /* ThemeManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC0A249F615700EBF790 /* ThemeManager+Extension.swift */; };
+		A3ABBC0D249F615F00EBF790 /* ThemeModeSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC0C249F615F00EBF790 /* ThemeModeSetting.swift */; };
+		A3ABBC0F249F61A200EBF790 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC0E249F61A200EBF790 /* Palette.swift */; };
+		A3ABBC20249F8C1700EBF790 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC1B249F8C1600EBF790 /* ColorPalette.swift */; };
+		A3ABBC21249F8C1700EBF790 /* AssetPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC1D249F8C1700EBF790 /* AssetPalette.swift */; };
+		A3ABBC22249F8C1700EBF790 /* FontPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC1F249F8C1700EBF790 /* FontPalette.swift */; };
 		A3AE4A1F21F74D61007A97AB /* RouteDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */; };
 		A3AE4A2221F74E0C007A97AB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */; };
 		A3AE4A2421F74E2A007A97AB /* TabBarDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */; };
@@ -298,6 +305,13 @@
 		A3AB10C9248CEEFB00FA2CAF /* WorkoutSessionReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionReducer.swift; sourceTree = "<group>"; };
 		A3AB10CB248CEF0400FA2CAF /* WorkoutSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionState.swift; sourceTree = "<group>"; };
 		A3AB10CD248CEF2600FA2CAF /* WorkoutSessionSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionSubscriber.swift; sourceTree = "<group>"; };
+		A3ABBC08249F614900EBF790 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A3ABBC0A249F615700EBF790 /* ThemeManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeManager+Extension.swift"; sourceTree = "<group>"; };
+		A3ABBC0C249F615F00EBF790 /* ThemeModeSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModeSetting.swift; sourceTree = "<group>"; };
+		A3ABBC0E249F61A200EBF790 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		A3ABBC1B249F8C1600EBF790 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		A3ABBC1D249F8C1700EBF790 /* AssetPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPalette.swift; sourceTree = "<group>"; };
+		A3ABBC1F249F8C1700EBF790 /* FontPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPalette.swift; sourceTree = "<group>"; };
 		A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDestination.swift; sourceTree = "<group>"; };
 		A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDestination.swift; sourceTree = "<group>"; };
@@ -730,6 +744,7 @@
 				A391ADDF21FB9456002A7D04 /* Settings */,
 				A391ADE021FB945D002A7D04 /* Statistics */,
 				A31B05D42477D08000C24599 /* Style */,
+				A3ABBC05249F60BC00EBF790 /* Theming */,
 				A3A9926024965C00002709D6 /* Tutorial */,
 				A391ADDE21FB944D002A7D04 /* Workout */,
 			);
@@ -889,6 +904,60 @@
 			path = Sets;
 			sourceTree = "<group>";
 		};
+		A3ABBC05249F60BC00EBF790 /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				A3ABBC06249F612600EBF790 /* CustomThemes */,
+				A3ABBC07249F612B00EBF790 /* Palettes */,
+				A3ABBC08249F614900EBF790 /* Theme.swift */,
+				A3ABBC0A249F615700EBF790 /* ThemeManager+Extension.swift */,
+				A3ABBC0C249F615F00EBF790 /* ThemeModeSetting.swift */,
+			);
+			path = Theming;
+			sourceTree = "<group>";
+		};
+		A3ABBC06249F612600EBF790 /* CustomThemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomThemes;
+			sourceTree = "<group>";
+		};
+		A3ABBC07249F612B00EBF790 /* Palettes */ = {
+			isa = PBXGroup;
+			children = (
+				A3ABBC1C249F8C1700EBF790 /* Assets */,
+				A3ABBC1A249F8C1600EBF790 /* Colors */,
+				A3ABBC1E249F8C1700EBF790 /* Fonts */,
+				A3ABBC0E249F61A200EBF790 /* Palette.swift */,
+			);
+			path = Palettes;
+			sourceTree = "<group>";
+		};
+		A3ABBC1A249F8C1600EBF790 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				A3ABBC1B249F8C1600EBF790 /* ColorPalette.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		A3ABBC1C249F8C1700EBF790 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A3ABBC1D249F8C1700EBF790 /* AssetPalette.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		A3ABBC1E249F8C1700EBF790 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A3ABBC1F249F8C1700EBF790 /* FontPalette.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		A3AE4A2021F74DF5007A97AB /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -967,6 +1036,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3E0733D1F90ED320099A7B8 /* Build configuration list for PBXNativeTarget "NoRest" */;
 			buildPhases = (
+				A3ABBC19249F64F500EBF790 /* Swiftlint */,
 				A8FEBA44CDA7BE67E5B66D6C /* [CP] Check Pods Manifest.lock */,
 				A3E073111F90ED310099A7B8 /* Sources */,
 				A3E073121F90ED310099A7B8 /* Frameworks */,
@@ -1036,6 +1106,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A3ABBC19249F64F500EBF790 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		A8FEBA44CDA7BE67E5B66D6C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1065,6 +1153,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NoRest/Pods-NoRest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Gestalt/Gestalt.framework",
 				"${BUILT_PRODUCTS_DIR}/PNCommons/PNCommons.framework",
 				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -1072,6 +1161,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gestalt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PNCommons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -1091,6 +1181,7 @@
 			files = (
 				A3476EAF229ABE3600031FD9 /* TimerView.swift in Sources */,
 				A3476EA6229A74D900031FD9 /* CurrentWorkoutReducer.swift in Sources */,
+				A3ABBC22249F8C1700EBF790 /* FontPalette.swift in Sources */,
 				A3AB10A8248CD3B300FA2CAF /* WorkoutSubscriber.swift in Sources */,
 				A31B05D62477D0A300C24599 /* NRStyle.swift in Sources */,
 				A32AFC56247A67600027092F /* NRPickerView.swift in Sources */,
@@ -1120,8 +1211,11 @@
 				A3AB10C2248CD9C500FA2CAF /* ExerciseSelectionTableViewCell.swift in Sources */,
 				A31BFC9621F66831003214C2 /* InvalidateRoutingAction.swift in Sources */,
 				A31B05E42477D75700C24599 /* DatabaseMigration.swift in Sources */,
+				A3ABBC09249F614900EBF790 /* Theme.swift in Sources */,
 				A3FDBF27247AF3BF00CB8C30 /* IconSelectionCollectionViewCell.swift in Sources */,
 				A35CB27F24782C5900BA0BA2 /* UITableViewCell+Extension.swift in Sources */,
+				A3ABBC0B249F615700EBF790 /* ThemeManager+Extension.swift in Sources */,
+				A3ABBC20249F8C1700EBF790 /* ColorPalette.swift in Sources */,
 				A39BFDC9248D38E500984FFC /* NRPageControl.swift in Sources */,
 				A3780DBB247AF29D00EA4179 /* CustomIcons.swift in Sources */,
 				A349E38D229E796500E3C0DB /* SetsTableViewDataSource.swift in Sources */,
@@ -1134,6 +1228,7 @@
 				A39BA7BF22A2FA9A00F6A5CD /* NRSetsTableViewHeader.swift in Sources */,
 				A3AE4A2421F74E2A007A97AB /* TabBarDestination.swift in Sources */,
 				A3D9DEFA2201AABA00BCCAF4 /* Set.swift in Sources */,
+				A3ABBC0D249F615F00EBF790 /* ThemeModeSetting.swift in Sources */,
 				A31BFCA321F66C53003214C2 /* NRNavigationController.swift in Sources */,
 				A3951370248A41450033EF08 /* ExercisesView.swift in Sources */,
 				A38084A22479100B00C86F00 /* NRModalViewController.swift in Sources */,
@@ -1223,6 +1318,7 @@
 				A3AB10AA248CD3C900FA2CAF /* WorkoutReducer.swift in Sources */,
 				A392B801220C5A510030FBD4 /* EditExerciseReducer.swift in Sources */,
 				A3FDE6FC221346F200D00814 /* String+Extension.swift in Sources */,
+				A3ABBC0F249F61A200EBF790 /* Palette.swift in Sources */,
 				A392B7FF220C59F50030FBD4 /* EditExerciseState.swift in Sources */,
 				A3476EA8229A845C00031FD9 /* CurrentWorkoutCollectionViewDataSource.swift in Sources */,
 				A3AE4A2221F74E0C007A97AB /* MainTabBarController.swift in Sources */,
@@ -1233,6 +1329,7 @@
 				A31D5E4E248A459D00ACBAF7 /* WorkoutsView.swift in Sources */,
 				A38413372215F208003E0C50 /* InfoReducer.swift in Sources */,
 				A30057F9249669B200D5944F /* NRButton.swift in Sources */,
+				A3ABBC21249F8C1700EBF790 /* AssetPalette.swift in Sources */,
 				A31BFCA021F668BE003214C2 /* ViewBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

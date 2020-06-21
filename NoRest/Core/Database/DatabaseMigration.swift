@@ -12,4 +12,3 @@ class DatabaseMigration {
     static func migrate(_ migration: RealmSwift.Migration) {
     }
 }
-

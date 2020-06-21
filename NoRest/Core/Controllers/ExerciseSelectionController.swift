@@ -14,14 +14,13 @@ class ExerciseSelectionController {
     func toggleSelectedExercise(_ exercise: Exercise) {
         if !selectedExercises.contains(exercise) {
             selectedExercises.append(exercise)
-        }
-        else {
+        } else {
             selectedExercises.removeAll(where: { $0.id == exercise.id })
         }
     }
-    
+
     func updateSelectedExercises() {
-        selectedExercises = selectedExercises.filter{ exercise in
+        selectedExercises = selectedExercises.filter { exercise in
             ExerciseObject.all().contains(where: { exercise.id == $0.id })
         }
     }

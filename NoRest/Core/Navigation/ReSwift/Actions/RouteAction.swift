@@ -13,7 +13,7 @@ struct RouteAction: Action {
     var destination: RouteDestination
     var screen: Screen
     var navigationAction: NavigationAction
-    
+
     /**
      Instantiates a new RouteAction.
      Displays the inital screen of the tab-bar.
@@ -25,7 +25,7 @@ struct RouteAction: Action {
         screen = .remain
         navigationAction = .push
     }
-    
+
     /**
      Instantiates a new RouteAction.
      
@@ -37,7 +37,7 @@ struct RouteAction: Action {
         self.screen = screen
         navigationAction = .push
     }
-    
+
     init(screen: Screen, in destination: RouteDestination, action: NavigationAction) {
         self.destination = destination
         self.screen = screen
@@ -81,5 +81,3 @@ enum Screen: Equatable {
     case tutorial
     case vc(UIViewController)
 }
-
-

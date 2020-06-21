@@ -12,12 +12,12 @@ struct PopUpState: StateType, Equatable {
 
     var type: PopUpType
     var exercise: Exercise?
-    
+
     init() {
         type = .unitialized
         exercise = nil
     }
-    
+
     init(type: PopUpType, exercise: Exercise?) {
         self.type = type
         self.exercise = exercise

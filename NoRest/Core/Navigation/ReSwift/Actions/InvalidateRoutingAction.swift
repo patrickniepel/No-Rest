@@ -9,4 +9,3 @@
 import ReSwift
 
 struct InvalidateRoutingAction: Action {}
-

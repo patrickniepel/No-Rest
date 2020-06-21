@@ -18,4 +18,3 @@ struct AppState: StateType, Equatable {
     let workoutSessionState: WorkoutSessionState
     let currentIconSelectionState: CurrentIconSelectionState
 }
-

@@ -10,19 +10,19 @@ import UIKit
 
 class NRSetsTableView: UITableView {
     var maxHeight: CGFloat = 10
-    
-    override var contentSize:CGSize {
+
+    override var contentSize: CGSize {
         didSet {
             invalidateIntrinsicContentSize()
         }
     }
-    
+
     override var intrinsicContentSize: CGSize {
         layoutIfNeeded()
         let height = min(contentSize.height, maxHeight)
         return CGSize(width: UIView.noIntrinsicMetric, height: height)
     }
-    
+
     func setupDesign() {
         separatorColor = NRStyle.complementaryColor
         separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)

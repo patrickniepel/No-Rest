@@ -10,10 +10,9 @@ import ReSwift
 
 func currentWorkoutReducer(action: Action, state: CurrentWorkoutState?) -> CurrentWorkoutState {
     var newState = state ?? CurrentWorkoutState(workout: nil)
-    
+
     if let currentWorkoutAction = action as? CurrentWorkoutAction {
         newState.workout = currentWorkoutAction.workout
     }
-    
     return newState
 }

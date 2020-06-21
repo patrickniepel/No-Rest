@@ -14,18 +14,18 @@ class NRLabel: UILabel {
         font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
         setup()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     convenience init(with title: String = "", size: CGFloat = NRStyle.fontSizeRegular) {
         self.init()
         text = title
         font = UIFont(name: NRStyle.boldFont, size: size)
         setup()
     }
-    
+
     private func setup() {
         textColor = NRStyle.primaryTextColor
         textAlignment = .left

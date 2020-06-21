@@ -13,11 +13,11 @@ class NRButton: UIButton {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setup() {
         setTitleColor(NRStyle.offWhiteColor, for: .normal)
         backgroundColor = NRStyle.interactionColor

@@ -16,24 +16,27 @@ class ExerciseSelectionViewController: NRViewController {
         setupView()
         hideKeyboardWhenTapped()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         exerciseSelectionView.updateView()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-     
+
         let selectedExercises = exerciseSelectionView.selectedExercises()
         let workoutExercisesAction = WorkoutExercisesAction(exercises: selectedExercises)
         store.dispatch(workoutExercisesAction)
     }
-    
+
     private func setupView() {
         navigationItem.title = "exercise.selection.title".localized
-        
+
         view.addSubview(exerciseSelectionView)
-        exerciseSelectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor)
+        exerciseSelectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                                     leading: view.leadingAnchor,
+                                     bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                     trailing: view.trailingAnchor)
     }
 }

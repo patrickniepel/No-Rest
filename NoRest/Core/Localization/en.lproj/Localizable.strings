@@ -74,6 +74,10 @@
 "settings.licenses" = "Licenses";
 "settings.disclaimer" = "Disclaimer";
 "settings.tutorial" = "Tutorial";
+"settings.theme" = "Theme";
+"settings.theme.light" = "Light";
+"settings.theme.dark" = "Dark";
+"settings.theme.automatic" = "Automatic";
 
 // Buttons
 "button.title.reset" = "Reset";

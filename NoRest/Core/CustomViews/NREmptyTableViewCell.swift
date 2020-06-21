@@ -18,13 +18,13 @@ class NREmptyView: UIView {
         label.textColor = .textColor
         return label
     }()
-    
+
     convenience init(text: String) {
         self.init()
         emptyLabel.text = text
         setupLabel()
     }
-    
+
     func setupLabel() {
         addSubviews(emptyLabel)
         emptyLabel.fillSuperview(padding: UIEdgeInsets(top: 64, left: 64, bottom: 64, right: 64))

@@ -13,11 +13,11 @@ class NRPageControl: UIPageControl {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setup() {
         backgroundColor = NRStyle.themeColor
         pageIndicatorTintColor = NRStyle.primaryTextColor

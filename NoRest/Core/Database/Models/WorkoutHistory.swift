@@ -15,25 +15,25 @@ class WorkoutHistory: Object {
         case id
         case _workouts
     }
-    
+
     override class func primaryKey() -> String? {
         return Fields.id.rawValue
     }
-    
+
     dynamic private(set) var id: String = "workoutHistory"
-    
+
     dynamic private(set) var _workouts: List<WorkoutObject> = .init()
     var workouts: [WorkoutObject] {
         get {
             _workouts.map { $0 }
         }
-        
+
         set {
             _workouts.wipeAll()
             _workouts.append(objectsIn: newValue)
         }
     }
-    
+
     static func get() -> WorkoutHistory? {
         guard let realm = Database.getRealm() else {
             fatalError()
@@ -51,7 +51,7 @@ class WorkoutHistory: Object {
             Database.delete(object: workoutHistory)
         }
     }
-    
+
     static func resetHistory() {
         if let workoutHistory = get() {
             workoutHistory.workouts = []

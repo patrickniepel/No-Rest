@@ -14,4 +14,3 @@ enum TabBarDestination: Int, Equatable {
     case statistics = 2
     case settings = 3
 }
-

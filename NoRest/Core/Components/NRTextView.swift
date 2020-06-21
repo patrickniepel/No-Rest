@@ -13,11 +13,11 @@ class NRTextView: UITextView {
         super.init(frame: frame, textContainer: textContainer)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setup() {
         backgroundColor = NRStyle.offWhiteColor
         tintColor = NRStyle.themeColor

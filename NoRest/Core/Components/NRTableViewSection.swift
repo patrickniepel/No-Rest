@@ -11,7 +11,7 @@ import Foundation
 class NRTableViewSection<T> {
     let sectionTitle: String
     let items: [T]
-    
+
     init(sectionTitle: String, items: [T]) {
         self.sectionTitle = sectionTitle
         self.items = items

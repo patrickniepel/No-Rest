@@ -9,7 +9,6 @@
 import ReSwift
 
 extension PopUpViewController: StoreSubscriber {
-    
     func subscribe() {
         store.subscribe(self) {
             $0.select {
@@ -17,21 +16,19 @@ extension PopUpViewController: StoreSubscriber {
             }
         }
     }
-    
+
     func newState(state: PopUpState) {
         type = state.type
         exercise = state.exercise
         if state.type == .unitialized {
             return
-        }
-        else if state.type == .timer {
+        } else if state.type == .timer {
             setupTimer()
-        }
-        else if state.type == .notes {
+        } else if state.type == .notes {
             setupNotes()
         }
     }
-    
+
     func unsubscribe() {
         store.unsubscribe(self)
     }

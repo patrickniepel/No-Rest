@@ -11,7 +11,7 @@ import ReSwift
 struct PopUpAction: Action {
     let type: PopUpType
     let exercise: Exercise?
-    
+
     init(type: PopUpType, exercise: Exercise?) {
         self.type = type
         self.exercise = exercise

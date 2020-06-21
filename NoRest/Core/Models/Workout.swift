@@ -14,14 +14,14 @@ struct Workout: Equatable {
     var mostRecent: Date?
     var name: String
     var exercises: [Exercise]
-    
+
     init(id: Int, createdAt: Date, name: String, exercises: [Exercise] = []) {
         self.id = id
         self.createdAt = createdAt
         self.name = name
         self.exercises = exercises
     }
-    
+
     init(from workoutObject: WorkoutObject) {
         self.id = workoutObject.id
         self.createdAt = workoutObject.createdAt
@@ -29,8 +29,8 @@ struct Workout: Equatable {
         self.name = workoutObject.name
         self.exercises = workoutObject.exercises.map { Exercise(from: $0) }
     }
-    
-    static func ==(lhs: Workout, rhs: Workout) -> Bool {
+
+    static func == (lhs: Workout, rhs: Workout) -> Bool {
         return lhs.id == rhs.id
     }
 }

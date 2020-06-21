@@ -16,12 +16,12 @@ struct Exercise: Equatable {
     var notes: String
     var icon: UIImage?
     var sets: [Set]
-    
+
     var descriptiveRestTimer: String {
         guard let type = self.type else { return "\(timer)" }
         return type == .cardio ? "\(timer / 60) min" : "\(timer) s"
     }
-    
+
     init(id: Int, name: String, type: ExerciseType, timer: Int, notes: String = "", icon: UIImage?, sets: [Set] = []) {
         self.id = id
         self.name = name
@@ -31,7 +31,7 @@ struct Exercise: Equatable {
         self.icon = icon
         self.sets = sets
     }
-    
+
     init(from exerciseObject: ExerciseObject) {
         self.id = exerciseObject.id
         self.name = exerciseObject.name.localized
@@ -41,8 +41,8 @@ struct Exercise: Equatable {
         self.icon = exerciseObject.icon
         self.sets = exerciseObject.sets
     }
-    
-    static func ==(lhs: Exercise, rhs: Exercise) -> Bool {
+
+    static func == (lhs: Exercise, rhs: Exercise) -> Bool {
         return lhs.id == rhs.id
     }
 }

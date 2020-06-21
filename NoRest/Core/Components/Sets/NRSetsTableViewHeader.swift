@@ -16,7 +16,7 @@ class NRSetsTableViewHeader: UIView {
         stackView.axis = .horizontal
         return stackView
     }()
-    
+
     private let repsLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: NRStyle.boldFont, size: 13)
@@ -25,7 +25,7 @@ class NRSetsTableViewHeader: UIView {
         label.textColor = NRStyle.primaryTextColor
         return label
     }()
-    
+
     private let weightLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: NRStyle.boldFont, size: 13)
@@ -34,13 +34,13 @@ class NRSetsTableViewHeader: UIView {
         label.textColor = NRStyle.primaryTextColor
         return label
     }()
-    
+
     convenience init(backgroundColor: UIColor) {
         self.init()
         self.backgroundColor = backgroundColor
         setup()
     }
-    
+
     func setup() {
         addSubview(stackView)
         stackView.addArrangedSubviews(repsLabel, weightLabel)

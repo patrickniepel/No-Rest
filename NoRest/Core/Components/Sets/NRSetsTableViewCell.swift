@@ -9,7 +9,7 @@
 import UIKit
 
 class NRSetsTableViewCell: UITableViewCell {
-    
+
     private let repsLabel: UILabel = {
         let label = UILabel()
         label.textColor = NRStyle.primaryTextColor
@@ -17,14 +17,14 @@ class NRSetsTableViewCell: UITableViewCell {
         label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
         return label
     }()
-    
+
     private let xImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = nil
         return imageView
     }()
-    
+
     private let weightLabel: UILabel = {
         let label = UILabel()
         label.textColor = NRStyle.primaryTextColor
@@ -32,35 +32,43 @@ class NRSetsTableViewCell: UITableViewCell {
         label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
         return label
     }()
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         repsLabel.text = nil
         weightLabel.text = nil
     }
-    
+
     func setup(with set: Set) {
         backgroundColor = NRStyle.themeColor
         repsLabel.text = "\(set.reps)"
         weightLabel.text = "\(set.weight) \(SettingsController.currentUnit.rawValue)"
         setupLayout()
     }
-    
+
     func disableUserInteraction() {
         isUserInteractionEnabled = false
     }
 }
 
 private extension NRSetsTableViewCell {
-    
+
     func setupLayout() {
         contentView.addSubviews(repsLabel, xImageView, weightLabel)
-        
+
         let imageWidth: CGFloat = 15
-            xImageView.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, centerX: contentView.centerXAnchor, size: CGSize(width: imageWidth, height: 0))
-        
-        repsLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: xImageView.leadingAnchor, padding: UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4))
-        
-        weightLabel.anchor(top: contentView.topAnchor, leading: xImageView.trailingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4))
+        xImageView.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, centerX: contentView.centerXAnchor, size: CGSize(width: imageWidth, height: 0))
+
+        repsLabel.anchor(top: contentView.topAnchor,
+                         leading: contentView.leadingAnchor,
+                         bottom: contentView.bottomAnchor,
+                         trailing: xImageView.leadingAnchor,
+                         padding: UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4))
+
+        weightLabel.anchor(top: contentView.topAnchor,
+                           leading: xImageView.trailingAnchor,
+                           bottom: contentView.bottomAnchor,
+                           trailing: contentView.trailingAnchor,
+                           padding: UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4))
     }
 }

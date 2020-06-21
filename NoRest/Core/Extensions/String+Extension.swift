@@ -12,11 +12,11 @@ extension String {
     static func seconds(value: Int) -> String {
         return "\(value) s"
     }
-    
+
     static func minutes(value: Int) -> String {
         return "\(value) min"
     }
-    
+
     static func unit(value: Double) -> String {
         return "Todo"
     }

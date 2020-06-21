@@ -15,5 +15,3 @@ struct NavigationState: StateType, Equatable {
     var userAction: Bool
     var mainStack: [Screen]
 }
-
-

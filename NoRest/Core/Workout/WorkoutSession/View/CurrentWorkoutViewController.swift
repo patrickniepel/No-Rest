@@ -8,8 +8,8 @@
 
 import UIKit
 
+// swiftlint:disable trailing_whitespace
 class CurrentWorkoutViewController: UIViewController {
-    
     let collectionView: CurrentWorkoutCollectionView = {
         let cv = CurrentWorkoutCollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         cv.backgroundColor = NRStyle.themeColor
@@ -89,9 +89,9 @@ class CurrentWorkoutViewController: UIViewController {
         guard let workout = workout else { return }
         
         //If there are no exercises left, pop view controller
-        if workout.exercises.count == 0 {
-            navigationController?.popViewController(animated: true)
-        }
+//        if workout.exercises.count == 0 {
+//            navigationController?.popViewController(animated: true)
+//        }
         
         //Scroll to last 'visited' exercise
         let pageIndex = currentPage < workout.exercises.count ? currentPage : workout.exercises.count - 1
@@ -112,16 +112,18 @@ class CurrentWorkoutViewController: UIViewController {
     }
     
     private func saveWorkout(toHistory: Bool = false) {
-        guard var workout = workout else { return }
+//        guard var workout = workout else { return }
     }
     
-    @objc private func handleDoneButton() {
+    @objc
+    private func handleDoneButton() {
         saveWorkout(toHistory: true)
         AlertController.showDefaultAlert(title: "alert.message.workoutFinished".localized, in: .workouts)
         navigationController?.popViewController(animated: true)
     }
     
-    @objc private func handleUndoButton() {
+    @objc
+    private func handleUndoButton() {
         AlertController.showDataLossAlert { [weak self] in
             self?.saveDataIfClosed = false
             self?.navigationController?.popViewController(animated: true)

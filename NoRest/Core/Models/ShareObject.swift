@@ -41,4 +41,3 @@ class ShareObject: NSObject, UIActivityItemSource {
         return metadata
     }
 }
-

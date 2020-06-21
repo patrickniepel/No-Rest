@@ -8,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable trailing_whitespace
 class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
     
     private let baseScrollView = UIScrollView()
@@ -142,7 +143,7 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         if let selectedIndex = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndex, animated: false)
         }
-        toggleTableStackViewVisibility(isHidden: exercise?.sets.count == 0)
+//        toggleTableStackViewVisibility(isHidden: exercise?.sets.count == 0)
         
         tableView.delegate = nil
         tableView.dataSource = nil
@@ -194,12 +195,21 @@ class CurrentWorkoutCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    @objc private func handleButtonTapped(sender: UIButton) {
+    @objc
+    private func handleButtonTapped(sender: UIButton) {
         switch sender.tag {
-        case ButtonTag.notesButton.rawValue: handleNotesButton()
-        case ButtonTag.timerButton.rawValue: handleTimerButton()
-        case ButtonTag.actionButton.rawValue: handleActionButton()
-        default: return
+
+        case ButtonTag.notesButton.rawValue:
+            handleNotesButton()
+
+        case ButtonTag.timerButton.rawValue:
+            handleTimerButton()
+
+        case ButtonTag.actionButton.rawValue:
+            handleActionButton()
+
+        default:
+            return
         }
     }
     
@@ -323,7 +333,9 @@ private extension CurrentWorkoutCollectionViewCell {
         
         //StackVies
         inputLabelsStackView.anchor(leading: inputStackView.leadingAnchor, trailing: inputStackView.trailingAnchor)
-        inputTextFieldsStackView.anchor(leading: inputStackView.leadingAnchor, trailing: inputStackView.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32))
+        inputTextFieldsStackView.anchor(leading: inputStackView.leadingAnchor,
+                                        trailing: inputStackView.trailingAnchor,
+                                        padding: UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32))
         inputStackView.anchor(leading: baseStackView.leadingAnchor, trailing: baseStackView.trailingAnchor)
     }
     

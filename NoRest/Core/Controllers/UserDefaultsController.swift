@@ -11,26 +11,26 @@ import Foundation
 struct UserDefaultsController: Codable {
     private static let workoutIDKey = "workoutIDKey"
     static var currentWorkoutId: Int {
-        get { UserDefaults.standard.integer(forKey: workoutIDKey) }
+        UserDefaults.standard.integer(forKey: workoutIDKey)
     }
-    
+
     private static let exerciseIDKey = "exerciseIDKey"
     static var currentExerciseId: Int {
-        get { UserDefaults.standard.integer(forKey: exerciseIDKey) }
+        UserDefaults.standard.integer(forKey: exerciseIDKey)
     }
-    
+
     private static let firstAppInstallKey = "firstAppInstallKey"
     static var isFirstAppInstall: Bool {
         get { !UserDefaults.standard.bool(forKey: firstAppInstallKey) }
         set { UserDefaults.standard.set(newValue, forKey: firstAppInstallKey) }
     }
-    
+
     private static let timerSoundKey = "timerSoundKey"
     static var isTimerSoundEnabled: Bool {
         get { UserDefaults.standard.bool(forKey: timerSoundKey) }
         set { UserDefaults.standard.set(newValue, forKey: timerSoundKey) }
     }
-    
+
     private static let unitKey = "unitKey"
     static var unit: Unit {
         get {
@@ -41,18 +41,23 @@ struct UserDefaultsController: Codable {
             UserDefaults.standard.set(newValue.rawValue, forKey: unitKey)
         }
     }
-    
+
     private static let tutorialKey = "tutorialKey"
     static var didFinishTutorial: Bool {
         get { UserDefaults.standard.bool(forKey: tutorialKey) }
         set { UserDefaults.standard.set(newValue, forKey: tutorialKey) }
     }
-    
+
     static func increaseWorkoutId() {
         UserDefaults.standard.set(currentWorkoutId + 1, forKey: workoutIDKey)
     }
-    
+
     static func increaseExerciseId() {
         UserDefaults.standard.set(currentExerciseId + 1, forKey: exerciseIDKey)
+    }
+
+    static var themeMode: String? {
+        get { return UserDefaults.standard.string(forKey: NRConstants.themeModeKey) }
+        set { UserDefaults.standard.set(newValue, forKey: NRConstants.themeModeKey) }
     }
 }

@@ -10,12 +10,12 @@ import UIKit
 
 class IconSelectionCollectionViewCell: UICollectionViewCell {
     private lazy var iconImageView: NRImageView = .init()
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         iconImageView.image = nil
     }
-    
+
     func setup(with icon: UIImage?, isSelected: Bool) {
         iconImageView.image = icon
 
@@ -24,7 +24,7 @@ class IconSelectionCollectionViewCell: UICollectionViewCell {
 
         contentView.layer.cornerRadius = 10
         contentView.backgroundColor = NRStyle.offWhiteColor
-        
+
         if isSelected {
             contentView.layer.borderWidth = 2
             contentView.layer.borderColor = NRStyle.complementaryColor.cgColor
