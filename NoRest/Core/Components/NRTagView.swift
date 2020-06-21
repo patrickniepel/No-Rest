@@ -11,8 +11,8 @@ import UIKit
 class NRTagView: UIView {
     private lazy var iconImageView: NRImageView = .init()
 
-    private lazy var textLabel: NRLabel = {
-        let label = NRLabel(with: "", size: NRStyle.fontSizeVerySmall)
+    private lazy var textLabel: NRLabelDark = {
+        let label = NRLabelDark(with: "", size: NRStyle.fontSizeVerySmall)
         label.textColor = NRStyle.themeColor
         return label
     }()

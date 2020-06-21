@@ -24,7 +24,7 @@ class NRTableViewSectionHeaderView: UIView {
     private func setup() {
         backgroundColor = NRStyle.complementaryColor
 
-        let titleLabel = NRLabel(with: title, size: NRStyle.fontSizeLarge)
+        let titleLabel = NRLabelDark(with: title, size: NRStyle.fontSizeLarge)
         titleLabel.textColor = NRStyle.themeColor
 
         addSubview(titleLabel)

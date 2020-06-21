@@ -6,13 +6,14 @@
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRLabel: UILabel {
+class NRLabel: UILabel, Themeable {
+    typealias Theme = LabelTheme
+
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
-        font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
-        setup()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -21,13 +22,49 @@ class NRLabel: UILabel {
 
     convenience init(with title: String = "", size: CGFloat = NRStyle.fontSizeRegular) {
         self.init()
+
+        subscribeTheme()
+
         text = title
         font = UIFont(name: NRStyle.boldFont, size: size)
-        setup()
+        textAlignment = .left
     }
 
-    private func setup() {
-        textColor = NRStyle.primaryTextColor
+    func subscribeTheme() {
+        self.observe(theme: \ApplicationTheme.native.labelTheme)
+    }
+
+    func apply(theme: Theme) {
+        textColor = theme.textColor
+    }
+}
+
+class NRLabelDark: UILabel, Themeable {
+    typealias Theme = DarkLabelTheme
+
+    override init(frame: CGRect = CGRect()) {
+        super.init(frame: frame)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    convenience init(with title: String = "", size: CGFloat = NRStyle.fontSizeRegular) {
+        self.init()
+
+        subscribeTheme()
+
+        text = title
+        font = UIFont(name: NRStyle.boldFont, size: size)
         textAlignment = .left
+    }
+
+    func subscribeTheme() {
+        self.observe(theme: \ApplicationTheme.native.darkLabelTheme)
+    }
+
+    func apply(theme: Theme) {
+        textColor = theme.textColor
     }
 }

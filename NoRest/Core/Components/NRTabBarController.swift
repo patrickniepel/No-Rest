@@ -1,26 +1,52 @@
 //
-//  MainTabBarController.swift
+//  NRTabBarController.swift
 //  NoRest
 //
-//  Created by Patrick Niepel on 22.01.19.
-//  Copyright © 2019 Patrick Niepel. All rights reserved.
+//  Created by Patrick Niepel on 21.06.20.
+//  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
-import ReSwift
+import Gestalt
 import UIKit
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
+class NRTabBarController: UITabBarController, Themeable {
+    typealias Theme = TabBarTheme
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.observe(theme: \ApplicationTheme.native.tabBarTheme)
         delegate = self
-        tabBar.isTranslucent = false
-        tabBar.barTintColor = NRStyle.themeColor
-        tabBar.unselectedItemTintColor = NRStyle.primaryTextColor
-        tabBar.tintColor = NRStyle.interactionColor
     }
 
+    func apply(theme: Theme) {
+        if #available(iOS 13.0, *) {
+            let appearance = UITabBarAppearance()
+
+            appearance.backgroundColor = theme.backgroundColor
+            appearance.stackedLayoutAppearance.normal.iconColor = theme.unselectedItemColor
+            appearance.stackedLayoutAppearance.selected.iconColor = theme.selectedItemColor
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.selectedItemColor]
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: theme.unselectedItemColor]
+
+            tabBar.standardAppearance = appearance
+
+            tabBar.setNeedsLayout()
+        } else {
+            tabBar.barTintColor = theme.backgroundColor
+            tabBar.tintColor = theme.selectedItemColor
+            tabBar.unselectedItemTintColor = theme.unselectedItemColor
+        }
+    }
+
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        if #available(iOS 13.0, *) {
+            ThemeManager.default.theme = newCollection.userInterfaceStyle == .dark ? ApplicationTheme.dark : ApplicationTheme.light
+        }
+        super.willTransition(to: newCollection, with: coordinator) // You must call super somewhere. See docs.
+    }
+}
+
+extension NRTabBarController: UITabBarControllerDelegate {
     /**
      Sent to the delegate when the user selects a tab bar item.
      Updates the ReSwift NavigationState with the current tabBarIndex.

@@ -117,7 +117,7 @@ struct NRStyle {
     static let indoorCyclingIcon = buildImage(for: "indoorCycling")
     static let ropeSkippingIcon = buildImage(for: "ropeSkipping")
 
-    private static func buildImage(for name: String) -> UIImage? {
+    static func buildImage(for name: String) -> UIImage? {
         return UIImage(named: name)
     }
 }

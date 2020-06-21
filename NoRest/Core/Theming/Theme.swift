@@ -27,16 +27,22 @@ struct ApplicationTheme: Theme {
 }
 
 struct NativeTheme: Theme {
-//    let viewControllerTheme: ViewControllerTheme
-//    let viewTheme: ViewTheme
-//    let tabBarControllerTheme: TabBarControllerTheme
-//    let navigationBarTheme: NavigationBarTheme
+    let viewControllerTheme: ViewControllerTheme
+    let tabBarTheme: TabBarTheme
+    let navigationBarTheme: NavigationBarTheme
+    let tableViewTheme: TableViewTheme
+    let tableViewCellTheme: TableViewCellTheme
+    let labelTheme: LabelTheme
+    let darkLabelTheme: DarkLabelTheme
 
     init(palette: Palette) {
-//        self.viewControllerTheme = .init(palette: palette)
-//        self.viewTheme = .init(palette: palette)
-//        self.tabBarControllerTheme = .init(palette: palette)
-//        self.navigationBarTheme = .init(palette: palette)
+        self.viewControllerTheme = .init(palette: palette)
+        self.tabBarTheme = .init(palette: palette)
+        self.navigationBarTheme = .init(palette: palette)
+        self.tableViewTheme = .init(palette: palette)
+        self.tableViewCellTheme = .init(palette: palette)
+        self.labelTheme = .init(palette: palette)
+        self.darkLabelTheme = .init(palette: palette)
     }
 }
 

@@ -142,8 +142,14 @@
 		A3ABBC20249F8C1700EBF790 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC1B249F8C1600EBF790 /* ColorPalette.swift */; };
 		A3ABBC21249F8C1700EBF790 /* AssetPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC1D249F8C1700EBF790 /* AssetPalette.swift */; };
 		A3ABBC22249F8C1700EBF790 /* FontPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC1F249F8C1700EBF790 /* FontPalette.swift */; };
+		A3ABBC24249F951D00EBF790 /* NavigationBarTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC23249F951D00EBF790 /* NavigationBarTheme.swift */; };
+		A3ABBC26249F952700EBF790 /* TabBarTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC25249F952700EBF790 /* TabBarTheme.swift */; };
+		A3ABBC28249F986D00EBF790 /* NRTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC27249F986D00EBF790 /* NRTabBarController.swift */; };
+		A3ABBC2A249F9BA800EBF790 /* ViewControllerTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC29249F9BA800EBF790 /* ViewControllerTheme.swift */; };
+		A3ABBC2C249F9CEE00EBF790 /* TableViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC2B249F9CEE00EBF790 /* TableViewTheme.swift */; };
+		A3ABBC2E249F9E7200EBF790 /* TableViewCellTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC2D249F9E7200EBF790 /* TableViewCellTheme.swift */; };
+		A3ABBC30249FA07A00EBF790 /* LabelTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC2F249FA07A00EBF790 /* LabelTheme.swift */; };
 		A3AE4A1F21F74D61007A97AB /* RouteDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */; };
-		A3AE4A2221F74E0C007A97AB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */; };
 		A3AE4A2421F74E2A007A97AB /* TabBarDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */; };
 		A3C985692478003800EAB3AE /* Realm+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C985682478003800EAB3AE /* Realm+Extension.swift */; };
 		A3C9856B24780F7900EAB3AE /* WorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9856A24780F7900EAB3AE /* WorkoutHistory.swift */; };
@@ -312,8 +318,14 @@
 		A3ABBC1B249F8C1600EBF790 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		A3ABBC1D249F8C1700EBF790 /* AssetPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPalette.swift; sourceTree = "<group>"; };
 		A3ABBC1F249F8C1700EBF790 /* FontPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontPalette.swift; sourceTree = "<group>"; };
+		A3ABBC23249F951D00EBF790 /* NavigationBarTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTheme.swift; sourceTree = "<group>"; };
+		A3ABBC25249F952700EBF790 /* TabBarTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarTheme.swift; sourceTree = "<group>"; };
+		A3ABBC27249F986D00EBF790 /* NRTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRTabBarController.swift; sourceTree = "<group>"; };
+		A3ABBC29249F9BA800EBF790 /* ViewControllerTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTheme.swift; sourceTree = "<group>"; };
+		A3ABBC2B249F9CEE00EBF790 /* TableViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTheme.swift; sourceTree = "<group>"; };
+		A3ABBC2D249F9E7200EBF790 /* TableViewCellTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTheme.swift; sourceTree = "<group>"; };
+		A3ABBC2F249FA07A00EBF790 /* LabelTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTheme.swift; sourceTree = "<group>"; };
 		A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDestination.swift; sourceTree = "<group>"; };
-		A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDestination.swift; sourceTree = "<group>"; };
 		A3C985682478003800EAB3AE /* Realm+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extension.swift"; sourceTree = "<group>"; };
 		A3C9856A24780F7900EAB3AE /* WorkoutHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
@@ -405,6 +417,7 @@
 				A39BFDC8248D38E500984FFC /* NRPageControl.swift */,
 				A32AFC55247A67600027092F /* NRPickerView.swift */,
 				A38084AB247930A800C86F00 /* NRSearchBar.swift */,
+				A3ABBC27249F986D00EBF790 /* NRTabBarController.swift */,
 				A317A976243096E50052542B /* NRTableView.swift */,
 				A38084AF247932CC00C86F00 /* NRTableViewCell.swift */,
 				A317A97A243098FD0052542B /* NRTableViewSection.swift */,
@@ -919,6 +932,12 @@
 		A3ABBC06249F612600EBF790 /* CustomThemes */ = {
 			isa = PBXGroup;
 			children = (
+				A3ABBC2F249FA07A00EBF790 /* LabelTheme.swift */,
+				A3ABBC23249F951D00EBF790 /* NavigationBarTheme.swift */,
+				A3ABBC25249F952700EBF790 /* TabBarTheme.swift */,
+				A3ABBC29249F9BA800EBF790 /* ViewControllerTheme.swift */,
+				A3ABBC2B249F9CEE00EBF790 /* TableViewTheme.swift */,
+				A3ABBC2D249F9E7200EBF790 /* TableViewCellTheme.swift */,
 			);
 			path = CustomThemes;
 			sourceTree = "<group>";
@@ -961,7 +980,6 @@
 		A3AE4A2021F74DF5007A97AB /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				A3AE4A2121F74E0C007A97AB /* MainTabBarController.swift */,
 				A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */,
 			);
 			path = TabBar;
@@ -1214,13 +1232,16 @@
 				A3ABBC09249F614900EBF790 /* Theme.swift in Sources */,
 				A3FDBF27247AF3BF00CB8C30 /* IconSelectionCollectionViewCell.swift in Sources */,
 				A35CB27F24782C5900BA0BA2 /* UITableViewCell+Extension.swift in Sources */,
+				A3ABBC28249F986D00EBF790 /* NRTabBarController.swift in Sources */,
 				A3ABBC0B249F615700EBF790 /* ThemeManager+Extension.swift in Sources */,
 				A3ABBC20249F8C1700EBF790 /* ColorPalette.swift in Sources */,
 				A39BFDC9248D38E500984FFC /* NRPageControl.swift in Sources */,
 				A3780DBB247AF29D00EA4179 /* CustomIcons.swift in Sources */,
+				A3ABBC30249FA07A00EBF790 /* LabelTheme.swift in Sources */,
 				A349E38D229E796500E3C0DB /* SetsTableViewDataSource.swift in Sources */,
 				A3480A742299719C000AA3A8 /* PopUpReducer.swift in Sources */,
 				A39BFDC7248D374000984FFC /* NRCollectionView.swift in Sources */,
+				A3ABBC2C249F9CEE00EBF790 /* TableViewTheme.swift in Sources */,
 				A3C9D59A2207277A00401E08 /* NRLabel.swift in Sources */,
 				A38413392215F24E003E0C50 /* InfoState.swift in Sources */,
 				A3696F7922A2D1E500A37AF7 /* NRSetsTableViewCell.swift in Sources */,
@@ -1249,6 +1270,7 @@
 				A3A9926B24965DAA002709D6 /* TutorialPage.swift in Sources */,
 				A3AB10CC248CEF0400FA2CAF /* WorkoutSessionState.swift in Sources */,
 				A3A9926624965C7B002709D6 /* TutorialController.swift in Sources */,
+				A3ABBC2A249F9BA800EBF790 /* ViewControllerTheme.swift in Sources */,
 				A39BFDC5248D36ED00984FFC /* NRCollectionViewCell.swift in Sources */,
 				A31BFC9821F6684D003214C2 /* NavigationReducer.swift in Sources */,
 				A3A9926924965C9A002709D6 /* TutorialCollectionViewCell.swift in Sources */,
@@ -1280,6 +1302,7 @@
 				A398764122186A3C0019238B /* WorkoutsController.swift in Sources */,
 				A349E393229E90AA00E3C0DB /* NRSetsTableView.swift in Sources */,
 				A3476EA4229A74B600031FD9 /* CurrentWorkoutAction.swift in Sources */,
+				A3ABBC26249F952700EBF790 /* TabBarTheme.swift in Sources */,
 				A31BFC9221F667CF003214C2 /* AppCoordinator.swift in Sources */,
 				A3476EAC229A85E700031FD9 /* CurrentWorkoutCollectionViewCell.swift in Sources */,
 				A392B7FB220C597A0030FBD4 /* EditExerciseViewController.swift in Sources */,
@@ -1317,11 +1340,12 @@
 				A38084AC247930A800C86F00 /* NRSearchBar.swift in Sources */,
 				A3AB10AA248CD3C900FA2CAF /* WorkoutReducer.swift in Sources */,
 				A392B801220C5A510030FBD4 /* EditExerciseReducer.swift in Sources */,
+				A3ABBC2E249F9E7200EBF790 /* TableViewCellTheme.swift in Sources */,
 				A3FDE6FC221346F200D00814 /* String+Extension.swift in Sources */,
 				A3ABBC0F249F61A200EBF790 /* Palette.swift in Sources */,
 				A392B7FF220C59F50030FBD4 /* EditExerciseState.swift in Sources */,
+				A3ABBC24249F951D00EBF790 /* NavigationBarTheme.swift in Sources */,
 				A3476EA8229A845C00031FD9 /* CurrentWorkoutCollectionViewDataSource.swift in Sources */,
-				A3AE4A2221F74E0C007A97AB /* MainTabBarController.swift in Sources */,
 				A3AB10AC248CD3D200FA2CAF /* WorkoutState.swift in Sources */,
 				A38084A82479221C00C86F00 /* AlertController.swift in Sources */,
 				A391ADEB21FBA42D002A7D04 /* UIView+Extension.swift in Sources */,

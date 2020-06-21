@@ -6,39 +6,56 @@
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
-import ReSwift
+import Gestalt
 import UIKit
 
-class NRNavigationController: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    override init(rootViewController: UIViewController) {
-        super.init(rootViewController: rootViewController)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+class NRNavigationController: UINavigationController, Themeable {
+    typealias Theme = NavigationBarTheme
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.observe(theme: \ApplicationTheme.native.navigationBarTheme)
         setup()
     }
 
     private func setup() {
         interactivePopGestureRecognizer?.delegate = self
         delegate = self
-        navigationBar.tintColor = NRStyle.interactionColor
-        navigationBar.barTintColor = NRStyle.themeColor
-        view.backgroundColor = NRStyle.themeColor
-        navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: NRStyle.primaryTextColor,
-            NSAttributedString.Key.font: UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular) as Any]
     }
 
+    func apply(theme: Theme) {
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+
+            appearance.backgroundColor = theme.backgroundColor
+            appearance.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: theme.titleColor,
+                NSAttributedString.Key.font: theme.titleFont
+            ]
+
+            navigationBar.standardAppearance = appearance
+
+            navigationBar.setNeedsLayout()
+        } else {
+            navigationBar.barTintColor = theme.backgroundColor
+            navigationBar.titleTextAttributes = [
+                NSAttributedString.Key.foregroundColor: theme.titleColor,
+                NSAttributedString.Key.font: theme.titleFont
+            ]
+        }
+
+        navigationBar.tintColor = theme.tintColor
+    }
+
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        if #available(iOS 13.0, *) {
+            ThemeManager.default.theme = newCollection.userInterfaceStyle == .dark ? ApplicationTheme.dark : ApplicationTheme.light
+        }
+        super.willTransition(to: newCollection, with: coordinator) // You must call super somewhere. See docs.
+    }
+}
+
+extension NRNavigationController: UIGestureRecognizerDelegate, UINavigationControllerDelegate {
     /**
      Enables swipe-back gesture for all sub-ViewControllers.
 
@@ -47,6 +64,6 @@ class NRNavigationController: UINavigationController, UIGestureRecognizerDelegat
      - returns: true (the default) to tell the gesture recognizer to proceed with interpreting touches, false to prevent it from attempting to recognize its gesture
      */
     func gestureRecognizerShouldBegin(_: UIGestureRecognizer) -> Bool {
-        return viewControllers.count > 1
+        viewControllers.count > 1
     }
 }

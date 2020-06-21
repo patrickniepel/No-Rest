@@ -9,13 +9,12 @@
 import UIKit
 
 class AppCoordinator {
-
-    var appNavigationController: UINavigationController?
-    var tabBarController: MainTabBarController?
-    var myWorkoutNavigationController: UINavigationController?
-    var exercisesNavigationController: UINavigationController?
-    var statisticsNavigationController: UINavigationController?
-    var settingsNavigationController: UINavigationController?
+    var appNavigationController: NRNavigationController?
+    var tabBarController: NRTabBarController?
+    var myWorkoutNavigationController: NRNavigationController?
+    var exercisesNavigationController: NRNavigationController?
+    var statisticsNavigationController: NRNavigationController?
+    var settingsNavigationController: NRNavigationController?
 
     var state: NavigationState?
 
@@ -25,7 +24,7 @@ class AppCoordinator {
     }
 
     func setupInitialViewControllers() {
-        let tabBarController = MainTabBarController()
+        let tabBarController = NRTabBarController()
 
         let myWorkout = ViewBuilder.buildMyWorkoutScreen()
         let myWorkoutNavigationController = buildNavigationController(for: myWorkout)
@@ -105,7 +104,7 @@ class AppCoordinator {
         return appNavigationController!
     }
 
-    private func buildNavigationController(for vc: UIViewController) -> UINavigationController {
+    private func buildNavigationController(for vc: UIViewController) -> NRNavigationController {
         return NRNavigationController(rootViewController: vc)
     }
 
@@ -123,11 +122,5 @@ class AppCoordinator {
         case .settings:
             return SettingsViewController()
         }
-    }
-}
-
-extension UINavigationController {
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
 }

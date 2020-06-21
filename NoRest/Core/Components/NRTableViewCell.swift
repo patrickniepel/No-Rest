@@ -6,15 +6,22 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRTableViewCell: UITableViewCell {
+class NRTableViewCell: UITableViewCell, Themeable {
+    typealias Theme = TableViewCellTheme
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = NRStyle.themeColor
+        self.observe(theme: \ApplicationTheme.native.tableViewCellTheme)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func apply(theme: Theme) {
+        backgroundColor = theme.backgroundColor
     }
 }

@@ -6,14 +6,19 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRViewController: UIViewController {
-    lazy var titleLabel: NRLabel = NRLabel(with: viewControllerTitle, size: NRStyle.fontSizeViewControllerTitle)
+class NRViewController: UIViewController, Themeable {
+    typealias Theme = ViewControllerTheme
+
+    lazy var titleLabel: NRLabel = NRLabel(with: viewControllerTitle)
     var viewControllerTitle: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.observe(theme: \ApplicationTheme.native.viewControllerTheme)
 
         if let navigationBar = self.navigationController?.navigationBar {
             titleLabel.text = viewControllerTitle
@@ -25,8 +30,13 @@ class NRViewController: UIViewController {
                               centerY: navigationBar.centerYAnchor,
                               padding: .init(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: 0))
         }
-
-        view.backgroundColor = NRStyle.themeColor
         navigationItem.title = ""
+    }
+
+    func apply(theme: Theme) {
+        view.backgroundColor = theme.backgroundColor
+
+        titleLabel.font = theme.titleFont
+        titleLabel.textColor = theme.titleColor
     }
 }

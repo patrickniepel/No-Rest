@@ -6,7 +6,7 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct AssetPalette: PaletteProtocol {
     let basic: BasicAssetPalette
@@ -24,8 +24,27 @@ struct AssetPalette: PaletteProtocol {
 }
 
 struct BasicAssetPalette: PaletteProtocol {
-    static var light: BasicAssetPalette = .init()
-    static var dark: BasicAssetPalette = .init()
+    let disclosureIcon: UIImage?
+    let timerIcon: UIImage?
+    let binIcon: UIImage?
+    let selectionIcon: UIImage?
+    let questionMarkIcon: UIImage?
+    let calendarIcon: UIImage?
+    let arrowIcon: UIImage?
+    let notesIcon: UIImage?
+    let startIcon: UIImage?
+
+    static var light: BasicAssetPalette = .init(disclosureIcon: NRStyle.buildImage(for: "disclosure"),
+                                                timerIcon: NRStyle.buildImage(for: "timer"),
+                                                binIcon: NRStyle.buildImage(for: "bin"),
+                                                selectionIcon: NRStyle.buildImage(for: "selection"),
+                                                questionMarkIcon: NRStyle.buildImage(for: "question_mark"),
+                                                calendarIcon: NRStyle.buildImage(for: "calendar"),
+                                                arrowIcon: NRStyle.buildImage(for: "arrow"),
+                                                notesIcon: NRStyle.buildImage(for: "notes"),
+                                                startIcon: NRStyle.buildImage(for: "start"))
+
+    static var dark: BasicAssetPalette = .light
 }
 
 struct OnboardingAssetPalette: PaletteProtocol {
