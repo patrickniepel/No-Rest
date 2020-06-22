@@ -9,36 +9,10 @@
 import UIKit
 
 struct NRStyle {
-    // Colors
-    static let themeColor = UIColor.rgb(red: 51, green: 55, blue: 69, alpha: 1) // #333745
-    static let complementaryColor = UIColor.rgb(red: 0, green: 253, blue: 255, alpha: 1) // #00FDFF
-    static let interactionColor = UIColor.rgb(red: 255, green: 128, blue: 0, alpha: 1) // #FF8000
-    static let primaryTextColor = offWhiteColor
-    static let secondaryTextColor = UIColor.rgb(red: 200, green: 200, blue: 200, alpha: 1)
-    static let offWhiteColor = UIColor.rgb(red: 252, green: 251, blue: 248, alpha: 1) // #FCFBF8 (252,251,248)
-
-    static let pulsatingColor = UIColor.rgb(red: 275, green: 108, blue: 31, alpha: 1)
-    static let warningColor = UIColor.rgb(red: 254, green: 95, blue: 85, alpha: 1) // #FE5F55
-    static let successColor = UIColor.rgb(red: 199, green: 239, blue: 207, alpha: 1) // #C7EFCF
-
     // Padding
     static let horizontalPadding: CGFloat = 20
     static let verticalPadding: CGFloat = 16
     static let cornerRadius: CGFloat = 15
-
-    // Fonts
-    static let regularFont = "CaviarDreams"
-    static let boldFont = "CaviarDreams-Bold"
-
-    // Font sizes
-    static let fontSizeViewControllerTitle: CGFloat = 30
-    static let fontSizeTiny: CGFloat = 10
-    static let fontSizeVerySmall: CGFloat = 12
-    static let fontSizeSmall: CGFloat = 14
-    static let fontSizeRegular: CGFloat = 18
-    static let fontSizeMedium: CGFloat = 20
-    static let fontSizeLarge: CGFloat = 24
-    static let fontSizeVeryLarge: CGFloat = 30
 
     // Images
     static let workoutsIcon = buildImage(for: "workouts")
@@ -47,13 +21,6 @@ struct NRStyle {
     static let settingsIcon = buildImage(for: "settings")
     static let disclosureIcon = buildImage(for: "next")
     static let timerIcon = buildImage(for: "timer")
-    static let binIcon = buildImage(for: "bin")
-    static let selectionIcon = buildImage(for: "selection")
-    static let questionMarkIcon = buildImage(for: "question_mark")
-    static let calendarIcon = buildImage(for: "calendar")
-    static let arrowIcon = buildImage(for: "arrow")
-    static let notesIcon = buildImage(for: "notes")
-    static let startIcon = buildImage(for: "play")
 
     // Custom Icons
     static let absIcon = buildImage(for: "abs")

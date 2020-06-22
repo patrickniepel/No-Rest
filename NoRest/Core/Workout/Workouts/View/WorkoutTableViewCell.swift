@@ -6,25 +6,24 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
 class WorkoutTableViewCell: NRTableViewCell {
-    private lazy var nameLabel: NRLabel = .init(with: "", size: NRStyle.fontSizeLarge)
+    private lazy var nameLabel: UILabel = .init()
     private lazy var dateTagView: NRTagView = .init()
     private lazy var numberOfExercisesTagView: NRTagView = .init()
     private lazy var startButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(handleStartWorkout), for: .touchUpInside)
-        button.setImage(NRStyle.startIcon?.dye(NRStyle.offWhiteColor), for: .normal)
         button.imageEdgeInsets = .init(top: 0, left: 3, bottom: 0, right: 0)
-        button.titleLabel?.font = UIFont(name: NRStyle.boldFont, size: 16)
         button.layer.cornerRadius = 10
-        button.backgroundColor = NRStyle.interactionColor
         button.applyShadow()
         return button
     }()
 
     private var workout: Workout?
+    private var calendarIcon: UIImage?
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -34,6 +33,11 @@ class WorkoutTableViewCell: NRTableViewCell {
     func setup(with workout: Workout) {
         self.workout = workout
         nameLabel.text = workout.name
+
+        addCustomDisclosureIndicator()
+        setupView()
+
+        guard let workoutTableViewCellTheme = (ThemeManager.default.theme as? ApplicationTheme)?.custom.workoutTableViewCellTheme else { return }
 
         let mostRecentDateString: String
         let template = "EyMMMMd"
@@ -46,13 +50,11 @@ class WorkoutTableViewCell: NRTableViewCell {
             mostRecentDateString = "workout.most.recent.never".localized
         }
 
-        dateTagView.injectContent(icon: NRStyle.calendarIcon, text: mostRecentDateString)
+        dateTagView.injectContent(icon: workoutTableViewCellTheme.calendarIcon, text: mostRecentDateString)
 
         let numberOfExercises = "\(workout.exercises.count)"
-        numberOfExercisesTagView.injectContent(icon: NRStyle.exercisesIcon, text: numberOfExercises)
-        addCustomDisclosureIndicator()
+        numberOfExercisesTagView.injectContent(icon: workoutTableViewCellTheme.exercisesIcon, text: numberOfExercises)
 
-        setupView()
     }
 
     private func setupView() {
@@ -90,5 +92,16 @@ class WorkoutTableViewCell: NRTableViewCell {
         store.dispatch(workoutSessionAction)
         let routeAction = RouteAction(screen: .workoutSession, in: .workouts)
         store.dispatch(routeAction)
+    }
+
+    override func apply(theme: TableViewCellTheme) {
+        super.apply(theme: theme)
+
+        guard let workoutTableViewCellTheme = (ThemeManager.default.theme as? ApplicationTheme)?.custom.workoutTableViewCellTheme else { return }
+
+        nameLabel.textColor = workoutTableViewCellTheme.textColor
+        nameLabel.font = workoutTableViewCellTheme.textFont
+        startButton.backgroundColor = workoutTableViewCellTheme.buttonColor
+        startButton.setImage(workoutTableViewCellTheme.startIcon, for: .normal)
     }
 }

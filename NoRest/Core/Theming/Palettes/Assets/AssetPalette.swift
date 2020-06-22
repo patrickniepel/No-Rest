@@ -8,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable force_unwrapping
 struct AssetPalette: PaletteProtocol {
     let basic: BasicAssetPalette
     let onboarding: OnboardingAssetPalette
@@ -24,25 +25,33 @@ struct AssetPalette: PaletteProtocol {
 }
 
 struct BasicAssetPalette: PaletteProtocol {
-    let disclosureIcon: UIImage?
-    let timerIcon: UIImage?
-    let binIcon: UIImage?
-    let selectionIcon: UIImage?
-    let questionMarkIcon: UIImage?
-    let calendarIcon: UIImage?
-    let arrowIcon: UIImage?
-    let notesIcon: UIImage?
-    let startIcon: UIImage?
+    let workoutsIcon: UIImage
+    let exercisesIcon: UIImage
+    let statisticsIcon: UIImage
+    let settingsIcon: UIImage
+    let disclosureIcon: UIImage
+    let timerIcon: UIImage
+    let binIcon: UIImage
+    let selectionIcon: UIImage
+    let questionMarkIcon: UIImage
+    let calendarIcon: UIImage
+    let arrowIcon: UIImage
+    let notesIcon: UIImage
+    let startIcon: UIImage
 
-    static var light: BasicAssetPalette = .init(disclosureIcon: NRStyle.buildImage(for: "disclosure"),
-                                                timerIcon: NRStyle.buildImage(for: "timer"),
-                                                binIcon: NRStyle.buildImage(for: "bin"),
-                                                selectionIcon: NRStyle.buildImage(for: "selection"),
-                                                questionMarkIcon: NRStyle.buildImage(for: "question_mark"),
-                                                calendarIcon: NRStyle.buildImage(for: "calendar"),
-                                                arrowIcon: NRStyle.buildImage(for: "arrow"),
-                                                notesIcon: NRStyle.buildImage(for: "notes"),
-                                                startIcon: NRStyle.buildImage(for: "start"))
+    static var light: BasicAssetPalette = .init(workoutsIcon: NRStyle.buildImage(for: "workouts")!,
+                                                exercisesIcon: NRStyle.buildImage(for: "exercises")!,
+                                                statisticsIcon: NRStyle.buildImage(for: "statistics")!,
+                                                settingsIcon: NRStyle.buildImage(for: "settings")!,
+                                                disclosureIcon: NRStyle.buildImage(for: "disclosure")!,
+                                                timerIcon: NRStyle.buildImage(for: "timer")!,
+                                                binIcon: NRStyle.buildImage(for: "bin")!,
+                                                selectionIcon: NRStyle.buildImage(for: "selection")!,
+                                                questionMarkIcon: NRStyle.buildImage(for: "question_mark")!,
+                                                calendarIcon: NRStyle.buildImage(for: "calendar")!,
+                                                arrowIcon: NRStyle.buildImage(for: "arrow")!,
+                                                notesIcon: NRStyle.buildImage(for: "notes")!,
+                                                startIcon: NRStyle.buildImage(for: "start")!)
 
     static var dark: BasicAssetPalette = .light
 }

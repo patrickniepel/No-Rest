@@ -6,6 +6,7 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
 class ExercisesView: NRExercisesView {
@@ -73,8 +74,10 @@ extension ExercisesView {
             success(true)
         }
 
-        deleteAction.image = NRStyle.binIcon?.dye(.white)
-        deleteAction.backgroundColor = NRStyle.warningColor
+        if let tableViewTheme = (ThemeManager.default.theme as? ApplicationTheme)?.native.tableViewTheme {
+            deleteAction.image = tableViewTheme.binIcon
+            deleteAction.backgroundColor = tableViewTheme.warningColor
+        }
 
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }

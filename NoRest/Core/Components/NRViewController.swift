@@ -12,7 +12,12 @@ import UIKit
 class NRViewController: UIViewController, Themeable {
     typealias Theme = ViewControllerTheme
 
-    lazy var titleLabel: NRLabel = NRLabel(with: viewControllerTitle)
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = viewControllerTitle
+        return label
+    }()
+
     var viewControllerTitle: String = ""
 
     override func viewDidLoad() {

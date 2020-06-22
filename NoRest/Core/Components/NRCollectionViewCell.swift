@@ -6,15 +6,22 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRCollectionViewCell: UICollectionViewCell {
+class NRCollectionViewCell: UICollectionViewCell, Themeable {
+    typealias Theme = CollectionViewCellTheme
+
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
-        backgroundColor = NRStyle.themeColor
+        self.observe(theme: \ApplicationTheme.native.collectionViewCellTheme)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func apply(theme: Theme) {
+        backgroundColor = theme.backgroundColor
     }
 }

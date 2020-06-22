@@ -9,18 +9,9 @@
 import UIKit
 
 class TutorialCollectionViewCell: NRCollectionViewCell {
-    private lazy var titleLabel: NRLabel = {
-        let label = NRLabel()
-        return label
-    }()
-
+    private lazy var titleLabel: UILabel = .init()
     private lazy var tutorialImageView: NRImageView = .init()
-
-    private lazy var textLabel: NRLabel = {
-        let label = NRLabel()
-        label.numberOfLines = 0
-        return label
-    }()
+    private lazy var textLabel: UILabel = .init()
 
     override func prepareForReuse() {
         super.prepareForReuse()

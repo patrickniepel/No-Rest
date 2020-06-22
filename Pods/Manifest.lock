@@ -7,12 +7,14 @@ PODS:
   - RealmSwift (5.0.3):
     - Realm (= 5.0.3)
   - ReSwift (5.0.0)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Gestalt (~> 2.0.0)
   - PNCommons (~> 1.1.1)
   - RealmSwift
   - ReSwift
+  - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -20,6 +22,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - ReSwift
+    - SnapKit
   https://github.com/patrickniepel/PNCommonsSpecs:
     - PNCommons
 
@@ -29,7 +32,8 @@ SPEC CHECKSUMS:
   Realm: bfca1699b61b0b17c3a69ae0e648314eae91fbdb
   RealmSwift: 493c9f089cd3893b3959007973c0e4f640906ba0
   ReSwift: 628f1a9b3ee52e3b3ca2a644435472fd77afafe1
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 13a28779d88b5d013b8253cdea681716a30c4623
+PODFILE CHECKSUM: 184924ab34e11500ed27261c71ff8fc57f1300fc
 
 COCOAPODS: 1.9.1

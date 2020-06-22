@@ -24,14 +24,6 @@ struct StaticFontPalette {
         }
     }
 
-    static let fontSizeTiny: CGFloat = 10
-    static let fontSizeVerySmall: CGFloat = 12
-    static let fontSizeSmall: CGFloat = 14
-    static let fontSizeRegular: CGFloat = 18
-    static let fontSizeMedium: CGFloat = 20
-    static let fontSizeLarge: CGFloat = 24
-    static let fontSizeVeryLarge: CGFloat = 30
-
     func viewControllerTitle(with weight: Weight = .bold) -> UIFont {
         UIFont(name: weight.fontName, size: 30) ?? .systemFont(ofSize: 30, weight: .bold)
     }

@@ -13,10 +13,16 @@ struct TableViewTheme: Theme {
     let backgroundColor: UIColor
     let separatorColor: UIColor
     let tintColor: UIColor
+    let warningColor: UIColor
+
+    let binIcon: UIImage
 
     init(palette: Palette) {
         backgroundColor = palette.colors.dynamic.theme
         separatorColor = palette.colors.static.secondaryText
         tintColor = palette.colors.static.interaction
+        warningColor = palette.colors.static.warning
+
+        binIcon = palette.assets.basic.binIcon.dye(.white)
     }
 }

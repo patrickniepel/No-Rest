@@ -9,11 +9,10 @@
 import UIKit
 
 class IconSelectionView: UIView {
-    private lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
+    private lazy var collectionView: NRCollectionView = {
+        let cv = NRCollectionView(scrollDirection: .vertical)
         cv.showsHorizontalScrollIndicator = false
         cv.showsVerticalScrollIndicator = true
-        cv.backgroundColor = NRStyle.themeColor
         cv.register(IconSelectionCollectionViewCell.self, forCellWithReuseIdentifier: IconSelectionCollectionViewCell.reuseIdentifier)
 
         if let layout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
