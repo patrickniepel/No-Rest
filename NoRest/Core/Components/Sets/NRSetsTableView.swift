@@ -24,10 +24,10 @@ class NRSetsTableView: UITableView {
     }
 
     func setupDesign() {
-        separatorColor = NRStyle.complementaryColor
+//        separatorColor = NRStyle.complementaryColor
         separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         layer.cornerRadius = 15
         layer.borderWidth = 1
-        layer.borderColor = NRStyle.complementaryColor.cgColor
+//        layer.borderColor = NRStyle.complementaryColor.cgColor
     }
 }

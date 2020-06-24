@@ -36,24 +36,32 @@ struct NativeTheme: Theme {
     let collectionViewCellTheme: CollectionViewCellTheme
     let searchBarTheme: SearchBarTheme
     let pageControlTheme: PageControlTheme
+    let buttonTheme: ButtonTheme
+    let pickerViewTheme: PickerViewTheme
 
     init(palette: Palette) {
-        self.viewControllerTheme = .init(palette: palette)
-        self.tabBarTheme = .init(palette: palette)
-        self.navigationBarTheme = .init(palette: palette)
-        self.tableViewTheme = .init(palette: palette)
-        self.tableViewCellTheme = .init(palette: palette)
-        self.collectionViewTheme = .init(palette: palette)
-        self.collectionViewCellTheme = .init(palette: palette)
-        self.searchBarTheme = .init(palette: palette)
-        self.pageControlTheme = .init(palette: palette)
+        viewControllerTheme = .init(palette: palette)
+        tabBarTheme = .init(palette: palette)
+        navigationBarTheme = .init(palette: palette)
+        tableViewTheme = .init(palette: palette)
+        tableViewCellTheme = .init(palette: palette)
+        collectionViewTheme = .init(palette: palette)
+        collectionViewCellTheme = .init(palette: palette)
+        searchBarTheme = .init(palette: palette)
+        pageControlTheme = .init(palette: palette)
+        buttonTheme = .init(palette: palette)
+        pickerViewTheme = .init(palette: palette)
     }
 }
 
 struct CustomTheme: Theme {
     let workoutTableViewCellTheme: WorkoutTableViewCellTheme
+    let timerViewTheme: TimerViewTheme
+    let tagViewTheme: TagViewTheme
 
     init(palette: Palette) {
-        self.workoutTableViewCellTheme = WorkoutTableViewCellTheme()
+        workoutTableViewCellTheme = .init(palette: palette)
+        timerViewTheme = .init(palette: palette)
+        tagViewTheme = .init(palette: palette)
     }
 }

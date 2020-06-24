@@ -6,15 +6,20 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRModalViewController: UIViewController {
-    lazy var titleLabel: NRLabel = NRLabel(with: "", size: NRStyle.fontSizeViewControllerTitle)
+class NRModalViewController: UIViewController, Themeable {
+    typealias Theme = ViewControllerTheme
+
+    lazy var titleLabel: UILabel = .init()
 
     var onDismiss: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.observe(theme: \ApplicationTheme.native.viewControllerTheme)
 
         setupNavigationBar()
     }
@@ -30,5 +35,12 @@ class NRModalViewController: UIViewController {
     @objc
     func closeButtonPressed() {
         onDismiss?()
+    }
+
+    func apply(theme: Theme) {
+        view.backgroundColor = theme.backgroundColor
+
+        titleLabel.font = theme.titleFont
+        titleLabel.textColor = theme.titleColor
     }
 }

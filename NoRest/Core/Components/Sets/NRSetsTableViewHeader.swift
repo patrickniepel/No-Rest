@@ -19,19 +19,19 @@ class NRSetsTableViewHeader: UIView {
 
     private let repsLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NRStyle.boldFont, size: 13)
+//        label.font = UIFont(name: NRStyle.boldFont, size: 13)
         label.text = ""
         label.textAlignment = .center
-        label.textColor = NRStyle.primaryTextColor
+//        label.textColor = NRStyle.primaryTextColor
         return label
     }()
 
     private let weightLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: NRStyle.boldFont, size: 13)
+//        label.font = UIFont(name: NRStyle.boldFont, size: 13)
         label.text = ""
         label.textAlignment = .center
-        label.textColor = NRStyle.primaryTextColor
+//        label.textColor = NRStyle.primaryTextColor
         return label
     }()
 
@@ -45,6 +45,6 @@ class NRSetsTableViewHeader: UIView {
         addSubview(stackView)
         stackView.addArrangedSubviews(repsLabel, weightLabel)
         stackView.fillSuperview()
-        backgroundColor = NRStyle.themeColor
+//        backgroundColor = NRStyle.themeColor
     }
 }

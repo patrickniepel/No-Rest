@@ -12,8 +12,8 @@ extension CurrentWorkoutViewController: StoreSubscriber {
     func subscribe() {}
 
     func newState(state: CurrentWorkoutState) {
-        workout = state.workout
-        setup()
+//        workout = state.workout
+//        setup()
     }
 
     func unsubscribe() {

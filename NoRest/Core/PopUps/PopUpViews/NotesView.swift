@@ -9,11 +9,11 @@
 import UIKit
 
 class NotesView: UIView {
-    private let notesTextView: UITextView = {
+    private lazy var notesTextView: UITextView = {
         let textView = UITextView()
         textView.autocapitalizationType = .sentences
         textView.autocorrectionType = .default
-        textView.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
+//        textView.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeRegular)
         textView.isEditable = true
         textView.keyboardAppearance = .default
         textView.keyboardType = .default

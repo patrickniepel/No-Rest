@@ -6,16 +6,15 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRTagView: UIView {
+class NRTagView: UIView, Themeable {
+    typealias Theme = TagViewTheme
+
     private lazy var iconImageView: NRImageView = .init()
 
-    private lazy var textLabel: NRLabelDark = {
-        let label = NRLabelDark(with: "", size: NRStyle.fontSizeVerySmall)
-        label.textColor = NRStyle.themeColor
-        return label
-    }()
+    private lazy var textLabel: UILabel = .init()
 
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
@@ -27,15 +26,16 @@ class NRTagView: UIView {
     }
 
     private func setup() {
+        self.observe(theme: \ApplicationTheme.custom.tagViewTheme)
+
         layer.cornerRadius = 5
-        backgroundColor = NRStyle.complementaryColor
     }
 
     func injectContent(icon: UIImage?, text: String = "") {
         iconImageView.removeFromSuperview()
         textLabel.removeFromSuperview()
 
-        iconImageView.image = icon?.dye(NRStyle.themeColor)
+        iconImageView.image = icon
         textLabel.text = text
 
         let padding = NRStyle.verticalPadding / 4
@@ -60,5 +60,11 @@ class NRTagView: UIView {
                              centerY: iconImageView.centerYAnchor,
                              padding: .init(top: 0, left: padding, bottom: 0, right: padding))
         }
+    }
+
+    func apply(theme: Theme) {
+        backgroundColor = theme.accentuationColor
+        textLabel.textColor = theme.textColor
+        textLabel.font = theme.textFont
     }
 }

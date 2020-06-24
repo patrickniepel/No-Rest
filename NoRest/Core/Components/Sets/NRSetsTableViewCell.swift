@@ -12,9 +12,9 @@ class NRSetsTableViewCell: UITableViewCell {
 
     private let repsLabel: UILabel = {
         let label = UILabel()
-        label.textColor = NRStyle.primaryTextColor
+//        label.textColor = NRStyle.primaryTextColor
         label.textAlignment = .center
-        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
+//        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
         return label
     }()
 
@@ -27,9 +27,9 @@ class NRSetsTableViewCell: UITableViewCell {
 
     private let weightLabel: UILabel = {
         let label = UILabel()
-        label.textColor = NRStyle.primaryTextColor
+//        label.textColor = NRStyle.primaryTextColor
         label.textAlignment = .center
-        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
+//        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
         return label
     }()
 
@@ -40,7 +40,7 @@ class NRSetsTableViewCell: UITableViewCell {
     }
 
     func setup(with set: Set) {
-        backgroundColor = NRStyle.themeColor
+//        backgroundColor = NRStyle.themeColor
         repsLabel.text = "\(set.reps)"
         weightLabel.text = "\(set.weight) \(SettingsController.currentUnit.rawValue)"
         setupLayout()

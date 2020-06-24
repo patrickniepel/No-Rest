@@ -6,15 +6,16 @@
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
 // swiftlint:disable force_unwrapping
-class TimerView: UIView {
-    private let timerLabel: UILabel = {
+class TimerView: UIView, Themeable {
+    typealias Theme = TimerViewTheme
+
+    private lazy var timerLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = NRStyle.primaryTextColor
-        label.font = UIFont(name: NRStyle.boldFont, size: 50)
         return label
     }()
 
@@ -29,6 +30,7 @@ class TimerView: UIView {
     private var didSetupLayout = false
     private var shapeLayer: CAShapeLayer?
     private var pulsatingLayer: CAShapeLayer?
+    private var trackLayer: CAShapeLayer?
     private let lineWidth: CGFloat = 20
     private let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
     private let timerBackgroundColor = UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)
@@ -49,6 +51,7 @@ class TimerView: UIView {
     }
 
     private func setup() {
+        self.observe(theme: \ApplicationTheme.custom.timerViewTheme)
         timerCounter = seconds
         animationCounter = seconds * 100
         layoutIfNeeded()
@@ -115,6 +118,16 @@ class TimerView: UIView {
         animateCircle()
     }
 
+    func apply(theme: Theme) {
+        timerLabel.textColor = theme.textColor
+        timerLabel.font = theme.timerFont
+
+        pulsatingLayer?.fillColor = theme.pulsatingColor.cgColor
+        shapeLayer?.strokeColor = theme.themeColor.cgColor
+        trackLayer?.strokeColor = theme.themeColor.cgColor
+        trackLayer?.fillColor = theme.accentuationColor.cgColor
+    }
+
     deinit {
         stopTimers()
     }
@@ -141,17 +154,17 @@ private extension TimerView {
     }
 
     func addTrackLayer() {
-        let trackLayer = createLayer(strokeColor: NRStyle.themeColor, fillColor: NRStyle.complementaryColor)
-        layer.addSublayer(trackLayer)
+        trackLayer = createLayer(strokeColor: .clear, fillColor: .clear)
+        layer.addSublayer(trackLayer!)
     }
 
     func addPulsatingLayer() {
-        pulsatingLayer = createLayer(strokeColor: .clear, fillColor: NRStyle.pulsatingColor)
+        pulsatingLayer = createLayer(strokeColor: .clear, fillColor: .clear)
         layer.addSublayer(pulsatingLayer!)
     }
 
     func addStrokeLayer() {
-        shapeLayer = createLayer(strokeColor: NRStyle.themeColor, fillColor: .clear)
+        shapeLayer = createLayer(strokeColor: .clear, fillColor: .clear)
         shapeLayer?.lineCap = .round
         shapeLayer?.strokeEnd = 0
 

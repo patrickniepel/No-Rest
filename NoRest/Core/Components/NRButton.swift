@@ -6,9 +6,12 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRButton: UIButton {
+class NRButton: UIButton, Themeable {
+    typealias Theme = ButtonTheme
+
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
         setup()
@@ -19,10 +22,13 @@ class NRButton: UIButton {
     }
 
     private func setup() {
-        setTitleColor(NRStyle.offWhiteColor, for: .normal)
-        backgroundColor = NRStyle.interactionColor
-
+        self.observe(theme: \ApplicationTheme.native.buttonTheme)
         layer.cornerRadius = 10
         applyShadow()
+    }
+
+    func apply(theme: Theme) {
+        setTitleColor(theme.titleColor, for: .normal)
+        backgroundColor = theme.backgroundColor
     }
 }

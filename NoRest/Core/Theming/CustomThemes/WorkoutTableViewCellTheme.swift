@@ -25,8 +25,8 @@ struct WorkoutTableViewCellTheme: Theme {
 
         textFont = palette.fonts.static.large()
 
-        calendarIcon = palette.assets.basic.calendarIcon
-        exercisesIcon = palette.assets.basic.exercisesIcon
+        calendarIcon = palette.assets.basic.calendarIcon.dye(palette.colors.dynamic.theme)
+        exercisesIcon = palette.assets.basic.exercisesIcon.dye(palette.colors.dynamic.theme)
         startIcon = palette.assets.basic.startIcon.dye(.white)
     }
 }

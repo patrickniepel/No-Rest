@@ -24,6 +24,10 @@ struct StaticFontPalette {
         }
     }
 
+    func timer(with weight: Weight = .bold) -> UIFont {
+        UIFont(name: weight.fontName, size: 50) ?? .systemFont(ofSize: 50, weight: .bold)
+    }
+
     func viewControllerTitle(with weight: Weight = .bold) -> UIFont {
         UIFont(name: weight.fontName, size: 30) ?? .systemFont(ofSize: 30, weight: .bold)
     }
