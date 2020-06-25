@@ -6,15 +6,13 @@
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
 // swiftlint:disable line_length
 class InfoViewController: NRModalViewController {
     private lazy var infoTextView: UITextView = {
         let tv = UITextView()
-        tv.backgroundColor = NRStyle.themeColor
-        tv.textColor = NRStyle.primaryTextColor
-        tv.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeSmall)
         tv.isUserInteractionEnabled = true
         tv.isEditable = false
         tv.isSelectable = false
@@ -29,7 +27,6 @@ class InfoViewController: NRModalViewController {
     }
 
     private func setupScreen() {
-        view.backgroundColor = NRStyle.themeColor
         view.addSubview(infoTextView)
         infoTextView.anchor(top: view.topAnchor,
                             leading: view.leadingAnchor,
@@ -45,6 +42,18 @@ class InfoViewController: NRModalViewController {
 
     override func closeButtonPressed() {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    override func apply(theme: ViewControllerTheme) {
+        super.apply(theme: theme)
+
+        view.backgroundColor = theme.backgroundColor
+
+        guard let infoViewTheme = (ThemeManager.default.theme as? ApplicationTheme)?.custom.infoViewTheme else { return }
+
+        infoTextView.backgroundColor = infoViewTheme.backgroundColor
+        infoTextView.textColor = infoViewTheme.textColor
+        infoTextView.font = infoViewTheme.textFont
     }
 
     deinit {

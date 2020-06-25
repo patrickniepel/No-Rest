@@ -6,9 +6,12 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class WorkoutSessionView: UIView {
+class WorkoutSessionView: UIView, Themeable {
+    typealias Theme = WorkoutSessionViewTheme
+
     private lazy var collectionView: NRCollectionView = .init(scrollDirection: .horizontal)
 
     private lazy var pageControl: NRPageControl = {
@@ -19,8 +22,6 @@ class WorkoutSessionView: UIView {
 
     private lazy var notesButton: UIButton = {
         let button = UIButton()
-        button.setImage(NRStyle.notesIcon?.dye(NRStyle.offWhiteColor), for: .normal)
-        button.backgroundColor = NRStyle.interactionColor
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
         button.applyShadow()
         button.layer.cornerRadius = 10
@@ -29,8 +30,6 @@ class WorkoutSessionView: UIView {
 
     private lazy var timerButton: UIButton = {
         let button = UIButton()
-        button.setImage(NRStyle.timerIcon?.dye(NRStyle.offWhiteColor), for: .normal)
-        button.backgroundColor = NRStyle.interactionColor
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
         button.applyShadow()
         button.layer.cornerRadius = 10
@@ -51,6 +50,8 @@ class WorkoutSessionView: UIView {
     }
 
     private func setup() {
+        self.observe(theme: \ApplicationTheme.custom.workoutSessionViewTheme)
+
         setupView()
         setupCollectionView()
     }
@@ -84,6 +85,12 @@ class WorkoutSessionView: UIView {
     private func updatePage(page: Int) {
         pageControl.currentPage = page
         currentPage = page
+    }
+
+    func apply(theme: Theme) {
+        [notesButton, timerButton].forEach { $0.backgroundColor = theme.interactionColor }
+        notesButton.setImage(theme.notesIcon, for: .normal)
+        timerButton.setImage(theme.timerIcon, for: .normal)
     }
 }
 

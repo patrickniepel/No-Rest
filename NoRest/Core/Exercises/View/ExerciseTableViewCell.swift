@@ -6,12 +6,13 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
 class ExerciseTableViewCell: NRTableViewCell {
     private lazy var exerciseImageView: NRExerciseImageView = .init()
 
-    private lazy var nameLabel: NRLabel = .init()
+    private lazy var nameLabel: UILabel = .init()
     private lazy var timerTagView: NRTagView = .init()
     private lazy var notesAvailableTagView: NRTagView = .init()
 
@@ -25,17 +26,19 @@ class ExerciseTableViewCell: NRTableViewCell {
         exerciseImageView.image = exercise.icon
         nameLabel.text = exercise.name
 
-        timerTagView.injectContent(icon: NRStyle.timerIcon, text: exercise.descriptiveRestTimer)
-
-        if !exercise.notes.isBlank {
-            notesAvailableTagView.injectContent(icon: NRStyle.notesIcon)
-        }
-
-        notesAvailableTagView.isHidden = exercise.notes.isBlank
-
         addCustomDisclosureIndicator()
 
         setupView()
+
+        guard let exerciseTableViewCellTheme = (ThemeManager.default.theme as? ApplicationTheme)?.custom.exerciseTableViewCellTheme else { return }
+
+        timerTagView.injectContent(icon: exerciseTableViewCellTheme.timerIcon, text: exercise.descriptiveRestTimer)
+
+        notesAvailableTagView.isHidden = exercise.notes.isBlank
+
+        if !exercise.notes.isBlank {
+            notesAvailableTagView.injectContent(icon: exerciseTableViewCellTheme.notesIcon)
+        }
     }
 
     private func setupView() {
@@ -63,5 +66,12 @@ class ExerciseTableViewCell: NRTableViewCell {
                                      leading: timerTagView.trailingAnchor,
                                      bottom: contentView.bottomAnchor,
                                      padding: .init(top: padding / 2, left: padding, bottom: padding, right: 0))
+    }
+
+    override func apply(theme: TableViewCellTheme) {
+        super.apply(theme: theme)
+
+        nameLabel.textColor = theme.textColor
+        nameLabel.font = theme.textFont
     }
 }

@@ -6,9 +6,12 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRTextField: UITextField {
+class NRTextField: UITextField, Themeable {
+    typealias Theme = TextFieldTheme
+
     override init(frame: CGRect = CGRect()) {
         super.init(frame: frame)
         setup()
@@ -19,12 +22,17 @@ class NRTextField: UITextField {
     }
 
     private func setup() {
-        backgroundColor = NRStyle.primaryTextColor
-        textColor = NRStyle.themeColor
-        tintColor = NRStyle.themeColor
+        self.observe(theme: \ApplicationTheme.native.textFieldTheme)
+
         borderStyle = .roundedRect
         keyboardAppearance = .dark
-        font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeRegular)
         applyShadow()
+    }
+
+    func apply(theme: Theme) {
+        backgroundColor = theme.backgroundColor
+        textColor = theme.themeColor
+        tintColor = theme.themeColor
+        font = theme.textFont
     }
 }

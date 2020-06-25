@@ -14,7 +14,7 @@ struct ButtonTheme: Theme {
     let backgroundColor: UIColor
 
     init(palette: Palette) {
-        let titleColor = palette.colors.static.offWhite
-        let backgroundColor = palette.colors.static.interaction
+        titleColor = palette.colors.static.offWhite
+        backgroundColor = palette.colors.static.interaction
     }
 }

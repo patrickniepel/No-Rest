@@ -6,9 +6,12 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRExerciseImageView: UIView {
+class NRExerciseImageView: UIView, Themeable {
+    typealias Theme = ExerciseImageViewTheme
+
     var image: UIImage? {
         get {
             exerciseImageView.image
@@ -30,11 +33,16 @@ class NRExerciseImageView: UIView {
     }
 
     private func setup() {
+        self.observe(theme: \ApplicationTheme.custom.exerciseImageViewTheme)
+
         layer.cornerRadius = 5
-        backgroundColor = NRStyle.offWhiteColor
 
         addSubview(exerciseImageView)
         let padding = NRStyle.verticalPadding / 2
         exerciseImageView.fillSuperview(padding: .init(top: padding, left: padding, bottom: padding, right: padding))
+    }
+
+    func apply(theme: Theme) {
+        backgroundColor = theme.backgroundColor
     }
 }

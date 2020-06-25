@@ -6,10 +6,14 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class SettingsView: UIView {
+class SettingsView: UIView, Themeable {
+    typealias Theme = SettingsViewTheme
+
     private lazy var tableView: NRTableView = .init()
+
     let settingsCtrl: SettingsController
 
     override init(frame: CGRect = CGRect()) {
@@ -23,6 +27,8 @@ class SettingsView: UIView {
     }
 
     private func setupTableView() {
+        self.observe(theme: \ApplicationTheme.custom.settingsViewTheme)
+
         tableView.register(SettingsUnitTableViewCell.self, forCellReuseIdentifier: SettingsUnitTableViewCell.reuseIdentifier)
         tableView.register(SettingsTimerTableViewCell.self, forCellReuseIdentifier: SettingsTimerTableViewCell.reuseIdentifier)
         tableView.register(NRDefaultTableViewCell.self, forCellReuseIdentifier: NRDefaultTableViewCell.reuseIdentifier)
@@ -32,6 +38,10 @@ class SettingsView: UIView {
 
         addSubview(tableView)
         tableView.fillSuperview()
+    }
+
+    func apply(theme: Theme) {
+        tableView.reloadData()
     }
 }
 
@@ -87,10 +97,11 @@ extension SettingsView: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        if let footerView = view as? UITableViewHeaderFooterView {
-            footerView.textLabel?.textColor = NRStyle.primaryTextColor
-            footerView.textLabel?.font = UIFont(name: NRStyle.regularFont, size: NRStyle.fontSizeSmall)
-            footerView.contentView.backgroundColor = NRStyle.themeColor
+        if let footerView = view as? UITableViewHeaderFooterView,
+            let settingsViewTheme = (ThemeManager.default.theme as? ApplicationTheme)?.custom.settingsViewTheme {
+            footerView.textLabel?.textColor = settingsViewTheme.textColor
+            footerView.textLabel?.font = settingsViewTheme.textFont
+            footerView.contentView.backgroundColor = settingsViewTheme.backgroundColor
         }
     }
 }

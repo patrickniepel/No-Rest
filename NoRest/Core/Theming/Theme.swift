@@ -38,6 +38,9 @@ struct NativeTheme: Theme {
     let pageControlTheme: PageControlTheme
     let buttonTheme: ButtonTheme
     let pickerViewTheme: PickerViewTheme
+    let textViewTheme: TextViewTheme
+    let textFieldTheme: TextFieldTheme
+    let tableViewSectionHeaderViewTheme: TableViewSectionHeaderViewTheme
 
     init(palette: Palette) {
         viewControllerTheme = .init(palette: palette)
@@ -51,17 +54,36 @@ struct NativeTheme: Theme {
         pageControlTheme = .init(palette: palette)
         buttonTheme = .init(palette: palette)
         pickerViewTheme = .init(palette: palette)
+        textViewTheme = .init(palette: palette)
+        textFieldTheme = .init(palette: palette)
+        tableViewSectionHeaderViewTheme = .init(palette: palette)
     }
 }
 
 struct CustomTheme: Theme {
     let workoutTableViewCellTheme: WorkoutTableViewCellTheme
+    let exerciseTableViewCellTheme: ExerciseTableViewCellTheme
     let timerViewTheme: TimerViewTheme
     let tagViewTheme: TagViewTheme
+    let emptyViewTheme: EmptyViewTheme
+    let settingsViewTheme: SettingsViewTheme
+    let infoViewTheme: InfoViewTheme
+    let exerciseImageViewTheme: ExerciseImageViewTheme
+    let workoutSessionViewTheme: WorkoutSessionViewTheme
+    let workoutTheme: WorkoutTheme
+    let editExerciseTheme: EditExerciseTheme
 
     init(palette: Palette) {
         workoutTableViewCellTheme = .init(palette: palette)
+        exerciseTableViewCellTheme = .init(palette: palette)
         timerViewTheme = .init(palette: palette)
         tagViewTheme = .init(palette: palette)
+        emptyViewTheme = .init(palette: palette)
+        settingsViewTheme = .init(palette: palette)
+        infoViewTheme = .init(palette: palette)
+        exerciseImageViewTheme = .init(palette: palette)
+        workoutSessionViewTheme = .init(palette: palette)
+        workoutTheme = .init(palette: palette)
+        editExerciseTheme = .init(palette: palette)
     }
 }

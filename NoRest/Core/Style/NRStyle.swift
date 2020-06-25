@@ -19,8 +19,7 @@ struct NRStyle {
     static let exercisesIcon = buildImage(for: "exercises")
     static let statisticsIcon = buildImage(for: "statistics")
     static let settingsIcon = buildImage(for: "settings")
-    static let disclosureIcon = buildImage(for: "next")
-    static let timerIcon = buildImage(for: "timer")
+    static let questionMarkIcon = buildImage(for: "question_mark")
 
     // Custom Icons
     static let absIcon = buildImage(for: "abs")

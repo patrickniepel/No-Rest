@@ -6,6 +6,7 @@
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import PNCommons
 import UIKit
 
@@ -18,26 +19,19 @@ class EditExerciseViewController: NRViewController {
         return scrollView
     }()
 
-    private lazy var contentView: UIView = {
-        let view = UIView()
-        view.backgroundColor = NRStyle.themeColor
-        return view
-    }()
+    private lazy var contentView: UIView = .init()
 
     private lazy var exerciseImageView: NRExerciseImageView = .init()
-    private lazy var selectionImageView: NRImageView = {
-        let imageView = NRImageView()
-        imageView.image = NRStyle.selectionIcon
-        return imageView
+    private lazy var selectionImageView: NRImageView = .init()
+
+    private lazy var separator: UIView = .init()
+
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "exercise.name".localized
+        return label
     }()
 
-    private lazy var separator: UIView = {
-        let view = UIView()
-        view.backgroundColor = NRStyle.complementaryColor
-        return view
-    }()
-
-    private lazy var nameLabel: NRLabel = NRLabel(with: "exercise.name".localized, size: NRStyle.fontSizeVerySmall)
     private lazy var nameTextfield: NRTextField = {
         let textField = NRTextField()
         textField.addTarget(self, action: #selector(handleNameChange), for: .editingChanged)
@@ -47,14 +41,19 @@ class EditExerciseViewController: NRViewController {
     }()
 
     private lazy var typePicker: NRPickerView = .init()
-    private lazy var typeLabel: NRLabel = NRLabel(with: "exercise.type".localized, size: NRStyle.fontSizeVerySmall)
+    private lazy var typeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "exercise.type".localized
+        return label
+    }()
+
     private lazy var typeTextfield: NRTextField = {
         let textField = NRTextField()
         textField.addTarget(self, action: #selector(handleTypeChange), for: .editingDidBegin)
         return textField
     }()
 
-    private lazy var timerLabel: NRLabel = NRLabel(with: "", size: NRStyle.fontSizeVerySmall)
+    private lazy var timerLabel: UILabel = .init()
     private lazy var timerTextfield: NRTextField = {
         let textField = NRTextField()
         textField.delegate = self
@@ -62,7 +61,12 @@ class EditExerciseViewController: NRViewController {
         return textField
     }()
 
-    private lazy var notesLabel: NRLabel = NRLabel(with: "exercise.notes".localized, size: NRStyle.fontSizeVerySmall)
+    private lazy var notesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "exercise.notes".localized
+        return label
+    }()
+
     private lazy var notesTextView: NRTextView = {
         let textView = NRTextView()
         textView.delegate = self
@@ -184,6 +188,22 @@ class EditExerciseViewController: NRViewController {
 
         ExercisesController.addExercise(exercise)
         navigationController?.popViewController(animated: true)
+    }
+
+    override func apply(theme: ViewControllerTheme) {
+        super.apply(theme: theme)
+
+        guard let editExerciseTheme = (ThemeManager.default.theme as? ApplicationTheme)?.custom.editExerciseTheme else { return }
+
+        contentView.backgroundColor = editExerciseTheme.backgroundColor
+        separator.backgroundColor = editExerciseTheme.accentuationColor
+
+        selectionImageView.image = editExerciseTheme.selectionIcon
+
+        [nameLabel, typeLabel, timerLabel, notesLabel].forEach {
+            $0.textColor = editExerciseTheme.textColor
+            $0.font = editExerciseTheme.textFont
+        }
     }
 
     deinit {

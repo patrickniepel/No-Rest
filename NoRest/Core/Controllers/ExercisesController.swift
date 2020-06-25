@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Gestalt
 
 class ExercisesController {
     private var exercises: [String: [Exercise]] = [:]
@@ -47,6 +48,7 @@ class ExercisesController {
         let name = "exercise.new".localized
         let id = UserDefaultsController.currentExerciseId
         UserDefaultsController.increaseExerciseId()
+
         return Exercise(id: id, name: name, type: .chest, timer: 90, icon: NRStyle.questionMarkIcon)
     }
 

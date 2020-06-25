@@ -18,8 +18,8 @@ class WorkoutSessionCollectionViewCell: NRCollectionViewCell {
 
     private lazy var scrollContentView: UIView = .init()
 
-    private lazy var nameLabel: NRLabel = {
-        let label = NRLabel()
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel()
         label.textAlignment = .center
         return label
     }()
@@ -56,5 +56,12 @@ class WorkoutSessionCollectionViewCell: NRCollectionViewCell {
 
     private func setupContent() {
         nameLabel.text = exercise?.name
+    }
+
+    override func apply(theme: CollectionViewCellTheme) {
+        super.apply(theme: theme)
+
+        nameLabel.textColor = theme.textColor
+        nameLabel.font = theme.textFont
     }
 }

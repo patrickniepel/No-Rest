@@ -25,8 +25,6 @@ class NRTableView: UITableView, Themeable {
         self.observe(theme: \ApplicationTheme.native.tableViewTheme)
 
         separatorInset = UIEdgeInsets(top: 0, left: NRStyle.horizontalPadding, bottom: 0, right: NRStyle.horizontalPadding)
-        separatorColor = NRStyle.secondaryTextColor
-        backgroundColor = NRStyle.themeColor
     }
 
     func apply(theme: Theme) {

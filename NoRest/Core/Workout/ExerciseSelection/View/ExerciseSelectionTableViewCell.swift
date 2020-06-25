@@ -10,7 +10,7 @@ import UIKit
 
 class ExerciseSelectionTableViewCell: NRTableViewCell {
     private lazy var exerciseImageView: NRExerciseImageView = .init()
-    private lazy var nameLabel: NRLabel = .init()
+    private lazy var nameLabel: UILabel = .init()
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -39,5 +39,12 @@ class ExerciseSelectionTableViewCell: NRTableViewCell {
                          trailing: contentView.trailingAnchor,
                          centerY: contentView.centerYAnchor,
                          padding: .init(top: 0, left: NRStyle.verticalPadding / 2, bottom: 0, right: NRStyle.horizontalPadding))
+    }
+
+    override func apply(theme: TableViewCellTheme) {
+        super.apply(theme: theme)
+
+        nameLabel.textColor = theme.textColor
+        nameLabel.font = theme.textFont
     }
 }

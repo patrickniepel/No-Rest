@@ -159,6 +159,13 @@
 		A3ABBC2E249F9E7200EBF790 /* TableViewCellTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ABBC2D249F9E7200EBF790 /* TableViewCellTheme.swift */; };
 		A3AE4A1F21F74D61007A97AB /* RouteDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */; };
 		A3AE4A2421F74E2A007A97AB /* TabBarDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */; };
+		A3C97B7F24A5242200930A53 /* TextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C97B7E24A5242200930A53 /* TextFieldTheme.swift */; };
+		A3C97B8124A525EA00930A53 /* InfoViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C97B8024A525EA00930A53 /* InfoViewTheme.swift */; };
+		A3C97B8324A526FE00930A53 /* ExerciseImageViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C97B8224A526FE00930A53 /* ExerciseImageViewTheme.swift */; };
+		A3C97B8524A52B1B00930A53 /* ExerciseTableViewCellTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C97B8424A52B1B00930A53 /* ExerciseTableViewCellTheme.swift */; };
+		A3C97B8724A52CD400930A53 /* WorkoutSessionViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C97B8624A52CD400930A53 /* WorkoutSessionViewTheme.swift */; };
+		A3C97B8924A52E5800930A53 /* WorkoutTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C97B8824A52E5800930A53 /* WorkoutTheme.swift */; };
+		A3C97B8B24A5342400930A53 /* EditExerciseTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C97B8A24A5342400930A53 /* EditExerciseTheme.swift */; };
 		A3C985692478003800EAB3AE /* Realm+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C985682478003800EAB3AE /* Realm+Extension.swift */; };
 		A3C9856B24780F7900EAB3AE /* WorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9856A24780F7900EAB3AE /* WorkoutHistory.swift */; };
 		A3C9856D24781AE300EAB3AE /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C9856C24781AE300EAB3AE /* ExerciseType.swift */; };
@@ -169,6 +176,10 @@
 		A3D9DEFA2201AABA00BCCAF4 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEF92201AABA00BCCAF4 /* Set.swift */; };
 		A3D9DEFE2201B00900BCCAF4 /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DEFD2201B00900BCCAF4 /* SoundController.swift */; };
 		A3D9DF022201B64D00BCCAF4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D9DF012201B64D00BCCAF4 /* SettingsViewController.swift */; };
+		A3DBA3DE24A51F2100C45B24 /* EmptyViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DBA3DD24A51F2100C45B24 /* EmptyViewTheme.swift */; };
+		A3DBA3E024A520AF00C45B24 /* TextViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DBA3DF24A520AF00C45B24 /* TextViewTheme.swift */; };
+		A3DBA3E224A5219900C45B24 /* TableViewSectionHeaderViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DBA3E124A5219900C45B24 /* TableViewSectionHeaderViewTheme.swift */; };
+		A3DBA3E424A522CE00C45B24 /* SettingsViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DBA3E324A522CE00C45B24 /* SettingsViewTheme.swift */; };
 		A3DFA66122084CC400E05DF4 /* NRDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */; };
 		A3E073191F90ED320099A7B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E073181F90ED320099A7B8 /* AppDelegate.swift */; };
 		A3E073201F90ED320099A7B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3E0731F1F90ED320099A7B8 /* Assets.xcassets */; };
@@ -342,6 +353,13 @@
 		A3ABBC2D249F9E7200EBF790 /* TableViewCellTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTheme.swift; sourceTree = "<group>"; };
 		A3AE4A1E21F74D61007A97AB /* RouteDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDestination.swift; sourceTree = "<group>"; };
 		A3AE4A2321F74E2A007A97AB /* TabBarDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDestination.swift; sourceTree = "<group>"; };
+		A3C97B7E24A5242200930A53 /* TextFieldTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTheme.swift; sourceTree = "<group>"; };
+		A3C97B8024A525EA00930A53 /* InfoViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewTheme.swift; sourceTree = "<group>"; };
+		A3C97B8224A526FE00930A53 /* ExerciseImageViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseImageViewTheme.swift; sourceTree = "<group>"; };
+		A3C97B8424A52B1B00930A53 /* ExerciseTableViewCellTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCellTheme.swift; sourceTree = "<group>"; };
+		A3C97B8624A52CD400930A53 /* WorkoutSessionViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewTheme.swift; sourceTree = "<group>"; };
+		A3C97B8824A52E5800930A53 /* WorkoutTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTheme.swift; sourceTree = "<group>"; };
+		A3C97B8A24A5342400930A53 /* EditExerciseTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExerciseTheme.swift; sourceTree = "<group>"; };
 		A3C985682478003800EAB3AE /* Realm+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extension.swift"; sourceTree = "<group>"; };
 		A3C9856A24780F7900EAB3AE /* WorkoutHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
 		A3C9856C24781AE300EAB3AE /* ExerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
@@ -352,6 +370,10 @@
 		A3D9DEF92201AABA00BCCAF4 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		A3D9DEFD2201B00900BCCAF4 /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 		A3D9DF012201B64D00BCCAF4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A3DBA3DD24A51F2100C45B24 /* EmptyViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewTheme.swift; sourceTree = "<group>"; };
+		A3DBA3DF24A520AF00C45B24 /* TextViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewTheme.swift; sourceTree = "<group>"; };
+		A3DBA3E124A5219900C45B24 /* TableViewSectionHeaderViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeaderViewTheme.swift; sourceTree = "<group>"; };
+		A3DBA3E324A522CE00C45B24 /* SettingsViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTheme.swift; sourceTree = "<group>"; };
 		A3DFA66022084CC400E05DF4 /* NRDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NRDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		A3E073151F90ED320099A7B8 /* NoRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E073181F90ED320099A7B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -749,6 +771,9 @@
 				A3ABBC25249F952700EBF790 /* TabBarTheme.swift */,
 				A3ABBC2B249F9CEE00EBF790 /* TableViewTheme.swift */,
 				A3ABBC2D249F9E7200EBF790 /* TableViewCellTheme.swift */,
+				A3DBA3E124A5219900C45B24 /* TableViewSectionHeaderViewTheme.swift */,
+				A3C97B7E24A5242200930A53 /* TextFieldTheme.swift */,
+				A3DBA3DF24A520AF00C45B24 /* TextViewTheme.swift */,
 				A3ABBC29249F9BA800EBF790 /* ViewControllerTheme.swift */,
 			);
 			path = NativeThemes;
@@ -964,9 +989,17 @@
 		A3ABBC06249F612600EBF790 /* CustomThemes */ = {
 			isa = PBXGroup;
 			children = (
-				A35FD88B24A3D82900EAC6C1 /* TimerViewTheme.swift */,
-				A306F0F324A1389900D1E864 /* WorkoutTableViewCellTheme.swift */,
+				A3C97B8A24A5342400930A53 /* EditExerciseTheme.swift */,
+				A3DBA3DD24A51F2100C45B24 /* EmptyViewTheme.swift */,
+				A3C97B8224A526FE00930A53 /* ExerciseImageViewTheme.swift */,
+				A3C97B8424A52B1B00930A53 /* ExerciseTableViewCellTheme.swift */,
+				A3C97B8024A525EA00930A53 /* InfoViewTheme.swift */,
+				A3DBA3E324A522CE00C45B24 /* SettingsViewTheme.swift */,
 				A3A7F50B24A3DEB50097DFE7 /* TagViewTheme.swift */,
+				A35FD88B24A3D82900EAC6C1 /* TimerViewTheme.swift */,
+				A3C97B8624A52CD400930A53 /* WorkoutSessionViewTheme.swift */,
+				A306F0F324A1389900D1E864 /* WorkoutTableViewCellTheme.swift */,
+				A3C97B8824A52E5800930A53 /* WorkoutTheme.swift */,
 			);
 			path = CustomThemes;
 			sourceTree = "<group>";
@@ -1243,9 +1276,11 @@
 				A3480A7222997171000AA3A8 /* PopUpState.swift in Sources */,
 				A31BFC9A21F66865003214C2 /* NavigationState.swift in Sources */,
 				A3476EB3229ACDAD00031FD9 /* CurrentWorkoutCollectionViewCellStoreSubscriber.swift in Sources */,
+				A3DBA3E224A5219900C45B24 /* TableViewSectionHeaderViewTheme.swift in Sources */,
 				A31B05E22477D74D00C24599 /* Database.swift in Sources */,
 				A38084A42479186A00C86F00 /* ShareObject.swift in Sources */,
 				A3AB10B5248CD55E00FA2CAF /* ExerciseSelectionViewController.swift in Sources */,
+				A3C97B8124A525EA00930A53 /* InfoViewTheme.swift in Sources */,
 				A3AB10A3248CD2DF00FA2CAF /* ExerciseSelectionController.swift in Sources */,
 				A3FDBF2B247AFEFD00CB8C30 /* IconSelectionSubscriber.swift in Sources */,
 				A306F0F424A1389900D1E864 /* WorkoutTableViewCellTheme.swift in Sources */,
@@ -1272,6 +1307,7 @@
 				A3780DBB247AF29D00EA4179 /* CustomIcons.swift in Sources */,
 				A349E38D229E796500E3C0DB /* SetsTableViewDataSource.swift in Sources */,
 				A3480A742299719C000AA3A8 /* PopUpReducer.swift in Sources */,
+				A3DBA3E424A522CE00C45B24 /* SettingsViewTheme.swift in Sources */,
 				A39BFDC7248D374000984FFC /* NRCollectionView.swift in Sources */,
 				A306F0F624A13CB800D1E864 /* SearchBarTheme.swift in Sources */,
 				A3ABBC2C249F9CEE00EBF790 /* TableViewTheme.swift in Sources */,
@@ -1286,6 +1322,7 @@
 				A31BFCA321F66C53003214C2 /* NRNavigationController.swift in Sources */,
 				A3951370248A41450033EF08 /* ExercisesView.swift in Sources */,
 				A38084A22479100B00C86F00 /* NRModalViewController.swift in Sources */,
+				A3C97B8724A52CD400930A53 /* WorkoutSessionViewTheme.swift in Sources */,
 				A3480A6E229970EB000AA3A8 /* PopUpViewController.swift in Sources */,
 				A38084A624791D4800C86F00 /* MailController.swift in Sources */,
 				A3476EB1229AC79600031FD9 /* NotesView.swift in Sources */,
@@ -1295,6 +1332,7 @@
 				A3C9856D24781AE300EAB3AE /* ExerciseType.swift in Sources */,
 				A3C9856F24782B3100EAB3AE /* NRViewController.swift in Sources */,
 				A3AB10B9248CD6CA00FA2CAF /* ExerciseSelectionState.swift in Sources */,
+				A3C97B7F24A5242200930A53 /* TextFieldTheme.swift in Sources */,
 				A3A09C1A1F9105FB00CD01AF /* SettingsController.swift in Sources */,
 				A396501B247ACA4A00049B57 /* IconSelectionAction.swift in Sources */,
 				A31BFC9C21F66883003214C2 /* RouteAction.swift in Sources */,
@@ -1370,17 +1408,23 @@
 				A3D9DF022201B64D00BCCAF4 /* SettingsViewController.swift in Sources */,
 				A33F855A220324D900E971E7 /* InfoViewController.swift in Sources */,
 				A32AFC5A247A798B0027092F /* NRExerciseImageView.swift in Sources */,
+				A3C97B8924A52E5800930A53 /* WorkoutTheme.swift in Sources */,
 				A308E26321F79AB9001D2FE8 /* UpdateTabBarPositionAction.swift in Sources */,
 				A35AA6B1221187D500A6CD10 /* StatisticsController.swift in Sources */,
 				A3476E9E229A745000031FD9 /* CurrentWorkoutViewController.swift in Sources */,
 				A38084AC247930A800C86F00 /* NRSearchBar.swift in Sources */,
+				A3C97B8524A52B1B00930A53 /* ExerciseTableViewCellTheme.swift in Sources */,
 				A3AB10AA248CD3C900FA2CAF /* WorkoutReducer.swift in Sources */,
 				A392B801220C5A510030FBD4 /* EditExerciseReducer.swift in Sources */,
+				A3C97B8324A526FE00930A53 /* ExerciseImageViewTheme.swift in Sources */,
+				A3DBA3DE24A51F2100C45B24 /* EmptyViewTheme.swift in Sources */,
 				A3ABBC2E249F9E7200EBF790 /* TableViewCellTheme.swift in Sources */,
 				A3FDE6FC221346F200D00814 /* String+Extension.swift in Sources */,
 				A3ABBC0F249F61A200EBF790 /* Palette.swift in Sources */,
 				A392B7FF220C59F50030FBD4 /* EditExerciseState.swift in Sources */,
 				A3ABBC24249F951D00EBF790 /* NavigationBarTheme.swift in Sources */,
+				A3DBA3E024A520AF00C45B24 /* TextViewTheme.swift in Sources */,
+				A3C97B8B24A5342400930A53 /* EditExerciseTheme.swift in Sources */,
 				A3476EA8229A845C00031FD9 /* CurrentWorkoutCollectionViewDataSource.swift in Sources */,
 				A3AB10AC248CD3D200FA2CAF /* WorkoutState.swift in Sources */,
 				A38084A82479221C00C86F00 /* AlertController.swift in Sources */,

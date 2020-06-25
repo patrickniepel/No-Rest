@@ -6,9 +6,14 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRTableViewSectionHeaderView: UIView {
+class NRTableViewSectionHeaderView: UIView, Themeable {
+    typealias Theme = TableViewSectionHeaderViewTheme
+
+    private lazy var titleLabel: UILabel = .init()
+
     private let title: String
 
     init(frame: CGRect = CGRect(), title: String) {
@@ -22,12 +27,16 @@ class NRTableViewSectionHeaderView: UIView {
     }
 
     private func setup() {
-        backgroundColor = NRStyle.complementaryColor
-
-        let titleLabel = NRLabelDark(with: title, size: NRStyle.fontSizeLarge)
-        titleLabel.textColor = NRStyle.themeColor
+        self.observe(theme: \ApplicationTheme.native.tableViewSectionHeaderViewTheme)
 
         addSubview(titleLabel)
         titleLabel.fillSuperview(padding: .init(top: 0, left: NRStyle.horizontalPadding / 2, bottom: 0, right: 0))
+    }
+
+    func apply(theme: Theme) {
+        backgroundColor = theme.backgroundColor
+
+        titleLabel.textColor = theme.textColor
+        titleLabel.font = theme.textFont
     }
 }

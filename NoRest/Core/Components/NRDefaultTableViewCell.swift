@@ -10,10 +10,7 @@ import UIKit
 
 /** Cell with only a label and accessory type */
 class NRDefaultTableViewCell: NRTableViewCell {
-    private let contentLabel: NRLabel = {
-        let label = NRLabel()
-        return label
-    }()
+    private lazy var contentLabel: UILabel = .init()
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -24,7 +21,6 @@ class NRDefaultTableViewCell: NRTableViewCell {
         self.accessoryType = accessoryType
 
         contentLabel.text = title
-        backgroundColor = NRStyle.themeColor
         contentView.addSubview(contentLabel)
         contentLabel.fillSuperview(padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
 
@@ -32,5 +28,12 @@ class NRDefaultTableViewCell: NRTableViewCell {
         if accessoryType == .disclosureIndicator {
             addCustomDisclosureIndicator()
         }
+    }
+
+    override func apply(theme: TableViewCellTheme) {
+        super.apply(theme: theme)
+
+        contentLabel.textColor = theme.textColor
+        contentLabel.font = theme.textFont
     }
 }

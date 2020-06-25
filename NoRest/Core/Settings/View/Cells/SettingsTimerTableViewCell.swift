@@ -8,33 +8,27 @@
 
 import UIKit
 
-class SettingsTimerTableViewCell: UITableViewCell {
+class SettingsTimerTableViewCell: NRTableViewCell {
     private let settingsCtrl = SettingsController()
 
     private lazy var timerSwitch: UISwitch = {
         let timerSwitch = UISwitch()
         timerSwitch.isOn = SettingsController.isTimerSoundActivated
-        timerSwitch.thumbTintColor = NRStyle.offWhiteColor
-        timerSwitch.onTintColor = NRStyle.interactionColor
-        timerSwitch.backgroundColor = NRStyle.themeColor
         timerSwitch.layer.cornerRadius = 16
-        timerSwitch.layer.borderColor = NRStyle.themeColor.cgColor
         timerSwitch.layer.borderWidth = 1
         timerSwitch.applyShadow()
         return timerSwitch
     }()
 
-    private lazy var contentLabel: NRLabel = {
-        NRLabel(with: "settings.timerSound".localized)
-    }()
+    private lazy var contentLabel: UILabel = .init()
 
     func setup() {
         self.selectionStyle = .none
 
+        contentLabel.text = "settings.timerSound".localized
+
         contentView.addSubview(contentLabel)
         contentView.addSubview(timerSwitch)
-        contentView.backgroundColor = NRStyle.themeColor
-        backgroundColor = NRStyle.themeColor
 
         timerSwitch.anchor(top: nil,
                            leading: nil,
@@ -56,5 +50,19 @@ class SettingsTimerTableViewCell: UITableViewCell {
     private func changedSwitchValue(sender: UISwitch) {
         let isOn = sender.isOn
         settingsCtrl.timerSoundStateChanged(to: isOn)
+    }
+
+    override func apply(theme: TableViewCellTheme) {
+        super.apply(theme: theme)
+
+        backgroundColor = theme.backgroundColor
+        contentView.backgroundColor = theme.backgroundColor
+        contentLabel.textColor = theme.textColor
+        contentLabel.font = theme.textFont
+
+        timerSwitch.layer.borderColor = theme.backgroundColor.cgColor
+        timerSwitch.backgroundColor = theme.backgroundColor
+        timerSwitch.thumbTintColor = theme.offWhiteColor
+        timerSwitch.onTintColor = theme.interactionColor
     }
 }

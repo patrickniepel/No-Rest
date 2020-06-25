@@ -61,6 +61,7 @@ class SettingsUnitTableViewCell: NRTableViewCell {
     override func apply(theme: TableViewCellTheme) {
         super.apply(theme: theme)
 
+        backgroundColor = theme.backgroundColor
         contentView.backgroundColor = theme.backgroundColor
         contentLabel.textColor = theme.textColor
         contentLabel.font = theme.textFont

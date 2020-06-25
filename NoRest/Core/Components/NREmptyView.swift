@@ -6,32 +6,35 @@
 //  Copyright © 2019 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NREmptyView: UIView {
+class NREmptyView: UIView, Themeable {
+    typealias Theme = EmptyViewTheme
+
     enum ArrowDirection {
         case none
         case topRight
         case bottomRight
     }
 
-    private lazy var emptyLabel: NRLabel = {
-        let label = NRLabel()
+    private lazy var emptyLabel: UILabel = {
+        let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeVeryLarge)
         return label
     }()
 
     private lazy var arrowImageView: NRImageView = {
         let imageView = NRImageView()
-        imageView.image = NRStyle.arrowIcon?.dye(NRStyle.primaryTextColor)
         imageView.contentMode = .scaleToFill
         return imageView
     }()
 
     convenience init(text: String, arrowDirection: ArrowDirection = .none) {
         self.init()
+
+        self.observe(theme: \ApplicationTheme.custom.emptyViewTheme)
 
         clipsToBounds = true
         emptyLabel.text = text
@@ -68,5 +71,12 @@ class NREmptyView: UIView {
                               bottom: bottomAnchor,
                               padding: UIEdgeInsets(top: NRStyle.verticalPadding * 2, left: 0, bottom: 0, right: 0))
         arrowImageView.transform = arrowImageView.transform.rotated(by: .pi * 0.8)
+    }
+
+    func apply(theme: Theme) {
+        emptyLabel.textColor = theme.textColor
+        emptyLabel.font = theme.textFont
+
+        arrowImageView.image = theme.arrowIcon
     }
 }

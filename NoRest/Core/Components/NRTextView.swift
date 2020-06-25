@@ -6,9 +6,12 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
-class NRTextView: UITextView {
+class NRTextView: UITextView, Themeable {
+    typealias Theme = TextViewTheme
+
     override init(frame: CGRect = CGRect(), textContainer: NSTextContainer? = nil) {
         super.init(frame: frame, textContainer: textContainer)
         setup()
@@ -19,12 +22,17 @@ class NRTextView: UITextView {
     }
 
     private func setup() {
-        backgroundColor = NRStyle.offWhiteColor
-        tintColor = NRStyle.themeColor
-        textColor = NRStyle.themeColor
+        self.observe(theme: \ApplicationTheme.native.textViewTheme)
+
         layer.cornerRadius = 7
-        font = UIFont.systemFont(ofSize: NRStyle.fontSizeSmall)
         keyboardAppearance = .dark
         applyShadow()
+    }
+
+    func apply(theme: Theme) {
+        backgroundColor = theme.backgroundColor
+        tintColor = theme.themeColor
+        textColor = theme.themeColor
+        font = theme.textFont
     }
 }

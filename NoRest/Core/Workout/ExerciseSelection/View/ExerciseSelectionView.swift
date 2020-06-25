@@ -27,7 +27,6 @@ class ExerciseSelectionView: NRExercisesView {
 
     override func setupTableView() {
         super.setupTableView()
-        tableView.tintColor = NRStyle.interactionColor
         tableView.register(ExerciseSelectionTableViewCell.self, forCellReuseIdentifier: ExerciseSelectionTableViewCell.reuseIdentifier)
     }
 

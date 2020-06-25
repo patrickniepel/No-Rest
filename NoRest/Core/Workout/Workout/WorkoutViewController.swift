@@ -6,10 +6,16 @@
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
+import Gestalt
 import UIKit
 
 class WorkoutViewController: NRViewController {
-    private lazy var nameLabel: NRLabel = .init(with: "workout.name".localized, size: NRStyle.fontSizeVerySmall)
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "workout.name".localized
+        return label
+    }()
+
     private lazy var nameTextField: NRTextField = {
         let textField = NRTextField()
         textField.placeholder = "workout.name.placeholder".localized
@@ -21,10 +27,7 @@ class WorkoutViewController: NRViewController {
         let button = UIButton()
         button.addTarget(self, action: #selector(handleSelectExercises), for: .touchUpInside)
         button.setTitle("workout.exercise.selection".localized, for: .normal)
-        button.setTitleColor(NRStyle.primaryTextColor, for: .normal)
-        button.titleLabel?.font = UIFont(name: NRStyle.boldFont, size: NRStyle.fontSizeMedium)
         button.layer.cornerRadius = 10
-        button.backgroundColor = NRStyle.interactionColor
         button.applyShadow()
         return button
     }()
@@ -99,7 +102,6 @@ class WorkoutViewController: NRViewController {
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.isEditing = true
-        tableView.tintColor = NRStyle.complementaryColor
         tableView.register(ExerciseSelectionTableViewCell.self, forCellReuseIdentifier: ExerciseSelectionTableViewCell.reuseIdentifier)
     }
 
@@ -162,6 +164,21 @@ class WorkoutViewController: NRViewController {
         reloadExercises()
     }
 
+    override func apply(theme: ViewControllerTheme) {
+        super.apply(theme: theme)
+
+        guard let workoutTheme = (ThemeManager.default.theme as? ApplicationTheme)?.custom.workoutTheme else { return }
+
+        tableView.tintColor = workoutTheme.accentuationColor
+
+        nameLabel.textColor = workoutTheme.textColor
+        nameLabel.font = workoutTheme.textFontVerySmall
+
+        selectExercisesButton.backgroundColor = workoutTheme.interactionColor
+        selectExercisesButton.setTitleColor(workoutTheme.textColor, for: .normal)
+        selectExercisesButton.titleLabel?.font = workoutTheme.textFontMedium
+    }
+
     deinit {
         unsubscribe()
     }
@@ -201,7 +218,10 @@ extension WorkoutViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let subView = cell.subviews.first(where: { $0.classForCoder.description() == "UITableViewCellReorderControl" })
         let reorderControlerImageView = subView?.subviews.first(where: { $0 is UIImageView }) as? UIImageView
-        reorderControlerImageView?.image = reorderControlerImageView?.image?.dye(NRStyle.interactionColor)
+
+        guard let workoutTheme = (ThemeManager.default.theme as? ApplicationTheme)?.custom.workoutTheme else { return }
+
+        reorderControlerImageView?.image = reorderControlerImageView?.image?.dye(workoutTheme.interactionColor)
     }
 }
 

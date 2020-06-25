@@ -1,28 +1,30 @@
 //
-//  CollectionViewCellTheme.swift
+//  EditExerciseTheme.swift
 //  NoRest
 //
-//  Created by Patrick Niepel on 22.06.20.
+//  Created by Patrick Niepel on 25.06.20.
 //  Copyright © 2020 Patrick Niepel. All rights reserved.
 //
 
 import Gestalt
 import UIKit
 
-struct CollectionViewCellTheme: Theme {
-    let textColor: UIColor
+struct EditExerciseTheme: Theme {
     let backgroundColor: UIColor
-    let offWhiteColor: UIColor
     let accentuationColor: UIColor
+    let textColor: UIColor
 
     let textFont: UIFont
 
-    init(palette: Palette) {
-        textColor = palette.colors.dynamic.primaryText
-        backgroundColor = palette.colors.dynamic.theme
-        offWhiteColor = palette.colors.static.offWhite
-        accentuationColor = palette.colors.static.accentuation
+    let selectionIcon: UIImage
 
-        textFont = palette.fonts.static.regular()
+    init(palette: Palette) {
+        backgroundColor = palette.colors.dynamic.theme
+        accentuationColor = palette.colors.static.accentuation
+        textColor = palette.colors.dynamic.primaryText
+
+        textFont = palette.fonts.static.verySmall()
+
+        selectionIcon = palette.assets.basic.selectionIcon
     }
 }
